@@ -315,7 +315,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
       <div class="mod-status status-done">已上线</div>
       <div class="mod-icon" style="background:#ede9fe;">📚</div>
       <h3>疾病知识库</h3>
-      <p>指南发展、历史、重要突破、鉴别诊断，关联IMA文献库</p>
+      <p>指南发展、历史、重要突破、鉴别诊断，双IMA知识库5.9万+文献</p>
     </div>
     <div class="module-card" onclick="navigate('pipeline')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-03</span>
@@ -420,21 +420,58 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 <div id="page-knowledge" class="page">
   <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
   <h2 style="color:var(--primary);margin-bottom:8px;">📚 疾病知识库</h2>
-  <p style="color:#64748b;margin-bottom:24px;font-size:14px;">AD诊断指南发展历程、疾病历史、重要突破、鉴别诊断，所有内容均来自权威指南文献</p>
+  <p style="color:#64748b;margin-bottom:24px;font-size:14px;">AD诊断指南发展历程、疾病历史、重要突破、鉴别诊断；双 IMA 知识库收录 5.9 万+ 篇文献，覆盖 2013 年至今全部 PMC Alzheimer 相关研究</p>
 
-  <!-- IMA知识库主入口 -->
-  <div style="background:linear-gradient(135deg,#1e3a5f 0%,#2563eb 100%);border-radius:16px;padding:32px;margin-bottom:24px;color:#fff;">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:16px;">
-      <div style="font-size:48px;">📖</div>
-      <div>
-        <h3 style="margin:0;font-size:20px;">IMA 知识库 · 阿尔茨海默病文献库</h3>
-        <p style="margin:4px 0 0;opacity:0.85;font-size:13px;">权威文献一站式检索与阅读平台</p>
+  <!-- IMA知识库双入口 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
+    <!-- 主库：阿尔茨海默病文献库 -->
+    <a href="https://ima.qq.com/wiki/?shareId=bdd3f9c085d48fc5ea3dd1b36e5f4ec1a1388955d628ad704172ee9b8f99ade0" target="_blank" style="display:block;background:linear-gradient(135deg,#1e3a5f 0%,#2563eb 100%);border-radius:16px;padding:28px;color:#fff;text-decoration:none;transition:transform .2s;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+        <div style="font-size:36px;">📖</div>
+        <div>
+          <h3 style="margin:0;font-size:17px;">阿尔茨海默病文献库</h3>
+          <p style="margin:2px 0 0;opacity:0.8;font-size:12px;">IMA 知识库 · 主库</p>
+        </div>
       </div>
-    </div>
-    <p style="opacity:0.9;font-size:14px;line-height:1.6;margin-bottom:20px;">
-      收录 AD 领域核心指南、经典文献、最新研究进展，支持按主题、年份、期刊多维检索，为临床与科研提供循证依据。
-    </p>
-    <a href="https://ima.qq.com/wiki/?shareId=bdd3f9c085d48fc5ea3dd1b36e5f4ec1a1388955d628ad704172ee9b8f99ade0" target="_blank" style="display:inline-block;padding:12px 32px;background:#fff;color:#1e3a5f;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;">进入 IMA 知识库 →</a>
+      <div style="display:flex;gap:16px;margin-bottom:14px;">
+        <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:8px 12px;text-align:center;">
+          <div style="font-size:20px;font-weight:700;">2.4万</div>
+          <div style="font-size:11px;opacity:0.8;">文献内容</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:8px 12px;text-align:center;">
+          <div style="font-size:20px;font-weight:700;">263</div>
+          <div style="font-size:11px;opacity:0.8;">人已加入</div>
+        </div>
+      </div>
+      <p style="opacity:0.9;font-size:13px;line-height:1.6;margin-bottom:16px;">
+        收录 2024-2026 年最新 AD 研究文献、全球指南共识、临床试验队列分析及公众号已解读文献，持续更新。
+      </p>
+      <div style="display:inline-block;padding:10px 24px;background:#fff;color:#1e3a5f;border-radius:8px;font-weight:600;font-size:13px;">进入文献库 →</div>
+    </a>
+    <!-- 历史库：阿尔茨海默病历史文献库 -->
+    <a href="https://ima.qq.com/wiki/?shareId=be5f4717b78af0a4a43320ebc6f2a22aa6c23f988d0c4a29d1a0f4d5ae5ed948" target="_blank" style="display:block;background:linear-gradient(135deg,#581c87 0%,#7c3aed 100%);border-radius:16px;padding:28px;color:#fff;text-decoration:none;transition:transform .2s;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+        <div style="font-size:36px;">📚</div>
+        <div>
+          <h3 style="margin:0;font-size:17px;">阿尔茨海默病历史文献库</h3>
+          <p style="margin:2px 0 0;opacity:0.8;font-size:12px;">IMA 知识库 · 历史库</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:16px;margin-bottom:14px;">
+        <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:8px 12px;text-align:center;">
+          <div style="font-size:20px;font-weight:700;">3.5万</div>
+          <div style="font-size:11px;opacity:0.8;">文献内容</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.15);border-radius:8px;padding:8px 12px;text-align:center;">
+          <div style="font-size:20px;font-weight:700;">2013-2020</div>
+          <div style="font-size:11px;opacity:0.8;">年份覆盖</div>
+        </div>
+      </div>
+      <p style="opacity:0.9;font-size:13px;line-height:1.6;margin-bottom:16px;">
+        系统整理 2013-2020 年 PMC 全部 Alzheimer 相关文献，按年份分类归档，是追溯 AD 研究历史脉络的完整资料库。
+      </p>
+      <div style="display:inline-block;padding:10px 24px;background:#fff;color:#581c87;border-radius:8px;font-weight:600;font-size:13px;">进入历史库 →</div>
+    </a>
   </div>
 
   <!-- 知识库子模块 -->
@@ -1339,7 +1376,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v238 · 数据更新至 2026-09-03</div>
+  <div>版本 v246 · 数据更新至 2026-09-05</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
