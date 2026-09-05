@@ -15,6 +15,204 @@
   --bg: #f0f4f8; --card: #ffffff; --text: #1e293b; --text-light: #64748b;
   --border: #e2e8f0;
 }
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f1f5f9;
+  --text-light: #94a3b8;
+  --border: #334155;
+  --primary: #1e3a5f;
+  --primary-light: #2563eb;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  margin-left: 8px;
+}
+.theme-toggle:hover {
+  background: rgba(255,255,255,0.2);
+  transform: rotate(20deg);
+}
+
+/* Global search button */
+.global-search-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  margin-left: 8px;
+}
+.global-search-btn:hover {
+  background: rgba(255,255,255,0.2);
+}
+.global-search-btn .shortcut {
+  background: rgba(255,255,255,0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+
+/* Global search modal */
+.search-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+  backdrop-filter: blur(4px);
+}
+.search-modal-overlay.active {
+  display: flex;
+}
+.search-modal {
+  background: var(--card);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 640px;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+.search-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.search-modal-header input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;
+  color: var(--text);
+}
+.search-modal-header input::placeholder {
+  color: var(--text-light);
+}
+.search-modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-light);
+  padding: 4px 8px;
+}
+.search-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+.search-category {
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.search-result-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background 0.15s;
+}
+.search-result-item:hover {
+  background: var(--bg);
+}
+.search-result-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.search-result-info {
+  flex: 1;
+  min-width: 0;
+}
+.search-result-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.search-result-desc {
+  font-size: 12px;
+  color: var(--text-light);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+.search-result-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text-light);
+  flex-shrink: 0;
+}
+.search-no-results {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--text-light);
+}
+.search-history-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text);
+}
+.search-history-item:hover {
+  background: var(--bg);
+}
+.search-modal-footer {
+  padding: 10px 20px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-light);
+  display: flex;
+  justify-content: space-between;
+}
+
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: var(--bg); color: var(--text); line-height:1.6; }
 
@@ -253,6 +451,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
     <a onclick="navigate('companies')">企业库</a>
     <a onclick="navigate('knowledge')">疾病知识</a>
     <a onclick="navigate('pipeline')">药物管线</a>
+  </div>
+  <div class="nav-actions">
+    <button class="global-search-btn" onclick="openGlobalSearch()">
+      <span>🔍</span>
+      <span>搜索</span>
+      <span class="shortcut">Ctrl K</span>
+    </button>
+    <button class="theme-toggle" onclick="toggleTheme()" title="切换深色/浅色模式">🌙</button>
   </div>
 </nav>
 
@@ -1428,7 +1634,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v247 · 数据更新至 2026-09-05</div>
+  <div>版本 v248 · 数据更新至 2026-09-05</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
@@ -1454,5 +1660,347 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
+<!-- Global Search Modal -->
+<div class="search-modal-overlay" id="globalSearchModal" onclick="if(event.target===this)closeGlobalSearch()">
+  <div class="search-modal">
+    <div class="search-modal-header">
+      <span style="font-size:18px;">🔍</span>
+      <input type="text" id="globalSearchInput" placeholder="搜索标志物、企业、药物、网站、量表..." oninput="performGlobalSearch(this.value)" autocomplete="off">
+      <button class="search-modal-close" onclick="closeGlobalSearch()">✕</button>
+    </div>
+    <div class="search-modal-body" id="globalSearchResults">
+      <div class="search-no-results">输入关键词开始搜索<br><span style="font-size:12px;">支持中英文模糊搜索</span></div>
+    </div>
+    <div class="search-modal-footer">
+      <span>↑↓ 选择 · Enter 打开 · Esc 关闭</span>
+      <span id="searchResultCount"></span>
+    </div>
+  </div>
+</div>
+
+
+<script>
+// Theme Toggle
+window.toggleTheme = function() {
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme') || 'light';
+  var next = current === 'light' ? 'dark' : 'light';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('cognimap-theme', next);
+  var btn = document.querySelector('.theme-toggle');
+  if (btn) btn.textContent = next === 'dark' ? '☀️' : '🌙';
+};
+
+// Init theme
+(function() {
+  var saved = localStorage.getItem('cognimap-theme');
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  var theme = saved || (prefersDark ? 'dark' : 'light');
+  if (theme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    setTimeout(function() {
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) btn.textContent = '☀️';
+    }, 100);
+  }
+})();
+
+// Global Search
+window.searchIndex = null;
+window.searchHistory = JSON.parse(localStorage.getItem('cognimap-search-history') || '[]');
+window.currentResults = [];
+
+window.buildSearchIndex = function() {
+  var index = [];
+  
+  // Biomarkers
+  if (typeof MARKERS_DATA !== 'undefined' && MARKERS_DATA.length) {
+    for (var i = 0; i < MARKERS_DATA.length; i++) {
+      var m = MARKERS_DATA[i];
+      index.push({
+        type: 'marker', icon: '🧬', iconBg: '#dbeafe',
+        title: m.name || '', titleEn: m.en_name || '',
+        desc: (m.category || '') + ' · ' + (m.mechanism || ''),
+        action: function() { navigate('markers'); }
+      });
+    }
+  }
+  
+  // Companies
+  if (typeof COMPANIES_DATA !== 'undefined' && COMPANIES_DATA.length) {
+    for (var i = 0; i < COMPANIES_DATA.length; i++) {
+      var c = COMPANIES_DATA[i];
+      index.push({
+        type: 'company', icon: '🏢', iconBg: '#dcfce7',
+        title: c.name_cn || c.name || '', titleEn: c.name_en || '',
+        desc: (c.category || '') + ' · ' + (c.country || ''),
+        action: function() { navigate('companies'); }
+      });
+    }
+  }
+  
+  // Drugs
+  if (typeof PIPELINE_DATA !== 'undefined' && PIPELINE_DATA.length) {
+    for (var i = 0; i < PIPELINE_DATA.length; i++) {
+      var d = PIPELINE_DATA[i];
+      var phases = '';
+      if (d.trials && d.trials.length) {
+        for (var j = 0; j < d.trials.length; j++) {
+          phases += (j > 0 ? ', ' : '') + d.trials[j].phase;
+        }
+      }
+      index.push({
+        type: 'drug', icon: '💊', iconBg: '#fef3c7',
+        title: d.name_cn || d.name || '', titleEn: d.name_en || '',
+        desc: (d.mechanism || d.target || '') + ' · ' + (d.company || '') + ' · ' + phases,
+        action: function() { navigate('pipeline'); }
+      });
+    }
+  }
+  
+  // Websites from DOM
+  var siteCards = document.querySelectorAll('.sitemap-card');
+  for (var i = 0; i < siteCards.length; i++) {
+    var card = siteCards[i];
+    var nameEl = card.querySelector('.sm-name');
+    var descEl = card.querySelector('.sm-desc');
+    var name = nameEl ? nameEl.textContent : '';
+    var desc = descEl ? descEl.textContent : '';
+    var href = card.getAttribute('href') || '';
+    if (name) {
+      index.push({
+        type: 'website', icon: '🌐', iconBg: '#e0e7ff',
+        title: name, desc: desc,
+        action: (function(url) { return function() { if (url) window.open(url, '_blank'); }; })(href)
+      });
+    }
+  }
+  
+  // Scales
+  var scales = [
+    { name: 'MMSE', desc: '简易精神状态检查量表' },
+    { name: 'MoCA', desc: '蒙特利尔认知评估量表' },
+    { name: 'ADAS-Cog', desc: '阿尔茨海默病评估量表-认知部分' },
+    { name: 'CDR', desc: '临床痴呆评定量表' },
+    { name: 'GDS', desc: '老年抑郁量表' }
+  ];
+  for (var i = 0; i < scales.length; i++) {
+    index.push({
+      type: 'scale', icon: '📝', iconBg: '#fce7f3',
+      title: scales[i].name, desc: scales[i].desc,
+      action: function() { navigate('scales'); }
+    });
+  }
+  
+  // Modules
+  var modules = [
+    { name: 'AD生物标志物数据库', desc: '458个标志物', icon: '🧬', page: 'markers' },
+    { name: '企业信息库', desc: '303家企业', icon: '🏢', page: 'companies' },
+    { name: '疾病知识库', desc: '双IMA知识库', icon: '📚', page: 'knowledge' },
+    { name: '药物研发管线', desc: '601药物', icon: '💊', page: 'pipeline' },
+    { name: '认知筛查小助手', desc: '5量表+6游戏', icon: '🧠', page: 'scales' },
+    { name: '常用网站地图', desc: '34个网站', icon: '🌐', page: 'sitemap' },
+    { name: '认知中心地图', desc: '全国记忆门诊', icon: '🗺️', page: 'centers' }
+  ];
+  for (var i = 0; i < modules.length; i++) {
+    index.push({
+      type: 'module', icon: modules[i].icon, iconBg: '#f1f5f9',
+      title: modules[i].name, desc: modules[i].desc,
+      action: (function(p) { return function() { navigate(p); }; })(modules[i].page)
+    });
+  }
+  
+  return index;
+};
+
+window.openGlobalSearch = function() {
+  if (!window.searchIndex) window.searchIndex = window.buildSearchIndex();
+  document.getElementById('globalSearchModal').classList.add('active');
+  var input = document.getElementById('globalSearchInput');
+  input.value = '';
+  window.currentResults = [];
+  window.renderSearchHistory();
+  setTimeout(function() { input.focus(); }, 50);
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeGlobalSearch = function() {
+  document.getElementById('globalSearchModal').classList.remove('active');
+  document.body.style.overflow = '';
+};
+
+window.renderSearchHistory = function() {
+  var body = document.getElementById('globalSearchResults');
+  body.innerHTML = '';
+  
+  if (window.searchHistory.length === 0) {
+    var div = document.createElement('div');
+    div.className = 'search-no-results';
+    div.innerHTML = '输入关键词开始搜索<br><span style="font-size:12px;">支持中英文模糊搜索</span>';
+    body.appendChild(div);
+    return;
+  }
+  
+  var cat = document.createElement('div');
+  cat.className = 'search-category';
+  cat.textContent = '最近搜索';
+  body.appendChild(cat);
+  
+  for (var i = 0; i < Math.min(8, window.searchHistory.length); i++) {
+    (function(term) {
+      var item = document.createElement('div');
+      item.className = 'search-history-item';
+      item.innerHTML = '<span>🕐</span><span>' + term + '</span>';
+      item.addEventListener('click', function() {
+        document.getElementById('globalSearchInput').value = term;
+        window.performGlobalSearch(term);
+      });
+      body.appendChild(item);
+    })(window.searchHistory[i]);
+  }
+};
+
+window.performGlobalSearch = function(query) {
+  query = (query || '').trim().toLowerCase();
+  var body = document.getElementById('globalSearchResults');
+  var countEl = document.getElementById('searchResultCount');
+  
+  if (!query) {
+    window.renderSearchHistory();
+    if (countEl) countEl.textContent = '';
+    return;
+  }
+  
+  if (window.searchHistory.indexOf(query) === -1) {
+    window.searchHistory.unshift(query);
+    if (window.searchHistory.length > 20) window.searchHistory.pop();
+    localStorage.setItem('cognimap-search-history', JSON.stringify(window.searchHistory));
+  }
+  
+  if (!window.searchIndex) window.searchIndex = window.buildSearchIndex();
+  
+  var results = [];
+  for (var i = 0; i < window.searchIndex.length; i++) {
+    var item = window.searchIndex[i];
+    var searchText = (item.title + ' ' + item.titleEn + ' ' + item.desc).toLowerCase();
+    if (searchText.indexOf(query) !== -1) {
+      var score = 0;
+      if (item.title.toLowerCase() === query) score += 100;
+      else if (item.title.toLowerCase().indexOf(query) === 0) score += 50;
+      else if (item.title.toLowerCase().indexOf(query) !== -1) score += 30;
+      if (item.titleEn && item.titleEn.toLowerCase().indexOf(query) !== -1) score += 20;
+      if (item.desc && item.desc.toLowerCase().indexOf(query) !== -1) score += 10;
+      results.push({ item: item, score: score });
+    }
+  }
+  
+  results.sort(function(a, b) { return b.score - a.score; });
+  window.currentResults = results;
+  
+  body.innerHTML = '';
+  
+  if (results.length === 0) {
+    var div = document.createElement('div');
+    div.className = 'search-no-results';
+    div.innerHTML = '未找到 "' + query + '" 相关结果<br><span style="font-size:12px;">试试其他关键词</span>';
+    body.appendChild(div);
+    if (countEl) countEl.textContent = '0 结果';
+    return;
+  }
+  
+  var typeLabels = { marker: '标志物', company: '企业', drug: '药物', website: '网站', scale: '量表', module: '功能模块' };
+  var typeOrder = ['marker', 'company', 'drug', 'website', 'scale', 'module'];
+  var grouped = {};
+  for (var i = 0; i < results.length; i++) {
+    var t = results[i].item.type;
+    if (!grouped[t]) grouped[t] = [];
+    grouped[t].push(results[i]);
+  }
+  
+  var globalIdx = 0;
+  for (var ti = 0; ti < typeOrder.length; ti++) {
+    var type = typeOrder[ti];
+    if (!grouped[type] || !grouped[type].length) continue;
+    
+    var cat = document.createElement('div');
+    cat.className = 'search-category';
+    cat.textContent = (typeLabels[type] || type) + ' (' + grouped[type].length + ')';
+    body.appendChild(cat);
+    
+    for (var ri = 0; ri < Math.min(5, grouped[type].length); ri++) {
+      (function(result, idx) {
+        var r = result.item;
+        var itemDiv = document.createElement('div');
+        itemDiv.className = 'search-result-item';
+        
+        var iconDiv = document.createElement('div');
+        iconDiv.className = 'search-result-icon';
+        iconDiv.style.background = r.iconBg;
+        iconDiv.textContent = r.icon;
+        itemDiv.appendChild(iconDiv);
+        
+        var infoDiv = document.createElement('div');
+        infoDiv.className = 'search-result-info';
+        
+        var titleDiv = document.createElement('div');
+        titleDiv.className = 'search-result-title';
+        titleDiv.textContent = r.title + (r.titleEn ? '  ' + r.titleEn : '');
+        infoDiv.appendChild(titleDiv);
+        
+        var descDiv = document.createElement('div');
+        descDiv.className = 'search-result-desc';
+        descDiv.textContent = r.desc || '';
+        infoDiv.appendChild(descDiv);
+        
+        itemDiv.appendChild(infoDiv);
+        
+        var tagDiv = document.createElement('div');
+        tagDiv.className = 'search-result-tag';
+        tagDiv.textContent = typeLabels[r.type] || r.type;
+        itemDiv.appendChild(tagDiv);
+        
+        itemDiv.addEventListener('click', function() {
+          if (r.action) r.action();
+          window.closeGlobalSearch();
+        });
+        
+        body.appendChild(itemDiv);
+      })(grouped[type][ri], globalIdx);
+      globalIdx++;
+    }
+    
+    if (grouped[type].length > 5) {
+      var more = document.createElement('div');
+      more.style.cssText = 'padding:4px 20px 8px;font-size:12px;color:var(--text-light);';
+      more.textContent = '还有 ' + (grouped[type].length - 5) + ' 个结果...';
+      body.appendChild(more);
+    }
+  }
+  
+  if (countEl) countEl.textContent = results.length + ' 结果';
+};
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    window.openGlobalSearch();
+    return;
+  }
+  
+  var modal = document.getElementById('globalSearchModal');
+  if (!modal || !modal.classList.contains('active')) return;
+  
+  if (e.key === 'Escape') {
+    window.closeGlobalSearch();
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    var firstItem = document.querySelector('.search-result-item');
+    if (firstItem) firstItem.click();
+  }
+});
+</script>
+
 </body>
 </html>
