@@ -235,6 +235,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .sm-desc{font-size:12px;color:#64748b;margin-bottom:10px;line-height:1.4}
 .sm-tag{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;background:var(--bg);color:#64748b;font-weight:600}
 </style>
+
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?你的百度统计ID";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- 不蒜子访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 </head>
 <body>
 
@@ -1297,6 +1311,10 @@ if (document.readyState === 'loading') {
 <!-- 页脚 -->
 <div style="text-align:center;padding:24px 16px;color:#94a3b8;font-size:12px;border-top:1px solid var(--border);margin-top:32px;">
   <div style="margin-bottom:4px;">脑智图谱 CogniMap · 阿尔茨海默病研究公众号制作</div>
+  <div style="margin-bottom:4px;color:#64748b;font-size:12px;">
+    本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
+    访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
+  </div>
   <div>版本 v238 · 数据更新至 2026-09-03</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
