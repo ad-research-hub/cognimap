@@ -757,7 +757,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
       <div class="mod-icon" style="background:#fef3c7;">💊</div>
       <h3>已上市药物库</h3>
       <p>全球已获批AD治疗药物详解，含用法用量、不良反应、说明书链接与权威来源</p>
-      <div class="mod-count">10 药物 · 8 在市</div>
+      <div class="mod-count">11 药物 · 9 在市</div>
     </div>
     <div class="module-card" onclick="navigate('scales')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-08-28</span>
@@ -1520,8 +1520,8 @@ render();
   </div>
   
   <div class="drugs-stats-bar">
-    <div class="drug-stat-item"><span class="drug-stat-num" id="drugTotalCount">10</span><span class="drug-stat-label">收录药物</span></div>
-    <div class="drug-stat-item"><span class="drug-stat-num" id="drugActiveCount">8</span><span class="drug-stat-label">在市药物</span></div>
+    <div class="drug-stat-item"><span class="drug-stat-num" id="drugTotalCount">11</span><span class="drug-stat-label">收录药物</span></div>
+    <div class="drug-stat-item"><span class="drug-stat-num" id="drugActiveCount">9</span><span class="drug-stat-label">在市药物</span></div>
     <div class="drug-stat-item"><span class="drug-stat-num">2</span><span class="drug-stat-label">已退市</span></div>
     <div class="drug-stat-item"><span class="drug-stat-num">3</span><span class="drug-stat-label">疾病修饰疗法</span></div>
   </div>
@@ -2140,6 +2140,34 @@ var APPROVED_DRUGS_DATA = [
     ],
     status: "已退市",
     sort_order: 10
+  },
+  {
+    id: "octohydroaminoacridine",
+    name_cn: "琥珀酸安维吖啶（耄安通）",
+    name_en: "Octohydroaminoacridine Succinate",
+    brand_name: "耄安通®",
+    company: "通化金马药业集团（000766.SZ）",
+    drug_class: "胆碱酯酶抑制剂（双靶点）",
+    mechanism: "中国自主研发的化学1类创新药（全新化学实体，曾用名琥珀八氢氨吖啶）。双靶点抑制乙酰胆碱酯酶（AChE）和丁酰胆碱酯酶（BuChE），提高脑内乙酰胆碱水平，改善轻中度AD患者认知功能。历时20余年研发，2015年8月获NMPA III期临床批件，2021年8月完成全部入组。",
+    indication: "用于轻、中度阿尔茨海默病症状的治疗",
+    dosage: "口服，餐后服用。初始剂量一次2mg，一日3次，该剂量应至少维持1~2周；第三周开始增加至一次4mg，一日3次（12mg/日维持剂量）。",
+    adverse_reactions: "III期临床试验显示，试验组不良反应、不良事件、重要不良事件及严重不良事件发生率与安慰剂组均无统计学差异，耐受性和安全性良好。常见不良反应以胆碱能相关胃肠道反应为主（恶心、呕吐、腹泻等），具体以说明书为准。",
+    contraindications: "对本品活性成分或任何辅料过敏者禁用；严重肝功能不全患者慎用（详见说明书）",
+    approval_date: "2026年6月25日（NMPA）",
+    approval_body: "NMPA（国家药品监督管理局）",
+    price: "挂网价：4mg 616元/盒（21片）、2mg 369元/盒（21片）；月费用约880元（4mg规格，自费）。已启动2026年国家医保目录申报",
+    insurance: "未纳入医保（2026年申报中）",
+    label_url: "https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600164/YPSW202600164.pdf",
+    label_source: "NMPA批准公告 / 国家医保局申报材料",
+    references: [
+      {source: "NMPA批准琥珀酸安维吖啶片上市公告", url: "https://www.nmpa.gov.cn/directory/web/nmpa/zhuanti/zt2023/ypgzhlfzh/shypqxgg/ggjzcx/20260714102827193.html"},
+      {source: "通化金马《药品注册证书》公告（巨潮资讯）", url: "http://static.cninfo.com.cn/finalpage/2026-06-26/1225386817.PDF"},
+      {source: "国家医保局2026年目录调整申报材料（含说明书用法用量）", url: "https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600164/YPSW202600164.pdf"},
+      {source: "界面新闻：耄安通正式获批报道", url: "https://m.jiemian.com/article/14658253.html"},
+      {source: "上海证券报：获批公告原文", url: "http://paper.cnstock.com/html/2026-06/26/content_2235379.htm"}
+    ],
+    status: "已上市（中国，2026年）",
+    sort_order: 11
   }
 ];
 
@@ -2167,7 +2195,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v249 · 数据更新至 2026-09-05</div>
+  <div>版本 v250 · 数据更新至 2026-09-06</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
