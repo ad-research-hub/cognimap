@@ -335,8 +335,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-03</span>
       <div class="mod-icon" style="background:#cffafe;">🗺️</div>
       <h3>常用网站地图</h3>
-      <p>学术数据库、临床指南、监管机构、临床试验、患者组织、专利检索等精选导航</p>
-      <div class="mod-count">7 大类网站导航</div>
+      <p>学术数据库、监管机构、临床试验、患者组织、专利检索、AD专门数据库、药物数据库等精选导航</p>
+      <div class="mod-count">8 大类网站导航</div>
     </div>
     <div class="module-card" onclick="window.open('https://ccmap.ncme.org.cn/','_blank')">
       <div class="mod-status status-done">官网直达</div>
@@ -860,7 +860,7 @@ render();
 <div class="page" id="page-sitemap">
   <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
   <h2 style="color:var(--primary);margin-bottom:8px;">🗺️ 常用网站地图</h2>
-  <p style="color:#64748b;margin-bottom:24px;font-size:14px;">AD研究常用学术数据库、监管机构、临床试验、患者组织等精选导航</p>
+  <p style="color:#64748b;margin-bottom:24px;font-size:14px;">AD研究常用学术数据库、监管机构、临床试验、患者组织、专利检索、AD专门数据库、药物数据库等精选导航</p>
   <div class="sitemap-grid">
     <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" class="sitemap-card">
       <div class="sm-icon" style="background:#dbeafe;">📚</div>
@@ -1018,6 +1018,58 @@ render();
       <div class="sm-name">中国专利公布公告</div>
       <div class="sm-desc">国家知识产权局专利公布公告查询平台</div>
       <div class="sm-tag" style="background:#fef9c3;color:#ca8a04;">专利检索 · 国内</div>
+    </a>
+    <!-- AD专门数据库 -->
+    <a href="https://adni.loni.usc.edu/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dbeafe;">🔬</div>
+      <div class="sm-name">ADNI</div>
+      <div class="sm-desc">阿尔茨海默病神经影像计划，全球最大AD临床+影像+生物标志物队列数据</div>
+      <div class="sm-tag" style="background:#dbeafe;color:#1e40af;">AD专门数据库</div>
+    </a>
+    <a href="https://agora.adknowledgeportal.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fce7f3;">🎯</div>
+      <div class="sm-name">AMP-AD / Agora</div>
+      <div class="sm-desc">AD加速药物合作项目，靶点验证数据库，支持靶点查询和证据分级</div>
+      <div class="sm-tag" style="background:#dbeafe;color:#1e40af;">AD专门数据库</div>
+    </a>
+    <a href="https://adknowledgeportal.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#e0e7ff;">📊</div>
+      <div class="sm-name">AD Knowledge Portal</div>
+      <div class="sm-desc">AMP-AD数据门户，整合基因组、转录组、蛋白质组等多组学数据，可下载原始数据</div>
+      <div class="sm-tag" style="background:#dbeafe;color:#1e40af;">AD专门数据库</div>
+    </a>
+    <a href="https://www.niagads.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dcfce7;">🧬</div>
+      <div class="sm-name">NIAGADS</div>
+      <div class="sm-desc">NIA AD遗传学数据存储，GWAS、WGS、家族性AD遗传学数据共享平台</div>
+      <div class="sm-tag" style="background:#dbeafe;color:#1e40af;">AD专门数据库</div>
+    </a>
+    <!-- 药物数据库 -->
+    <a href="https://go.drugbank.com/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fef3c7;">💊</div>
+      <div class="sm-name">DrugBank</div>
+      <div class="sm-desc">药物详细信息数据库，靶点、作用机制、药代动力学、药物相互作用</div>
+      <div class="sm-tag" style="background:#fef9c3;color:#ca8a04;">药物数据库</div>
+    </a>
+    <a href="https://platform.opentargets.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fee2e2;">🎯</div>
+      <div class="sm-name">Open Targets</div>
+      <div class="sm-desc">疾病-靶点关联平台，整合人类遗传学、通路、动物模型、文献证据</div>
+      <div class="sm-tag" style="background:#fef9c3;color:#ca8a04;">药物数据库</div>
+    </a>
+    <!-- 患者组织 -->
+    <a href="http://www.adca.org.cn/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fef3c7;">🏥</div>
+      <div class="sm-name">中国AD协会 (ADCA)</div>
+      <div class="sm-desc">中国阿尔茨海默病协会，国内最大AD患者组织，科普、义诊、家属支持</div>
+      <div class="sm-tag" style="background:#fef9c3;color:#ca8a04;">患者组织 · 国内</div>
+    </a>
+    <!-- 临床试验 -->
+    <a href="https://www.clinicaltrialsregister.eu/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#e0e7ff;">🇪🇺</div>
+      <div class="sm-name">EU Clinical Trials</div>
+      <div class="sm-desc">欧盟临床试验注册库，补充欧洲地区AD临床试验信息</div>
+      <div class="sm-tag" style="background:#dbeafe;color:#1e40af;">临床试验 · 欧盟</div>
     </a>
   </div>
 </div>
@@ -1376,7 +1428,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v246 · 数据更新至 2026-09-05</div>
+  <div>版本 v247 · 数据更新至 2026-09-05</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
