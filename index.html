@@ -652,6 +652,118 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
   opacity: 0.9;
 }
 
+
+/* ===== Marker Comparison Tool ===== */
+.compare-toggle-bar {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+  padding: 12px 16px; background: #eff6ff; border-radius: 10px;
+  border: 1px solid #bfdbfe;
+}
+.compare-toggle-btn {
+  padding: 8px 18px; border-radius: 8px; border: 2px solid #3b82f6;
+  background: white; color: #1d4ed8; font-weight: 600; cursor: pointer;
+  font-size: 14px; transition: all 0.2s;
+}
+.compare-toggle-btn.active {
+  background: #3b82f6; color: white;
+}
+.compare-toggle-btn:hover { background: #dbeafe; }
+.compare-toggle-btn.active:hover { background: #2563eb; }
+.compare-count { font-size: 14px; color: #64748b; }
+.compare-count .num { font-weight: 700; color: #1d4ed8; font-size: 18px; }
+.start-compare-btn {
+  margin-left: auto; padding: 8px 24px; border-radius: 8px; border: none;
+  background: linear-gradient(135deg, #1e40af, #3b82f6); color: white;
+  font-weight: 600; cursor: pointer; font-size: 14px; display: none;
+}
+.start-compare-btn.visible { display: block; }
+.start-compare-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+
+.marker-card { position: relative; }
+.marker-card .compare-checkbox {
+  position: absolute; top: 10px; right: 10px; width: 22px; height: 22px;
+  border: 2px solid #94a3b8; border-radius: 5px; background: white;
+  cursor: pointer; display: none; align-items: center; justify-content: center;
+  z-index: 5; transition: all 0.15s;
+}
+.compare-mode .marker-card .compare-checkbox { display: flex; }
+.marker-card .compare-checkbox.checked {
+  background: #3b82f6; border-color: #3b82f6;
+}
+.marker-card .compare-checkbox.checked::after {
+  content: '✓'; color: white; font-size: 14px; font-weight: bold;
+}
+.compare-mode .marker-card { cursor: pointer; }
+.compare-mode .marker-card:hover { border-color: #3b82f6; box-shadow: 0 4px 12px rgba(59,130,246,0.15); }
+
+/* Compare page */
+#page-compare { position: relative; }
+.compare-header {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.compare-marker-tag {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px;
+  background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 20px;
+  font-size: 14px; font-weight: 600; color: #1e40af;
+}
+.compare-marker-tag .remove-tag {
+  cursor: pointer; color: #94a3b8; font-size: 16px; line-height: 1;
+}
+.compare-marker-tag .remove-tag:hover { color: #ef4444; }
+
+.compare-section {
+  background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.compare-section h3 {
+  font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 16px;
+  padding-bottom: 10px; border-bottom: 2px solid #e2e8f0;
+}
+
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.compare-table th {
+  background: #f1f5f9; padding: 10px 12px; text-align: left; font-weight: 600;
+  color: #334155; border-bottom: 2px solid #cbd5e1; position: sticky; top: 0;
+}
+.compare-table td {
+  padding: 10px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top;
+  color: #475569; line-height: 1.5;
+}
+.compare-table tr:hover td { background: #f8fafc; }
+.compare-table .dim-label { font-weight: 600; color: #1e293b; white-space: nowrap; }
+.compare-table .cell-value { font-weight: 500; }
+.compare-table .cell-ref {
+  font-size: 11px; color: #94a3b8; margin-top: 4px; cursor: help;
+}
+.compare-table .cell-ref a { color: #3b82f6; text-decoration: none; }
+.compare-table .cell-ref a:hover { text-decoration: underline; }
+.compare-table .no-data { color: #cbd5e1; font-style: italic; }
+
+.compare-charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.compare-chart-box {
+  background: white; border-radius: 12px; padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.compare-chart-box h4 {
+  font-size: 15px; font-weight: 600; color: #334155; margin-bottom: 12px;
+  text-align: center;
+}
+.compare-export-bar {
+  display: flex; gap: 12px; justify-content: flex-end; margin-bottom: 16px;
+}
+.export-btn {
+  padding: 8px 18px; border-radius: 8px; border: 1px solid #cbd5e1;
+  background: white; color: #475569; font-weight: 500; cursor: pointer;
+  font-size: 13px; transition: all 0.2s;
+}
+.export-btn:hover { background: #f1f5f9; border-color: #94a3b8; }
+
+@media (max-width: 768px) {
+  .compare-charts-row { grid-template-columns: 1fr; }
+  .compare-table { font-size: 12px; }
+  .compare-table th, .compare-table td { padding: 8px 6px; }
+}
+
 </style>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
@@ -810,7 +922,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 <!-- 标志物数据库 -->
 <div id="page-markers" class="page" style="position:relative">
   <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
-  <div class="search-section">
+  
+  <div class="compare-toggle-bar">
+    <button class="compare-toggle-btn" id="compareToggleBtn" onclick="toggleCompareMode()">⚖️ 对比模式</button>
+    <span class="compare-count">已选 <span class="num" id="compareSelectedCount">0</span> / 5 个标志物</span>
+    <button class="start-compare-btn" id="startCompareBtn" onclick="startComparison()">开始对比 →</button>
+  </div>
+<div class="search-section">
     <div class="search-box">
       <input type="text" id="markerSearchInput" placeholder="输入标志物中文名或英文名进行模糊检索..." onkeypress="if(event.key==='Enter')doMarkerSearch()">
       <button onclick="doMarkerSearch()">🔍 检索</button>
@@ -958,6 +1076,25 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 </div>
 
 <!-- 量表（占位） -->
+
+<!-- ===== Marker Comparison Page ===== -->
+<div id="page-compare" class="page" style="position:relative">
+  <div class="compare-header">
+    <button onclick="navigate('markers')" style="padding:8px 16px;border-radius:8px;border:1px solid #cbd5e1;background:white;cursor:pointer;font-size:14px;">← 返回标志物库</button>
+    <h2 style="font-size:22px;font-weight:700;color:#1e293b;margin:0;">标志物性能对比</h2>
+    <span id="compareTagContainer" style="display:inline-flex;gap:8px;flex-wrap:wrap;margin-left:8px;"></span>
+  </div>
+  <div class="compare-export-bar">
+    <button class="export-btn" onclick="exportCompareCSV()">📊 导出表格(CSV)</button>
+    <button class="export-btn" onclick="exportCompareImages()">🖼️ 导出图表图片</button>
+  </div>
+  <div id="compareContent">
+    <div style="text-align:center;padding:60px 20px;color:#94a3b8;">
+      <p style="font-size:16px;">请从标志物库选择 2-5 个标志物进行对比</p>
+    </div>
+  </div>
+</div>
+
 <div id="page-scales" class="page" style="padding:0;position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;background:#f0f6ff;">
   <div style="position:absolute;top:0;left:0;right:0;height:48px;background:linear-gradient(135deg,#1a5276,#2980b9);display:flex;align-items:center;padding:0 16px;z-index:10;">
     <button onclick="navigate('home')" style="background:rgba(255,255,255,.2);border:none;color:#fff;width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;">←</button>
@@ -1974,6 +2111,370 @@ if (document.readyState === 'loading') {
 } else {
   setTimeout(initHomeLazy, 200);
 }
+
+// ===== Marker Comparison Tool =====
+window.compareMode = false;
+window.compareSelected = [];
+
+function toggleCompareMode() {
+  window.compareMode = !window.compareMode;
+  var btn = document.getElementById('compareToggleBtn');
+  var markersPage = document.getElementById('page-markers');
+  if (window.compareMode) {
+    btn.classList.add('active');
+    btn.textContent = '✓ 退出对比';
+    markersPage.classList.add('compare-mode');
+    window.compareSelected = [];
+    updateCompareSelection();
+  } else {
+    btn.classList.remove('active');
+    btn.textContent = '⚖️ 对比模式';
+    markersPage.classList.remove('compare-mode');
+    window.compareSelected = [];
+    updateCompareSelection();
+  }
+}
+
+function updateCompareSelection() {
+  document.getElementById('compareSelectedCount').textContent = window.compareSelected.length;
+  var startBtn = document.getElementById('startCompareBtn');
+  if (window.compareSelected.length >= 2 && window.compareSelected.length <= 5) {
+    startBtn.classList.add('visible');
+    startBtn.disabled = false;
+  } else {
+    startBtn.classList.remove('visible');
+    startBtn.disabled = true;
+  }
+  // Update checkboxes
+  document.querySelectorAll('.marker-card').forEach(function(card) {
+    var name = card.dataset.marker || card.querySelector('.marker-name')?.textContent?.trim();
+    var cb = card.querySelector('.compare-checkbox');
+    if (!cb) return;
+    if (window.compareSelected.indexOf(name) !== -1) {
+      cb.classList.add('checked');
+    } else {
+      cb.classList.remove('checked');
+    }
+  });
+}
+
+function toggleMarkerCompare(markerName, card) {
+  if (!window.compareMode) return;
+  var idx = window.compareSelected.indexOf(markerName);
+  if (idx !== -1) {
+    window.compareSelected.splice(idx, 1);
+  } else {
+    if (window.compareSelected.length >= 5) {
+      alert('最多选择5个标志物进行对比');
+      return;
+    }
+    window.compareSelected.push(markerName);
+  }
+  updateCompareSelection();
+}
+
+function startComparison() {
+  if (window.compareSelected.length < 2) {
+    alert('请至少选择2个标志物');
+    return;
+  }
+  renderComparison();
+  navigate('compare');
+}
+
+function renderComparison() {
+  var markers = window.compareSelected;
+  var container = document.getElementById('compareContent');
+  var tagContainer = document.getElementById('compareTagContainer');
+
+  // Render tags
+  tagContainer.innerHTML = '';
+  markers.forEach(function(name, i) {
+    var tag = document.createElement('span');
+    tag.className = 'compare-marker-tag';
+    tag.innerHTML = name + ' <span class="remove-tag" onclick="removeCompareMarker(' + i + ')">×</span>';
+    tagContainer.appendChild(tag);
+  });
+
+  // Comparison dimensions
+  var dims = [
+    {key: 'AUC(AD vs 对照)', label: 'AUC (AD vs 对照)', type: 'auc'},
+    {key: 'AUC(AD vs 其他痴呆)', label: 'AUC (AD vs 其他痴呆)', type: 'auc'},
+    {key: 'AUC(MCI vs AD)', label: 'AUC (MCI vs AD)', type: 'auc'},
+    {key: 'AUC(MCI vs 对照)', label: 'AUC (MCI vs 对照)', type: 'auc'},
+    {key: '敏感性', label: '灵敏度', type: 'percent'},
+    {key: '特异性', label: '特异性', type: 'percent'},
+    {key: 'PPV/NPV', label: '阳性预测值/阴性预测值', type: 'ppvnpv'},
+    {key: '样本类型', label: '样本类型', type: 'text'},
+    {key: '检测原理', label: '检测平台', type: 'text'},
+    {key: '参考区间', label: '参考区间', type: 'text'},
+    {key: 'Cutoff值', label: '临界值 (Cutoff)', type: 'text'},
+    {key: '商业化状态', label: '商业化状态', type: 'text'},
+  ];
+
+  // Build table
+  var html = '<div class="compare-section"><h3>📋 性能维度对比表</h3>';
+  html += '<div style="overflow-x:auto"><table class="compare-table"><thead><tr><th style="min-width:140px">对比维度</th>';
+  markers.forEach(function(m) { html += '<th>' + m + '</th>'; });
+  html += '</tr></thead><tbody>';
+
+  dims.forEach(function(dim) {
+    html += '<tr><td class="dim-label">' + dim.label + '</td>';
+    markers.forEach(function(m) {
+      var data = getMarkerCompareData(m, dim.key);
+      if (data.value) {
+        html += '<td><span class="cell-value">' + data.value + '</span>';
+        if (data.ref) {
+          html += '<div class="cell-ref">📄 ' + data.ref + '</div>';
+        }
+        html += '</td>';
+      } else {
+        html += '<td><span class="no-data">— 暂无数据</span></td>';
+      }
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table></div></div>';
+
+  // Charts section
+  html += '<div class="compare-charts-row">';
+  html += '<div class="compare-chart-box"><h4>🎯 性能雷达图</h4><canvas id="compareRadarChart" height="320"></canvas></div>';
+  html += '<div class="compare-chart-box"><h4>📈 ROC 曲线对比</h4><canvas id="compareROCChart" height="320"></canvas></div>';
+  html += '</div>';
+
+  container.innerHTML = html;
+
+  // Render charts after DOM update
+  setTimeout(function() {
+    renderCompareRadar(markers);
+    renderCompareROC(markers);
+  }, 100);
+}
+
+function getMarkerCompareData(markerName, paramKey) {
+  if (typeof DETAILS_DATA === 'undefined' || !DETAILS_DATA[markerName]) {
+    return {value: '', ref: ''};
+  }
+  var items = DETAILS_DATA[markerName];
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].param === paramKey) {
+      var val = items[i].elisa_data || items[i].simoa_data || '';
+      var ref = items[i].elisa_ref || items[i].simoa_ref || '';
+      return {value: val, ref: ref};
+    }
+  }
+  return {value: '', ref: ''};
+}
+
+function parseFirstAUC(text) {
+  if (!text) return null;
+  var m = text.match(/0\.\d{2,3}/);
+  return m ? parseFloat(m[0]) : null;
+}
+
+function parseFirstPercent(text) {
+  if (!text) return null;
+  var m = text.match(/(\d{2,3}(?:\.\d+)?)\s*%/);
+  if (m) return parseFloat(m[1]);
+  m = text.match(/(\d{2}(?:\.\d+)?)/);
+  return m ? parseFloat(m[0]) : null;
+}
+
+function renderCompareRadar(markers) {
+  var ctx = document.getElementById('compareRadarChart');
+  if (!ctx || typeof Chart === 'undefined') return;
+  if (window.compareRadarInstance) window.compareRadarInstance.destroy();
+
+  var colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6'];
+  var datasets = markers.map(function(m, i) {
+    var auc1 = parseFirstAUC(getMarkerCompareData(m, 'AUC(AD vs 对照)').value);
+    var auc2 = parseFirstAUC(getMarkerCompareData(m, 'AUC(AD vs 其他痴呆)').value);
+    var sens = parseFirstPercent(getMarkerCompareData(m, '敏感性').value);
+    var spec = parseFirstPercent(getMarkerCompareData(m, '特异性').value);
+    var ppvnpv = getMarkerCompareData(m, 'PPV/NPV').value;
+    var ppv = null, npv = null;
+    if (ppvnpv) {
+      var pm = ppvnpv.match(/PPV[^0-9]*(\d{2,3})/i);
+      var nm = ppvnpv.match(/NPV[^0-9]*(\d{2,3})/i);
+      if (pm) ppv = parseFloat(pm[1]);
+      if (nm) npv = parseFloat(nm[1]);
+    }
+    return {
+      label: m,
+      data: [
+        auc1 ? auc1 * 100 : 0,
+        auc2 ? auc2 * 100 : 0,
+        sens || 0,
+        spec || 0,
+        ppv || 0,
+        npv || 0
+      ],
+      borderColor: colors[i],
+      backgroundColor: colors[i] + '20',
+      borderWidth: 2,
+      pointBackgroundColor: colors[i],
+      pointRadius: 4
+    };
+  });
+
+  window.compareRadarInstance = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ['AUC(AD/对照)', 'AUC(AD/其他痴呆)', '灵敏度', '特异性', 'PPV', 'NPV'],
+      datasets: datasets
+    },
+    options: {
+      responsive: true,
+      scales: {
+        r: { min: 0, max: 100, ticks: { stepSize: 20, font: { size: 10 } }, pointLabels: { font: { size: 11, weight: '600' } } }
+      },
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+    }
+  });
+}
+
+function renderCompareROC(markers) {
+  var ctx = document.getElementById('compareROCChart');
+  if (!ctx || typeof Chart === 'undefined') return;
+  if (window.compareROCInstance) window.compareROCInstance.destroy();
+
+  var colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6'];
+  var datasets = markers.map(function(m, i) {
+    var auc = parseFirstAUC(getMarkerCompareData(m, 'AUC(AD vs 对照)').value);
+    if (!auc) auc = 0.5;
+    // Binormal ROC approximation: AUC = Phi(mu/sqrt(2)), mu = sqrt(2) * Phi^-1(AUC)
+    var mu = Math.sqrt(2) * normInv(auc);
+    var points = [];
+    for (var z = -3; z <= 3; z += 0.1) {
+      var fpr = normCdf(z);
+      var tpr = normCdf(mu + z);
+      points.push({x: fpr, y: tpr});
+    }
+    return {
+      label: m + ' (AUC=' + auc.toFixed(3) + ')',
+      data: points,
+      borderColor: colors[i],
+      backgroundColor: 'transparent',
+      borderWidth: 2,
+      pointRadius: 0,
+      fill: false
+    };
+  });
+
+  // Add diagonal reference line
+  datasets.push({
+    label: '随机分类 (AUC=0.5)',
+    data: [{x:0,y:0},{x:1,y:1}],
+    borderColor: '#cbd5e1',
+    borderDash: [5,5],
+    borderWidth: 1,
+    pointRadius: 0,
+    fill: false
+  });
+
+  window.compareROCInstance = new Chart(ctx, {
+    type: 'scatter',
+    data: { datasets: datasets },
+    options: {
+      responsive: true,
+      scales: {
+        x: { type: 'linear', min: 0, max: 1, title: { display: true, text: '假阳性率 (1-特异性)', font: { size: 11 } }, ticks: { font: { size: 10 } } },
+        y: { min: 0, max: 1, title: { display: true, text: '真阳性率 (灵敏度)', font: { size: 11 } }, ticks: { font: { size: 10 } } }
+      },
+      plugins: { legend: { position: 'bottom', labels: { font: { size: 10 } } } }
+    }
+  });
+}
+
+function normCdf(x) {
+  var t = 1 / (1 + 0.2316419 * Math.abs(x));
+  var d = 0.3989423 * Math.exp(-x * x / 2);
+  var p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+  return x > 0 ? 1 - p : p;
+}
+
+function normInv(p) {
+  if (p <= 0) return -Infinity;
+  if (p >= 1) return Infinity;
+  if (p < 0.5) return -normInv(1 - p);
+  var t = Math.sqrt(-2 * Math.log(1 - p));
+  return t - (2.515517 + t * (0.802853 + t * 0.010328)) / (1 + t * (1.432788 + t * (0.189269 + t * 0.001308)));
+}
+
+function removeCompareMarker(index) {
+  window.compareSelected.splice(index, 1);
+  if (window.compareSelected.length < 2) {
+    navigate('markers');
+    return;
+  }
+  renderComparison();
+}
+
+function exportCompareCSV() {
+  var markers = window.compareSelected;
+  var dims = ['AUC(AD vs 对照)','AUC(AD vs 其他痴呆)','AUC(MCI vs AD)','AUC(MCI vs 对照)','敏感性','特异性','PPV/NPV','样本类型','检测原理','参考区间','Cutoff值','商业化状态'];
+  var csv = '\ufeff对比维度,' + markers.join(',') + '\n';
+  dims.forEach(function(d) {
+    var row = [d];
+    markers.forEach(function(m) {
+      var data = getMarkerCompareData(m, d);
+      row.push('"' + (data.value || '').replace(/"/g, '""') + '"');
+    });
+    csv += row.join(',') + '\n';
+  });
+  var blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = '标志物性能对比_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportCompareImages() {
+  var result = [];
+  if (window.compareRadarInstance) {
+    result.push('雷达图: ' + window.compareRadarInstance.toBase64Image().slice(0,50) + '...');
+    var a1 = document.createElement('a');
+    a1.href = window.compareRadarInstance.toBase64Image();
+    a1.download = '对比雷达图.png';
+    a1.click();
+  }
+  if (window.compareROCInstance) {
+    var a2 = document.createElement('a');
+    a2.href = window.compareROCInstance.toBase64Image();
+    a2.download = '对比ROC曲线.png';
+    a2.click();
+  }
+  setTimeout(function() { alert('图表图片已导出（雷达图+ROC曲线）'); }, 300);
+}
+
+// Add checkbox to marker cards when rendered
+var origRenderMarkers = window.renderMarkersList;
+if (origRenderMarkers) {
+  window.renderMarkersList = function() {
+    origRenderMarkers.apply(this, arguments);
+    setTimeout(function() {
+      document.querySelectorAll('.marker-card').forEach(function(card) {
+        if (card.querySelector('.compare-checkbox')) return;
+        var name = card.dataset.marker || card.querySelector('.marker-name, h3, h4')?.textContent?.trim();
+        if (!name) return;
+        card.dataset.marker = name;
+        var cb = document.createElement('div');
+        cb.className = 'compare-checkbox';
+        card.appendChild(cb);
+        card.addEventListener('click', function(e) {
+          if (window.compareMode) {
+            e.stopPropagation();
+            toggleMarkerCompare(name, card);
+          }
+        });
+      });
+      if (window.compareMode) updateCompareSelection();
+    }, 50);
+  };
+}
+
 function initHomeLazy() {
   if (typeof MARKERS_DATA !== 'undefined' && typeof COMPANIES_DATA !== 'undefined') {
     if (typeof initDashboard === 'function') initDashboard();
@@ -1997,7 +2498,7 @@ function initHomeLazy() {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v251 · 数据更新至 2026-09-06（多文件加速版）</div>
+  <div>版本 v252 · 数据更新至 2026-09-06（多文件加速版+标志物对比工具）</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
