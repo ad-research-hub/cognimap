@@ -1723,7 +1723,7 @@ function filterCompanies() {
   filtered.forEach(c => {
     const card = document.createElement('div');
     card.className = 'company-card';
-    const website = c.website ? c.website.split('\n')[0] : '';
+    const website = (typeof c.website === 'string' && c.website) ? c.website.split('\n')[0] : '';
     card.dataset.company = c.name;
     card.onclick = function() { showCompanyDetail(this.dataset.company); };
     card.innerHTML = `
@@ -1739,7 +1739,7 @@ function filterCompanies() {
 function showCompanyDetail(name) {
   const c = COMPANIES_DATA.find(x => x.name === name);
   if (!c) return;
-  const website = c.website ? c.website.split('\n')[0] : '';
+  const website = (typeof c.website === 'string' && c.website) ? c.website.split('\n')[0] : '';
   let html = `<div class="detail-header"><h2>${c.name}</h2><div class="en">${c.name_en || ''}</div><div class="meta"><span>🏷️ ${c.category}</span><span>🌍 ${c.country || '-'}</span>${c.location?`<span>📍 ${c.location}</span>`:''}</div></div>`;
   if (c.products && c.products !== '—') html += `<div class="detail-section"><h3>💊 在售产品</h3><div style="font-size:13px;line-height:1.8;">${c.products}</div></div>`;
   if (c.pipeline && c.pipeline !== '—') html += `<div class="detail-section"><h3>🔬 在研产品与进度</h3><div style="font-size:13px;line-height:1.8;">${c.pipeline}</div></div>`;
