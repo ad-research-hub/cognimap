@@ -5945,12 +5945,12 @@ const MARKERS_DATA = [
     "en_name": "Phosphorylated Tau 217",
     "category": "一、已获监管批准的临床级标志物",
     "status": "已获批",
-    "finding": "血浆pTau217是AD早期诊断最具潜力的血液标志物之一，在AD临床前和MCI阶段即显著升高，对AD vs 对照AUC可达0.92-0.95，优于pTau181和NfL。可预测认知下降和病理进展，与PET Aβ和Tau病理高度相关。",
-    "mechanism": "Tau蛋白在苏氨酸217位点磷酸化，AD脑内过度磷酸化Tau形成神经原纤维缠结，pTau217释放入血，其水平与脑内Tau病理负荷正相关。",
+    "finding": "血浆pTau217是AD早期诊断最具潜力的血液标志物，AD临床前和MCI阶段即显著升高，AD vs 对照AUC 0.92-0.95，优于pTau181和NfL。",
+    "mechanism": "Tau蛋白苏氨酸217位点磷酸化，与脑内Tau病理负荷正相关。",
     "sample_type": "血浆、血清、脑脊液",
     "detection_platform": "Simoa、Lumipulse、MSD、ELISA",
-    "reference_range": "健康老年人血浆pTau217通常<1.5 pg/mL（Simoa平台），AD患者可升高2-4倍",
-    "cutoff": "约1.5-2.0 pg/mL（因平台和人群而异）",
-    "commercial_status": "已获批（中国NMPA多项注册证；FDA认可Lumipulse pTau217/Aβ42比值）"
+    "reference_range": "健康老年人<1.5 pg/mL（Simoa），AD患者升高2-4倍",
+    "cutoff": "约1.5-2.0 pg/mL",
+    "commercial_status": "已获批（中国NMPA多项；FDA认可Lumipulse pTau217/Aβ42比值）"
   }
 ];
