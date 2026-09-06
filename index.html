@@ -687,7 +687,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 <div class="container">
 
 <!-- 主页面 -->
-<div id="page-home" class="page active">
+<div id="page-home" class="page active" style="position:relative">
   <div class="hero" style="display:flex;align-items:center;gap:40px;flex-wrap:wrap;">
     <div style="flex:1;min-width:300px;">
       <h2>阿尔茨海默病研究全景导航</h2>
@@ -784,7 +784,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 </div>
 
 <!-- 企业信息库 -->
-<div id="page-companies" class="page">
+<div id="page-companies" class="page" style="position:relative">
   <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
   <h2 style="color:var(--primary);margin-bottom:16px;">🏢 企业信息库（303家）</h2>
   <div class="company-filters">
@@ -808,7 +808,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 </div>
 
 <!-- 标志物数据库 -->
-<div id="page-markers" class="page">
+<div id="page-markers" class="page" style="position:relative">
   <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
   <div class="search-section">
     <div class="search-box">
@@ -935,7 +935,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 </div>
 
 <!-- 药物管线（占位） -->
-<div id="page-pipeline" class="page">
+<div id="page-pipeline" class="page" style="position:relative">
   <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
   <h2 style="margin-bottom:8px">💊 AD药物研发管线甘特图</h2>
   <p style="color:#64748b;font-size:14px;margin-bottom:16px">数据来源：Alzheimer's Association 年度管线报告 (2017-2026) + ClinicalTrials.gov。点击管线查看药物详情。</p>
@@ -1649,15 +1649,24 @@ function navigate(page) {
   if (page !== 'home') pageHistory.push('home');
   document.querySelectorAll('.topnav .nav-links a').forEach(a => a.classList.remove('active'));
   window.scrollTo(0,0);
-  if (page === 'companies') initCompanies();
-  if (page === 'markers') initMarkers();
   if (page === 'markers') { showModuleLoading('page-markers'); loadModuleData('markers', function(){ loadModuleData('details', function(){ loadModuleData('nmpa', function(){ hideModuleLoading('page-markers'); if (typeof initMarkers === 'function') initMarkers(); }); }); }); return; }
   if (page === 'companies') { showModuleLoading('page-companies'); loadModuleData('companies', function(){ hideModuleLoading('page-companies'); if (typeof initCompanies === 'function') initCompanies(); }); return; }
   if (page === 'pipeline') { showModuleLoading('page-pipeline'); loadModuleData('pipeline', function(){ hideModuleLoading('page-pipeline'); if (typeof renderGantt === 'function') renderGantt(); }); return; }
   if (page === 'drugs') { showModuleLoading('page-drugs'); loadModuleData('drugs', function(){ hideModuleLoading('page-drugs'); if (typeof renderDrugsList === 'function') renderDrugsList('all'); }); return; }
-  if (page === 'home') initDashboard();
-  if (page === 'pipeline') renderGantt();
-  if (page === 'drugs') renderDrugsList('all');
+  if (page === 'home') {
+    if (typeof MARKERS_DATA !== 'undefined' && typeof COMPANIES_DATA !== 'undefined') {
+      initDashboard();
+    } else {
+      showModuleLoading('page-home');
+      loadModuleData('markers', function(){
+        loadModuleData('companies', function(){
+          hideModuleLoading('page-home');
+          initDashboard();
+        });
+      });
+    }
+    return;
+  }
 }
 
 
