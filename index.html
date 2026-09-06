@@ -1126,6 +1126,13 @@ window.addEventListener('unhandledrejection', function(e) {
       <p>全国认知中心、记忆门诊分布地图，按地区筛选，医院详情与导航</p>
       <div class="mod-count">国家神经疾病医学中心 · 全国记忆门诊地图</div>
     </div>
+    <div class="module-card" onclick="navigate('pathway')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-06</span>
+      <div class="mod-icon" style="background:#fef3c7;">🔗</div>
+      <h3>靶点互作关系图</h3>
+      <p>基于KEGG AD通路图的可交互分子关系网络，点击关键分子查看标志物、药物与外部数据库关联</p>
+      <div class="mod-count">8 关键靶点 · KEGG hsa05010</div>
+    </div>
   </div>
 </div>
 
@@ -1290,6 +1297,15 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
   </div>
 </div>
+    <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:20px;margin-bottom:16px;cursor:pointer;border:1px solid #fcd34d;" onclick="window.open('https://www.alz.org/alzheimers-dementia/research-and-progress/milestones','_blank')">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <span style="font-size:28px;">📜</span>
+        <h3 style="margin:0;color:#92400e;font-size:18px;">AD研究里程碑</h3>
+        <span style="margin-left:auto;background:#f59e0b;color:white;padding:4px 10px;border-radius:12px;font-size:11px;">跳转外部</span>
+      </div>
+      <p style="margin:0 0 8px 0;color:#78350f;font-size:14px;">从1906年Alois Alzheimer首次描述AD，到Aβ蛋白分离、Tau蛋白发现、APP基因克隆、淀粉样级联假说提出，再到2023年仑卡奈单抗获批——百年研究历程完整时间线</p>
+      <p style="margin:0;font-size:12px;color:#92400e;">🔗 点击跳转至 Alzheimer's Association 官方里程碑页面查看完整内容</p>
+    </div>
 
 <!-- 药物管线（占位） -->
 <div id="page-pipeline" class="page">
@@ -1313,6 +1329,8 @@ window.addEventListener('unhandledrejection', function(e) {
   <div id="drugDetailContent"></div>
 </div>
 </div>
+
+
 
 <!-- 量表（占位） -->
 <div id="page-compare" class="page" style="position:relative">
@@ -1936,6 +1954,39 @@ render();
     <a href="https://ccmap.ncme.org.cn/" target="_blank" style="display:inline-block;padding:12px 32px;background:var(--primary);color:#fff;border-radius:8px;text-decoration:none;font-weight:600;">进入官方地图 →</a>
   </div>
 </div>
+  <!-- 靶点互作关系图 -->
+  <div id="page-pathway" class="page" style="padding:0;">
+    <div style="background:linear-gradient(135deg,#1e3a5f,#2d5a87);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+      <h2 style="margin:0;font-size:20px;">🔗 靶点互作关系图</h2>
+      <span style="font-size:13px;opacity:0.8;">基于KEGG hsa05010 Alzheimer disease通路图 · 点击分子查看详情</span>
+    </div>
+    <div style="padding:16px 24px;background:#f8fafc;">
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
+        <button class="pathway-tab active" onclick="switchPathwayTab('main',this)" style="padding:6px 14px;border-radius:6px;border:1px solid #cbd5e1;background:#3b82f6;color:white;cursor:pointer;font-size:13px;">AD总通路</button>
+        <button class="pathway-tab" onclick="switchPathwayTab('abeta',this)" style="padding:6px 14px;border-radius:6px;border:1px solid #cbd5e1;background:white;cursor:pointer;font-size:13px;">Aβ生成清除</button>
+        <button class="pathway-tab" onclick="switchPathwayTab('tau',this)" style="padding:6px 14px;border-radius:6px;border:1px solid #cbd5e1;background:white;cursor:pointer;font-size:13px;">Tau磷酸化</button>
+        <button class="pathway-tab" onclick="switchPathwayTab('inflammation',this)" style="padding:6px 14px;border-radius:6px;border:1px solid #cbd5e1;background:white;cursor:pointer;font-size:13px;">神经炎症</button>
+        <div style="flex:1;"></div>
+        <span style="font-size:12px;color:#64748b;">🖱️ 滚轮缩放 · 拖拽平移 · 点击分子</span>
+      </div>
+      <div id="pathwayContainer" style="position:relative;width:100%;height:calc(100vh - 200px);overflow:hidden;background:white;border-radius:12px;border:1px solid #e2e8f0;cursor:grab;">
+        <div id="pathwayZoomContainer" style="position:absolute;top:0;left:0;transform-origin:0 0;">
+          <img id="pathwayImage" src="img/kegg_hsa05010.png" style="display:block;user-select:none;-webkit-user-drag:none;" draggable="false">
+          <div id="pathwayHotspots"></div>
+        </div>
+      </div>
+      <div style="margin-top:12px;padding:12px 16px;background:#f1f5f9;border-radius:8px;font-size:12px;color:#64748b;">
+        <strong>数据来源：</strong>KEGG PATHWAY Database (hsa05010 Alzheimer disease) ·
+        <a href="https://www.kegg.jp/pathway/hsa05010" target="_blank" style="color:#3b82f6;">查看原始通路图</a> ·
+        KEGG通路图允许学术使用 · 分子坐标解析自KGML
+      </div>
+    </div>
+    <div id="moleculeModal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);z-index:10000;max-width:560px;width:90%;max-height:80vh;overflow-y:auto;">
+      <div id="moleculeModalContent"></div>
+    </div>
+    <div id="moleculeModalOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;" onclick="closeMoleculeModal()"></div>
+  </div>
 
 <!-- 企业信息库 -->
 
@@ -1993,6 +2044,16 @@ function navigate(page) {
   if (page === 'pipeline') renderGantt();
   if (page === 'drugs') renderDrugsList('all');
 }
+
+// Auto-init pathway when navigating
+const _origNavigate = navigate;
+navigate = function(page) {
+  _origNavigate(page);
+  if (page === 'pathway') {
+    setTimeout(initPathway, 100);
+  }
+};
+
 
 let dashboardInit = false;
 function initDashboard() {
@@ -3642,6 +3703,249 @@ window.addEventListener('load', function() {
     console.log('All data variables loaded successfully');
   }
 });
+
+
+// ===== 靶点互作关系图 =====
+const PATHWAY_MOLECULES = {
+  APP: {
+    name_cn: '淀粉样前体蛋白', name_en: 'Amyloid Precursor Protein',
+    chromosome: '21q21.3', function: 'Aβ生成的底物蛋白，经β/γ分泌酶剪切产生Aβ肽',
+    uniprot: 'P05067', kegg: 'hsa:351',
+    markers: ['Aβ42', 'Aβ40', 'Aβ42/40比值', 'sAPPα', 'sAPPβ'],
+    drugs: ['仑卡奈单抗(Lecanemab)', '多奈单抗(Donanemab)', '阿杜卡奴单抗(Aducanumab)', '索拉珠单抗(Solanezumab)']
+  },
+  BACE1: {
+    name_cn: 'β-分泌酶1', name_en: 'Beta-site APP Cleaving Enzyme 1',
+    chromosome: '11q23.3', function: 'Aβ生成的关键限速酶，剪切APP产生β-CTF',
+    uniprot: 'P56817', kegg: 'hsa:23621',
+    markers: ['BACE1活性', 'sAPPβ'],
+    drugs: ['Verubecestat(MK-8931)', 'Lanabecestat(AZD3293)', 'Atabecestat(CNP520)', 'Umibecestat(CNP520)']
+  },
+  PSEN1: {
+    name_cn: '早老素1', name_en: 'Presenilin 1',
+    chromosome: '14q24.3', function: 'γ-分泌酶催化亚基，突变导致家族性AD',
+    uniprot: 'P49768', kegg: 'hsa:5663',
+    markers: ['PSEN1突变检测'],
+    drugs: ['Semagacestat', 'Avagacestat']
+  },
+  APOE: {
+    name_cn: '载脂蛋白E', name_en: 'Apolipoprotein E',
+    chromosome: '19q13.32', function: '迟发型AD最强遗传风险因子，参与Aβ清除与脂质代谢',
+    uniprot: 'P02649', kegg: 'hsa:348',
+    markers: ['APOE基因型', 'APOEε4'],
+    drugs: []
+  },
+  GSK3B: {
+    name_cn: '糖原合成酶激酶3β', name_en: 'Glycogen Synthase Kinase 3 Beta',
+    chromosome: '3q13.33', function: 'Tau蛋白磷酸化的关键激酶，参与神经炎症',
+    uniprot: 'P49841', kegg: 'hsa:2932',
+    markers: ['pTau(Ser396)', 'pTau(Thr231)'],
+    drugs: ['Tideglusib', 'Li2CO3(锂盐)']
+  },
+  MAPT: {
+    name_cn: '微管相关蛋白Tau', name_en: 'Microtubule Associated Protein Tau',
+    chromosome: '17q21.31', function: '神经纤维缠结主要成分，过度磷酸化导致微管解聚',
+    uniprot: 'P10636', kegg: 'hsa:4137',
+    markers: ['pTau181', 'pTau217', 'pTau231', '总Tau(t-Tau)', 'MTBR-tau243'],
+    drugs: ['仑卡奈单抗(间接)', 'Hydromethylthionine(TRx0237)']
+  },
+  IL1B: {
+    name_cn: '白细胞介素1β', name_en: 'Interleukin 1 Beta',
+    chromosome: '2q14.1', function: '关键促炎细胞因子，参与AD神经炎症反应',
+    uniprot: 'P01584', kegg: 'hsa:3553',
+    markers: ['IL-1β(CSF)'],
+    drugs: ['Canakinumab']
+  },
+  TNF: {
+    name_cn: '肿瘤坏死因子α', name_en: 'Tumor Necrosis Factor Alpha',
+    chromosome: '6p21.33', function: '核心促炎细胞因子，介导神经元损伤与突触功能障碍',
+    uniprot: 'P01375', kegg: 'hsa:7124',
+    markers: ['TNF-α(CSF/血浆)'],
+    drugs: ['Etanercept', 'Infliximab', 'Adalimumab']
+  }
+};
+
+// KEGG coordinates (from KGML parsing)
+const PATHWAY_HOTSPOTS = [
+  { gene: 'APP', x: 407, y: 270, w: 46, h: 17 },
+  { gene: 'BACE1', x: 528, y: 325, w: 46, h: 17 },
+  { gene: 'PSEN1', x: 554, y: 375, w: 46, h: 17 },
+  { gene: 'APOE', x: 327, y: 496, w: 46, h: 17 },
+  { gene: 'GSK3B', x: 693, y: 960, w: 46, h: 17 },
+  { gene: 'MAPT', x: 729, y: 1033, w: 46, h: 17 },
+  { gene: 'IL1B', x: 257, y: 1343, w: 46, h: 17 },
+  { gene: 'TNF', x: 257, y: 1378, w: 46, h: 17 }
+];
+
+let pathwayScale = 1, pathwayX = 0, pathwayY = 0;
+let pathwayDragging = false, pathwayDragStartX = 0, pathwayDragStartY = 0;
+let pathwayInitialized = false;
+
+function initPathway() {
+  if (pathwayInitialized) return;
+  pathwayInitialized = true;
+  
+  const container = document.getElementById('pathwayContainer');
+  const zoomContainer = document.getElementById('pathwayZoomContainer');
+  const hotspotsDiv = document.getElementById('pathwayHotspots');
+  
+  // Create hotspots
+  PATHWAY_HOTSPOTS.forEach(function(hs) {
+    const hotspot = document.createElement('div');
+    hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px solid transparent;border-radius:4px;transition:all 0.2s;z-index:10;';
+    hotspot.style.left = (hs.x - hs.w/2) + 'px';
+    hotspot.style.top = (hs.y - hs.h/2) + 'px';
+    hotspot.style.width = hs.w + 'px';
+    hotspot.style.height = hs.h + 'px';
+    hotspot.onmouseenter = function() {
+      this.style.borderColor = '#3b82f6';
+      this.style.backgroundColor = 'rgba(59,130,246,0.15)';
+      this.style.boxShadow = '0 0 8px rgba(59,130,246,0.5)';
+    };
+    hotspot.onmouseleave = function() {
+      this.style.borderColor = 'transparent';
+      this.style.backgroundColor = 'transparent';
+      this.style.boxShadow = 'none';
+    };
+    hotspot.onclick = function(e) {
+      e.stopPropagation();
+      showMoleculeModal(hs.gene);
+    };
+    hotspotsDiv.appendChild(hotspot);
+  });
+  
+  // Zoom with mouse wheel
+  container.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? 0.9 : 1.1;
+    const newScale = Math.max(0.3, Math.min(5, pathwayScale * delta));
+    pathwayScale = newScale;
+    updatePathwayTransform();
+  }, { passive: false });
+  
+  // Drag to pan
+  container.addEventListener('mousedown', function(e) {
+    if (e.target.tagName === 'DIV' && e.target.style.cursor === 'pointer') return;
+    pathwayDragging = true;
+    pathwayDragStartX = e.clientX - pathwayX;
+    pathwayDragStartY = e.clientY - pathwayY;
+    container.style.cursor = 'grabbing';
+  });
+  
+  document.addEventListener('mousemove', function(e) {
+    if (!pathwayDragging) return;
+    pathwayX = e.clientX - pathwayDragStartX;
+    pathwayY = e.clientY - pathwayDragStartY;
+    updatePathwayTransform();
+  });
+  
+  document.addEventListener('mouseup', function() {
+    pathwayDragging = false;
+    container.style.cursor = 'grab';
+  });
+  
+  // Initial fit
+  setTimeout(function() {
+    const img = document.getElementById('pathwayImage');
+    if (img && img.naturalWidth) {
+      const containerW = container.clientWidth;
+      const scale = Math.min(1, containerW / img.naturalWidth);
+      pathwayScale = scale;
+      pathwayX = 20;
+      pathwayY = 20;
+      updatePathwayTransform();
+    }
+  }, 100);
+}
+
+function updatePathwayTransform() {
+  const zoomContainer = document.getElementById('pathwayZoomContainer');
+  if (zoomContainer) {
+    zoomContainer.style.transform = 'translate(' + pathwayX + 'px,' + pathwayY + 'px) scale(' + pathwayScale + ')';
+  }
+}
+
+function switchPathwayTab(tab, btn) {
+  // Update tab styles
+  document.querySelectorAll('.pathway-tab').forEach(function(t) {
+    t.style.background = 'white';
+    t.style.color = '#334155';
+  });
+  btn.style.background = '#3b82f6';
+  btn.style.color = 'white';
+  
+  // For now, only main pathway is implemented
+  if (tab !== 'main') {
+    alert('该通路图正在建设中，敬请期待！');
+    // Reset to main
+    document.querySelectorAll('.pathway-tab').forEach(function(t) {
+      t.style.background = 'white';
+      t.style.color = '#334155';
+    });
+    document.querySelector('.pathway-tab').style.background = '#3b82f6';
+    document.querySelector('.pathway-tab').style.color = 'white';
+  }
+}
+
+function showMoleculeModal(gene) {
+  const mol = PATHWAY_MOLECULES[gene];
+  if (!mol) return;
+  
+  const modal = document.getElementById('moleculeModal');
+  const overlay = document.getElementById('moleculeModalOverlay');
+  const content = document.getElementById('moleculeModalContent');
+  
+  let markersHtml = mol.markers.length > 0 
+    ? mol.markers.map(function(m) { return '<span style="display:inline-block;background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:12px;font-size:12px;margin:2px;">' + m + '</span>'; }).join('')
+    : '<span style="color:#94a3b8;font-size:13px;">暂无</span>';
+  
+  let drugsHtml = mol.drugs.length > 0
+    ? mol.drugs.map(function(d) { return '<span style="display:inline-block;background:#fef3c7;color:#92400e;padding:3px 10px;border-radius:12px;font-size:12px;margin:2px;">' + d + '</span>'; }).join('')
+    : '<span style="color:#94a3b8;font-size:13px;">暂无直接靶向药物</span>';
+  
+  content.innerHTML = 
+    '<div style="background:linear-gradient(135deg,#1e3a5f,#2d5a87);color:white;padding:20px 24px;border-radius:16px 16px 0 0;">' +
+      '<div style="display:flex;align-items:center;justify-content:space-between;">' +
+        '<div>' +
+          '<h3 style="margin:0;font-size:22px;">' + gene + '</h3>' +
+          '<p style="margin:4px 0 0 0;opacity:0.9;font-size:14px;">' + mol.name_cn + ' · ' + mol.name_en + '</p>' +
+        '</div>' +
+        '<button onclick="closeMoleculeModal()" style="background:rgba(255,255,255,0.2);border:none;color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;">×</button>' +
+      '</div>' +
+    '</div>' +
+    '<div style="padding:20px 24px;">' +
+      '<div style="margin-bottom:16px;">' +
+        '<p style="margin:0 0 6px 0;font-size:13px;color:#64748b;">🧬 染色体定位</p>' +
+        '<p style="margin:0;font-size:14px;color:#1e293b;">' + mol.chromosome + '</p>' +
+      '</div>' +
+      '<div style="margin-bottom:16px;">' +
+        '<p style="margin:0 0 6px 0;font-size:13px;color:#64748b;">⚡ 生物学功能</p>' +
+        '<p style="margin:0;font-size:14px;color:#1e293b;line-height:1.6;">' + mol.function + '</p>' +
+      '</div>' +
+      '<div style="margin-bottom:16px;">' +
+        '<p style="margin:0 0 8px 0;font-size:13px;color:#64748b;">🧪 相关标志物</p>' +
+        markersHtml +
+      '</div>' +
+      '<div style="margin-bottom:16px;">' +
+        '<p style="margin:0 0 8px 0;font-size:13px;color:#64748b;">💊 相关药物</p>' +
+        drugsHtml +
+      '</div>' +
+      '<div style="border-top:1px solid #e2e8f0;padding-top:16px;display:flex;gap:12px;flex-wrap:wrap;">' +
+        '<a href="https://www.uniprot.org/uniprot/' + mol.uniprot + '" target="_blank" style="padding:8px 16px;background:#f1f5f9;border-radius:8px;text-decoration:none;color:#334155;font-size:13px;">🔗 UniProt</a>' +
+        '<a href="https://www.kegg.jp/entry/' + mol.kegg + '" target="_blank" style="padding:8px 16px;background:#f1f5f9;border-radius:8px;text-decoration:none;color:#334155;font-size:13px;">🔗 KEGG</a>' +
+        '<a href="https://www.genecards.org/cgi-bin/carddisp.pl?gene=' + gene + '" target="_blank" style="padding:8px 16px;background:#f1f5f9;border-radius:8px;text-decoration:none;color:#334155;font-size:13px;">🔗 GeneCards</a>' +
+      '</div>' +
+    '</div>';
+  
+  modal.style.display = 'block';
+  overlay.style.display = 'block';
+}
+
+function closeMoleculeModal() {
+  document.getElementById('moleculeModal').style.display = 'none';
+  document.getElementById('moleculeModalOverlay').style.display = 'none';
+}
+
 </script>
 </body>
 </html>
