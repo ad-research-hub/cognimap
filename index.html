@@ -1130,7 +1130,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-06</span>
       <div class="mod-icon" style="background:#fef3c7;">🔗</div>
       <h3>靶点互作关系图</h3>
-      <p>基于KEGG AD通路图的可交互分子关系网络，点击关键分子查看标志物、药物与外部数据库关联</p>
+      <p>基于CST Alzheimer's Disease通路图的可交互分子网络，4大通路覆盖Aβ/Tau/炎症，点击分子查看标志物与药物</p>
       <div class="mod-count">20关键靶点 · 4通路图</div>
     </div>
   </div>
@@ -1519,6 +1519,7 @@ h3{font-size:18px;font-weight:600;margin-bottom:6px}
 @keyframes fadeIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
 .pulse{animation:pulse 1.5s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@keyframes pulse-hotspot{0%,100%{box-shadow:0 0 0 0 rgba(59,130,246,0.4);border-color:rgba(59,130,246,0.5)}50%{box-shadow:0 0 0 6px rgba(59,130,246,0);border-color:rgba(59,130,246,0.8)}}
 .data-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .data-card{background:#f8fafc;padding:14px;border-radius:10px;text-align:center}
 .data-card.full{grid-column:1/-1}
@@ -1961,7 +1962,7 @@ render();
     <div style="background:linear-gradient(135deg,#1e3a5f,#2d5a87);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
       <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
       <h2 style="margin:0;font-size:20px;">🔗 靶点互作关系图</h2>
-      <span style="font-size:13px;opacity:0.8;">基于KEGG hsa05010 Alzheimer disease通路图 · 点击分子查看详情</span>
+      <span style="font-size:13px;opacity:0.8;">基于CST Alzheimer's Disease通路图 · 4通路 · 点击分子查看标志物/药物/外部链接</span>
     </div>
     <div style="padding:16px 24px;background:#f8fafc;">
       <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
@@ -1974,7 +1975,7 @@ render();
       </div>
       <div id="pathwayContainer" style="position:relative;width:100%;height:calc(100vh - 200px);overflow:hidden;background:white;border-radius:12px;border:1px solid #e2e8f0;cursor:grab;">
         <div id="pathwayZoomContainer" style="position:absolute;top:0;left:0;transform-origin:0 0;">
-          <img id="pathwayImage" src="img/kegg_hsa05010.png" style="display:block;user-select:none;-webkit-user-drag:none;" draggable="false">
+          <img id="pathwayImage" src="img/cst_center_pathway.jpg" style="display:block;user-select:none;-webkit-user-drag:none;" draggable="false">
           <div id="pathwayHotspots"></div>
         </div>
       </div>
@@ -3770,17 +3771,17 @@ const PATHWAY_MOLECULES = {
 // KEGG coordinates (from KGML parsing)
 const PATHWAY_DATA = {
   main: {
-    image: 'img/kegg_hsa05010.png',
-    title: 'AD总通路 (KEGG hsa05010)',
+    image: 'img/cst_center_pathway.jpg',
+    title: 'AD总通路 (CST Molecular & Cellular Biology)',
     hotspots: [
-      { gene: 'APP', x: 407, y: 270, w: 46, h: 17 },
-      { gene: 'BACE1', x: 528, y: 325, w: 46, h: 17 },
-      { gene: 'PSEN1', x: 554, y: 375, w: 46, h: 17 },
-      { gene: 'APOE', x: 327, y: 496, w: 46, h: 17 },
-      { gene: 'GSK3B', x: 693, y: 960, w: 46, h: 17 },
-      { gene: 'MAPT', x: 729, y: 1033, w: 46, h: 17 },
-      { gene: 'IL1B', x: 257, y: 1343, w: 46, h: 17 },
-      { gene: 'TNF', x: 257, y: 1378, w: 46, h: 17 }
+      { gene: 'APP', x: 750, y: 950, w: 120, h: 200 },
+      { gene: 'BACE1', x: 1050, y: 880, w: 180, h: 100 },
+      { gene: 'PSEN1', x: 500, y: 850, w: 180, h: 100 },
+      { gene: 'APOE', x: 1400, y: 1100, w: 200, h: 150 },
+      { gene: 'GSK3B', x: 900, y: 600, w: 150, h: 80 },
+      { gene: 'MAPT', x: 850, y: 550, w: 100, h: 80 },
+      { gene: 'TNF', x: 1300, y: 1400, w: 200, h: 150 },
+      { gene: 'IL1B', x: 1350, y: 1450, w: 180, h: 120 }
     ]
   },
   TRADD: {
@@ -3841,42 +3842,48 @@ const PATHWAY_DATA = {
     uniprot: 'P05412', kegg: 'hsa:3725',
     markers: ['c-Jun', 'p-c-Jun'], drugs: []
   },
+  ADAM10: {
+    name_cn: '去整合素金属蛋白酶10 (α-分泌酶)', name_en: 'ADAM Metallopeptidase Domain 10',
+    chromosome: '15q21.3', function: 'α-分泌酶主要成员，在Aβ结构域内切割APP，产生非淀粉样的sAPPα和C83，阻止Aβ生成',
+    uniprot: 'O14672', kegg: 'hsa:102',
+    markers: ['sAPPα', 'ADAM10活性'], drugs: ['ADAM10激活剂']
+  },
+  TREM2: {
+    name_cn: '髓系细胞触发受体2', name_en: 'Triggering Receptor Expressed On Myeloid Cells 2',
+    chromosome: '6p21.1', function: '小胶质细胞表面受体，识别Aβ和脂蛋白配体，通过DAP12-Syk通路调控吞噬、细胞存活和炎症反应',
+    uniprot: 'Q9NZC2', kegg: 'hsa:54209',
+    markers: ['sTREM2(CSF)', 'TREM2'], drugs: ['TREM2激动剂']
+  },
+
+
   abeta: {
-    image: 'img/kegg_hsa05010.png',
-    title: 'Aβ生成与清除通路',
-    viewOffset: { x: -80, y: -20, scale: 1.5 },
+    image: 'img/cst_abeta_pathway.jpg',
+    title: 'Aβ生成与清除通路 (CST)',
     hotspots: [
-      { gene: 'APP', x: 407, y: 270, w: 46, h: 17 },
-      { gene: 'BACE1', x: 528, y: 325, w: 46, h: 17 },
-      { gene: 'PSEN1', x: 554, y: 375, w: 46, h: 17 },
-      { gene: 'APOE', x: 327, y: 496, w: 46, h: 17 }
+      { gene: 'APP', x: 1080, y: 820, w: 140, h: 240 },
+      { gene: 'BACE1', x: 1390, y: 560, w: 220, h: 120 },
+      { gene: 'PSEN1', x: 600, y: 510, w: 220, h: 120 },
+      { gene: 'ADAM10', x: 980, y: 560, w: 220, h: 120 },
+      { gene: 'APOE', x: 2050, y: 900, w: 280, h: 200 }
     ]
   },
   tau: {
-    image: 'img/kegg_hsa05010.png',
-    title: 'Tau磷酸化通路',
-    viewOffset: { x: -350, y: -1100, scale: 1.6 },
+    image: 'img/cst_tau_pathway.jpg',
+    title: 'Tau磷酸化通路 (CST)',
     hotspots: [
-      { gene: 'GSK3B', x: 693, y: 960, w: 46, h: 17 },
-      { gene: 'MAPT', x: 729, y: 1033, w: 46, h: 17 }
+      { gene: 'MAPT', x: 80, y: 430, w: 1950, h: 320 },
+      { gene: 'GSK3B', x: 100, y: 750, w: 800, h: 200 },
+      { gene: 'APP', x: 1750, y: 800, w: 200, h: 150 }
     ]
   },
   inflammation: {
-    image: 'img/kegg_hsa04668_tnf.png',
-    title: '神经炎症通路 (KEGG hsa04668 TNF signaling)',
+    image: 'img/cst_inflammation_pathway.jpg',
+    title: '神经炎症通路 (CST Microglia in Neurodegeneration)',
     hotspots: [
-      { gene: 'TNF', x: 123, y: 228, w: 46, h: 17 },
-      { gene: 'TRADD', x: 331, y: 228, w: 46, h: 17 },
-      { gene: 'TRAF2', x: 377, y: 219, w: 46, h: 17 },
-      { gene: 'RIPK1', x: 377, y: 236, w: 46, h: 17 },
-      { gene: 'IKBKB', x: 539, y: 332, w: 46, h: 17 },
-      { gene: 'NFKB1', x: 618, y: 362, w: 46, h: 17 },
-      { gene: 'MAPK1', x: 696, y: 233, w: 46, h: 17 },
-      { gene: 'CASP8', x: 627, y: 491, w: 46, h: 17 },
-      { gene: 'CASP3', x: 715, y: 502, w: 46, h: 17 },
-      { gene: 'FOS', x: 853, y: 202, w: 46, h: 17 },
-      { gene: 'JUN', x: 860, y: 847, w: 46, h: 17 },
-      { gene: 'IL1B', x: 1074, y: 272, w: 46, h: 17 }
+      { gene: 'TREM2', x: 950, y: 650, w: 250, h: 200 },
+      { gene: 'APOE', x: 1050, y: 350, w: 400, h: 150 },
+      { gene: 'TNF', x: 700, y: 1150, w: 500, h: 200 },
+      { gene: 'IL1B', x: 750, y: 1200, w: 450, h: 180 }
     ]
   }
 };
@@ -3899,7 +3906,7 @@ function initPathway() {
   // Create hotspots
   PATHWAY_HOTSPOTS.forEach(function(hs) {
     const hotspot = document.createElement('div');
-    hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px solid transparent;border-radius:4px;transition:all 0.2s;z-index:10;';
+    hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px dashed rgba(59,130,246,0.5);background:rgba(59,130,246,0.06);border-radius:4px;transition:all 0.2s;z-index:10;animation:pulse-hotspot 2.5s ease-in-out infinite;';
     hotspot.style.left = (hs.x - hs.w/2) + 'px';
     hotspot.style.top = (hs.y - hs.h/2) + 'px';
     hotspot.style.width = hs.w + 'px';
@@ -4002,7 +4009,7 @@ function switchPathwayTab(tab, btn) {
     hotspotsDiv.innerHTML = '';
     data.hotspots.forEach(function(hs) {
       var hotspot = document.createElement('div');
-      hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px solid transparent;border-radius:4px;transition:all 0.2s;z-index:10;';
+      hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px dashed rgba(59,130,246,0.5);background:rgba(59,130,246,0.06);border-radius:4px;transition:all 0.2s;z-index:10;animation:pulse-hotspot 2.5s ease-in-out infinite;';
       hotspot.style.left = (hs.x - hs.w/2) + 'px';
       hotspot.style.top = (hs.y - hs.h/2) + 'px';
       hotspot.style.width = hs.w + 'px';
