@@ -1,4 +1,4 @@
-window.DRUGS_DATA = [
+window.APPROVED_DRUGS_DATA = [
   {
     id: "donepezil",
     name_cn: "多奈哌齐",
@@ -286,3 +286,5 @@ window.DRUGS_DATA = [
     sort_order: 11
   }
 ];
+
+window.DRUGS_DATA = window.APPROVED_DRUGS_DATA;
