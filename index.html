@@ -1643,12 +1643,20 @@ let pageHistory = [];
 let userMarkers = JSON.parse(localStorage.getItem('ad_user_markers') || '[]');
 
 // ===== 导航 =====
+let homeScrollPos = 0;
 function navigate(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + page).classList.add('active');
   if (page !== 'home') pageHistory.push('home');
   document.querySelectorAll('.topnav .nav-links a').forEach(a => a.classList.remove('active'));
-  window.scrollTo(0,0);
+  if (page === 'home' && homeScrollPos > 0) {
+    setTimeout(function() { window.scrollTo(0, homeScrollPos); }, 50);
+  } else {
+    if (document.getElementById('page-home') && document.getElementById('page-home').classList.contains('active')) {
+      homeScrollPos = window.scrollY;
+    }
+    window.scrollTo(0,0);
+  }
   if (page === 'markers') { showModuleLoading('page-markers'); loadModuleData('markers', function(){ loadModuleData('details', function(){ loadModuleData('nmpa', function(){ hideModuleLoading('page-markers'); if (typeof initMarkers === 'function') initMarkers(); }); }); }); return; }
   if (page === 'companies') { showModuleLoading('page-companies'); loadModuleData('companies', function(){ hideModuleLoading('page-companies'); if (typeof initCompanies === 'function') initCompanies(); }); return; }
   if (page === 'pipeline') { showModuleLoading('page-pipeline'); loadModuleData('pipeline', function(){ hideModuleLoading('page-pipeline'); if (typeof renderGantt === 'function') renderGantt(); }); return; }
@@ -1673,6 +1681,10 @@ function navigate(page) {
 let dashboardInit = false;
 function initDashboard() {
   if (dashboardInit) return;
+  if (typeof MARKERS_DATA === 'undefined' || typeof COMPANIES_DATA === 'undefined') {
+    console.warn('initDashboard: data not loaded yet, skipping');
+    return;
+  }
   dashboardInit = true;
   // 标志物类别
   const mCats = {};
@@ -1955,10 +1967,24 @@ function showDrugDetail(id){const drug=PIPELINE_DATA.find(d=>d.id===id);if(!drug
 
 
 // 页面加载完成后自动初始化仪表盘
+// v251: lazy load dashboard data instead of direct init
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() { setTimeout(initDashboard, 200); });
+  document.addEventListener('DOMContentLoaded', function() { setTimeout(initHomeLazy, 200); });
 } else {
-  setTimeout(initDashboard, 200);
+  setTimeout(initHomeLazy, 200);
+}
+function initHomeLazy() {
+  if (typeof MARKERS_DATA !== 'undefined' && typeof COMPANIES_DATA !== 'undefined') {
+    if (typeof initDashboard === 'function') initDashboard();
+  } else {
+    if (typeof showModuleLoading === 'function') showModuleLoading('page-home');
+    loadModuleData('markers', function() {
+      loadModuleData('companies', function() {
+        if (typeof hideModuleLoading === 'function') hideModuleLoading('page-home');
+        if (typeof initDashboard === 'function') initDashboard();
+      });
+    });
+  }
 }
 </script>
 
@@ -2483,24 +2509,7 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// Auto-init home dashboard on page load (lazy load data)
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    if (document.getElementById('page-home') && document.getElementById('page-home').classList.contains('active')) {
-      if (typeof MARKERS_DATA !== 'undefined' && typeof COMPANIES_DATA !== 'undefined') {
-        if (typeof initDashboard === 'function') initDashboard();
-      } else {
-        if (typeof showModuleLoading === 'function') showModuleLoading('page-home');
-        loadModuleData('markers', function() {
-          loadModuleData('companies', function() {
-            if (typeof hideModuleLoading === 'function') hideModuleLoading('page-home');
-            if (typeof initDashboard === 'function') initDashboard();
-          });
-        });
-      }
-    }
-  }, 100);
-});
+// (home init moved to initHomeLazy above)
 </script>
 
 </body>
