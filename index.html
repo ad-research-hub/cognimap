@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
@@ -2481,6 +2481,25 @@ document.addEventListener('keydown', function(e) {
     var firstItem = document.querySelector('.search-result-item');
     if (firstItem) firstItem.click();
   }
+});
+
+// Auto-init home dashboard on page load (lazy load data)
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    if (document.getElementById('page-home') && document.getElementById('page-home').classList.contains('active')) {
+      if (typeof MARKERS_DATA !== 'undefined' && typeof COMPANIES_DATA !== 'undefined') {
+        if (typeof initDashboard === 'function') initDashboard();
+      } else {
+        if (typeof showModuleLoading === 'function') showModuleLoading('page-home');
+        loadModuleData('markers', function() {
+          loadModuleData('companies', function() {
+            if (typeof hideModuleLoading === 'function') hideModuleLoading('page-home');
+            if (typeof initDashboard === 'function') initDashboard();
+          });
+        });
+      }
+    }
+  }, 100);
 });
 </script>
 
