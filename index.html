@@ -1973,7 +1973,11 @@ render();
         <div style="flex:1;"></div>
         <span style="font-size:12px;color:#64748b;">🖱️ 滚轮缩放 · 拖拽平移 · 点击分子</span>
       </div>
-      <div id="pathwayContainer" style="position:relative;width:100%;height:calc(100vh - 200px);overflow:hidden;background:white;border-radius:12px;border:1px solid #e2e8f0;cursor:grab;">
+      <div id="pathwayContainer" style="position:relative;width:100%;height:calc(100vh - 200px);overflow:hidden;background:white;border-radius:12px;border:1px solid #e2e8f0;cursor:grab;"><div style="position:absolute;top:10px;right:10px;z-index:20;display:flex;flex-direction:column;gap:6px;">
+    <button onclick="pathwayZoomIn()" style="width:36px;height:36px;border-radius:8px;border:1px solid #e2e8f0;background:white;cursor:pointer;font-size:18px;color:#334155;box-shadow:0 2px 8px rgba(0,0,0,0.1);">+</button>
+    <button onclick="pathwayZoomOut()" style="width:36px;height:36px;border-radius:8px;border:1px solid #e2e8f0;background:white;cursor:pointer;font-size:18px;color:#334155;box-shadow:0 2px 8px rgba(0,0,0,0.1);">−</button>
+    <button onclick="pathwayReset()" style="width:36px;height:36px;border-radius:8px;border:1px solid #e2e8f0;background:white;cursor:pointer;font-size:14px;color:#334155;box-shadow:0 2px 8px rgba(0,0,0,0.1);">⟲</button>
+  </div>
         <div id="pathwayZoomContainer" style="position:absolute;top:0;left:0;transform-origin:0 0;">
           <img id="pathwayImage" src="img/kegg_hsa05010.png" style="display:block;user-select:none;-webkit-user-drag:none;" draggable="false">
           <div id="pathwayHotspots"></div>
@@ -4633,6 +4637,60 @@ function initPathway() {
     container.style.cursor = 'grab';
   });
   
+  // Touch support for mobile: single-finger pan + two-finger pinch zoom
+  container.style.touchAction = 'none';
+  var touchStartX = 0, touchStartY = 0;
+  var touchPinchStartDist = 0, touchPinchStartScale = 1;
+  var isTouchDragging = false, isTouchPinching = false;
+  
+  container.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    if (e.touches.length === 1) {
+      isTouchDragging = true;
+      isTouchPinching = false;
+      touchStartX = e.touches[0].clientX - pathwayX;
+      touchStartY = e.touches[0].clientY - pathwayY;
+    } else if (e.touches.length === 2) {
+      isTouchPinching = true;
+      isTouchDragging = false;
+      var dx = e.touches[0].clientX - e.touches[1].clientX;
+      var dy = e.touches[0].clientY - e.touches[1].clientY;
+      touchPinchStartDist = Math.sqrt(dx*dx + dy*dy);
+      touchPinchStartScale = pathwayScale;
+    }
+  }, { passive: false });
+  
+  container.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    if (isTouchPinching && e.touches.length === 2) {
+      var dx = e.touches[0].clientX - e.touches[1].clientX;
+      var dy = e.touches[0].clientY - e.touches[1].clientY;
+      var dist = Math.sqrt(dx*dx + dy*dy);
+      if (touchPinchStartDist > 0) {
+        var scale = touchPinchStartScale * (dist / touchPinchStartDist);
+        pathwayScale = Math.max(0.3, Math.min(5, scale));
+        updatePathwayTransform();
+      }
+    } else if (isTouchDragging && e.touches.length === 1) {
+      pathwayX = e.touches[0].clientX - touchStartX;
+      pathwayY = e.touches[0].clientY - touchStartY;
+      updatePathwayTransform();
+    }
+  }, { passive: false });
+  
+  container.addEventListener('touchend', function(e) {
+    e.preventDefault();
+    if (e.touches.length === 0) {
+      isTouchDragging = false;
+      isTouchPinching = false;
+    } else if (e.touches.length === 1 && isTouchPinching) {
+      isTouchPinching = false;
+      isTouchDragging = true;
+      touchStartX = e.touches[0].clientX - pathwayX;
+      touchStartY = e.touches[0].clientY - pathwayY;
+    }
+  }, { passive: false });
+  
   // Initial fit
   setTimeout(function() {
     const img = document.getElementById('pathwayImage');
@@ -4652,6 +4710,28 @@ function updatePathwayTransform() {
   if (zoomContainer) {
     zoomContainer.style.transform = 'translate(' + pathwayX + 'px,' + pathwayY + 'px) scale(' + pathwayScale + ')';
   }
+}
+
+
+function pathwayZoomIn() {
+  pathwayScale = Math.min(5, pathwayScale * 1.3);
+  updatePathwayTransform();
+}
+function pathwayZoomOut() {
+  pathwayScale = Math.max(0.3, pathwayScale / 1.3);
+  updatePathwayTransform();
+}
+function pathwayReset() {
+  var img = document.getElementById('pathwayImage');
+  var container = document.getElementById('pathwayContainer');
+  if (img && img.naturalWidth && container) {
+    pathwayScale = Math.min(1, container.clientWidth / img.naturalWidth);
+  } else {
+    pathwayScale = 1;
+  }
+  pathwayX = 20;
+  pathwayY = 20;
+  updatePathwayTransform();
 }
 
 function switchPathwayTab(tab, btn) {
