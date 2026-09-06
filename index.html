@@ -1296,8 +1296,8 @@ window.addEventListener('unhandledrejection', function(e) {
       <p style="color:#64748b;font-size:12px;margin:0;">AD与血管性痴呆、额颞叶痴呆、路易体痴呆等鉴别要点</p>
     </div>
   </div>
-</div>
-    <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:20px;margin-bottom:16px;cursor:pointer;border:1px solid #fcd34d;" onclick="window.open('https://www.alz.org/alzheimers-dementia/research-and-progress/milestones','_blank')">
+
+<div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:20px;margin-bottom:16px;cursor:pointer;border:1px solid #fcd34d;" onclick="window.open('https://www.alz.org/alzheimers-dementia/research-and-progress/milestones','_blank')">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
         <span style="font-size:28px;">📜</span>
         <h3 style="margin:0;color:#92400e;font-size:18px;">AD研究里程碑</h3>
@@ -1306,6 +1306,8 @@ window.addEventListener('unhandledrejection', function(e) {
       <p style="margin:0 0 8px 0;color:#78350f;font-size:14px;">从1906年Alois Alzheimer首次描述AD，到Aβ蛋白分离、Tau蛋白发现、APP基因克隆、淀粉样级联假说提出，再到2023年仑卡奈单抗获批——百年研究历程完整时间线</p>
       <p style="margin:0;font-size:12px;color:#92400e;">🔗 点击跳转至 Alzheimer's Association 官方里程碑页面查看完整内容</p>
     </div>
+  </div>
+    
 
 <!-- 药物管线（占位） -->
 <div id="page-pipeline" class="page">
@@ -3766,16 +3768,121 @@ const PATHWAY_MOLECULES = {
 };
 
 // KEGG coordinates (from KGML parsing)
-const PATHWAY_HOTSPOTS = [
-  { gene: 'APP', x: 407, y: 270, w: 46, h: 17 },
-  { gene: 'BACE1', x: 528, y: 325, w: 46, h: 17 },
-  { gene: 'PSEN1', x: 554, y: 375, w: 46, h: 17 },
-  { gene: 'APOE', x: 327, y: 496, w: 46, h: 17 },
-  { gene: 'GSK3B', x: 693, y: 960, w: 46, h: 17 },
-  { gene: 'MAPT', x: 729, y: 1033, w: 46, h: 17 },
-  { gene: 'IL1B', x: 257, y: 1343, w: 46, h: 17 },
-  { gene: 'TNF', x: 257, y: 1378, w: 46, h: 17 }
-];
+const PATHWAY_DATA = {
+  main: {
+    image: 'img/kegg_hsa05010.png',
+    title: 'AD总通路 (KEGG hsa05010)',
+    hotspots: [
+      { gene: 'APP', x: 407, y: 270, w: 46, h: 17 },
+      { gene: 'BACE1', x: 528, y: 325, w: 46, h: 17 },
+      { gene: 'PSEN1', x: 554, y: 375, w: 46, h: 17 },
+      { gene: 'APOE', x: 327, y: 496, w: 46, h: 17 },
+      { gene: 'GSK3B', x: 693, y: 960, w: 46, h: 17 },
+      { gene: 'MAPT', x: 729, y: 1033, w: 46, h: 17 },
+      { gene: 'IL1B', x: 257, y: 1343, w: 46, h: 17 },
+      { gene: 'TNF', x: 257, y: 1378, w: 46, h: 17 }
+    ]
+  },
+  TRADD: {
+    name_cn: 'TNF受体相关死亡结构域蛋白', name_en: 'TNFRSF1A-Associated Death Domain',
+    chromosome: '16q22.1', function: 'TNF受体下游衔接蛋白，介导NF-κB和MAPK通路激活',
+    uniprot: 'Q15628', kegg: 'hsa:8717', markers: [], drugs: []
+  },
+  TRAF2: {
+    name_cn: 'TNF受体相关因子2', name_en: 'TNF Receptor Associated Factor 2',
+    chromosome: '9q34.3', function: 'E3泛素连接酶，TNF受体下游关键信号转导分子',
+    uniprot: 'Q12933', kegg: 'hsa:7186', markers: [], drugs: []
+  },
+  RIPK1: {
+    name_cn: '受体相互作用丝氨酸/苏氨酸激酶1', name_en: 'Receptor Interacting Serine/Threonine Kinase 1',
+    chromosome: '6p25.2', function: '坏死性凋亡关键激酶，介导炎症和细胞死亡',
+    uniprot: 'Q13546', kegg: 'hsa:8737',
+    markers: ['RIPK1(CSF)'], drugs: ['Necrostatin-1', 'GSK2982772']
+  },
+  IKBKB: {
+    name_cn: 'IκB激酶β', name_en: 'Inhibitor of Nuclear Factor Kappa B Kinase Subunit Beta',
+    chromosome: '8p11.2', function: 'NF-κB通路关键激酶，磷酸化IκB导致其降解',
+    uniprot: 'O14920', kegg: 'hsa:3551',
+    markers: [], drugs: ['BMS-345541', 'MLN120B']
+  },
+  NFKB1: {
+    name_cn: '核因子κB亚基1', name_en: 'Nuclear Factor Kappa B Subunit 1',
+    chromosome: '4q24', function: '炎症反应核心转录因子，调控细胞因子和免疫应答',
+    uniprot: 'P19838', kegg: 'hsa:4790',
+    markers: ['NF-κB活性'], drugs: []
+  },
+  MAPK1: {
+    name_cn: '丝裂原活化蛋白激酶1 (p38α)', name_en: 'Mitogen-Activated Protein Kinase 1',
+    chromosome: '22q13.33', function: 'p38 MAPK通路核心激酶，调控炎症因子产生',
+    uniprot: 'Q16539', kegg: 'hsa:1432',
+    markers: ['p-p38'], drugs: ['SB203580', 'SB202190']
+  },
+  CASP8: {
+    name_cn: '半胱天冬酶8', name_en: 'Caspase 8',
+    chromosome: '2q33.1', function: '外源性凋亡通路起始胱天冬酶，TNF/Fas受体下游',
+    uniprot: 'Q14790', kegg: 'hsa:841',
+    markers: ['Caspase-8活性'], drugs: []
+  },
+  CASP3: {
+    name_cn: '半胱天冬酶3', name_en: 'Caspase 3',
+    chromosome: '4q35.1', function: '凋亡执行期关键效应酶，神经元凋亡核心执行者',
+    uniprot: 'P42574', kegg: 'hsa:836',
+    markers: ['Cleaved Caspase-3'], drugs: []
+  },
+  FOS: {
+    name_cn: 'Fos原癌基因', name_en: 'Fos Proto-Oncogene, AP-1 Transcription Factor Subunit',
+    chromosome: '14q24.3', function: 'AP-1转录因子组分，调控炎症和神经可塑性',
+    uniprot: 'P01100', kegg: 'hsa:2353',
+    markers: ['c-Fos(神经元激活标志物)'], drugs: []
+  },
+  JUN: {
+    name_cn: 'Jun原癌基因', name_en: 'Jun Proto-Oncogene, AP-1 Transcription Factor Subunit',
+    chromosome: '1p32.1', function: 'AP-1转录因子组分，与Fos形成二聚体调控基因表达',
+    uniprot: 'P05412', kegg: 'hsa:3725',
+    markers: ['c-Jun', 'p-c-Jun'], drugs: []
+  },
+  abeta: {
+    image: 'img/kegg_hsa05010.png',
+    title: 'Aβ生成与清除通路',
+    viewOffset: { x: -80, y: -20, scale: 1.5 },
+    hotspots: [
+      { gene: 'APP', x: 407, y: 270, w: 46, h: 17 },
+      { gene: 'BACE1', x: 528, y: 325, w: 46, h: 17 },
+      { gene: 'PSEN1', x: 554, y: 375, w: 46, h: 17 },
+      { gene: 'APOE', x: 327, y: 496, w: 46, h: 17 }
+    ]
+  },
+  tau: {
+    image: 'img/kegg_hsa05010.png',
+    title: 'Tau磷酸化通路',
+    viewOffset: { x: -350, y: -1100, scale: 1.6 },
+    hotspots: [
+      { gene: 'GSK3B', x: 693, y: 960, w: 46, h: 17 },
+      { gene: 'MAPT', x: 729, y: 1033, w: 46, h: 17 }
+    ]
+  },
+  inflammation: {
+    image: 'img/kegg_hsa04668_tnf.png',
+    title: '神经炎症通路 (KEGG hsa04668 TNF signaling)',
+    hotspots: [
+      { gene: 'TNF', x: 123, y: 228, w: 46, h: 17 },
+      { gene: 'TRADD', x: 331, y: 228, w: 46, h: 17 },
+      { gene: 'TRAF2', x: 377, y: 219, w: 46, h: 17 },
+      { gene: 'RIPK1', x: 377, y: 236, w: 46, h: 17 },
+      { gene: 'IKBKB', x: 539, y: 332, w: 46, h: 17 },
+      { gene: 'NFKB1', x: 618, y: 362, w: 46, h: 17 },
+      { gene: 'MAPK1', x: 696, y: 233, w: 46, h: 17 },
+      { gene: 'CASP8', x: 627, y: 491, w: 46, h: 17 },
+      { gene: 'CASP3', x: 715, y: 502, w: 46, h: 17 },
+      { gene: 'FOS', x: 853, y: 202, w: 46, h: 17 },
+      { gene: 'JUN', x: 860, y: 847, w: 46, h: 17 },
+      { gene: 'IL1B', x: 1074, y: 272, w: 46, h: 17 }
+    ]
+  }
+};
+
+let currentPathway = 'main';
+const PATHWAY_HOTSPOTS = PATHWAY_DATA.main.hotspots;
 
 let pathwayScale = 1, pathwayX = 0, pathwayY = 0;
 let pathwayDragging = false, pathwayDragStartX = 0, pathwayDragStartY = 0;
@@ -3866,7 +3973,6 @@ function updatePathwayTransform() {
 }
 
 function switchPathwayTab(tab, btn) {
-  // Update tab styles
   document.querySelectorAll('.pathway-tab').forEach(function(t) {
     t.style.background = 'white';
     t.style.color = '#334155';
@@ -3874,17 +3980,72 @@ function switchPathwayTab(tab, btn) {
   btn.style.background = '#3b82f6';
   btn.style.color = 'white';
   
-  // For now, only main pathway is implemented
-  if (tab !== 'main') {
+  if (!PATHWAY_DATA[tab]) {
     alert('该通路图正在建设中，敬请期待！');
-    // Reset to main
     document.querySelectorAll('.pathway-tab').forEach(function(t) {
       t.style.background = 'white';
       t.style.color = '#334155';
     });
-    document.querySelector('.pathway-tab').style.background = '#3b82f6';
-    document.querySelector('.pathway-tab').style.color = 'white';
+    var firstTab = document.querySelector('.pathway-tab');
+    if (firstTab) { firstTab.style.background = '#3b82f6'; firstTab.style.color = 'white'; }
+    return;
   }
+  
+  currentPathway = tab;
+  var data = PATHWAY_DATA[tab];
+  
+  var img = document.getElementById('pathwayImage');
+  if (img) { img.src = data.image; }
+  
+  var hotspotsDiv = document.getElementById('pathwayHotspots');
+  if (hotspotsDiv) {
+    hotspotsDiv.innerHTML = '';
+    data.hotspots.forEach(function(hs) {
+      var hotspot = document.createElement('div');
+      hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px solid transparent;border-radius:4px;transition:all 0.2s;z-index:10;';
+      hotspot.style.left = (hs.x - hs.w/2) + 'px';
+      hotspot.style.top = (hs.y - hs.h/2) + 'px';
+      hotspot.style.width = hs.w + 'px';
+      hotspot.style.height = hs.h + 'px';
+      hotspot.onmouseenter = function() {
+        this.style.borderColor = '#3b82f6';
+        this.style.backgroundColor = 'rgba(59,130,246,0.15)';
+        this.style.boxShadow = '0 0 8px rgba(59,130,246,0.5)';
+      };
+      hotspot.onmouseleave = function() {
+        this.style.borderColor = 'transparent';
+        this.style.backgroundColor = 'transparent';
+        this.style.boxShadow = 'none';
+      };
+      hotspot.onclick = function(e) {
+        e.stopPropagation();
+        showMoleculeModal(hs.gene);
+      };
+      hotspotsDiv.appendChild(hotspot);
+    });
+  }
+  
+  pathwayScale = 1;
+  pathwayX = 20;
+  pathwayY = 20;
+  
+  if (data.viewOffset) {
+    pathwayScale = data.viewOffset.scale || 1;
+    pathwayX = data.viewOffset.x || 20;
+    pathwayY = data.viewOffset.y || 20;
+  } else {
+    setTimeout(function() {
+      var container = document.getElementById('pathwayContainer');
+      if (img && img.naturalWidth && container) {
+        var scale = Math.min(1, container.clientWidth / img.naturalWidth);
+        pathwayScale = scale;
+        pathwayX = 20;
+        pathwayY = 20;
+        updatePathwayTransform();
+      }
+    }, 100);
+  }
+  updatePathwayTransform();
 }
 
 function showMoleculeModal(gene) {
