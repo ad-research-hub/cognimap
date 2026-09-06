@@ -775,7 +775,45 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 </style>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script>
+  // Robust ECharts loader with multiple CDN fallbacks
+  window.__echartsLoadAttempts = 0;
+  window.__echartsLoadCallbacks = [];
+  window.loadEchartsCDN = function(callback) {
+    if (window.echarts) { callback(); return; }
+    window.__echartsLoadCallbacks.push(callback);
+    if (window.__echartsLoading) return;
+    window.__echartsLoading = true;
+    var cdns = [
+      'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js',
+      'https://cdn.staticfile.org/echarts/5.4.3/echarts.min.js',
+      'https://unpkg.com/echarts@5.4.3/dist/echarts.min.js'
+    ];
+    function tryNext() {
+      if (window.echarts) {
+        window.__echartsLoadCallbacks.forEach(function(cb) { cb(); });
+        window.__echartsLoadCallbacks = [];
+        return;
+      }
+      if (window.__echartsLoadAttempts >= cdns.length) {
+        console.error('All ECharts CDNs failed');
+        var mapEl = document.getElementById('epiWorldMap');
+        if (mapEl) mapEl.innerHTML = '<div style="padding:40px;text-align:center;color:#ef4444;">ECharts加载失败，请检查网络连接或刷新页面</div>';
+        return;
+      }
+      var url = cdns[window.__echartsLoadAttempts++];
+      console.log('Trying ECharts CDN: ' + url);
+      var s = document.createElement('script');
+      s.src = url;
+      s.onload = function() { console.log('ECharts loaded from: ' + url); tryNext(); };
+      s.onerror = function() { console.warn('ECharts CDN failed: ' + url); tryNext(); };
+      document.head.appendChild(s);
+    }
+    tryNext();
+  };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js" onerror="this.onerror=null;window.loadEchartsCDN(function(){});"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="js/markers_data.js"></script>
   <script src="js/details_data.js"></script>
@@ -3129,47 +3167,55 @@ function getEpiMetricLabel(metric) {
 // Dynamic load ECharts
 function loadEcharts(callback) {
   if (window.echarts) { callback(); return; }
-  if (window.epiEchartsLoading) {
-    var check = setInterval(function() {
-      if (window.echarts) { clearInterval(check); callback(); }
-    }, 100);
-    return;
-  }
-  window.epiEchartsLoading = true;
-  var script = document.createElement('script');
-  script.src = 'https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js';
-  script.onload = function() { window.epiEchartsLoading = false; window.epiEchartsLoaded = true; callback(); };
-  script.onerror = function() {
-    // Fallback to another CDN
-    var script2 = document.createElement('script');
-    script2.src = 'https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js';
-    script2.onload = function() { window.epiEchartsLoading = false; window.epiEchartsLoaded = true; callback(); };
-    script2.onerror = function() {
-      window.epiEchartsLoading = false;
-      document.getElementById('epiWorldMap').innerHTML = '<div class="epi-map-loading">地图加载失败，请检查网络连接</div>';
+  if (window.loadEchartsCDN) {
+    window.loadEchartsCDN(callback);
+  } else {
+    // Fallback: direct load
+    var s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js';
+    s.onload = function() { callback(); };
+    s.onerror = function() {
+      document.getElementById('epiWorldMap').innerHTML = '<div style="padding:40px;text-align:center;color:#ef4444;">ECharts加载失败，请刷新页面</div>';
     };
-    document.head.appendChild(script2);
-  };
-  document.head.appendChild(script);
+    document.head.appendChild(s);
+  }
 }
 
 function initEpiMap() {
   var mapDom = document.getElementById('epiWorldMap');
-  if (!mapDom) return;
+  if (!mapDom) { console.error('epiWorldMap not found'); return; }
+  // Ensure container has height
+  if (mapDom.offsetHeight < 100) { mapDom.style.height = '500px'; }
   mapDom.innerHTML = '<div class="epi-map-loading"><div class="spinner"></div>正在加载世界地图...</div>';
-  loadEcharts(function() {
-    if (window.epiChartInstance) { window.epiChartInstance.dispose(); }
-    window.epiChartInstance = echarts.init(mapDom);
-    echarts.registerMap('world', window.EPI_WORLD_MAP);
-    updateEpiMap();
-    window.epiChartInstance.on('click', function(params) {
-      if (params.componentType === 'series') {
-        var country = getEpiCountryByName(params.name);
-        if (country) { showEpiCountryDetail(country.iso); }
+  try {
+    loadEcharts(function() {
+      try {
+        if (!window.EPI_WORLD_MAP) {
+          mapDom.innerHTML = '<div style="padding:40px;text-align:center;color:#ef4444;">地图数据加载失败，请刷新页面</div>';
+          return;
+        }
+        if (window.epiChartInstance) { try { window.epiChartInstance.dispose(); } catch(e) {} }
+        while (mapDom.firstChild) mapDom.removeChild(mapDom.firstChild);
+        window.epiChartInstance = echarts.init(mapDom);
+        echarts.registerMap('world', window.EPI_WORLD_MAP);
+        updateEpiMap();
+        window.epiChartInstance.on('click', function(params) {
+          if (params.componentType === 'series' && params.data) {
+            var country = params.data.country || getEpiCountryByName(params.name);
+            if (country) { showEpiCountryDetail(country.iso); }
+          }
+        });
+        window.addEventListener('resize', function() { if (window.epiChartInstance) window.epiChartInstance.resize(); });
+        setTimeout(function() { if (window.epiChartInstance) window.epiChartInstance.resize(); }, 300);
+      } catch(e) {
+        console.error('ECharts init error:', e);
+        mapDom.innerHTML = '<div style="padding:40px;text-align:center;color:#ef4444;">地图渲染错误: ' + e.message + '</div>';
       }
     });
-    window.addEventListener('resize', function() { if (window.epiChartInstance) window.epiChartInstance.resize(); });
-  });
+  } catch(e) {
+    console.error('initEpiMap error:', e);
+    mapDom.innerHTML = '<div style="padding:40px;text-align:center;color:#ef4444;">初始化错误: ' + e.message + '</div>';
+  }
 }
 
 function updateEpiMap() {
