@@ -2300,7 +2300,7 @@ var _hmt = _hmt || [];
 
 // ============ Approved Drugs JavaScript ============
 window.currentDrugFilter = 'all';
-} catch(e) { console.error("renderDrugsList error:", e); document.getElementById("drugsList").innerHTML = "<div style='padding:40px;text-align:center;color:#ef4444;'>渲染错误: " + e.message + "</div>"; }
+
 window.renderDrugsList = function(filter) {
   try {
   var list = document.getElementById('drugsList');
@@ -2349,6 +2349,11 @@ window.renderDrugsList = function(filter) {
   var activeCount = APPROVED_DRUGS_DATA.filter(function(d) { return d.status.indexOf('已退市') !== 0; }).length;
   document.getElementById('drugTotalCount').textContent = APPROVED_DRUGS_DATA.length;
   document.getElementById('drugActiveCount').textContent = activeCount;
+  } catch(e) {
+    console.error("renderDrugsList error:", e);
+    var listEl = document.getElementById('drugsList');
+    if (listEl) listEl.innerHTML = '<div style="padding:40px;text-align:center;color:#ef4444;">渲染错误: ' + e.message + '</div>';
+  }
 };
 
 window.filterDrugs = function(filter, btn) {
@@ -3224,7 +3229,7 @@ function initEpiMap() {
           return;
         }
         if (window.epiChartInstance) { try { window.epiChartInstance.dispose(); } catch(e) {} }
-        while (mapDom.firstChild) mapDom.removeChild(mapDom.firstChild);
+        if (mapDom.firstChild) { while (mapDom.firstChild) mapDom.removeChild(mapDom.firstChild); }
         window.epiChartInstance = echarts.init(mapDom);
         echarts.registerMap('world', window.EPI_WORLD_MAP);
         updateEpiMap();
