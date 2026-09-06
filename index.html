@@ -1130,7 +1130,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-06</span>
       <div class="mod-icon" style="background:#fef3c7;">🔗</div>
       <h3>靶点互作关系图</h3>
-      <p>基于CST Alzheimer's Disease通路图的可交互分子网络，4大通路覆盖Aβ/Tau/炎症，点击分子查看标志物与药物</p>
+      <p>KEGG AD总通路+TNF炎症通路(可交互热点) + CST Aβ/Tau通路(静态图跳转官网)，28+关键分子热点</p>
       <div class="mod-count">20关键靶点 · 4通路图</div>
     </div>
   </div>
@@ -1962,7 +1962,7 @@ render();
     <div style="background:linear-gradient(135deg,#1e3a5f,#2d5a87);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
       <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
       <h2 style="margin:0;font-size:20px;">🔗 靶点互作关系图</h2>
-      <span style="font-size:13px;opacity:0.8;">基于CST Alzheimer's Disease通路图 · 4通路 · 点击分子查看标志物/药物/外部链接</span>
+      <span style="font-size:13px;opacity:0.8;">AD总通路(KEGG) + 神经炎症(KEGG) + Aβ/Tau(CST静态图) · 点击分子查看详情 · 点击CST图跳转官网</span>
     </div>
     <div style="padding:16px 24px;background:#f8fafc;">
       <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
@@ -1975,7 +1975,7 @@ render();
       </div>
       <div id="pathwayContainer" style="position:relative;width:100%;height:calc(100vh - 200px);overflow:hidden;background:white;border-radius:12px;border:1px solid #e2e8f0;cursor:grab;">
         <div id="pathwayZoomContainer" style="position:absolute;top:0;left:0;transform-origin:0 0;">
-          <img id="pathwayImage" src="img/cst_center_pathway.jpg" style="display:block;user-select:none;-webkit-user-drag:none;" draggable="false">
+          <img id="pathwayImage" src="img/kegg_hsa05010.png" style="display:block;user-select:none;-webkit-user-drag:none;" draggable="false">
           <div id="pathwayHotspots"></div>
         </div>
       </div>
@@ -3771,120 +3771,32 @@ const PATHWAY_MOLECULES = {
 // KEGG coordinates (from KGML parsing)
 const PATHWAY_DATA = {
   main: {
-    image: 'img/cst_center_pathway.jpg',
-    title: 'AD总通路 (CST Molecular & Cellular Biology)',
-    hotspots: [
-      { gene: 'APP', x: 750, y: 950, w: 120, h: 200 },
-      { gene: 'BACE1', x: 1050, y: 880, w: 180, h: 100 },
-      { gene: 'PSEN1', x: 500, y: 850, w: 180, h: 100 },
-      { gene: 'APOE', x: 1400, y: 1100, w: 200, h: 150 },
-      { gene: 'GSK3B', x: 900, y: 600, w: 150, h: 80 },
-      { gene: 'MAPT', x: 850, y: 550, w: 100, h: 80 },
-      { gene: 'TNF', x: 1300, y: 1400, w: 200, h: 150 },
-      { gene: 'IL1B', x: 1350, y: 1450, w: 180, h: 120 }
-    ]
+    image: 'img/kegg_hsa05010.png',
+    title: 'AD总通路 (KEGG hsa05010)',
+    description: '阿尔茨海默病完整信号通路，包含Aβ生成、Tau磷酸化、凋亡、炎症、胰岛素抵抗、ER应激、自噬等',
+    hotspots: [{"id": "APP", "x": 370, "y": 205, "w": 50, "h": 28}, {"id": "BACE1", "x": 455, "y": 265, "w": 50, "h": 28}, {"id": "PSEN1", "x": 455, "y": 300, "w": 55, "h": 28}, {"id": "APOE", "x": 270, "y": 375, "w": 50, "h": 28}, {"id": "LRP1", "x": 335, "y": 375, "w": 45, "h": 28}, {"id": "IDE", "x": 180, "y": 330, "w": 40, "h": 28}, {"id": "NEP", "x": 180, "y": 355, "w": 40, "h": 28}, {"id": "MAPT", "x": 650, "y": 760, "w": 40, "h": 28}, {"id": "GSK3B", "x": 600, "y": 720, "w": 55, "h": 28}, {"id": "CDK5", "x": 570, "y": 760, "w": 45, "h": 28}, {"id": "CALM1", "x": 800, "y": 410, "w": 45, "h": 28}, {"id": "PPP3CA", "x": 855, "y": 410, "w": 40, "h": 28}, {"id": "CASP3", "x": 1150, "y": 410, "w": 50, "h": 28}, {"id": "CASP9", "x": 1100, "y": 410, "w": 50, "h": 28}, {"id": "CASP8", "x": 520, "y": 395, "w": 50, "h": 28}, {"id": "BAX", "x": 950, "y": 395, "w": 40, "h": 28}, {"id": "TNF", "x": 250, "y": 955, "w": 40, "h": 28}, {"id": "IL1B", "x": 230, "y": 930, "w": 40, "h": 28}, {"id": "TNFR1", "x": 380, "y": 930, "w": 50, "h": 28}, {"id": "SNCA", "x": 140, "y": 525, "w": 50, "h": 28}, {"id": "INSR", "x": 320, "y": 1010, "w": 50, "h": 28}, {"id": "IRS1", "x": 420, "y": 1010, "w": 45, "h": 28}, {"id": "PIK3CA", "x": 530, "y": 1010, "w": 50, "h": 28}, {"id": "AKT1", "x": 650, "y": 1010, "w": 45, "h": 28}, {"id": "EIF2AK3", "x": 730, "y": 550, "w": 50, "h": 28}, {"id": "ERN1", "x": 800, "y": 550, "w": 50, "h": 28}, {"id": "ATF6", "x": 870, "y": 550, "w": 45, "h": 28}]
   },
-  TRADD: {
-    name_cn: 'TNF受体相关死亡结构域蛋白', name_en: 'TNFRSF1A-Associated Death Domain',
-    chromosome: '16q22.1', function: 'TNF受体下游衔接蛋白，介导NF-κB和MAPK通路激活',
-    uniprot: 'Q15628', kegg: 'hsa:8717', markers: [], drugs: []
-  },
-  TRAF2: {
-    name_cn: 'TNF受体相关因子2', name_en: 'TNF Receptor Associated Factor 2',
-    chromosome: '9q34.3', function: 'E3泛素连接酶，TNF受体下游关键信号转导分子',
-    uniprot: 'Q12933', kegg: 'hsa:7186', markers: [], drugs: []
-  },
-  RIPK1: {
-    name_cn: '受体相互作用丝氨酸/苏氨酸激酶1', name_en: 'Receptor Interacting Serine/Threonine Kinase 1',
-    chromosome: '6p25.2', function: '坏死性凋亡关键激酶，介导炎症和细胞死亡',
-    uniprot: 'Q13546', kegg: 'hsa:8737',
-    markers: ['RIPK1(CSF)'], drugs: ['Necrostatin-1', 'GSK2982772']
-  },
-  IKBKB: {
-    name_cn: 'IκB激酶β', name_en: 'Inhibitor of Nuclear Factor Kappa B Kinase Subunit Beta',
-    chromosome: '8p11.2', function: 'NF-κB通路关键激酶，磷酸化IκB导致其降解',
-    uniprot: 'O14920', kegg: 'hsa:3551',
-    markers: [], drugs: ['BMS-345541', 'MLN120B']
-  },
-  NFKB1: {
-    name_cn: '核因子κB亚基1', name_en: 'Nuclear Factor Kappa B Subunit 1',
-    chromosome: '4q24', function: '炎症反应核心转录因子，调控细胞因子和免疫应答',
-    uniprot: 'P19838', kegg: 'hsa:4790',
-    markers: ['NF-κB活性'], drugs: []
-  },
-  MAPK1: {
-    name_cn: '丝裂原活化蛋白激酶1 (p38α)', name_en: 'Mitogen-Activated Protein Kinase 1',
-    chromosome: '22q13.33', function: 'p38 MAPK通路核心激酶，调控炎症因子产生',
-    uniprot: 'Q16539', kegg: 'hsa:1432',
-    markers: ['p-p38'], drugs: ['SB203580', 'SB202190']
-  },
-  CASP8: {
-    name_cn: '半胱天冬酶8', name_en: 'Caspase 8',
-    chromosome: '2q33.1', function: '外源性凋亡通路起始胱天冬酶，TNF/Fas受体下游',
-    uniprot: 'Q14790', kegg: 'hsa:841',
-    markers: ['Caspase-8活性'], drugs: []
-  },
-  CASP3: {
-    name_cn: '半胱天冬酶3', name_en: 'Caspase 3',
-    chromosome: '4q35.1', function: '凋亡执行期关键效应酶，神经元凋亡核心执行者',
-    uniprot: 'P42574', kegg: 'hsa:836',
-    markers: ['Cleaved Caspase-3'], drugs: []
-  },
-  FOS: {
-    name_cn: 'Fos原癌基因', name_en: 'Fos Proto-Oncogene, AP-1 Transcription Factor Subunit',
-    chromosome: '14q24.3', function: 'AP-1转录因子组分，调控炎症和神经可塑性',
-    uniprot: 'P01100', kegg: 'hsa:2353',
-    markers: ['c-Fos(神经元激活标志物)'], drugs: []
-  },
-  JUN: {
-    name_cn: 'Jun原癌基因', name_en: 'Jun Proto-Oncogene, AP-1 Transcription Factor Subunit',
-    chromosome: '1p32.1', function: 'AP-1转录因子组分，与Fos形成二聚体调控基因表达',
-    uniprot: 'P05412', kegg: 'hsa:3725',
-    markers: ['c-Jun', 'p-c-Jun'], drugs: []
-  },
-  ADAM10: {
-    name_cn: '去整合素金属蛋白酶10 (α-分泌酶)', name_en: 'ADAM Metallopeptidase Domain 10',
-    chromosome: '15q21.3', function: 'α-分泌酶主要成员，在Aβ结构域内切割APP，产生非淀粉样的sAPPα和C83，阻止Aβ生成',
-    uniprot: 'O14672', kegg: 'hsa:102',
-    markers: ['sAPPα', 'ADAM10活性'], drugs: ['ADAM10激活剂']
-  },
-  TREM2: {
-    name_cn: '髓系细胞触发受体2', name_en: 'Triggering Receptor Expressed On Myeloid Cells 2',
-    chromosome: '6p21.1', function: '小胶质细胞表面受体，识别Aβ和脂蛋白配体，通过DAP12-Syk通路调控吞噬、细胞存活和炎症反应',
-    uniprot: 'Q9NZC2', kegg: 'hsa:54209',
-    markers: ['sTREM2(CSF)', 'TREM2'], drugs: ['TREM2激动剂']
-  },
-
-
   abeta: {
     image: 'img/cst_abeta_pathway.jpg',
-    title: 'Aβ生成与清除通路 (CST)',
-    hotspots: [
-      { gene: 'APP', x: 1080, y: 820, w: 140, h: 240 },
-      { gene: 'BACE1', x: 1390, y: 560, w: 220, h: 120 },
-      { gene: 'PSEN1', x: 600, y: 510, w: 220, h: 120 },
-      { gene: 'ADAM10', x: 980, y: 560, w: 220, h: 120 },
-      { gene: 'APOE', x: 2050, y: 900, w: 280, h: 200 }
-    ]
+    title: 'Aβ生成与清除 (CST)',
+    description: '神经元活动依赖的APP加工过程，α/β/γ分泌酶切割、Aβ聚集与清除。点击图片跳转CST官网互动通路',
+    static: true,
+    external_url: 'https://www.cellsignal.com/pathways/pathways-alz',
+    hotspots: []
   },
   tau: {
     image: 'img/cst_tau_pathway.jpg',
-    title: 'Tau磷酸化通路 (CST)',
-    hotspots: [
-      { gene: 'MAPT', x: 80, y: 430, w: 1950, h: 320 },
-      { gene: 'GSK3B', x: 100, y: 750, w: 800, h: 200 },
-      { gene: 'APP', x: 1750, y: 800, w: 200, h: 150 }
-    ]
+    title: 'Tau磷酸化 (CST)',
+    description: 'Tau蛋白结构域、40+磷酸化位点、微管结合与PHF形成过程。点击图片跳转CST官网互动通路',
+    static: true,
+    external_url: 'https://www.cellsignal.com/pathways/pathways-alz',
+    hotspots: []
   },
   inflammation: {
-    image: 'img/cst_inflammation_pathway.jpg',
-    title: '神经炎症通路 (CST Microglia in Neurodegeneration)',
-    hotspots: [
-      { gene: 'TREM2', x: 950, y: 650, w: 250, h: 200 },
-      { gene: 'APOE', x: 1050, y: 350, w: 400, h: 150 },
-      { gene: 'TNF', x: 700, y: 1150, w: 500, h: 200 },
-      { gene: 'IL1B', x: 750, y: 1200, w: 450, h: 180 }
-    ]
+    image: 'img/kegg_hsa04668.png',
+    title: '神经炎症 (KEGG hsa04668 TNF通路)',
+    description: 'TNF信号通路，包含NF-κB、MAPK、凋亡、坏死、炎症因子释放等',
+    hotspots: [{"id": "TNF", "x": 110, "y": 235, "w": 45, "h": 28}, {"id": "TNFRSF1A", "x": 200, "y": 235, "w": 55, "h": 28}, {"id": "TRADD", "x": 310, "y": 235, "w": 50, "h": 28}, {"id": "TRAF2", "x": 370, "y": 235, "w": 55, "h": 28}, {"id": "RIPK1", "x": 400, "y": 255, "w": 45, "h": 28}, {"id": "MAP3K5", "x": 440, "y": 160, "w": 50, "h": 28}, {"id": "MAP3K7", "x": 460, "y": 225, "w": 50, "h": 28}, {"id": "MAP2K4", "x": 580, "y": 200, "w": 55, "h": 28}, {"id": "MAPK8", "x": 650, "y": 200, "w": 55, "h": 28}, {"id": "MAP2K3", "x": 580, "y": 230, "w": 55, "h": 28}, {"id": "MAPK14", "x": 650, "y": 230, "w": 45, "h": 28}, {"id": "MAP2K1", "x": 580, "y": 260, "w": 55, "h": 28}, {"id": "MAPK1", "x": 650, "y": 260, "w": 55, "h": 28}, {"id": "IKBKB", "x": 530, "y": 310, "w": 50, "h": 28}, {"id": "NFKBIA", "x": 600, "y": 310, "w": 50, "h": 28}, {"id": "RELA", "x": 600, "y": 335, "w": 50, "h": 28}, {"id": "JUN", "x": 800, "y": 200, "w": 45, "h": 28}, {"id": "FOS", "x": 800, "y": 200, "w": 45, "h": 28}, {"id": "FADD", "x": 530, "y": 470, "w": 50, "h": 28}, {"id": "CASP8", "x": 600, "y": 470, "w": 55, "h": 28}, {"id": "CASP3", "x": 690, "y": 485, "w": 50, "h": 28}, {"id": "XIAP", "x": 550, "y": 510, "w": 45, "h": 28}, {"id": "RIPK3", "x": 470, "y": 555, "w": 50, "h": 28}, {"id": "MLKL", "x": 600, "y": 555, "w": 50, "h": 28}, {"id": "PIK3CA", "x": 530, "y": 680, "w": 50, "h": 28}, {"id": "AKT1", "x": 650, "y": 680, "w": 45, "h": 28}, {"id": "IL6", "x": 1100, "y": 280, "w": 40, "h": 28}, {"id": "CXCL8", "x": 1100, "y": 130, "w": 50, "h": 28}, {"id": "PTGS2", "x": 1100, "y": 540, "w": 50, "h": 28}]
   }
 };
 
@@ -3984,17 +3896,10 @@ function switchPathwayTab(tab, btn) {
     t.style.background = 'white';
     t.style.color = '#334155';
   });
-  btn.style.background = '#3b82f6';
-  btn.style.color = 'white';
+  if (btn) { btn.style.background = '#3b82f6'; btn.style.color = 'white'; }
   
   if (!PATHWAY_DATA[tab]) {
-    alert('该通路图正在建设中，敬请期待！');
-    document.querySelectorAll('.pathway-tab').forEach(function(t) {
-      t.style.background = 'white';
-      t.style.color = '#334155';
-    });
-    var firstTab = document.querySelector('.pathway-tab');
-    if (firstTab) { firstTab.style.background = '#3b82f6'; firstTab.style.color = 'white'; }
+    console.error('Pathway not found:', tab);
     return;
   }
   
@@ -4002,11 +3907,71 @@ function switchPathwayTab(tab, btn) {
   var data = PATHWAY_DATA[tab];
   
   var img = document.getElementById('pathwayImage');
+  var hotspotsDiv = document.getElementById('pathwayHotspots');
+  var zoomContainer = document.getElementById('pathwayZoomContainer');
+  var staticLink = document.getElementById('pathwayStaticLink');
+  
+  // Reset all
+  if (hotspotsDiv) hotspotsDiv.innerHTML = '';
+  if (img) { img.style.display = 'block'; img.style.maxWidth = 'none'; img.style.cursor = 'grab'; }
+  if (staticLink) staticLink.style.display = 'none';
+  if (zoomContainer) { zoomContainer.style.overflow = 'auto'; }
+  
+  if (data.static && data.external_url) {
+    // Static display mode - full image, click to external URL
+    if (img) {
+      img.style.display = 'none';
+    }
+    if (!staticLink) {
+      // Create static link wrapper if not exists
+      staticLink = document.createElement('a');
+      staticLink.id = 'pathwayStaticLink';
+      staticLink.href = data.external_url;
+      staticLink.target = '_blank';
+      staticLink.rel = 'noopener noreferrer';
+      staticLink.style.display = 'block';
+      staticLink.style.textAlign = 'center';
+      staticLink.style.cursor = 'pointer';
+      staticLink.style.textDecoration = 'none';
+      var staticImg = document.createElement('img');
+      staticImg.id = 'pathwayStaticImg';
+      staticImg.src = data.image;
+      staticImg.style.maxWidth = '100%';
+      staticImg.style.height = 'auto';
+      staticImg.style.borderRadius = '8px';
+      staticImg.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+      staticImg.style.transition = 'transform 0.2s, box-shadow 0.2s';
+      staticImg.onmouseenter = function() {
+        this.style.transform = 'scale(1.01)';
+        this.style.boxShadow = '0 4px 16px rgba(59,130,246,0.3)';
+      };
+      staticImg.onmouseleave = function() {
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+      };
+      staticLink.appendChild(staticImg);
+      var hint = document.createElement('div');
+      hint.style.marginTop = '12px';
+      hint.style.color = '#3b82f6';
+      hint.style.fontSize = '14px';
+      hint.style.fontWeight = '600';
+      hint.textContent = '🔗 点击图片跳转 CST 官网互动通路页面 →';
+      staticLink.appendChild(hint);
+      if (zoomContainer) zoomContainer.appendChild(staticLink);
+    } else {
+      staticLink.style.display = 'block';
+      staticLink.href = data.external_url;
+      var staticImg = document.getElementById('pathwayStaticImg');
+      if (staticImg) staticImg.src = data.image;
+    }
+    if (zoomContainer) { zoomContainer.style.overflow = 'visible'; }
+    return;
+  }
+  
+  // Interactive mode (KEGG pathways)
   if (img) { img.src = data.image; }
   
-  var hotspotsDiv = document.getElementById('pathwayHotspots');
   if (hotspotsDiv) {
-    hotspotsDiv.innerHTML = '';
     data.hotspots.forEach(function(hs) {
       var hotspot = document.createElement('div');
       hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px dashed rgba(59,130,246,0.5);background:rgba(59,130,246,0.06);border-radius:4px;transition:all 0.2s;z-index:10;animation:pulse-hotspot 2.5s ease-in-out infinite;';
@@ -4020,38 +3985,19 @@ function switchPathwayTab(tab, btn) {
         this.style.boxShadow = '0 0 8px rgba(59,130,246,0.5)';
       };
       hotspot.onmouseleave = function() {
-        this.style.borderColor = 'transparent';
-        this.style.backgroundColor = 'transparent';
+        this.style.borderColor = 'rgba(59,130,246,0.5)';
+        this.style.backgroundColor = 'rgba(59,130,246,0.06)';
         this.style.boxShadow = 'none';
       };
-      hotspot.onclick = function(e) {
-        e.stopPropagation();
-        showMoleculeModal(hs.gene);
-      };
+      hotspot.onclick = function() { showMoleculeInfo(hs.id); };
       hotspotsDiv.appendChild(hotspot);
     });
   }
   
+  // Reset zoom
   pathwayScale = 1;
-  pathwayX = 20;
-  pathwayY = 20;
-  
-  if (data.viewOffset) {
-    pathwayScale = data.viewOffset.scale || 1;
-    pathwayX = data.viewOffset.x || 20;
-    pathwayY = data.viewOffset.y || 20;
-  } else {
-    setTimeout(function() {
-      var container = document.getElementById('pathwayContainer');
-      if (img && img.naturalWidth && container) {
-        var scale = Math.min(1, container.clientWidth / img.naturalWidth);
-        pathwayScale = scale;
-        pathwayX = 20;
-        pathwayY = 20;
-        updatePathwayTransform();
-      }
-    }, 100);
-  }
+  pathwayX = 0;
+  pathwayY = 0;
   updatePathwayTransform();
 }
 
