@@ -4581,15 +4581,15 @@ function initPathway() {
   // Create hotspots
   PATHWAY_HOTSPOTS.forEach(function(hs) {
     const hotspot = document.createElement('div');
-    hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px dashed rgba(59,130,246,0.5);background:rgba(59,130,246,0.06);border-radius:4px;transition:all 0.2s;z-index:10;animation:pulse-hotspot 2.5s ease-in-out infinite;';
+    hotspot.style.cssText = 'position:absolute;cursor:pointer;border:2px solid transparent;background:transparent;border-radius:4px;transition:all 0.2s;z-index:10;';
     hotspot.style.left = (hs.x - hs.w/2) + 'px';
     hotspot.style.top = (hs.y - hs.h/2) + 'px';
     hotspot.style.width = hs.w + 'px';
     hotspot.style.height = hs.h + 'px';
     hotspot.onmouseenter = function() {
-      this.style.borderColor = '#3b82f6';
-      this.style.backgroundColor = 'rgba(59,130,246,0.15)';
-      this.style.boxShadow = '0 0 8px rgba(59,130,246,0.5)';
+      this.style.borderColor = 'rgba(59,130,246,0.8)';
+      this.style.backgroundColor = 'rgba(59,130,246,0.12)';
+      this.style.boxShadow = '0 0 10px rgba(59,130,246,0.4)';
     };
     hotspot.onmouseleave = function() {
       this.style.borderColor = 'transparent';
@@ -4598,7 +4598,7 @@ function initPathway() {
     };
     hotspot.onclick = function(e) {
       e.stopPropagation();
-      showMoleculeModal(hs.gene);
+      showMoleculeInfo(hs.id);
     };
     hotspotsDiv.appendChild(hotspot);
   });
