@@ -1861,10 +1861,7 @@ render();
 
 <script>
 // ===== 数据嵌入 =====
-const /* MARKERS_DATA loaded from js/markers_data.js */
-const /* DETAILS_DATA loaded from js/details_data.js */
-const /* NMPA_DATA loaded from js/nmpa_data.js */
-const /* COMPANIES_DATA loaded from js/companies_data.js */
+/* Marker/company data loaded from external JS files */
 
 let pageHistory = [];
 let userMarkers = JSON.parse(localStorage.getItem('ad_user_markers') || '[]');
@@ -2167,9 +2164,7 @@ function renderUserMarkers() {
 
 // ============ AD药物研发管线数据 ============
 // ============ Approved AD Drugs Data ============
-var APPROVED_/* DRUGS_DATA loaded from js/drugs_data.js */
-
-const /* PIPELINE_DATA loaded from js/pipeline_data.js */
+/* Drugs/pipeline data loaded from external JS files */
 const GANTT_START=new Date('2009-01-01'),GANTT_END=new Date('2026-12-01');
 const GANTT_MONTHS=(GANTT_END.getFullYear()-GANTT_START.getFullYear())*12+(GANTT_END.getMonth()-GANTT_START.getMonth())+1;
 function monthToPercent(ds){const d=new Date(ds+'-01');const m=(d.getFullYear()-GANTT_START.getFullYear())*12+(d.getMonth()-GANTT_START.getMonth());return Math.max(0,Math.min(100,m/GANTT_MONTHS*100));}
