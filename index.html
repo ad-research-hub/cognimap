@@ -815,16 +815,40 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
   </script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js" onerror="this.onerror=null;window.loadEchartsCDN(function(){});"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="js/markers_data.js"></script>
-  <script src="js/details_data.js"></script>
-  <script src="js/nmpa_data.js"></script>
-  <script src="js/companies_data.js"></script>
-  <script src="js/drugs_data.js"></script>
-  <script src="js/pipeline_data.js"></script>
-  <script src="js/epi_world_map.js"></script>
+  <script src="js/markers_data.js"?v=255fix2></script>
+  <script src="js/details_data.js"?v=255fix2></script>
+  <script src="js/nmpa_data.js"?v=255fix2></script>
+  <script src="js/companies_data.js"?v=255fix2></script>
+  <script src="js/drugs_data.js"?v=255fix2></script>
+  <script src="js/pipeline_data.js"?v=255fix2></script>
+  <script src="js/epi_world_map.js"?v=255fix2></script>
 
 </head>
 <body>
+<div id="globalErrorBanner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:99999;background:#fee2e2;color:#991b1b;padding:12px 20px;font-size:13px;max-height:40vh;overflow-y:auto;border-bottom:2px solid #ef4444;">
+  <strong>页面错误：</strong><span id="globalErrorText"></span>
+  <button onclick="document.getElementById('globalErrorBanner').style.display='none'" style="float:right;background:#ef4444;color:white;border:none;padding:2px 8px;border-radius:4px;cursor:pointer;">关闭</button>
+</div>
+<script>
+window.addEventListener('error', function(e) {
+  var banner = document.getElementById('globalErrorBanner');
+  var text = document.getElementById('globalErrorText');
+  if (banner && text) {
+    var msg = e.message + ' (at ' + (e.filename || 'unknown') + ':' + (e.lineno || '?') + ')';
+    text.textContent = msg;
+    banner.style.display = 'block';
+    console.error('GLOBAL ERROR:', e);
+  }
+});
+window.addEventListener('unhandledrejection', function(e) {
+  var banner = document.getElementById('globalErrorBanner');
+  var text = document.getElementById('globalErrorText');
+  if (banner && text) {
+    text.textContent = 'Promise错误: ' + (e.reason && e.reason.message ? e.reason.message : String(e.reason));
+    banner.style.display = 'block';
+  }
+});
+</script>
 
 <nav class="topnav">
   <div class="logo" onclick="navigate('home')">
@@ -2276,10 +2300,15 @@ var _hmt = _hmt || [];
 
 // ============ Approved Drugs JavaScript ============
 window.currentDrugFilter = 'all';
-
+} catch(e) { console.error("renderDrugsList error:", e); document.getElementById("drugsList").innerHTML = "<div style='padding:40px;text-align:center;color:#ef4444;'>渲染错误: " + e.message + "</div>"; }
 window.renderDrugsList = function(filter) {
+  try {
   var list = document.getElementById('drugsList');
-  if (!list || typeof APPROVED_DRUGS_DATA === 'undefined') return;
+  if (!list) { console.error('drugsList element not found'); return; }
+  if (typeof APPROVED_DRUGS_DATA === 'undefined') {
+    list.innerHTML = '<div style="padding:40px;text-align:center;color:#ef4444;">药物数据加载中，请刷新页面...</div>';
+    return;
+  }
   
   var drugs = APPROVED_DRUGS_DATA.slice();
   
@@ -3527,5 +3556,30 @@ window.navigate = function(page) {
 
 </script>
 
+
+<script>
+// Data loading verification
+window.addEventListener('load', function() {
+  var required = ['MARKERS_DATA', 'DETAILS_DATA', 'COMPANIES_DATA', 'APPROVED_DRUGS_DATA', 'PIPELINE_DATA', 'EPI_COUNTRIES', 'EPI_WORLD_MAP'];
+  var missing = [];
+  required.forEach(function(v) {
+    if (typeof window[v] === 'undefined') missing.push(v);
+  });
+  if (missing.length > 0) {
+    console.warn('Missing data variables:', missing);
+    var banner = document.getElementById('globalErrorBanner');
+    var text = document.getElementById('globalErrorText');
+    if (banner && text) {
+      text.textContent = '数据加载不完整，缺失: ' + missing.join(', ') + '。请刷新页面或检查网络。';
+      banner.style.display = 'block';
+      banner.style.background = '#fef3c7';
+      banner.style.color = '#92400e';
+      banner.style.borderColor = '#f59e0b';
+    }
+  } else {
+    console.log('All data variables loaded successfully');
+  }
+});
+</script>
 </body>
 </html>
