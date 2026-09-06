@@ -679,8 +679,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .start-compare-btn.visible { display: block; }
 .start-compare-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
 
-.marker-card { position: relative; }
-.marker-card .compare-checkbox {
+.marker-card, .marker-item { position: relative; }
+.marker-card .compare-checkbox, .marker-item .compare-checkbox {
   position: absolute; top: 10px; right: 10px; width: 22px; height: 22px;
   border: 2px solid #94a3b8; border-radius: 5px; background: white;
   cursor: pointer; display: none; align-items: center; justify-content: center;
@@ -693,8 +693,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .marker-card .compare-checkbox.checked::after {
   content: '✓'; color: white; font-size: 14px; font-weight: bold;
 }
-.compare-mode .marker-card { cursor: pointer; }
-.compare-mode .marker-card:hover { border-color: #3b82f6; box-shadow: 0 4px 12px rgba(59,130,246,0.15); }
+.compare-mode .marker-card, .compare-mode .marker-item { cursor: pointer; }
+.compare-mode .marker-card:hover, .compare-mode .marker-item:hover { border-color: #3b82f6; box-shadow: 0 4px 12px rgba(59,130,246,0.15); }
 
 /* Compare page */
 #page-compare { position: relative; }
@@ -952,6 +952,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 <!-- 标志物类别列表 -->
 <div id="page-marker-category" class="page">
   <button class="back-btn" onclick="navigate('markers')">← 返回标志物库</button>
+  <div class="compare-toggle-bar" id="categoryCompareBar" style="display:none;">
+    <button class="compare-toggle-btn active" onclick="toggleCompareMode()">✓ 退出对比</button>
+    <span class="compare-count">已选 <span class="num" id="categoryCompareCount">0</span> / 5 个标志物</span>
+    <button class="start-compare-btn visible" id="categoryStartCompareBtn" onclick="startComparison()" disabled>开始对比 →</button>
+  </div>
   <h2 id="markerCatTitle" style="color:var(--primary);margin-bottom:16px;"></h2>
   <div class="marker-list" id="markerCatList"></div>
 </div>
@@ -2120,34 +2125,44 @@ function toggleCompareMode() {
   window.compareMode = !window.compareMode;
   var btn = document.getElementById('compareToggleBtn');
   var markersPage = document.getElementById('page-markers');
+  var catBar = document.getElementById('categoryCompareBar');
+  var catPage = document.getElementById('page-marker-category');
   if (window.compareMode) {
-    btn.classList.add('active');
-    btn.textContent = '✓ 退出对比';
-    markersPage.classList.add('compare-mode');
+    if (btn) { btn.classList.add('active'); btn.textContent = '✓ 退出对比'; }
+    if (markersPage) markersPage.classList.add('compare-mode');
+    if (catPage) catPage.classList.add('compare-mode');
+    if (catBar) catBar.style.display = 'flex';
     window.compareSelected = [];
     updateCompareSelection();
   } else {
-    btn.classList.remove('active');
-    btn.textContent = '⚖️ 对比模式';
-    markersPage.classList.remove('compare-mode');
+    if (btn) { btn.classList.remove('active'); btn.textContent = '⚖️ 对比模式'; }
+    if (markersPage) markersPage.classList.remove('compare-mode');
+    if (catPage) catPage.classList.remove('compare-mode');
+    if (catBar) catBar.style.display = 'none';
     window.compareSelected = [];
     updateCompareSelection();
   }
 }
 
 function updateCompareSelection() {
-  document.getElementById('compareSelectedCount').textContent = window.compareSelected.length;
+  var count = window.compareSelected.length;
+  var el1 = document.getElementById('compareSelectedCount');
+  if (el1) el1.textContent = count;
+  var el2 = document.getElementById('categoryCompareCount');
+  if (el2) el2.textContent = count;
   var startBtn = document.getElementById('startCompareBtn');
-  if (window.compareSelected.length >= 2 && window.compareSelected.length <= 5) {
-    startBtn.classList.add('visible');
-    startBtn.disabled = false;
-  } else {
-    startBtn.classList.remove('visible');
-    startBtn.disabled = true;
+  var catStartBtn = document.getElementById('categoryStartCompareBtn');
+  var canCompare = count >= 2 && count <= 5;
+  if (startBtn) {
+    if (canCompare) { startBtn.classList.add('visible'); startBtn.disabled = false; }
+    else { startBtn.classList.remove('visible'); startBtn.disabled = true; }
   }
-  // Update checkboxes
-  document.querySelectorAll('.marker-card').forEach(function(card) {
-    var name = card.dataset.marker || card.querySelector('.marker-name')?.textContent?.trim();
+  if (catStartBtn) { catStartBtn.disabled = !canCompare; }
+  // Update checkboxes on both marker-card and marker-item
+  document.querySelectorAll('.marker-card, .marker-item').forEach(function(card) {
+    var name = card.dataset.marker || card.querySelector('.mi-name, .marker-name, h3, h4')?.textContent?.trim();
+    if (!name) return;
+    card.dataset.marker = name;
     var cb = card.querySelector('.compare-checkbox');
     if (!cb) return;
     if (window.compareSelected.indexOf(name) !== -1) {
@@ -2449,29 +2464,34 @@ function exportCompareImages() {
   setTimeout(function() { alert('图表图片已导出（雷达图+ROC曲线）'); }, 300);
 }
 
-// Add checkbox to marker cards when rendered
-var origRenderMarkers = window.renderMarkersList;
-if (origRenderMarkers) {
-  window.renderMarkersList = function() {
-    origRenderMarkers.apply(this, arguments);
+// Add checkbox to marker items in category page
+var origShowMarkerCategory = window.showMarkerCategory;
+if (origShowMarkerCategory) {
+  window.showMarkerCategory = function(cat) {
+    origShowMarkerCategory.apply(this, arguments);
     setTimeout(function() {
-      document.querySelectorAll('.marker-card').forEach(function(card) {
-        if (card.querySelector('.compare-checkbox')) return;
-        var name = card.dataset.marker || card.querySelector('.marker-name, h3, h4')?.textContent?.trim();
+      document.querySelectorAll('.marker-item').forEach(function(item) {
+        if (item.querySelector('.compare-checkbox')) return;
+        var nameEl = item.querySelector('.mi-name');
+        var name = nameEl ? nameEl.textContent.trim() : '';
         if (!name) return;
-        card.dataset.marker = name;
+        item.dataset.marker = name;
         var cb = document.createElement('div');
         cb.className = 'compare-checkbox';
-        card.appendChild(cb);
-        card.addEventListener('click', function(e) {
+        item.appendChild(cb);
+        // Override click in compare mode
+        var origClick = item.onclick;
+        item.onclick = function(e) {
           if (window.compareMode) {
             e.stopPropagation();
-            toggleMarkerCompare(name, card);
+            toggleMarkerCompare(name, item);
+          } else if (origClick) {
+            origClick(e);
           }
-        });
+        };
       });
       if (window.compareMode) updateCompareSelection();
-    }, 50);
+    }, 80);
   };
 }
 
