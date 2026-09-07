@@ -2017,20 +2017,23 @@ render();
         <div style="flex:1;"></div>
         <a href="https://github.com/rnorlund/brainWhiz" target="_blank" style="font-size:12px;color:#6d28d9;text-decoration:none;">brainWhiz 开源项目 ↗</a>
       </div>
-      <div style="position:relative;width:100%;height:calc(100vh - 220px);overflow:hidden;background:#0f172a;border-radius:12px;border:1px solid #e2e8f0;">
+      <div style="margin-bottom:10px;padding:10px 16px;background:linear-gradient(135deg,#ede9fe,#f5f3ff);border-radius:8px;font-size:13px;color:#5b21b6;line-height:1.6;">
+        💡 <strong>快速提示：</strong>已预设40%爆炸视图。调整爆炸程度 → 左侧面板滚动到底部 → 点击展开 <strong>"View & motion"</strong> → 拖动 <strong>Explosion</strong> 滑块。点击脑区可在左侧面板查看名称。
+      </div>
+      <div style="position:relative;width:100%;height:calc(100vh - 260px);overflow:hidden;background:#0f172a;border-radius:12px;border:1px solid #e2e8f0;">
         <div id="brain3dLoading" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0f172a;z-index:10;color:white;">
           <div style="width:48px;height:48px;border:4px solid rgba(255,255,255,0.2);border-top-color:#a78bfa;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px;"></div>
           <div style="font-size:14px;opacity:0.8;">正在加载3D脑图谱模型...</div>
           <div style="font-size:12px;opacity:0.5;margin-top:8px;">首次加载约需10-30秒，包含189个脑区模型</div>
         </div>
-        <iframe id="brain3dFrame" src="https://rnorlund.github.io/brainWhiz/index.html?atlas=jhu" style="width:100%;height:100%;border:none;display:block;" onload="document.getElementById('brain3dLoading').style.display='none'" allow="fullscreen"></iframe>
+        <iframe id="brain3dFrame" src="https://rnorlund.github.io/brainWhiz/index.html?atlas=jhu&explode=0.4" style="width:100%;height:100%;border:none;display:block;" onload="document.getElementById('brain3dLoading').style.display='none'" allow="fullscreen"></iframe>
       </div>
       <div style="margin-top:12px;padding:14px 18px;background:#f1f5f9;border-radius:10px;font-size:13px;color:#475569;line-height:2;">
         <div style="font-weight:700;color:#1e293b;margin-bottom:6px;font-size:14px;">🎮 操作指南（完整UI模式）</div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;">
           <div><strong style="color:#6d28d9;">视角控制：</strong>鼠标左键拖拽旋转 · 滚轮缩放 · 右键平移</div>
           <div><strong style="color:#6d28d9;">脑区名称：</strong>点击3D脑区 → 左侧ROI面板高亮显示名称；也可在左侧搜索/点击</div>
-          <div><strong style="color:#6d28d9;">爆炸视图：</strong>底部 Explosion 滑块向右拖 → 脑区分离；向左拖 → 合拢</div>
+          <div><strong style="color:#6d28d9;">爆炸视图：</strong>左侧面板滚动到底部 → 展开"View & motion" → 调整 Explosion 滑块（已预设40%爆炸）</div>
           <div><strong style="color:#6d28d9;">显示/隐藏：</strong>左侧面板按脑叶分组，勾选框控制各脑区显示</div>
           <div><strong style="color:#6d28d9;">颜色方案：</strong>右侧面板选择 by lobe / hemisphere / rainbow / single</div>
           <div><strong style="color:#6d28d9;">视角预设：</strong>底部 Top / Side / Front 按钮快速切换；auto-rotate 自动旋转</div>
@@ -2117,7 +2120,7 @@ function switchBrainAtlas(atlas) {
   var loading = document.getElementById('brain3dLoading');
   if (frame && loading) {
     loading.style.display = 'flex';
-    frame.src = 'https://rnorlund.github.io/brainWhiz/index.html?atlas=' + atlas;
+    frame.src = 'https://rnorlund.github.io/brainWhiz/index.html?atlas=' + atlas + '&explode=0.4';
     setTimeout(function() { var ld = document.getElementById('brain3dLoading'); if (ld) ld.style.display = 'none'; }, 45000);
   }
   // Update button styles
@@ -2450,7 +2453,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v273 · 数据更新至 2026-09-08</div>
+  <div>版本 v274 · 数据更新至 2026-09-08</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
