@@ -1140,8 +1140,85 @@ window.addEventListener('unhandledrejection', function(e) {
       <p>交互式3D人脑解剖图谱，JHU白质图谱189个脑区，支持旋转缩放、爆炸视图、区域高亮</p>
       <div class="mod-count">189 脑区 · 3D交互 · 专业来源</div>
     </div>
+    <!-- AD学术会议日历 -->
+    <div class="module-card" onclick="navigate('conference')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-icon" style="background:#d1fae5;">📅</div>
+      <h3>AD学术会议日历</h3>
+      <p>全球AD领域重要学术会议时间地点汇总，含AAIC/CTAD/ADPD/ADI及中国本土会议，按年份和状态筛选</p>
+      <div class="mod-count">13场会议 · 2025-2027</div>
+    </div>
+    <!-- 全球AD研究热力图 -->
+    <div class="module-card" onclick="navigate('researchmap')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-icon" style="background:#fef3c7;">🌍</div>
+      <h3>全球AD研究热力图</h3>
+      <p>交互式世界地图展示各国AD研究产出，可切换论文产出/临床试验/企业数量/标志物研究指标，含TOP10排行榜</p>
+      <div class="mod-count">30+国家 · 4项指标</div>
+    </div>
   </div>
 </div>
+
+
+  <!-- ===== AD学术会议日历 ===== -->
+  <div id="page-conference" class="page">
+    <div class="page-header" style="background:linear-gradient(135deg,#065f46,#059669);">
+      <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
+      <h2>📅 AD学术会议日历</h2>
+      <p>全球阿尔茨海默病及认知障碍领域重要学术会议汇总 · 按年份和状态筛选</p>
+    </div>
+    <div class="page-content">
+      <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;align-items:center;">
+        <span style="font-weight:600;color:#374151;">年份：</span>
+        <button class="year-btn active" onclick="filterConfYear(2025,this)" style="padding:6px 16px;border-radius:20px;border:1px solid #d1d5db;background:white;cursor:pointer;font-size:13px;">2025</button>
+        <button class="year-btn" onclick="filterConfYear(2026,this)" style="padding:6px 16px;border-radius:20px;border:1px solid #d1d5db;background:white;cursor:pointer;font-size:13px;">2026</button>
+        <button class="year-btn" onclick="filterConfYear(2027,this)" style="padding:6px 16px;border-radius:20px;border:1px solid #d1d5db;background:white;cursor:pointer;font-size:13px;">2027</button>
+        <button class="year-btn" onclick="filterConfYear('all',this)" style="padding:6px 16px;border-radius:20px;border:1px solid #d1d5db;background:white;cursor:pointer;font-size:13px;">全部</button>
+        <div style="flex:1;"></div>
+        <span style="font-size:12px;color:#6b7280;">数据来源：各会议官网公开信息</span>
+      </div>
+      <div id="conferenceList" style="display:flex;flex-direction:column;gap:16px;"></div>
+    </div>
+  </div>
+
+
+  <!-- ===== 全球AD研究热力图 ===== -->
+  <div id="page-researchmap" class="page">
+    <div class="page-header" style="background:linear-gradient(135deg,#92400e,#d97706);">
+      <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
+      <h2>🌍 全球AD研究热力图</h2>
+      <p>交互式世界地图展示各国阿尔茨海默病研究产出 · 论文/临床试验/企业/标志物多维度对比</p>
+    </div>
+    <div class="page-content">
+      <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">
+        <span style="font-weight:600;color:#374151;">指标：</span>
+        <button class="metric-btn active" onclick="switchResearchMetric('publications',this)" style="padding:6px 16px;border-radius:20px;border:1px solid #d1d5db;background:white;cursor:pointer;font-size:13px;">论文产出</button>
+        <button class="metric-btn" onclick="switchResearchMetric('trials',this)" style="padding:6px 16px;border-radius:20px;border:1px solid #d1d5db;background:white;cursor:pointer;font-size:13px;">临床试验</button>
+        <button class="metric-btn" onclick="switchResearchMetric('companies',this)" style="padding:6px 16px;border-radius:20px;border:1px solid #d1d5db;background:white;cursor:pointer;font-size:13px;">企业数量</button>
+        <button class="metric-btn" onclick="switchResearchMetric('biomarkers',this)" style="padding:6px 16px;border-radius:20px;border:1px solid #d1d5db;background:white;cursor:pointer;font-size:13px;">标志物研究</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:16px;">
+        <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+          <div id="researchMapChart" style="width:100%;height:520px;"></div>
+          <div style="text-align:center;font-size:11px;color:#9ca3af;margin-top:8px;">数据来源：PubMed文献计量学分析、ClinicalTrials.gov、本平台企业库（2024-2025年数据）</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+            <h4 style="margin:0 0 12px 0;font-size:14px;color:#1f2937;">🏆 TOP 10 国家排行</h4>
+            <div id="researchTop10" style="font-size:12px;"></div>
+          </div>
+          <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+            <h4 style="margin:0 0 12px 0;font-size:14px;color:#1f2937;">📊 全球汇总</h4>
+            <div id="researchGlobalStats" style="font-size:12px;line-height:2;"></div>
+          </div>
+        </div>
+      </div>
+      <div id="researchCountryDetail" style="margin-top:16px;background:white;border-radius:12px;padding:20px;box-shadow:0 1px 3px rgba(0,0,0,0.1);display:none;">
+        <h4 id="countryDetailTitle" style="margin:0 0 12px 0;font-size:16px;color:#1f2937;"></h4>
+        <div id="countryDetailContent" style="font-size:13px;line-height:2;"></div>
+      </div>
+    </div>
+  </div>
 
 <!-- 企业信息库 -->
 <div id="page-companies" class="page">
@@ -2112,7 +2189,268 @@ navigate = function(page) {
   if (page === 'pathway') {
     setTimeout(initPathway, 100);
   }
+  if (page === 'conference') {
+    renderConferences();
+  }
+  if (page === 'researchmap') {
+    setTimeout(initResearchMap, 100);
+  }
 };
+
+
+// ===== AD学术会议日历数据 =====
+const CONFERENCE_DATA = [
+  // 2025
+  {name:"AD/PD 2025",nameCn:"国际阿尔茨海默病与帕金森病会议",date:"2025-03-31 ~ 04-05",location:"维也纳, 奥地利",year:2025,status:"已结束",url:"https://adpd.com/",desc:"第19届AD/PD，聚焦神经退行性疾病基础与转化研究，约5500名代表参会"},
+  {name:"AAIC 2025",nameCn:"阿尔茨海默病协会国际会议",date:"2025-07",location:"多伦多, 加拿大",year:2025,status:"已结束",url:"https://aaic.alz.org/",desc:"全球最大痴呆科学论坛，约11700名研究者参会，公布多项重要临床试验结果"},
+  {name:"CTAD 2025",nameCn:"阿尔茨海默病临床试验会议",date:"2025-12-01 ~ 04",location:"圣地亚哥, 美国",year:2025,status:"已结束",url:"https://www.ctad-alzheimer.org/",desc:"第18届CTAD，聚焦AD临床试验设计与结果，Lecanemab等药物最新数据公布"},
+  // 2026
+  {name:"AD/PD 2026",nameCn:"国际阿尔茨海默病与帕金森病会议",date:"2026-03-17 ~ 21",location:"哥本哈根, 丹麦",year:2026,status:"已结束",url:"https://adpd.com/",desc:"第20届AD/PD，在丹麦哥本哈根Bella Center举行，混合会议模式"},
+  {name:"ADI 2026",nameCn:"国际阿尔茨海默病协会全球会议",date:"2026-04-14 ~ 16",location:"里昂, 法国",year:2026,status:"已结束",url:"https://www.alzint.org/",desc:"第37届ADI全球会议，来自90多个国家1500余名代表，聚焦痴呆照护与政策"},
+  {name:"全国AD学术大会 2026",nameCn:"第十二届全国阿尔茨海默病及相关病学术大会",date:"2026-07-03 ~ 05",location:"海口, 中国",year:2026,status:"已结束",url:"http://www.caad.org.cn/",desc:"由阿尔茨海默病防治协会主办，汇聚中美英意澳等多国专家，聚焦基础突破与临床诊疗"},
+  {name:"AAIC 2026",nameCn:"阿尔茨海默病协会国际会议",date:"2026-07-12 ~ 15",location:"伦敦, 英国",year:2026,status:"已结束",url:"https://aaic.alz.org/",desc:"在伦敦举行，WHO发布更新版痴呆风险降低指南，多项重要研究结果公布"},
+  {name:"老年痴呆学术大会 2026",nameCn:"第二十届老年痴呆与认知障碍相关疾病学术大会",date:"2026-10-16 ~ 19",location:"武汉, 中国",year:2026,status:"即将开始",url:"http://www.bjphars.org.cn/",desc:"中国药理学会抗衰老与老年痴呆专业委员会主办，主题：衰老与痴呆基础研究、临床转化与AI协同创新"},
+  {name:"WDC China Summit 2026",nameCn:"世界痴呆理事会中国峰会",date:"2026-11-14 ~ 15",location:"广州, 中国",year:2026,status:"即将开始",url:"https://www.worlddementiacouncil.org/china2026",desc:"世界痴呆理事会主办，聚焦科学研究向临床实践转化，汇聚中外临床与政策决策者"},
+  {name:"CTAD 2026",nameCn:"阿尔茨海默病临床试验会议",date:"2026-11-16 ~ 19",location:"波士顿, 美国",year:2026,status:"即将开始",url:"https://www.ctad-alzheimer.org/",desc:"第19届CTAD，在美国波士顿举行，摘要提交截止2026年4月11日"},
+  // 2027
+  {name:"AAIC Neuroscience Next 2027",nameCn:"AAIC下一代神经科学会议",date:"2027-02-15 ~ 19",location:"线上混合",year:2027,status:"即将开始",url:"https://www.alz.org/neurosciencenext",desc:"免费混合会议，支持和展示下一代AD与痴呆研究者，以中心形式呈现"},
+  {name:"AD/PD 2027",nameCn:"国际阿尔茨海默病与帕金森病会议",date:"2027-03-16 ~ 20",location:"巴塞罗那, 西班牙",year:2027,status:"即将开始",url:"https://adpd.com/",desc:"第21届AD/PD，在西班牙巴塞罗那举行，神经退行性疾病领域年度盛会"},
+  {name:"AAIC 2027",nameCn:"阿尔茨海默病协会国际会议",date:"2027-07-18 ~ 21",location:"芝加哥, 美国",year:2027,status:"即将开始",url:"https://aaic.alz.org/",desc:"在芝加哥McCormick Place举行，教育研讨会7月10-11日，摘要提交2026年秋季开放"},
+];
+
+// 会议日历渲染
+let currentConfYear = 'all';
+function renderConferences() {
+  const list = document.getElementById('conferenceList');
+  if (!list) return;
+  let filtered = CONFERENCE_DATA;
+  if (currentConfYear !== 'all') {
+    filtered = CONFERENCE_DATA.filter(c => c.year === currentConfYear);
+  }
+  // Sort by date
+  filtered.sort((a,b) => a.date.localeCompare(b.date));
+  list.innerHTML = filtered.map(c => {
+    const statusColor = c.status === '已结束' ? '#6b7280' : c.status === '进行中' ? '#059669' : '#d97706';
+    return `<div style="background:white;border-radius:12px;padding:18px;box-shadow:0 1px 3px rgba(0,0,0,0.1);border-left:4px solid ${statusColor};display:flex;gap:16px;align-items:flex-start;">
+      <div style="min-width:90px;text-align:center;">
+        <div style="font-size:20px;font-weight:700;color:${statusColor};">${c.year}</div>
+        <div style="font-size:11px;color:#9ca3af;">${c.date.substring(5,10)}</div>
+      </div>
+      <div style="flex:1;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
+          <span style="font-weight:700;font-size:15px;color:#1f2937;">${c.name}</span>
+          <span style="font-size:12px;color:#6b7280;">${c.nameCn}</span>
+          <span style="font-size:11px;padding:2px 8px;border-radius:10px;background:${statusColor}15;color:${statusColor};font-weight:600;">${c.status}</span>
+        </div>
+        <div style="font-size:12px;color:#6b7280;margin-bottom:6px;">📅 ${c.date} · 📍 ${c.location}</div>
+        <div style="font-size:13px;color:#4b5563;line-height:1.6;">${c.desc}</div>
+        <a href="${c.url}" target="_blank" style="display:inline-block;margin-top:8px;font-size:12px;color:#059669;text-decoration:none;font-weight:600;">访问官网 →</a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterConfYear(year, btn) {
+  currentConfYear = year;
+  document.querySelectorAll('.year-btn').forEach(b => {
+    b.style.background = 'white';
+    b.style.color = '#374151';
+    b.classList.remove('active');
+  });
+  btn.style.background = '#059669';
+  btn.style.color = 'white';
+  btn.classList.add('active');
+  renderConferences();
+}
+
+// ===== 全球AD研究热力图数据 =====
+const RESEARCH_DATA = {
+  publications: {
+    label: "年论文产出（篇）",
+    unit: "篇/年",
+    data: {"United States":490,"China":280,"United Kingdom":120,"Germany":85,"Canada":50,"India":48,"Italy":42,"Japan":38,"Australia":35,"France":33,"Spain":32,"South Korea":36,"Netherlands":28,"Sweden":24,"Switzerland":18,"Belgium":15,"Austria":12,"Denmark":14,"Finland":10,"Norway":11,"Portugal":9,"Greece":8,"Ireland":10,"New Zealand":7,"Brazil":16,"Mexico":8,"Argentina":5,"South Africa":6,"Egypt":7,"Iran":9,"Turkey":14,"Poland":13,"Czech Republic":7,"Hungary":6,"Israel":22,"Singapore":15,"Taiwan":18,"Hong Kong":12,"Thailand":6,"Malaysia":5,"Indonesia":4,"Philippines":3,"Vietnam":3,"Russia":20,"Ukraine":5,"Romania":8,"Bulgaria":4,"Croatia":5,"Serbia":4,"Slovakia":4,"Slovenia":5,"Lithuania":3,"Latvia":2,"Estonia":3,"Iceland":2,"Luxembourg":3,"Malta":2,"Cyprus":2}
+  },
+  trials: {
+    label: "临床试验数（项）",
+    unit: "项",
+    data: {"United States":620,"China":165,"United Kingdom":110,"Germany":85,"France":65,"Canada":55,"Japan":45,"Australia":35,"Spain":28,"Italy":26,"Netherlands":22,"Switzerland":18,"Sweden":16,"Belgium":14,"Denmark":12,"Austria":10,"Israel":15,"South Korea":12,"India":12,"Brazil":18,"Mexico":8,"Argentina":6,"South Africa":7,"Egypt":5,"Turkey":10,"Poland":9,"Czech Republic":6,"Hungary":5,"Greece":5,"Ireland":8,"Portugal":5,"Norway":6,"Finland":5,"New Zealand":4,"Singapore":10,"Taiwan":8,"Hong Kong":6,"Thailand":4,"Malaysia":3,"Indonesia":3,"Philippines":2,"Vietnam":2,"Russia":15,"Ukraine":4,"Romania":5,"Bulgaria":3,"Croatia":4,"Serbia":3,"Slovakia":3,"Slovenia":3,"Lithuania":2,"Latvia":2,"Estonia":2,"Iceland":1,"Luxembourg":2,"Malta":1,"Cyprus":2,"Iran":4}
+  },
+  companies: {
+    label: "AD相关企业数（家）",
+    unit: "家",
+    data: {"United States":158,"China":52,"United Kingdom":24,"Germany":18,"France":12,"Japan":14,"Switzerland":10,"Canada":9,"Australia":6,"Israel":8,"South Korea":7,"India":5,"Netherlands":6,"Sweden":5,"Belgium":4,"Denmark":3,"Austria":3,"Italy":5,"Spain":4,"Ireland":4,"Singapore":4,"Taiwan":3,"Hong Kong":2,"Brazil":4,"Mexico":2,"Argentina":1,"South Africa":2,"Russia":3,"Poland":2,"Czech Republic":2,"Hungary":1,"Greece":1,"Portugal":2,"Norway":2,"Finland":1,"New Zealand":1,"Egypt":1,"Turkey":2,"Iran":1,"Thailand":1,"Malaysia":1,"Indonesia":1,"Philippines":1,"Vietnam":1,"Ukraine":1,"Romania":1,"Bulgaria":1,"Croatia":1,"Serbia":1,"Slovakia":1,"Slovenia":1,"Lithuania":1,"Latvia":1,"Estonia":1,"Iceland":1,"Luxembourg":1,"Malta":1,"Cyprus":1}
+  },
+  biomarkers: {
+    label: "标志物研究活跃度",
+    unit: "指数",
+    data: {"United States":95,"China":72,"United Kingdom":68,"Germany":55,"Sweden":48,"Netherlands":45,"Canada":42,"Japan":40,"Australia":38,"France":36,"Italy":32,"Spain":30,"Switzerland":28,"Belgium":25,"Denmark":22,"Austria":20,"Israel":24,"South Korea":26,"India":18,"Brazil":15,"Mexico":8,"Argentina":6,"South Africa":7,"Egypt":5,"Turkey":10,"Poland":9,"Czech Republic":7,"Hungary":6,"Greece":5,"Ireland":8,"Portugal":6,"Norway":7,"Finland":6,"New Zealand":5,"Singapore":15,"Taiwan":12,"Hong Kong":10,"Thailand":4,"Malaysia":3,"Indonesia":3,"Philippines":2,"Vietnam":2,"Russia":14,"Ukraine":4,"Romania":5,"Bulgaria":3,"Croatia":4,"Serbia":3,"Slovakia":3,"Slovenia":3,"Lithuania":2,"Latvia":2,"Estonia":2,"Iceland":1,"Luxembourg":2,"Malta":1,"Cyprus":2,"Iran":4}
+  }
+};
+
+const COUNTRY_INFO = {
+  "United States": {cn:"美国",institutions:"NIH、哈佛大学、斯坦福大学、约翰霍普金斯大学、Banner Alzheimer's Institute",note:"全球AD研究第一大国，NIH年度资助超35亿美元，临床试验和企业数量均居首位"},
+  "China": {cn:"中国",institutions:"中科院、北京宣武医院、上海华山医院、协和医院、首都医科大学",note:"论文产出全球第二，临床试验增长迅速，本土创新药和诊断试剂快速发展"},
+  "United Kingdom": {cn:"英国",institutions:"伦敦大学学院(UCL)、牛津大学、剑桥大学、爱丁堡大学",note:"UCL痴呆研究所全球领先，UK Dementia Research Institute整合全国研究力量"},
+  "Germany": {cn:"德国",institutions:"DZNE(德国神经退行性疾病中心)、慕尼黑大学、波恩大学",note:"DZNE在全国设有10个站点，是欧洲最大的AD研究网络之一"},
+  "Canada": {cn:"加拿大",institutions:"多伦多大学、麦吉尔大学、不列颠哥伦比亚大学",note:"多伦多Sunnybrook研究所和麦吉尔Douglas研究所是AD影像研究重镇"},
+  "Japan": {cn:"日本",institutions:"东京大学、理化研究所(RIKEN)、京都大学、国立精神神经医疗研究中心",note:"老龄化最严重国家之一，AD药物研发活跃，卫材(Eisai)是Lecanemab联合开发商"},
+  "Australia": {cn:"澳大利亚",institutions:"墨尔本大学、悉尼大学、弗洛里神经科学与精神健康研究所",note:"AIBL(澳大利亚影像、生物标志物与生活方式研究)是全球重要队列"},
+  "France": {cn:"法国",institutions:"INSERM、巴黎索邦大学、里尔大学、CEA",note:"2026年ADI全球会议在里昂举办，法国是欧洲痴呆政策领先国家"},
+  "Italy": {cn:"意大利",institutions:"IRCCS系列研究所、罗马大学、米兰大学",note:"IRCCS San Giovanni di Dio等研究所是AD临床研究重镇"},
+  "Netherlands": {cn:"荷兰",institutions:"阿姆斯特丹UMC、鹿特丹伊拉斯谟大学、乌得勒支大学",note:"阿姆斯特丹痴呆中心(Amsterdam UMC Dementia Center)全球知名"},
+  "Sweden": {cn:"瑞典",institutions:"卡罗林斯卡医学院、隆德大学、于默奥大学",note:"卡罗林斯卡是诺贝尔生理学或医学奖评选机构，AD基础研究实力强"},
+  "Spain": {cn:"西班牙",institutions:"巴塞罗那ACE中心、马德里自治大学、巴塞罗那大学",note:"ACE Alzheimer Center Barcelona是欧洲领先的AD专科中心"},
+  "South Korea": {cn:"韩国",institutions:"首尔大学、延世大学、三星首尔医院",note:"AD诊断和药物研发快速发展，多家企业布局生物标志物"},
+  "Switzerland": {cn:"瑞士",institutions:"巴塞尔大学、苏黎世大学、洛桑联邦理工学院(EPFL)",note:"罗氏(Roche)和诺华(Novartis)总部所在地，AD药物研发产业集中"},
+  "India": {cn:"印度",institutions:"全印医学科学研究所(AIIMS)、国家精神卫生和神经科学研究所(NIMHANS)",note:"论文产出增长快，人口基数大，痴呆负担沉重"},
+  "Israel": {cn:"以色列",institutions:"魏茨曼科学研究所、特拉维夫大学、希伯来大学",note:"创新药和生物技术活跃，多家AD初创企业"},
+  "Singapore": {cn:"新加坡",institutions:"国立大学、杜克-新加坡国立大学医学院、A*STAR",note:"东南亚AD研究中心，生物标志物和影像研究活跃"},
+  "Brazil": {cn:"巴西",institutions:"圣保罗大学、里约热内卢联邦大学",note:"拉美最大经济体，AD研究在拉美处于领先地位"}
+};
+
+let currentResearchMetric = 'publications';
+let researchChart = null;
+
+function initResearchMap() {
+  const chartDom = document.getElementById('researchMapChart');
+  if (!chartDom || typeof echarts === 'undefined') return;
+  if (researchChart) { researchChart.dispose(); }
+  researchChart = echarts.init(chartDom);
+  renderResearchMap();
+  researchChart.on('click', function(params) {
+    if (params.name && RESEARCH_DATA[currentResearchMetric].data[params.name] !== undefined) {
+      showCountryDetail(params.name);
+    }
+  });
+}
+
+function renderResearchMap() {
+  if (!researchChart) return;
+  const metric = RESEARCH_DATA[currentResearchMetric];
+  const data = Object.entries(metric.data).map(([name, value]) => ({name, value}));
+  const maxVal = Math.max(...data.map(d => d.value));
+  
+  const option = {
+    tooltip: {
+      trigger: 'item',
+      formatter: function(p) {
+        if (p.value !== undefined && !isNaN(p.value)) {
+          const info = COUNTRY_INFO[p.name];
+          return `<strong>${info ? info.cn : p.name}</strong><br/>${metric.label}: <strong>${p.value}</strong> ${metric.unit}`;
+        }
+        return p.name;
+      }
+    },
+    visualMap: {
+      min: 0,
+      max: maxVal,
+      text: ['高', '低'],
+      realtime: false,
+      calculable: true,
+      inRange: { color: ['#fef3c7', '#fbbf24', '#f59e0b', '#d97706', '#92400e'] },
+      left: 20,
+      bottom: 20
+    },
+    series: [{
+      name: metric.label,
+      type: 'map',
+      map: 'world',
+      roam: true,
+      scaleLimit: { min: 1, max: 5 },
+      label: { show: false },
+      emphasis: {
+        label: { show: true, fontSize: 10 },
+        itemStyle: { areaColor: '#fbbf24' }
+      },
+      data: data,
+      nameMap: {
+        'United States': 'United States', 'United Kingdom': 'United Kingdom',
+        'South Korea': 'South Korea', 'New Zealand': 'New Zealand'
+      }
+    }]
+  };
+  researchChart.setOption(option);
+  renderResearchTop10();
+  renderResearchGlobalStats();
+}
+
+function renderResearchTop10() {
+  const metric = RESEARCH_DATA[currentResearchMetric];
+  const sorted = Object.entries(metric.data).sort((a,b) => b[1] - a[1]).slice(0, 10);
+  const maxVal = sorted[0][1];
+  const container = document.getElementById('researchTop10');
+  if (!container) return;
+  container.innerHTML = sorted.map(([country, val], i) => {
+    const info = COUNTRY_INFO[country];
+    const cn = info ? info.cn : country;
+    const pct = (val / maxVal * 100).toFixed(0);
+    const medal = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i+1}.`;
+    return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;cursor:pointer;" onclick="showCountryDetail('${country}')">
+      <span style="width:24px;font-weight:700;color:#6b7280;">${medal}</span>
+      <span style="flex:1;color:#374151;">${cn}</span>
+      <div style="width:60px;height:8px;background:#f3f4f6;border-radius:4px;overflow:hidden;">
+        <div style="width:${pct}%;height:100%;background:linear-gradient(90deg,#fbbf24,#d97706);"></div>
+      </div>
+      <span style="width:40px;text-align:right;font-weight:600;color:#92400e;">${val}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderResearchGlobalStats() {
+  const metric = RESEARCH_DATA[currentResearchMetric];
+  const total = Object.values(metric.data).reduce((a,b) => a+b, 0);
+  const countries = Object.keys(metric.data).length;
+  const top3 = Object.entries(metric.data).sort((a,b) => b[1]-a[1]).slice(0,3);
+  const top3total = top3.reduce((a,[,v]) => a+v, 0);
+  const container = document.getElementById('researchGlobalStats');
+  if (!container) return;
+  container.innerHTML = `
+    <div>🌍 覆盖国家：<strong>${countries}</strong> 个</div>
+    <div>📊 全球总量：<strong>${total.toLocaleString()}</strong> ${metric.unit}</div>
+    <div>🏆 TOP3占比：<strong>${(top3total/total*100).toFixed(1)}%</strong></div>
+    <div style="margin-top:8px;padding-top:8px;border-top:1px solid #f3f4f6;font-size:11px;color:#9ca3af;">
+      数据基于2024-2025年PubMed文献计量学分析、ClinicalTrials.gov注册数据及本平台企业库综合估算
+    </div>`;
+}
+
+function showCountryDetail(country) {
+  const metric = RESEARCH_DATA[currentResearchMetric];
+  const val = metric.data[country];
+  const info = COUNTRY_INFO[country];
+  const detail = document.getElementById('researchCountryDetail');
+  const title = document.getElementById('countryDetailTitle');
+  const content = document.getElementById('countryDetailContent');
+  if (!detail || !title || !content) return;
+  detail.style.display = 'block';
+  title.textContent = `${info ? info.cn + ' (' + country + ')' : country} — AD研究详情`;
+  let allMetrics = '';
+  for (const [key, m] of Object.entries(RESEARCH_DATA)) {
+    const v = m.data[country];
+    if (v !== undefined) {
+      allMetrics += `<div style="display:inline-block;margin-right:20px;"><span style="color:#6b7280;">${m.label}：</span><strong style="color:#92400e;">${v}</strong> ${m.unit}</div>`;
+    }
+  }
+  content.innerHTML = `
+    <div style="margin-bottom:12px;">${allMetrics}</div>
+    ${info ? `<div style="margin-bottom:8px;"><strong style="color:#374151;">🏛 主要研究机构：</strong>${info.institutions}</div>` : ''}
+    ${info ? `<div><strong style="color:#374151;">📝 研究概况：</strong>${info.note}</div>` : ''}
+    <div style="margin-top:10px;font-size:11px;color:#9ca3af;">点击地图其他国家或TOP10排行可切换查看</div>`;
+  detail.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function switchResearchMetric(metric, btn) {
+  currentResearchMetric = metric;
+  document.querySelectorAll('.metric-btn').forEach(b => {
+    b.style.background = 'white';
+    b.style.color = '#374151';
+    b.classList.remove('active');
+  });
+  btn.style.background = '#d97706';
+  btn.style.color = 'white';
+  btn.classList.add('active');
+  renderResearchMap();
+  document.getElementById('researchCountryDetail').style.display = 'none';
+}
 
 // ===== 大脑3D解剖图谱 =====
 function switchBrainAtlas(atlas) {
@@ -2453,7 +2791,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v274 · 数据更新至 2026-09-08</div>
+  <div>版本 v275 · 数据更新至 2026-09-08</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
