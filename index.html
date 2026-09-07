@@ -1133,6 +1133,13 @@ window.addEventListener('unhandledrejection', function(e) {
       <p>KEGG AD总通路(44热点)+TNF炎症通路(48热点)可交互分子 + CST Aβ/Tau完整通路图(点击跳转官网)</p>
       <div class="mod-count">20关键靶点 · 4通路图</div>
     </div>
+    <div class="module-card" onclick="navigate('brain3d')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-icon" style="background:#ede9fe;">🧠</div>
+      <h3>大脑3D解剖图谱</h3>
+      <p>交互式3D人脑解剖图谱，JHU白质图谱189个脑区，支持旋转缩放、爆炸视图、区域高亮</p>
+      <div class="mod-count">189 脑区 · 3D交互 · 专业来源</div>
+    </div>
   </div>
 </div>
 
@@ -1995,6 +2002,39 @@ render();
     <div id="moleculeModalOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;" onclick="closeMoleculeModal()"></div>
   </div>
 
+  <!-- 大脑3D解剖图谱 -->
+  <div id="page-brain3d" class="page" style="padding:0;">
+    <div style="background:linear-gradient(135deg,#4c1d95,#6d28d9);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+      <h2 style="margin:0;font-size:20px;">🧠 大脑3D解剖图谱</h2>
+      <span style="font-size:13px;opacity:0.8;">JHU白质纤维束图谱 · 189个脑区 · 交互式3D可视化</span>
+    </div>
+    <div style="padding:16px 24px;background:#f8fafc;">
+      <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;align-items:center;">
+        <span style="font-size:13px;color:#475569;font-weight:600;">图谱选择：</span>
+        <button onclick="switchBrainAtlas('jhu')" id="atlas-jhu-btn" style="padding:6px 14px;border-radius:6px;border:1px solid #cbd5e1;background:#6d28d9;color:white;cursor:pointer;font-size:13px;">JHU白质图谱</button>
+        <button onclick="switchBrainAtlas('aal')" id="atlas-aal-btn" style="padding:6px 14px;border-radius:6px;border:1px solid #cbd5e1;background:white;cursor:pointer;font-size:13px;">AAL脑区图谱</button>
+        <div style="flex:1;"></div>
+        <a href="https://github.com/rnorlund/brainWhiz" target="_blank" style="font-size:12px;color:#6d28d9;text-decoration:none;">brainWhiz 开源项目 ↗</a>
+      </div>
+      <div style="position:relative;width:100%;height:calc(100vh - 220px);overflow:hidden;background:#0f172a;border-radius:12px;border:1px solid #e2e8f0;">
+        <div id="brain3dLoading" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#0f172a;z-index:10;color:white;">
+          <div style="width:48px;height:48px;border:4px solid rgba(255,255,255,0.2);border-top-color:#a78bfa;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px;"></div>
+          <div style="font-size:14px;opacity:0.8;">正在加载3D脑图谱模型...</div>
+          <div style="font-size:12px;opacity:0.5;margin-top:8px;">首次加载约需10-30秒，包含189个脑区模型</div>
+        </div>
+        <iframe id="brain3dFrame" src="https://rnorlund.github.io/brainWhiz/index.html?embed=1&atlas=jhu" style="width:100%;height:100%;border:none;display:block;" onload="document.getElementById('brain3dLoading').style.display='none'" allow="fullscreen"></iframe>
+      </div>
+      <div style="margin-top:12px;padding:12px 16px;background:#f1f5f9;border-radius:8px;font-size:12px;color:#64748b;line-height:1.8;">
+        <strong style="color:#475569;">操作说明：</strong>鼠标拖拽旋转 · 滚轮缩放 · 右键平移 · 点击脑区查看名称 · 支持爆炸视图分离脑区<br>
+        <strong style="color:#475569;">数据来源：</strong>Johns Hopkins University (JHU) 白质纤维束图谱 · 基于MNI标准空间 ·
+        <a href="https://www.nitrc.org/projects/jhudtiatlases" target="_blank" style="color:#6d28d9;">NITRC官方下载</a> ·
+        <a href="https://github.com/rnorlund/brainWhiz" target="_blank" style="color:#6d28d9;">brainWhiz (MIT协议)</a><br>
+        <strong style="color:#475569;">学术引用：</strong>Mori S, et al. Stereotaxic white matter atlas based on diffusion tensor imaging. NeuroImage. 2005; Wiley.
+      </div>
+    </div>
+  </div>
+
 <!-- 企业信息库 -->
 
 </div>
@@ -2060,6 +2100,27 @@ navigate = function(page) {
     setTimeout(initPathway, 100);
   }
 };
+
+// ===== 大脑3D解剖图谱 =====
+function switchBrainAtlas(atlas) {
+  var frame = document.getElementById('brain3dFrame');
+  var loading = document.getElementById('brain3dLoading');
+  if (frame && loading) {
+    loading.style.display = 'flex';
+    frame.src = 'https://rnorlund.github.io/brainWhiz/index.html?embed=1&atlas=' + atlas;
+    setTimeout(function() { var ld = document.getElementById('brain3dLoading'); if (ld) ld.style.display = 'none'; }, 45000);
+  }
+  // Update button styles
+  document.querySelectorAll('[id^="atlas-"]').forEach(function(btn) {
+    btn.style.background = 'white';
+    btn.style.color = '#334155';
+  });
+  var activeBtn = document.getElementById('atlas-' + atlas + '-btn');
+  if (activeBtn) {
+    activeBtn.style.background = '#6d28d9';
+    activeBtn.style.color = 'white';
+  }
+}
 
 
 let dashboardInit = false;
@@ -2379,7 +2440,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v271 · 数据更新至 2026-09-07</div>
+  <div>版本 v272 · 数据更新至 2026-09-08</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
