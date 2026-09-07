@@ -1106,11 +1106,11 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-count">5 量表 + 6 互动游戏</div>
     </div>
     <div class="module-card" onclick="navigate('sitemap')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-03</span>
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
       <div class="mod-icon" style="background:#cffafe;">🗺️</div>
       <h3>常用网站地图</h3>
-      <p>学术数据库、监管机构、临床试验、患者组织、专利检索、AD专门数据库、药物数据库等精选导航</p>
-      <div class="mod-count">8 大类网站导航</div>
+      <p>学术数据库、监管机构、临床试验、患者组织、专利检索、AD专门数据库、影像数据库、照护者资源、药物数据库等精选导航</p>
+      <div class="mod-count">10大类 · 52个网站</div>
     </div>
     <div class="module-card" onclick="navigate('epidemiology')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-06</span>
@@ -1958,6 +1958,61 @@ render();
       <div class="sm-desc">NIA AD遗传学数据存储，GWAS、WGS、家族性AD遗传学数据共享平台</div>
       <div class="sm-tag" style="background:#dbeafe;color:#1e40af;">AD专门数据库</div>
     </a>
+    <!-- 影像数据库 -->
+    <a href="https://www.oasis-brains.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#e0e7ff;">🧠</div>
+      <div class="sm-name">OASIS</div>
+      <div class="sm-desc">开放获取脑影像系列研究，OASIS-1/2/3/4，含MRI/PET/临床数据，1098+受试者</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
+    <a href="https://aibl.csiro.au/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dcfce7;">🦘</div>
+      <div class="sm-name">AIBL</div>
+      <div class="sm-desc">澳大利亚影像、生物标志物与生活方式研究，1112+样本，纵向随访队列</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
+    <a href="https://naccdata.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fef3c7;">📊</div>
+      <div class="sm-name">NACC</div>
+      <div class="sm-desc">美国国家AD协调中心，整合30+AD中心统一数据集，临床+神经病理+影像</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
+    <a href="https://www.ukbiobank.ac.uk/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fee2e2;">🇬🇧</div>
+      <div class="sm-name">UK Biobank</div>
+      <div class="sm-desc">英国生物银行，50万人深度表型+脑影像+基因组数据，含10万+脑MRI</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
+    <a href="https://dian.wustl.edu/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fce7f3;">🧬</div>
+      <div class="sm-name">DIAN</div>
+      <div class="sm-desc">显性遗传性AD网络，家族性AD突变携带者纵向队列，影像+生物标志物+临床</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
+    <a href="https://openneuro.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#d1fae5;">📂</div>
+      <div class="sm-name">OpenNeuro</div>
+      <div class="sm-desc">开放神经影像数据共享平台，数千个公开数据集，支持BIDS格式直接下载</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
+    <a href="https://neurovault.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#ede9fe;">🗺️</div>
+      <div class="sm-name">NeuroVault</div>
+      <div class="sm-desc">脑影像统计图谱共享库，可上传/下载脑图谱，支持空间变换和可视化</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
+    <a href="https://www.humanconnectome.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fef3c7;">🔗</div>
+      <div class="sm-name">HCP</div>
+      <div class="sm-desc">人类连接组计划，1200+受试者多模态脑连接数据，结构+功能+弥散MRI</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
+    <a href="https://tadpole.grand-challenge.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fce7f3;">🏆</div>
+      <div class="sm-name">TADPOLE</div>
+      <div class="sm-desc">AD预测挑战赛数据集，基于ADNI的认知转换预测标准数据集和评估框架</div>
+      <div class="sm-tag" style="background:#e0e7ff;color:#4338ca;">影像数据库</div>
+    </a>
     <!-- 药物数据库 -->
     <a href="https://go.drugbank.com/" target="_blank" class="sitemap-card">
       <div class="sm-icon" style="background:#fef3c7;">💊</div>
@@ -1977,6 +2032,61 @@ render();
       <div class="sm-name">中国AD协会 (ADCA)</div>
       <div class="sm-desc">中国阿尔茨海默病协会，国内最大AD患者组织，科普、义诊、家属支持</div>
       <div class="sm-tag" style="background:#fef9c3;color:#ca8a04;">患者组织 · 国内</div>
+    </a>
+    <!-- 照护者资源中心 -->
+    <a href="https://www.nia.nih.gov/toolkits/caregiving" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#d1fae5;">📚</div>
+      <div class="sm-name">NIA照护工具包</div>
+      <div class="sm-desc">美国国立老化研究所官方照护者资源工具包，基于循证医学的照护指南和视频</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源</div>
+    </a>
+    <a href="https://www.caregiver.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fce7f3;">🤝</div>
+      <div class="sm-name">家庭照护者联盟</div>
+      <div class="sm-desc">Family Caregiver Alliance，美国家庭照护者支持组织，提供教育、咨询、喘息服务</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源</div>
+    </a>
+    <a href="https://eldercare.acl.gov/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dbeafe;">📍</div>
+      <div class="sm-name">老年照护定位器</div>
+      <div class="sm-desc">Eldercare Locator，美国政府官方老年服务定位工具，热线800-677-1116</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源</div>
+    </a>
+    <a href="https://www.alzfdn.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fee2e2;">💛</div>
+      <div class="sm-name">美国AD基金会</div>
+      <div class="sm-desc">Alzheimer's Foundation of America，24/7热线866-232-8484，照护者培训和支持</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源</div>
+    </a>
+    <a href="http://www.caad.org.cn/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fef3c7;">🇨🇳</div>
+      <div class="sm-name">中国AD防治协会</div>
+      <div class="sm-desc">CAAD，中国唯一AD国家一级科技法人团体，8个专业分会，含认知康复和照护分会</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源 · 国内</div>
+    </a>
+    <a href="https://www.adc.org.cn/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fef3c7;">📖</div>
+      <div class="sm-name">中国ADC分会</div>
+      <div class="sm-desc">中国老年保健协会阿尔茨海默病分会，发布AD防治指导手册和实用照护手册</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源 · 国内</div>
+    </a>
+    <a href="http://www.nhc.gov.cn/lljks/new_index.shtml" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dbeafe;">🏛️</div>
+      <div class="sm-name">国家卫健委老龄司</div>
+      <div class="sm-desc">国家卫生健康委老龄健康司，发布痴呆防治政策、记忆门诊建设、照护服务规范</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源 · 国内</div>
+    </a>
+    <a href="https://www.dementia.org.au/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dcfce7;">🇦🇺</div>
+      <div class="sm-name">澳大利亚痴呆协会</div>
+      <div class="sm-desc">Dementia Australia，全国痴呆支持服务，照护者教育、咨询、社区支持项目</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源</div>
+    </a>
+    <a href="https://alzheimer.ca/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fee2e2;">🍁</div>
+      <div class="sm-name">加拿大AD协会</div>
+      <div class="sm-desc">Alzheimer Society of Canada，全国性AD公益组织，照护者支持、教育、倡导</div>
+      <div class="sm-tag" style="background:#d1fae5;color:#047857;">照护者资源</div>
     </a>
     <!-- 临床试验 -->
     <a href="https://www.clinicaltrialsregister.eu/" target="_blank" class="sitemap-card">
@@ -3112,7 +3222,7 @@ window.buildSearchIndex = function() {
     { name: '疾病知识库', desc: '双IMA知识库', icon: '📚', page: 'knowledge' },
     { name: '药物研发管线', desc: '601药物', icon: '💊', page: 'pipeline' },
     { name: '认知筛查小助手', desc: '5量表+6游戏', icon: '🧠', page: 'scales' },
-    { name: '常用网站地图', desc: '34个网站', icon: '🌐', page: 'sitemap' },
+    { name: '常用网站地图', desc: '52个网站', icon: '🌐', page: 'sitemap' },
     { name: '认知中心地图', desc: '全国记忆门诊', icon: '🗺️', page: 'centers' }
   ];
   for (var i = 0; i < modules.length; i++) {
