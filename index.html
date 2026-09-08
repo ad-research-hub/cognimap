@@ -770,6 +770,74 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
   .epi-title { font-size: 20px; }
 }
 
+
+.gene-stats-bar{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.gene-stat-item{flex:1;min-width:140px;background:var(--card);border-radius:12px;padding:16px;text-align:center;border:1px solid var(--border)}
+.gene-stat-num{font-size:28px;font-weight:700;color:var(--primary);display:block}
+.gene-stat-label{font-size:12px;color:#94a3b8;margin-top:4px}
+.gene-filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.gene-filter-btn{padding:8px 16px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);cursor:pointer;font-size:13px;transition:all .2s}
+.gene-filter-btn.active{background:var(--primary);color:white;border-color:var(--primary)}
+.gene-filter-btn:hover{border-color:var(--primary)}
+.gene-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.gene-card{background:var(--card);border-radius:12px;padding:16px;border:1px solid var(--border);transition:all .2s}
+.gene-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.gene-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.gene-name{font-size:18px;font-weight:700;color:var(--primary)}
+.gene-badge{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.gene-chr{font-size:11px;color:#94a3b8;margin-bottom:4px}
+.gene-fullname{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px}
+.gene-desc{font-size:12px;color:#64748b;line-height:1.5;margin-bottom:12px}
+.gene-links{font-size:11px;border-top:1px solid var(--border);padding-top:8px}
+.gene-table-wrap{overflow-x:auto;background:var(--card);border-radius:12px;border:1px solid var(--border)}
+.gene-table{width:100%;border-collapse:collapse;font-size:13px}
+.gene-table th{background:var(--primary);color:white;padding:10px 8px;text-align:left;font-size:12px;position:sticky;top:0}
+.gene-table td{padding:8px;border-bottom:1px solid var(--border);vertical-align:top}
+.gene-table tr:hover{background:rgba(59,130,246,.05)}
+
+/* PET Radiotracer */
+.pet-stats-bar{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.pet-stat-item{flex:1;min-width:120px;background:var(--card);border-radius:12px;padding:16px;text-align:center;border:1px solid var(--border)}
+.pet-stat-num{font-size:28px;font-weight:700;color:var(--primary);display:block}
+.pet-stat-label{font-size:12px;color:#94a3b8;margin-top:4px}
+.pet-filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.pet-filter-btn{padding:8px 16px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);cursor:pointer;font-size:13px;transition:all .2s}
+.pet-filter-btn.active{background:var(--primary);color:white;border-color:var(--primary)}
+.pet-filter-btn:hover{border-color:var(--primary)}
+.pet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.pet-card{background:var(--card);border-radius:12px;padding:16px;border:1px solid var(--border);transition:all .2s}
+.pet-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.pet-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.pet-name{font-size:16px;font-weight:700;color:var(--primary)}
+.pet-badge{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
+.pet-target{font-size:12px;color:#94a3b8;margin-bottom:4px}
+.pet-fullname{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px}
+.pet-desc{font-size:12px;color:#64748b;line-height:1.5;margin-bottom:12px}
+.pet-meta{display:flex;gap:12px;font-size:11px;color:#94a3b8;border-top:1px solid var(--border);padding-top:8px}
+.pet-meta span{flex:1}
+
+/* AD Model Database */
+.model-stats-bar{display:flex;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.model-stat-item{flex:1;min-width:120px;background:var(--card);border-radius:12px;padding:16px;text-align:center;border:1px solid var(--border)}
+.model-stat-num{font-size:28px;font-weight:700;color:var(--primary);display:block}
+.model-stat-label{font-size:12px;color:#94a3b8;margin-top:4px}
+.model-tabs{display:flex;gap:8px;margin-bottom:16px;border-bottom:2px solid var(--border);padding-bottom:0}
+.model-tab{padding:10px 20px;border:none;background:none;color:#94a3b8;cursor:pointer;font-size:14px;font-weight:600;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s}
+.model-tab.active{color:var(--primary);border-bottom-color:var(--primary)}
+.model-tab:hover{color:var(--primary)}
+.model-content{display:none}
+.model-content.active{display:block}
+.model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.model-card{background:var(--card);border-radius:12px;padding:16px;border:1px solid var(--border);transition:all .2s}
+.model-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.model-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.model-name{font-size:16px;font-weight:700;color:var(--primary)}
+.model-type{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600}
+.model-mutation{font-size:12px;color:#94a3b8;margin-bottom:4px;font-family:monospace}
+.model-desc{font-size:12px;color:#64748b;line-height:1.5;margin-bottom:8px}
+.model-pathology{font-size:11px;color:#64748b;background:rgba(59,130,246,.05);padding:6px 8px;border-radius:6px;margin-bottom:8px}
+.model-source{font-size:11px;color:#94a3b8;border-top:1px solid var(--border);padding-top:8px}
+
 </style>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
@@ -1110,7 +1178,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-icon" style="background:#cffafe;">🗺️</div>
       <h3>常用网站地图</h3>
       <p>学术数据库、监管机构、临床试验、患者组织、专利检索、AD专门数据库、影像数据库、照护者资源、药物数据库等精选导航</p>
-      <div class="mod-count">10大类 · 52个网站</div>
+      <div class="mod-count">10大类 · 60个网站</div>
     </div>
     <div class="module-card" onclick="navigate('epidemiology')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-06</span>
@@ -1155,6 +1223,30 @@ window.addEventListener('unhandledrejection', function(e) {
       <h3>全球AD研究热力图</h3>
       <p>交互式世界地图展示各国AD研究产出，可切换论文产出/临床试验/企业数量/标志物研究指标，含TOP10排行榜</p>
       <div class="mod-count">30+国家 · 4项指标</div>
+    </div>
+    <!-- AD基因数据库 -->
+    <div class="module-card" onclick="navigate('genes')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-icon" style="background:#dbeafe;">🧬</div>
+      <h3>AD基因数据库</h3>
+      <p>3个常染色体显性致病基因、20个高置信度因果基因、76个GWAS风险位点，链接NCBI/OMIM/ClinVar/GWAS Catalog</p>
+      <div class="mod-count">99个基因 · 权威来源</div>
+    </div>
+    <!-- PET示踪剂数据库 -->
+    <div class="module-card" onclick="navigate('pet')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-icon" style="background:#fce7f3;">📡</div>
+      <h3>PET示踪剂数据库</h3>
+      <p>Aβ淀粉样蛋白、Tau蛋白、脑代谢、神经炎症、突触等5大类18种PET分子显像示踪剂，含4种FDA获批产品</p>
+      <div class="mod-count">18种示踪剂 · 5大类</div>
+    </div>
+    <!-- AD模型数据库 -->
+    <div class="module-card" onclick="navigate('models')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-icon" style="background:#dcfce7;">🐭</div>
+      <h3>AD模型数据库</h3>
+      <p>16种小鼠模型、6种其他动物模型、8种细胞模型、5种类器官模型，含基因型、病理表型和应用场景</p>
+      <div class="mod-count">35种模型 · 4大类</div>
     </div>
   </div>
 </div>
@@ -2095,6 +2187,172 @@ render();
       <div class="sm-desc">欧盟临床试验注册库，补充欧洲地区AD临床试验信息</div>
       <div class="sm-tag" style="background:#dbeafe;color:#1e40af;">临床试验 · 欧盟</div>
     </a>
+    <!-- 生物样本库/脑库 -->
+    <a href="https://neurobiobank.nih.gov/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fce7f3;">🧫</div>
+      <div class="sm-name">NIH NeuroBioBank</div>
+      <div class="sm-desc">美国国立卫生研究院神经生物样本库网络，含哈佛/Mt.Sinai/马里兰/迈阿密/UCLA 6个脑库</div>
+      <div class="sm-tag" style="background:#fce7f3;color:#be185d;">生物样本库</div>
+    </a>
+    <a href="https://hbtrc.mclean.harvard.edu/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dbeafe;">🎓</div>
+      <div class="sm-name">哈佛脑组织资源中心</div>
+      <div class="sm-desc">Harvard Brain Tissue Resource Center (HBTRC)，全球最大脑库之一，AD/PD/ALS等神经疾病脑组织</div>
+      <div class="sm-tag" style="background:#fce7f3;color:#be185d;">生物样本库</div>
+    </a>
+    <a href="https://www.brainbank.nl/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dcfce7;">🇳🇱</div>
+      <div class="sm-name">荷兰脑库</div>
+      <div class="sm-desc">Netherlands Brain Bank (NBB)，阿姆斯特丹，全球知名脑库，AD/PD/FTD/MS等高质量脑组织+临床档案</div>
+      <div class="sm-tag" style="background:#fce7f3;color:#be185d;">生物样本库</div>
+    </a>
+    <a href="https://www.brainsfordementiaresearch.org.uk/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#dbeafe;">🇬🇧</div>
+      <div class="sm-name">英国痴呆脑捐赠计划</div>
+      <div class="sm-desc">Brains for Dementia Research (BDR)，英国6大痴呆研究中心联合脑库网络，含KCL/牛津/布里斯托等</div>
+      <div class="sm-tag" style="background:#fce7f3;color:#be185d;">生物样本库</div>
+    </a>
+    <a href="http://www.cbbcnet.cn/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fef3c7;">🇨🇳</div>
+      <div class="sm-name">中国人脑库中心</div>
+      <div class="sm-desc">Chinese Brain Bank Center (CBBC)，武汉，已收集1950+人脑，含各年龄段对照和多种神经疾病脑组织</div>
+      <div class="sm-tag" style="background:#fce7f3;color:#be185d;">生物样本库 · 国内</div>
+    </a>
+    <a href="https://www.bannerhealth.com/services/brain-institute/centers/brain-and-body-donation-program" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#fee2e2;">🏥</div>
+      <div class="sm-name">Banner脑捐赠项目</div>
+      <div class="sm-desc">Banner Sun Health Research Institute Brain Bank，美国亚利桑那，AD研究领域知名脑库，长期随访队列</div>
+      <div class="sm-tag" style="background:#fce7f3;color:#be185d;">生物样本库</div>
+    </a>
+    <a href="https://braindonorproject.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#e0e7ff;">💝</div>
+      <div class="sm-name">脑捐赠项目</div>
+      <div class="sm-desc">Brain Donor Project，连接潜在捐赠者与NIH NeuroBioBank网络脑库的公益平台，简化脑捐赠流程</div>
+      <div class="sm-tag" style="background:#fce7f3;color:#be185d;">生物样本库</div>
+    </a>
+    <a href="https://www.ndri.org/" target="_blank" class="sitemap-card">
+      <div class="sm-icon" style="background:#d1fae5;">📦</div>
+      <div class="sm-name">NDRI</div>
+      <div class="sm-desc">National Disease Research Interchange，美国非营利组织，全球采购和分发人类生物样本，含AD脑组织</div>
+      <div class="sm-tag" style="background:#fce7f3;color:#be185d;">生物样本库</div>
+    </a>
+  </div>
+</div>
+
+
+<!-- ============ Page: AD Gene Database ============ -->
+<div class="page" id="page-genes">
+  <div class="page-header">
+    <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
+    <h2 class="page-title">🧬 AD基因数据库</h2>
+    <p class="page-subtitle">收录AD致病基因、高置信度因果基因及GWAS风险位点，数据来源ADSP基因验证委员会</p>
+  </div>
+  
+  <div class="gene-stats-bar">
+    <div class="gene-stat-item"><span class="gene-stat-num">3</span><span class="gene-stat-label">常染色体显性致病基因</span></div>
+    <div class="gene-stat-item"><span class="gene-stat-num">20</span><span class="gene-stat-label">高置信度因果基因</span></div>
+    <div class="gene-stat-item"><span class="gene-stat-num">76</span><span class="gene-stat-label">GWAS风险位点</span></div>
+    <div class="gene-stat-item"><span class="gene-stat-num">99</span><span class="gene-stat-label">总基因数</span></div>
+  </div>
+  
+  <div class="gene-filter-bar">
+    <button class="gene-filter-btn active" onclick="filterGenes('all', this)">全部</button>
+    <button class="gene-filter-btn" onclick="filterGenes('pathogenic', this)">致病基因</button>
+    <button class="gene-filter-btn" onclick="filterGenes('causal', this)">高置信度因果基因</button>
+    <button class="gene-filter-btn" onclick="filterGenes('risk', this)">GWAS风险位点</button>
+    <input type="text" id="geneSearch" placeholder="搜索基因名称/功能/染色体..." oninput="searchGenes(this.value)" style="margin-left:auto;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--text);width:250px;">
+  </div>
+  
+  <!-- Pathogenic genes section -->
+  <div class="gene-section" id="pathogenic-section">
+    <h3 style="color:var(--primary);margin:24px 0 12px;border-left:4px solid #ef4444;padding-left:12px;">🔴 常染色体显性致病基因（早发型AD）</h3>
+    <div class="gene-grid" id="pathogenic-grid"></div>
+  </div>
+  
+  <!-- Causal genes section -->
+  <div class="gene-section" id="causal-section">
+    <h3 style="color:var(--primary);margin:24px 0 12px;border-left:4px solid #f59e0b;padding-left:12px;">🟡 高置信度因果/保护基因（ADSP GVC认证）</h3>
+    <div class="gene-grid" id="causal-grid"></div>
+  </div>
+  
+  <!-- Risk loci section -->
+  <div class="gene-section" id="risk-section">
+    <h3 style="color:var(--primary);margin:24px 0 12px;border-left:4px solid #3b82f6;padding-left:12px;">🔵 GWAS风险位点（Bellenguez et al. 2022, Nat Genet, 75个位点）</h3>
+    <div class="gene-table-wrap">
+      <table class="gene-table" id="risk-table">
+        <thead><tr><th>#</th><th>基因</th><th>染色体</th><th>位点</th><th>Lead SNP</th><th>功能描述</th><th>权威数据库</th></tr></thead>
+        <tbody id="risk-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div style="margin-top:24px;padding:16px;background:var(--card);border-radius:12px;border:1px solid var(--border);font-size:13px;color:#94a3b8;">
+    <strong>数据来源：</strong>ADSP Gene Verification Committee (adsp.niagads.org/gvc-top-hits-list) · Bellenguez C et al. Nat Genet 2022;54:412-436 · Kunkle BW et al. Nat Genet 2019;51:414-430 · NCBI Gene · OMIM · ClinVar · GWAS Catalog
+  </div>
+</div>
+
+
+<!-- ============ Page: PET Radiotracer Database ============ -->
+<div class="page" id="page-pet">
+  <div class="page-header">
+    <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
+    <h2 class="page-title">📡 PET示踪剂数据库</h2>
+    <p class="page-subtitle">收录AD研究中各类PET分子显像示踪剂，含淀粉样蛋白、Tau、代谢、炎症、突触等靶点</p>
+  </div>
+  
+  <div class="pet-stats-bar">
+    <div class="pet-stat-item"><span class="pet-stat-num">4</span><span class="pet-stat-label">FDA获批示踪剂</span></div>
+    <div class="pet-stat-item"><span class="pet-stat-num">18</span><span class="pet-stat-label">收录示踪剂总数</span></div>
+    <div class="pet-stat-item"><span class="pet-stat-num">5</span><span class="pet-stat-label">靶点类别</span></div>
+    <div class="pet-stat-item"><span class="pet-stat-num">2</span><span class="pet-stat-label">同位素类型</span></div>
+  </div>
+  
+  <div class="pet-filter-bar">
+    <button class="pet-filter-btn active" onclick="filterPET('all', this)">全部</button>
+    <button class="pet-filter-btn" onclick="filterPET('amyloid', this)">Aβ淀粉样蛋白</button>
+    <button class="pet-filter-btn" onclick="filterPET('tau', this)">Tau蛋白</button>
+    <button class="pet-filter-btn" onclick="filterPET('metabolism', this)">脑代谢</button>
+    <button class="pet-filter-btn" onclick="filterPET('inflammation', this)">神经炎症</button>
+    <button class="pet-filter-btn" onclick="filterPET('synapse', this)">突触</button>
+  </div>
+  
+  <div class="pet-grid" id="pet-grid"></div>
+  
+  <div style="margin-top:24px;padding:16px;background:var(--card);border-radius:12px;border:1px solid var(--border);font-size:13px;color:#94a3b8;">
+    <strong>数据来源：</strong>Alzheimer's Association & SNMMI Appropriate Use Criteria 2025 · NCBI Bookshelf NBK605104 · 各示踪剂FDA标签 · 文献综述
+  </div>
+</div>
+
+
+<!-- ============ Page: AD Model Database ============ -->
+<div class="page" id="page-models">
+  <div class="page-header">
+    <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
+    <h2 class="page-title">🐭 AD模型数据库</h2>
+    <p class="page-subtitle">收录AD研究中常用的动物模型、细胞模型和类器官模型，含基因型、病理表型和应用场景</p>
+  </div>
+  
+  <div class="model-stats-bar">
+    <div class="model-stat-item"><span class="model-stat-num">16</span><span class="model-stat-label">小鼠模型</span></div>
+    <div class="model-stat-item"><span class="model-stat-num">6</span><span class="model-stat-label">其他动物模型</span></div>
+    <div class="model-stat-item"><span class="model-stat-num">8</span><span class="model-stat-label">细胞模型</span></div>
+    <div class="model-stat-item"><span class="model-stat-num">5</span><span class="model-stat-label">类器官模型</span></div>
+  </div>
+  
+  <div class="model-tabs">
+    <button class="model-tab active" onclick="switchModelTab('mouse', this)">🐭 小鼠模型</button>
+    <button class="model-tab" onclick="switchModelTab('other', this)">🐒 其他动物</button>
+    <button class="model-tab" onclick="switchModelTab('cell', this)">🧫 细胞模型</button>
+    <button class="model-tab" onclick="switchModelTab('organoid', this)">🧠 类器官模型</button>
+  </div>
+  
+  <div class="model-content active" id="model-mouse"><div class="model-grid" id="mouse-grid"></div></div>
+  <div class="model-content" id="model-other"><div class="model-grid" id="other-grid"></div></div>
+  <div class="model-content" id="model-cell"><div class="model-grid" id="cell-grid"></div></div>
+  <div class="model-content" id="model-organoid"><div class="model-grid" id="organoid-grid"></div></div>
+  
+  <div style="margin-top:24px;padding:16px;background:var(--card);border-radius:12px;border:1px solid var(--border);font-size:13px;color:#94a3b8;">
+    <strong>数据来源：</strong>Alzforum Research Models数据库(170+模型) · Jackson Laboratory · MODEL-AD联盟 · 文献综述(LaFerla, Oddo, Saito等)
   </div>
 </div>
 
@@ -2305,6 +2563,9 @@ navigate = function(page) {
   if (page === 'researchmap') {
     setTimeout(initResearchMap, 100);
   }
+    if (page === 'genes') { initGenePage(); }
+    if (page === 'pet') { initPETPage(); }
+    if (page === 'models') { initModelPage(); }
 };
 
 
@@ -2901,7 +3162,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v275 · 数据更新至 2026-09-08</div>
+  <div>版本 v276 · 数据更新至 2026-09-08</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
@@ -3222,8 +3483,11 @@ window.buildSearchIndex = function() {
     { name: '疾病知识库', desc: '双IMA知识库', icon: '📚', page: 'knowledge' },
     { name: '药物研发管线', desc: '601药物', icon: '💊', page: 'pipeline' },
     { name: '认知筛查小助手', desc: '5量表+6游戏', icon: '🧠', page: 'scales' },
-    { name: '常用网站地图', desc: '52个网站', icon: '🌐', page: 'sitemap' },
-    { name: '认知中心地图', desc: '全国记忆门诊', icon: '🗺️', page: 'centers' }
+    { name: '常用网站地图', desc: '60个网站', icon: '🌐', page: 'sitemap' },
+    { name: '认知中心地图', desc: '全国记忆门诊', icon: '🗺️', page: 'centers' },
+    { name: 'AD基因数据库', desc: '99个基因', icon: '🧬', page: 'genes' },
+    { name: 'PET示踪剂数据库', desc: '18种示踪剂', icon: '📡', page: 'pet' },
+    { name: 'AD模型数据库', desc: '35种模型', icon: '🐭', page: 'models' }
   ];
   for (var i = 0; i < modules.length; i++) {
     index.push({
@@ -5463,6 +5727,175 @@ function closeMoleculeModal() {
   document.getElementById('moleculeModal').style.display = 'none';
   document.getElementById('moleculeModalOverlay').style.display = 'none';
 }
+
+</script>
+<script>
+
+// AD Gene Database Data
+const PATHOGENIC_GENES = [('APP', 'chr21:25,880,550-26,171,128', '淀粉样前体蛋白', '50+致病突变, 瑞典/北极/印第安纳突变, 占EOFAD 10-15%, 发病40-50s'), ('PSEN1', 'chr14:73,136,417-73,223,691', '早老素1', '200+致病突变, 最常见EOFAD病因(20-70%), 发病40s-早期50s, 进展快6-7年'), ('PSEN2', 'chr1:226,870,184-226,927,726', '早老素2', '15+致病突变, 最罕见EOFAD病因, 发病较晚(50-60s), 进展较慢')];
+const CAUSAL_GENES = [('ABCA7', 'chr19', 'ATP结合盒转运蛋白A7', '脂质转运与APP加工', '风险', 'GVC'), ('ABI3', 'chr17', 'ABI家族成员3', '小胶质细胞迁移与吞噬', '风险', 'GVC'), ('APOE', 'chr19', '载脂蛋白E', '脂质代谢与Aβ清除, ε4最强风险因子, ε2保护', '风险/保护', 'GVC'), ('APP', 'chr21', '淀粉样前体蛋白', 'Aβ生成来源, 常染色体显性突变致病', '致病', 'GVC'), ('APBB3', 'chr5', '淀粉样β前体蛋白结合家族B成员3', 'APP相互作用蛋白', '风险', 'Novikova'), ('BIN1', 'chr2', '桥接整合因子1', '内吞作用与tau病理', '风险', 'GVC/Novikova'), ('EPHA1', 'chr7', 'Eph受体A1', '受体酪氨酸激酶与突触功能', '风险', 'GVC'), ('CASP7', 'chr10', '半胱天冬酶7', '细胞凋亡执行', '风险', 'GVC'), ('CR1', 'chr1', '补体受体1', '补体系统与小胶质细胞吞噬', '风险', 'GVC'), ('MS4A6A', 'chr11', '跨膜4结构域亚家族A成员6A', '膜蛋白与TREM2通路', '风险', 'Novikova'), ('PILRA', 'chr7', '成对免疫球蛋白样受体α', '免疫细胞信号', '风险', 'Novikova'), ('PLCG2', 'chr16', '磷脂酶Cγ2', '免疫细胞信号, P522R保护性变异', '风险/保护', 'GVC'), ('PSEN1', 'chr14', '早老素1', 'γ-分泌酶催化亚基, 最常见常染色体显性致病基因', '致病', 'GVC'), ('PSEN2', 'chr1', '早老素2', 'γ-分泌酶催化亚基, 罕见常染色体显性致病基因', '致病', 'GVC'), ('ADAM10', 'chr15', 'ADAM金属肽酶10', 'APP α-分泌酶, 抑制Aβ生成', '保护', 'GVC'), ('RIN3', 'chr14', 'Ras和Rab相互作用蛋白3', '囊泡运输与Ras信号', '风险', 'Novikova'), ('SORL1', 'chr11', '分拣蛋白相关受体1', 'APP内吞分选与Aβ生成', '风险', 'GVC'), ('SPI1', 'chr11', 'SPI1原癌基因(PU.1)', '髓系细胞转录因子, 小胶质细胞基因调控', '风险', 'GVC/Novikova'), ('TREM2', 'chr6', '髓系细胞触发受体2', '小胶质细胞功能, R47H显著增加风险', '风险', 'GVC'), ('PICALM', 'chr11', '磷脂酰肌醇结合网格蛋白装配蛋白', '内吞作用与tau病理', '风险', 'GVC')];
+const RISK_LOCI = [(1, 1, 'SORT1', 'rs141749679', '1q21.3', 'Sortilin 1, 脂蛋白代谢与Aβ清除'), (2, 1, 'CR1', 'rs679515', '1q32.2', '补体受体1, 补体系统与小胶质细胞吞噬'), (3, 2, 'ADAM17', 'rs72777026', '2p25.1', 'ADAM金属肽酶17, APP α-分泌酶剪切'), (4, 2, 'PRKD3', 'rs17020490', '2p23.2', '蛋白激酶D3, 细胞信号转导'), (5, 2, 'NCK2', 'rs143080277', '2q12.2', 'NCK衔接蛋白2, 细胞骨架与信号'), (6, 2, 'BIN1', 'rs6733839', '2q14.3', '桥接整合因子1, 内吞作用与tau病理, 仅次于APOE的强风险位点'), (7, 2, 'WDR12', 'rs139643391', '2q33.1', 'WD重复域12, 核糖体生物发生'), (8, 2, 'INPP5D', 'rs10933431', '2q37.1', '肌醇多磷酸-5-磷酸酶D, 小胶质细胞信号(SHIP1)'), (9, 3, 'MME', 'rs16824536', '3q25.2', '膜金属肽酶内切酶, Aβ降解酶(脑啡肽酶)'), (10, 4, 'IDUA', 'rs3822030', '4p16.3', '艾杜糖醛酸酶, 溶酶体酶与糖胺聚糖代谢'), (11, 4, 'CLNK', 'rs6846529', '4p16.1', '细胞因子介导的免疫调节因子, 免疫细胞信号'), (12, 4, 'RHOH', 'rs2245466', '4p13', 'Ras同源家族成员H, 造血细胞信号'), (13, 5, 'ANKH', 'rs112403360', '5p15.2', 'ANKH无机焦磷酸盐转运调节因子, 矿化代谢'), (14, 5, 'COX7C', 'rs62374257', '5q14.3', '细胞色素c氧化酶亚基7c, 线粒体呼吸链'), (15, 5, 'TNIP1', 'rs871269', '5q33.1', 'TNFAIP3相互作用蛋白1, NF-κB信号负调控'), (16, 5, 'RASGEF1C', 'rs113706587', '5q35.2', 'RasGEF结构域家族成员1C, Ras信号'), (17, 6, 'HLA-DQA1', 'rs6605556', '6p21.32', 'MHC II类分子DQα1链, 免疫抗原呈递'), (18, 6, 'UNC5CL', 'rs10947943', '6p21.1', 'UNC5样受体, 轴突导向与细胞凋亡'), (19, 6, 'TREM2', 'rs143332484', '6p21.1', '髓系细胞触发受体2, 小胶质细胞功能, R47H突变显著增加AD风险'), (20, 6, 'TREML2', 'rs60755019', '6p21.1', 'TREM样转录本2, 髓系细胞受体'), (21, 6, 'CD2AP', 'rs7767350', '6p12.3', 'CD2相关蛋白, 细胞骨架与内吞, 足细胞功能'), (22, 6, 'HS3ST5', 'rs785129', '6q15', '硫酸乙酰肝素3-O-磺基转移酶5, 蛋白聚糖修饰'), (23, 7, 'UMAD1', 'rs6943429', '7p22.3', 'UBA5样结构域蛋白1, 泛素化修饰'), (24, 7, 'ICA1', 'rs10952097', '7p22.1', '胰岛细胞自身抗原1, 免疫调节'), (25, 7, 'TMEM106B', 'rs13237518', '7p21.3', '跨膜蛋白106B, 溶酶体功能, FTLD风险基因'), (26, 7, 'JAZF1', 'rs1160871', '7p15.2', 'JAZF锌指蛋白1, 核受体共调节因子'), (27, 7, 'EPDR1', 'rs6966331', '7p14.1', '室管膜蛋白相关1, 细胞外基质'), (28, 7, 'SEC61G', 'rs76928645', '7p11.2', 'SEC61γ亚基, 内质网蛋白转位'), (29, 7, 'SPDYE3', 'rs7384878', '7q11.21', 'Speedy/RINGO细胞周期调节因子E3'), (30, 7, 'EPHA1', 'rs11771145', '7q34', 'Eph受体A1, 受体酪氨酸激酶, 突触功能'), (31, 8, 'CTSB', 'rs1065712', '8p23.1', '组织蛋白酶B, 溶酶体半胱氨酸蛋白酶, Aβ降解'), (32, 8, 'PTK2B', 'rs73223431', '8p21.1', '蛋白酪氨酸激酶2β, 细胞黏附与信号, 突触功能'), (33, 8, 'CLU', 'rs11787077', '8p21.1', '聚集素(ApoJ), 分子伴侣, Aβ聚集与清除, 第三强风险位点'), (34, 8, 'SHARPIN', 'rs34173062', '8q24.3', 'SHANK相关RH结构域互作蛋白, 泛素化与NF-κB信号'), (35, 9, 'ABCA1', 'rs1800978', '9q31.1', 'ATP结合盒转运蛋白A1, 胆固醇外流, APOE脂质化'), (36, 10, 'USP6NL', 'rs7912495', '10p13', 'USP6 N端样蛋白, GTP酶激活蛋白'), (37, 10, 'ANK3', 'rs7068231', '10q21.2', '锚蛋白G, 轴突起始段与朗飞结, 离子通道组织'), (38, 10, 'TSPAN14', 'rs6586028', '10q23.1', '四跨膜蛋白14, ADAM10成熟与运输'), (39, 10, 'BLNK', 'rs6584063', '10q23.2', 'B细胞连接蛋白, B细胞受体信号'), (40, 10, 'PLEKHA1', 'rs7908662', '10q26.3', '普列克底物蛋白同源结构域家族A成员1, 膜信号'), (41, 11, 'SPI1', 'rs10437655', '11p11.2', 'SPI1原癌基因(PU.1), 髓系细胞转录因子, 小胶质细胞基因调控'), (42, 11, 'MS4A4A', 'rs1582763', '11q12.2', '跨膜4结构域亚家族A成员4A, 膜蛋白, 与TREM2通路相关'), (43, 11, 'EED', 'rs3851179', '11q14.2', '胚胎外胚层发育蛋白, Polycomb抑制复合物2亚基, 表观遗传调控'), (44, 11, 'SORL1', 'rs11218343', '11q24.1', '分拣蛋白相关受体1, APP内吞分选与Aβ生成, 强风险基因'), (45, 12, 'TPCN1', 'rs6489896', '12q24.31', '双孔通道1, 溶酶体钙通道'), (46, 14, 'FERMT2', 'rs17125924', '14q22.1', 'FERM结构域含Kindlin-2, 细胞黏附与整合素信号'), (47, 14, 'SLC24A4', 'rs7401792', '14q32.12', '溶质载体家族24成员4, 钠/钾/钙交换体'), (48, 15, 'SPPL2A', 'rs8025980', '15q21.2', '信号肽肽酶样2A, 跨膜蛋白水解, TNFα加工'), (49, 15, 'MINDY2', 'rs602602', '15q23', 'MINDY去泛素化酶2, 泛素化调控'), (50, 15, 'APH1B', 'rs117618017', '15q24.1', 'Anterior pharynx defective 1B, γ-分泌酶复合物亚基'), (51, 15, 'SNX1', 'rs3848143', '15q24.2', '分选连接蛋白1, 内体分选与膜运输'), (52, 15, 'CTSH', 'rs12592898', '15q25.2', '组织蛋白酶H, 溶酶体半胱氨酸蛋白酶'), (53, 16, 'DOC2A', 'rs1140239', '16p11.2', '双C2结构域蛋白A, 突触囊泡释放'), (54, 16, 'BCKDK', 'rs889555', '16p11.2', '支链α-酮酸脱氢酶激酶, 氨基酸代谢'), (55, 16, 'IL34', 'rs4985556', '16q22.1', '白细胞介素34, 小胶质细胞存活与分化因子(CSF1R配体)'), (56, 16, 'MAF', 'rs450674', '16q23.2', 'MAF bZIP转录因子, 细胞分化与应激反应'), (57, 16, 'PLCG2', 'rs12446759', '16q23.3', '磷脂酶Cγ2, 免疫细胞信号, P522R保护性变异'), (58, 16, 'FOXF1', 'rs16941239', '16q24.1', '叉头框F1, 转录因子, 发育调控'), (59, 16, 'PRDM7', 'rs56407236', '16q24.2', 'PR结构域蛋白7, 组蛋白甲基转移酶'), (60, 17, 'WDR81', 'rs35048651', '17p13.3', 'WD重复域81, 自噬与内体运输'), (61, 17, 'SCIMP', 'rs7225151', '17p13.1', 'SLP65/CBLB衔接膜蛋白, 免疫受体信号'), (62, 17, 'MYO15A', 'rs2242595', '17p11.2', '肌球蛋白XV A, 细胞骨架运动蛋白'), (63, 17, 'GRN', 'rs5848', '17q21.31', '颗粒体蛋白前体, 溶酶体蛋白, FTLD致病基因, 小胶质细胞功能'), (64, 17, 'WNT3', 'rs199515', '17q21.32', 'Wnt家族成员3, Wnt信号通路, 神经发生'), (65, 17, 'ABI3', 'rs616338', '17q21.33', 'ABI家族成员3, 小胶质细胞迁移与吞噬'), (66, 17, 'TSPOAP1', 'rs2526377', '17q23.3', 'TSPO相关蛋白1, 线粒体功能'), (67, 17, 'ACE', 'rs4277405', '17q23.3', '血管紧张素转换酶, 肾素-血管紧张素系统, Aβ降解'), (68, 19, 'ABCA7', 'rs12151021', '19p13.3', 'ATP结合盒转运蛋白A7, 脂质转运, APP加工, 强风险基因'), (69, 19, 'KLF16', 'rs149080927', '19p13.12', 'Kruppel样因子16, 转录因子, 代谢调控'), (70, 19, 'SIGLEC11', 'rs9304690', '19q13.42', '唾液酸结合Ig样凝集素11, 小胶质细胞免疫调节'), (71, 19, 'LILRB2', 'rs587709', '19q13.42', '白细胞免疫球蛋白样受体B2, 免疫抑制受体, Aβ结合'), (72, 20, 'RBCK1', 'rs1358782', '20p13', 'RANBP2型和C3HC4型锌指蛋白1, 泛素化'), (73, 20, 'CASS4', 'rs6014724', '20q13.31', 'CASP相关结构域家族成员4, 细胞骨架与黏附'), (74, 20, 'SLC2A4RG', 'rs6742', '20q13.33', 'SLC2A4调控因子, 葡萄糖转运蛋白表达调控'), (75, 21, 'APP', 'rs2154481', '21q21.3', '淀粉样前体蛋白, Aβ来源, 常染色体显性致病基因'), (76, 21, 'ADAMTS1', 'rs2830489', '21q21.3', 'ADAMTS金属肽酶1, 细胞外基质重塑')];
+
+function getGeneLinks(gene) {
+  return `<a href="https://www.ncbi.nlm.nih.gov/gene/?term=${gene}" target="_blank" style="color:#3b82f6;text-decoration:none;margin-right:8px;">NCBI</a>
+    <a href="https://www.omim.org/search/?search=${gene}" target="_blank" style="color:#8b5cf6;text-decoration:none;margin-right:8px;">OMIM</a>
+    <a href="https://www.ncbi.nlm.nih.gov/clinvar/?term=${gene}" target="_blank" style="color:#10b981;text-decoration:none;margin-right:8px;">ClinVar</a>
+    <a href="https://www.ebi.ac.uk/gwas/search?query=${gene}" target="_blank" style="color:#f59e0b;text-decoration:none;">GWAS</a>`;
+}
+
+function renderPathogenicGenes() {
+  const grid = document.getElementById('pathogenic-grid');
+  if (!grid) return;
+  grid.innerHTML = PATHOGENIC_GENES.map(g => `
+    <div class="gene-card" style="border-left:4px solid #ef4444;">
+      <div class="gene-card-header">
+        <span class="gene-name">${g[0]}</span>
+        <span class="gene-badge" style="background:#fee2e2;color:#991b1b;">致病</span>
+      </div>
+      <div class="gene-chr">${g[1]}</div>
+      <div class="gene-fullname">${g[2]}</div>
+      <div class="gene-desc">${g[3]}</div>
+      <div class="gene-links">${getGeneLinks(g[0])}</div>
+    </div>
+  `).join('');
+}
+
+function renderCausalGenes() {
+  const grid = document.getElementById('causal-grid');
+  if (!grid) return;
+  grid.innerHTML = CAUSAL_GENES.map(g => {
+    const badgeColor = g[4].includes('保护') ? '#d1fae5;color:#065f46' : g[4].includes('致病') ? '#fee2e2;color:#991b1b' : '#fef3c7;color:#92400e';
+    return `
+    <div class="gene-card" style="border-left:4px solid #f59e0b;">
+      <div class="gene-card-header">
+        <span class="gene-name">${g[0]}</span>
+        <span class="gene-badge" style="background:${badgeColor.split(';')[0]};color:${badgeColor.split(';')[1]};">${g[4]}</span>
+      </div>
+      <div class="gene-chr">${g[1]} · ${g[5]}</div>
+      <div class="gene-fullname">${g[2]}</div>
+      <div class="gene-desc">${g[3]}</div>
+      <div class="gene-links">${getGeneLinks(g[0])}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderRiskLoci(filter='') {
+  const tbody = document.getElementById('risk-tbody');
+  if (!tbody) return;
+  let loci = RISK_LOCI;
+  if (filter) {
+    const f = filter.toLowerCase();
+    loci = loci.filter(l => l[2].toLowerCase().includes(f) || l[5].toLowerCase().includes(f) || l[3].toLowerCase().includes(f) || ('chr'+l[1]).includes(f));
+  }
+  tbody.innerHTML = loci.map(l => `
+    <tr>
+      <td>${l[0]}</td>
+      <td><strong>${l[2]}</strong></td>
+      <td>chr${l[1]}</td>
+      <td>${l[4]}</td>
+      <td style="font-family:monospace;font-size:12px;">${l[3]}</td>
+      <td style="font-size:12px;">${l[5]}</td>
+      <td style="font-size:12px;white-space:nowrap;">${getGeneLinks(l[2])}</td>
+    </tr>
+  `).join('');
+}
+
+function filterGenes(type, btn) {
+  document.querySelectorAll('.gene-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('pathogenic-section').style.display = (type==='all'||type==='pathogenic') ? 'block' : 'none';
+  document.getElementById('causal-section').style.display = (type==='all'||type==='causal') ? 'block' : 'none';
+  document.getElementById('risk-section').style.display = (type==='all'||type==='risk') ? 'block' : 'none';
+}
+
+function searchGenes(val) {
+  renderRiskLoci(val);
+}
+
+function initGenePage() {
+  renderPathogenicGenes();
+  renderCausalGenes();
+  renderRiskLoci();
+}
+
+
+const PET_TRACERS = [{'name': '[11C]PiB', 'fullname': 'Pittsburgh Compound B', 'target': 'Aβ淀粉样蛋白', 'category': 'amyloid', 'isotope': '11C', 'status': '研究用金标准', 'desc': '首个高选择性Aβ PET示踪剂，硫黄素T衍生物，作为其他Aβ示踪剂的参考标准。因11C半衰期短(20min)，仅限 onsite 回旋加速器机构使用。', 'developer': 'UPMC/Pittsburgh', 'year': '2004'}, {'name': '[18F]Florbetapir', 'fullname': 'Florbetapir F18 (Amyvid)', 'target': 'Aβ淀粉样蛋白', 'category': 'amyloid', 'isotope': '18F', 'status': 'FDA获批 2012', 'desc': '首个FDA获批的Aβ PET示踪剂，苯乙烯基吡啶衍生物。用于估计AD患者脑内淀粉样斑块密度，阳性扫描提示存在中度至频繁的淀粉样斑块。', 'developer': 'Avid/Lilly', 'year': '2012'}, {'name': '[18F]Flutemetamol', 'fullname': 'Flutemetamol F18 (Vizamyl)', 'target': 'Aβ淀粉样蛋白', 'category': 'amyloid', 'isotope': '18F', 'status': 'FDA获批 2013', 'desc': "PiB的3'-氟衍生物，硫黄素T衍生物。FDA获批用于AD痴呆的脑内淀粉样蛋白显像。需注意图像解读培训。", 'developer': 'GE Healthcare', 'year': '2013'}, {'name': '[18F]Florbetaben', 'fullname': 'Florbetaben F18 (Neuraceq)', 'target': 'Aβ淀粉样蛋白', 'category': 'amyloid', 'isotope': '18F', 'status': 'FDA获批 2014', 'desc': '二苯乙烯衍生物，高亲和力结合纤维状Aβ。FDA获批用于估计认知障碍患者脑内淀粉样斑块密度。与神经病理金标准高度一致。', 'developer': 'Piramal', 'year': '2014'}, {'name': '[18F]FDDNP', 'fullname': 'FDDNP', 'target': 'Aβ+Tau(非特异)', 'category': 'amyloid', 'isotope': '18F', 'status': '已淘汰', 'desc': '早期Aβ示踪剂，但同时结合Aβ和tau，缺乏特异性，已被新一代特异性示踪剂取代。', 'developer': 'UCLA', 'year': '2002'}, {'name': '[18F]Flortaucipir', 'fullname': 'Flortaucipir F18 (Tauvid, AV-1451/T807)', 'target': 'Tau蛋白(PHF)', 'category': 'tau', 'isotope': '18F', 'status': 'FDA获批 2020', 'desc': '首个且唯一FDA获批的Tau PET示踪剂，喹啉衍生物。用于估计AD患者脑内神经原纤维缠结密度。对3R/4R混合tau高亲和力，但对纯4R tau病(PSP/CBD)亲和力低。', 'developer': 'Avid/Lilly', 'year': '2020'}, {'name': '[18F]MK-6240', 'fullname': 'MK-6240', 'target': 'Tau蛋白(PHF)', 'category': 'tau', 'isotope': '18F', 'status': '研究用', 'desc': '新一代高选择性Tau PET示踪剂，对AD神经原纤维缠结高亲和力，脱靶结合低。被认为是目前最优的Tau研究用示踪剂，广泛用于临床试验终点评估。', 'developer': 'Merck', 'year': '2016'}, {'name': '[18F]PI-2620', 'fullname': 'PI-2620', 'target': 'Tau蛋白(4R优先)', 'category': 'tau', 'isotope': '18F', 'status': '研究用', 'desc': '对4R tau沉积物有高亲和力，可辅助4R tau病(PSP/CBD)的早期和鉴别诊断。在AD中也显示tau结合，但动力学特性与Flortaucipir不同。', 'developer': 'Piramal', 'year': '2018'}, {'name': '[18F]RO948', 'fullname': 'RO948 (RO6958948)', 'target': 'Tau蛋白(PHF)', 'category': 'tau', 'isotope': '18F', 'status': '研究用', 'desc': '高选择性Tau PET示踪剂，脱靶结合低，在AD研究中广泛使用。与MK-6240并列为新一代研究用Tau示踪剂的金标准。', 'developer': 'Roche', 'year': '2017'}, {'name': '[11C]PBB3', 'fullname': 'PBB3', 'target': 'Tau蛋白(3R/4R)', 'category': 'tau', 'isotope': '11C', 'status': '研究用', 'desc': '吡啶基丁二烯基苯并噻唑衍生物，对3R和4R tau均有亲和力。11C半衰期短限制了广泛使用，但在日本研究较多。', 'developer': 'Tohoku University', 'year': '2013'}, {'name': '[18F]GTP1', 'fullname': 'GTP1', 'target': 'Tau蛋白', 'category': 'tau', 'isotope': '18F', 'status': '研究用', 'desc': '新一代Tau PET示踪剂，在AD患者中显示与Braak分期一致的tau沉积模式。', 'developer': 'Genentech', 'year': '2019'}, {'name': '[18F]FDG', 'fullname': 'Fluorodeoxyglucose', 'target': '脑葡萄糖代谢', 'category': 'metabolism', 'isotope': '18F', 'status': 'FDA获批(通用)', 'desc': '脑葡萄糖代谢显像金标准。AD典型表现为双侧顶颞叶和后扣带回代谢减低，额叶相对保留。是AD鉴别诊断和疾病监测的重要工具，但非AD特异性。', 'developer': '通用', 'year': '1970s'}, {'name': '[11C]PK11195', 'fullname': 'PK11195', 'target': 'TSPO(小胶质细胞活化)', 'category': 'inflammation', 'isotope': '11C', 'status': '研究用(经典)', 'desc': '经典TSPO配体，小胶质细胞活化标志物。AD研究中显示脑内炎症区域，但存在结合亲和力低、信噪比差、受TSPO基因多态性影响等问题。', 'developer': '经典', 'year': '1990s'}, {'name': '[11C]PBR28', 'fullname': 'PBR28', 'target': 'TSPO(小胶质细胞活化)', 'category': 'inflammation', 'isotope': '11C', 'status': '研究用(第二代)', 'desc': '第二代TSPO配体，亲和力高于PK11195。但受TSPO rs6971基因多态性影响显著，分为高/中/低结合者，需基因分型。AD研究中广泛使用。', 'developer': 'NIMH', 'year': '2007'}, {'name': '[18F]DPA-714', 'fullname': 'DPA-714', 'target': 'TSPO(小胶质细胞活化)', 'category': 'inflammation', 'isotope': '18F', 'status': '研究用(第二代)', 'desc': '第二代TSPO配体，18F标记便于远距离运输。同样受TSPO基因多态性影响。在AD神经炎症研究中广泛使用。', 'developer': 'CEA', 'year': '2009'}, {'name': '[18F]GE-180', 'fullname': 'GE-180', 'target': 'TSPO(小胶质细胞活化)', 'category': 'inflammation', 'isotope': '18F', 'status': '研究用(第二代)', 'desc': '第二代TSPO配体，在AD和其他神经退行性疾病的神经炎症研究中使用。', 'developer': 'GE Healthcare', 'year': '2012'}, {'name': '[11C]UCB-J', 'fullname': 'UCB-J', 'target': 'SV2A(突触囊泡蛋白)', 'category': 'synapse', 'isotope': '11C', 'status': '研究用', 'desc': '首个突触密度PET示踪剂，靶向突触囊泡蛋白SV2A。AD患者海马和颞叶SV2A结合减低，与认知功能相关。是研究突触丢失的重要工具。', 'developer': 'UCB', 'year': '2016'}, {'name': '[18F]SynVesT-1', 'fullname': 'SynVesT-1', 'target': 'SV2A(突触囊泡蛋白)', 'category': 'synapse', 'isotope': '18F', 'status': '研究用', 'desc': '新一代18F标记SV2A示踪剂，克服了11C UCB-J的半衰期限制。在AD突触丢失研究中显示良好前景。', 'developer': 'Yale', 'year': '2020'}];
+
+function renderPET(filter='all') {
+  const grid = document.getElementById('pet-grid');
+  if (!grid) return;
+  let tracers = filter==='all' ? PET_TRACERS : PET_TRACERS.filter(t => t.category===filter);
+  const catColors = {amyloid:'#3b82f6', tau:'#8b5cf6', metabolism:'#10b981', inflammation:'#ef4444', synapse:'#f59e0b'};
+  const catNames = {amyloid:'Aβ', tau:'Tau', metabolism:'代谢', inflammation:'炎症', synapse:'突触'};
+  grid.innerHTML = tracers.map(t => {
+    const c = catColors[t.category] || '#64748b';
+    const approved = t.status.includes('FDA获批');
+    return `
+    <div class="pet-card" style="border-left:4px solid ${c};">
+      <div class="pet-card-header">
+        <span class="pet-name">${t.name}</span>
+        <span class="pet-badge" style="background:${approved?'#d1fae5;color:#065f46':'#fef3c7;color:#92400e'};">${approved?'已获批':'研究用'}</span>
+      </div>
+      <div class="pet-target">靶点：${t.target} · ${t.isotope}</div>
+      <div class="pet-fullname">${t.fullname}</div>
+      <div class="pet-desc">${t.desc}</div>
+      <div class="pet-meta">
+        <span>研发：${t.developer}</span>
+        <span>年份：${t.year}</span>
+        <span>状态：${t.status}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterPET(cat, btn) {
+  document.querySelectorAll('.pet-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPET(cat);
+}
+
+function initPETPage() {
+  renderPET();
+}
+
+
+const MOUSE_MODELS = [{'name': 'Tg2576', 'type': 'APP转基因', 'mutation': 'APP Swedish (K670N/M671L), hamster PrP启动子', 'pathology': 'Aβ斑块(9-12月龄), 认知障碍, 无NFTs', 'desc': '最经典的APP转基因模型之一，高表达人APP Swedish突变。Aβ沉积从9-12月龄开始，是抗Aβ药物临床前研究的常用模型。', 'source': 'Hsiao et al. 1996 Science'}, {'name': 'APP23', 'type': 'APP转基因', 'mutation': 'APP Swedish (K670N/M671L), Thy1启动子', 'pathology': 'Aβ斑块(6月龄), CAA, 认知障碍(10月龄), 神经元丢失', 'desc': 'Thy1启动子驱动神经元特异性高表达APP Swedish突变。Aβ积累早(6月龄)，伴脑淀粉样血管病(CAA)，是研究CAA的重要模型。', 'source': 'Sturchler-Pierrat et al. 1997'}, {'name': 'PDAPP', 'type': 'APP转基因', 'mutation': 'APP Indiana (V717F), PDGF启动子', 'pathology': 'Aβ斑块(6-9月龄), 突触丢失, 认知障碍', 'desc': '首个APP转基因AD模型，PDGF启动子驱动。Aβ沉积和认知障碍表型明确，是AD模型研究的奠基性模型之一。', 'source': 'Games et al. 1995 Nature'}, {'name': 'J20', 'type': 'APP转基因', 'mutation': 'APP Swedish+Indiana (K670N/M671L+V717F), PDGF启动子', 'pathology': 'Aβ斑块(4月龄), 认知障碍(4月龄), 多动, 突触减少', 'desc': 'PDGF-APPSw,Ind双突变模型。Aβ病理出现早(4月龄)，学习记忆障碍明显，是抗Aβ治疗研究的常用模型。', 'source': 'Mucke et al. 2000'}, {'name': '5xFAD', 'type': 'APP/PS1双转基因', 'mutation': 'APP (Swedish+Florida+London) + PS1 (M146L+L286V), Thy1启动子', 'pathology': 'Aβ斑块(2月龄), 胶质增生, 突触变性, 皮层神经元丢失, 认知障碍(6月龄)', 'desc': '最常用的快速AD模型之一，5个家族性突变叠加导致Aβ42大量产生。Aβ斑块2月龄即出现，适合快速筛选抗Aβ药物。但过度表达可能产生人工假象。', 'source': 'Oakley et al. 2006'}, {'name': 'APP/PS1 (dE9)', 'type': 'APP/PS1双转基因', 'mutation': 'APP Swedish + PS1 ΔE9, 仓鼠PrP启动子', 'pathology': 'Aβ斑块(6月龄), 认知障碍, 无NFTs', 'desc': '最经典的APP/PS1双转基因模型。Aβ沉积约6月龄开始，是抗Aβ免疫治疗和分泌酶调节剂研究的标准模型。', 'source': 'Jankowsky et al. 2001'}, {'name': 'PSAPP', 'type': 'APP/PS1双转基因', 'mutation': 'APP Swedish + PS1 M146L, 仓鼠PrP启动子', 'pathology': 'Aβ斑块(7月龄), 运动障碍(13月龄)', 'desc': 'APP Swedish与PS1 M146L双转基因模型，Aβ病理出现较早。', 'source': 'Holcomb et al. 1998'}, {'name': '3xTg-AD', 'type': '三转基因', 'mutation': 'APP Swedish + PS1 M146V + Tau P301L', 'pathology': 'Aβ斑块(6月龄), tau过度磷酸化/NFTs(12月龄), 认知障碍, 突触功能异常', 'desc': '首个同时展示Aβ和tau病理的三转基因模型。是研究Aβ-tau相互作用和疾病修饰疗法的重要模型。但tau病理主要在海马，与人类AD分布不同。', 'source': 'Oddo et al. 2003'}, {'name': 'P301L (rTg4510)', 'type': 'Tau转基因', 'mutation': 'Tau P301L, 四环素调控(tTA)', 'pathology': 'tau过度磷酸化/NFTs(4月龄), 神经元丢失, 认知障碍, 脑萎缩', 'desc': '最常用的tau病理模型。四环素可调控表达，关闭tau表达后病理可逆转，是研究tau靶向治疗的理想模型。', 'source': 'Santacruz et al. 2005 Science'}, {'name': 'PS19 (P301S)', 'type': 'Tau转基因', 'mutation': 'Tau P301S, Thy1启动子', 'pathology': 'tau过度磷酸化/NFTs, 海马萎缩, 神经炎症, 运动障碍', 'desc': 'Thy1启动子驱动人Tau P301S突变表达。海马萎缩和神经炎症明显，是研究tau病和神经炎症的常用模型。', 'source': 'Yoshiyama et al. 2007'}, {'name': 'APP-NL-F', 'type': 'Knock-in', 'mutation': 'APP Swedish + Beyreuther/Iberian (敲入内源位点)', 'pathology': 'Aβ斑块(6月龄), 突触功能异常, 无过度表达假象', 'desc': '第二代AD模型，将家族性突变敲入内源APP位点，避免了转基因随机整合和过度表达的人工假象。Aβ病理更接近人类AD。', 'source': 'Saito et al. 2014'}, {'name': 'APP-NL-G-F', 'type': 'Knock-in', 'mutation': 'APP Swedish + Arctic + Beyreuther/Iberian (敲入)', 'pathology': 'Aβ斑块(2月龄), 神经炎症, 突触丢失, 认知障碍', 'desc': 'APP-NL-F的增强版，加入Arctic突变加速Aβ聚集。Aβ病理出现更早(2月龄)，是目前最接近人类散发性AD病理的小鼠模型之一。', 'source': 'Saito et al. 2014'}, {'name': 'APPSAA KI', 'type': 'Knock-in', 'mutation': 'APP Swedish + Arctic + Austrian (敲入)', 'pathology': 'Aβ斑块(4月龄, 纯合子), 神经炎症', 'desc': 'Denali Therapeutics开发的敲入模型，纯合子4月龄出现Aβ病理。可从Jackson Laboratory获取。', 'source': 'Denali/JAX 2020'}, {'name': 'APOE4 KI', 'type': 'APOE模型', 'mutation': '人APOE4敲入(替代小鼠Apoe)', 'pathology': '脂质代谢异常, 突触功能受损, Aβ清除减少, 认知障碍', 'desc': '将人APOE4等位基因敲入小鼠内源位点，研究APOE4对AD病理的影响。APOE4是最强的散发性AD遗传风险因子。', 'source': 'Sullivan et al. 1997'}, {'name': 'TREM2 KO/KI', 'type': 'TREM2模型', 'mutation': 'TREM2敲除 或 R47H敲入', 'pathology': '小胶质细胞功能异常, Aβ清除减少, 神经炎症改变', 'desc': 'TREM2 R47H突变显著增加AD风险(OR~3)。TREM2敲除和敲入模型用于研究小胶质细胞在AD中的作用。', 'source': 'Ulrich et al. 2017'}, {'name': 'LOAD1/LOAD2', 'type': '散发性AD模型', 'mutation': 'MODEL-AD consortium开发, 多基因风险', 'pathology': '年龄相关Aβ/tau病理, 模拟散发性AD', 'desc': 'MODEL-AD联盟开发的散发性AD模型，整合多个AD风险基因变异，模拟晚发性散发性AD的复杂遗传背景。', 'source': 'MODEL-AD 2020'}];
+const OTHER_ANIMAL_MODELS = [{'name': 'TgF344-AD 大鼠', 'type': '大鼠模型', 'mutation': 'APP Swedish + PS1 ΔE9', 'pathology': 'Aβ斑块, tau病理, 神经元丢失, 认知障碍', 'desc': '首个展示完整AD病理的大鼠模型。大鼠大脑更大，更适合电生理和行为学研究，是AD模型的重要补充。', 'source': 'Cohen et al. 2013'}, {'name': 'APP/PS1 大鼠', 'type': '大鼠模型', 'mutation': 'APP + PS1双转基因', 'pathology': 'Aβ斑块, 认知障碍', 'desc': '大鼠AD模型，相比小鼠更适合行为学和神经药理学研究。', 'source': '多种'}, {'name': '猕猴AD模型', 'type': '非人灵长类', 'mutation': '自然衰老/基因编辑', 'pathology': '年龄相关Aβ沉积, 认知衰退', 'desc': '非人灵长类大脑结构与人类最接近，自然衰老可出现Aβ沉积和认知衰退。CRISPR基因编辑正在开发更精确的AD猕猴模型。', 'source': '多种研究机构'}, {'name': 'APP转基因斑马鱼', 'type': '斑马鱼模型', 'mutation': '人APP转基因', 'pathology': 'Aβ聚集, 运动异常, 神经元丢失', 'desc': '斑马鱼繁殖快、胚胎透明、适合高通量药物筛选。APP转基因斑马鱼用于抗Aβ药物的大规模筛选。', 'source': '多种'}, {'name': 'Aβ转基因果蝇', 'type': '果蝇模型', 'mutation': '人Aβ42转基因', 'pathology': 'Aβ聚集, 神经元丢失, 寿命缩短, 运动障碍', 'desc': '果蝇遗传操作简单、寿命短、适合高通量遗传筛选。Aβ转基因果蝇用于鉴定Aβ毒性修饰基因和药物筛选。', 'source': '多种'}, {'name': 'Aβ转基因线虫', 'type': '线虫模型', 'mutation': '人Aβ转基因', 'pathology': 'Aβ聚集, 麻痹表型, 寿命缩短', 'desc': 'C. elegans全身细胞已知、遗传操作成熟、适合高通量筛选。Aβ转基因线虫是抗Aβ聚集药物筛选的经典模型。', 'source': 'Link 1995'}];
+const CELL_MODELS = [{'name': 'SH-SY5Y', 'type': '细胞系', 'desc': '人神经母细胞瘤细胞系，可分化为神经元样细胞。广泛用于Aβ毒性、氧化应激、细胞凋亡等AD机制研究。是AD体外研究最常用的细胞模型。'}, {'name': 'HEK293-APP', 'type': '细胞系', 'desc': '稳定表达人APP的HEK293细胞系。用于研究APP加工、Aβ生成、分泌酶活性和药物筛选。是抗Aβ药物高通量筛选的标准模型。'}, {'name': 'iPSC衍生神经元', 'type': '原代/干细胞', 'desc': '由AD患者iPSC分化的神经元，携带患者真实遗传背景。可展示Aβ/tau病理、突触功能异常。是精准医学和药物筛选的前沿模型。'}, {'name': '原代神经元培养', 'type': '原代细胞', 'desc': '小鼠/大鼠胚胎海马或皮层原代神经元培养。用于研究Aβ毒性、tau磷酸化、突触功能、神经元死亡等AD核心病理。'}, {'name': 'BV2小胶质细胞', 'type': '细胞系', 'desc': '永生化小鼠小胶质细胞系，用于研究神经炎症、小胶质细胞活化、Aβ吞噬、细胞因子释放等。是AD神经炎症研究最常用的小胶质细胞模型。'}, {'name': 'N9小胶质细胞', 'type': '细胞系', 'desc': '小鼠小胶质细胞系，用于研究小胶质细胞活化、炎症反应和Aβ清除。'}, {'name': '原代星形胶质细胞', 'type': '原代细胞', 'desc': '小鼠/大鼠原代星形胶质细胞培养，用于研究星形胶质细胞活化、Aβ清除、谷氨酸摄取、炎症反应等。'}, {'name': '人源小胶质细胞', 'type': '干细胞', 'desc': '由iPSC分化的人源小胶质细胞，更接近人类小胶质细胞生理。用于研究TREM2、APOE等AD风险基因在小胶质细胞中的功能。'}];
+const ORGANOID_MODELS = [{'name': '大脑类器官', 'type': '类器官', 'desc': '由人iPSC/ESC分化的三维大脑类器官，模拟大脑皮层发育。可展示Aβ聚集、tau磷酸化、神经元丢失等AD病理。是研究人类AD病理和药物筛选的前沿模型。'}, {'name': '皮层类器官', 'type': '类器官', 'desc': '定向分化的皮层类器官，更特异地模拟大脑皮层结构。用于研究AD皮层神经元退化、Aβ/tau病理和神经环路异常。'}, {'name': '3D神经培养', 'type': '3D培养', 'desc': '三维支架或凝胶中的神经元培养，模拟体内三维环境。可展示Aβ斑块形成、tau传播等三维病理特征。'}, {'name': '微流控脑芯片', 'type': '器官芯片', 'desc': 'Brain-on-a-chip，微流控芯片中的神经元培养，可模拟血脑屏障、神经环路、Aβ传播等。是AD药物筛选和机制研究的新兴模型。'}, {'name': '髓鞘类器官', 'type': '类器官', 'desc': '含少突胶质细胞的髓鞘类器官，用于研究AD中的髓鞘损伤和白质病变。'}];
+
+function renderModelCard(m, typeColor) {
+  return `
+  <div class="model-card" style="border-left:4px solid ${typeColor};">
+    <div class="model-card-header">
+      <span class="model-name">${m.name}</span>
+      <span class="model-type" style="background:${typeColor}22;color:${typeColor};">${m.type}</span>
+    </div>
+    ${m.mutation ? `<div class="model-mutation">${m.mutation}</div>` : ''}
+    ${m.pathology ? `<div class="model-pathology">病理：${m.pathology}</div>` : ''}
+    <div class="model-desc">${m.desc}</div>
+    ${m.source ? `<div class="model-source">来源：${m.source}</div>` : ''}
+  </div>`;
+}
+
+function renderModels() {
+  document.getElementById('mouse-grid').innerHTML = MOUSE_MODELS.map(m => renderModelCard(m, '#3b82f6')).join('');
+  document.getElementById('other-grid').innerHTML = OTHER_ANIMAL_MODELS.map(m => renderModelCard(m, '#10b981')).join('');
+  document.getElementById('cell-grid').innerHTML = CELL_MODELS.map(m => renderModelCard(m, '#f59e0b')).join('');
+  document.getElementById('organoid-grid').innerHTML = ORGANOID_MODELS.map(m => renderModelCard(m, '#8b5cf6')).join('');
+}
+
+function switchModelTab(tab, btn) {
+  document.querySelectorAll('.model-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.model-content').forEach(c => c.classList.remove('active'));
+  document.getElementById('model-' + tab).classList.add('active');
+}
+
+function initModelPage() {
+  renderModels();
+}
+
 
 </script>
 </body>
