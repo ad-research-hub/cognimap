@@ -1271,10 +1271,10 @@ window.addEventListener('unhandledrejection', function(e) {
 
   <!-- ===== AD学术会议日历 ===== -->
   <div id="page-conference" class="page">
-    <div class="page-header" style="background:linear-gradient(135deg,#065f46,#059669);">
-      <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
-      <h2>📅 AD学术会议日历</h2>
-      <p>全球阿尔茨海默病及认知障碍领域重要学术会议汇总 · 按年份和状态筛选</p>
+        <div style="background:linear-gradient(135deg,#065f46,#059669);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+      <h2 style="margin:0;font-size:20px;">📅 AD学术会议日历</h2>
+      <span style="font-size:13px;opacity:0.8;">全球阿尔茨海默病及认知障碍领域重要学术会议汇总 · 按年份和状态筛选</span>
     </div>
     <div class="page-content">
       <div style="display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;align-items:center;">
@@ -1293,10 +1293,10 @@ window.addEventListener('unhandledrejection', function(e) {
 
   <!-- ===== 全球AD研究热力图 ===== -->
   <div id="page-researchmap" class="page">
-    <div class="page-header" style="background:linear-gradient(135deg,#92400e,#d97706);">
-      <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
-      <h2>🌍 全球AD研究热力图</h2>
-      <p>交互式世界地图展示各国阿尔茨海默病研究产出 · 论文/临床试验/企业/标志物多维度对比</p>
+        <div style="background:linear-gradient(135deg,#92400e,#d97706);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+      <h2 style="margin:0;font-size:20px;">🌍 全球AD研究热力图</h2>
+      <span style="font-size:13px;opacity:0.8;">全球阿尔茨海默病研究活跃度分布，按国家/地区文献发表量、临床试验数、研究机构数综合评估</span>
     </div>
     <div class="page-content">
       <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center;">
@@ -2259,11 +2259,11 @@ render();
 
 <!-- ============ Page: AD Gene Database ============ -->
 <div class="page" id="page-genes">
-  <div class="page-header">
-    <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
-    <h2 class="page-title">🧬 AD基因数据库</h2>
-    <p class="page-subtitle">收录AD致病基因、高置信度因果基因及GWAS风险位点，数据来源ADSP基因验证委员会</p>
-  </div>
+      <div style="background:linear-gradient(135deg,#1e40af,#3b82f6);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+      <h2 style="margin:0;font-size:20px;">🧬 AD基因数据库</h2>
+      <span style="font-size:13px;opacity:0.8;">收录AD致病基因、高置信度因果基因及GWAS风险位点，数据来源ADSP基因验证委员会</span>
+    </div>
   
   <div class="gene-stats-bar">
     <div class="gene-stat-item"><span class="gene-stat-num">3</span><span class="gene-stat-label">常染色体显性致病基因</span></div>
@@ -3193,11 +3193,11 @@ function showGeneDetail(gene, chrom, pos, gtype) {
 
 <!-- ============ Page: PET Radiotracer Database ============ -->
 <div class="page" id="page-pet">
-  <div class="page-header">
-    <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
-    <h2 class="page-title">📡 PET示踪剂数据库</h2>
-    <p class="page-subtitle">收录AD研究中各类PET分子显像示踪剂，含淀粉样蛋白、Tau、代谢、炎症、突触等靶点</p>
-  </div>
+      <div style="background:linear-gradient(135deg,#0f766e,#14b8a6);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+      <h2 style="margin:0;font-size:20px;">📡 PET示踪剂数据库</h2>
+      <span style="font-size:13px;opacity:0.8;">收录AD研究中各类PET分子显像示踪剂，含淀粉样蛋白、Tau、代谢、炎症、突触等靶点</span>
+    </div>
   
   <div class="pet-stats-bar">
     <div class="pet-stat-item"><span class="pet-stat-num">4</span><span class="pet-stat-label">FDA获批示踪剂</span></div>
@@ -3225,11 +3225,11 @@ function showGeneDetail(gene, chrom, pos, gtype) {
 
 <!-- ============ Page: AD Model Database ============ -->
 <div class="page" id="page-models">
-  <div class="page-header">
-    <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
-    <h2 class="page-title">🐭 AD模型数据库</h2>
-    <p class="page-subtitle">收录AD研究中常用的动物模型、细胞模型和类器官模型，含基因型、病理表型和应用场景</p>
-  </div>
+      <div style="background:linear-gradient(135deg,#78350f,#b45309);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+      <h2 style="margin:0;font-size:20px;">🐭 AD模型数据库</h2>
+      <span style="font-size:13px;opacity:0.8;">收录AD研究中常用的动物模型、细胞模型和类器官模型，含基因型、病理表型和应用场景</span>
+    </div>
   
   <div class="model-stats-bar">
     <div class="model-stat-item"><span class="model-stat-num">16</span><span class="model-stat-label">小鼠模型</span></div>
@@ -3400,10 +3400,10 @@ function showGeneDetail(gene, chrom, pos, gtype) {
 
 <!-- ===== AD鉴别诊断与共病页面 ===== -->
   <div id="page-differential" class="page">
-    <div class="page-header" style="background:linear-gradient(135deg,#be185d 0%,#9d174d 100%);">
-      <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
-      <h2>🔬 AD鉴别诊断与共病管理</h2>
-      <p>基于NIA-AA 2021、IWG-2、DLB联盟标准、FTD诊断标准、MDS-PSP/MSA标准等权威指南，系统梳理需与AD鉴别的痴呆及神经退行性疾病，以及AD常见共病的管理策略</p>
+        <div style="background:linear-gradient(135deg,#be185d,#9d174d);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+      <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+      <h2 style="margin:0;font-size:20px;">🔬 AD鉴别诊断与共病管理</h2>
+      <span style="font-size:13px;opacity:0.8;">基于NIA-AA 2021、IWG-2、DLB联盟标准等权威指南，系统梳理需与AD鉴别的疾病及共病管理</span>
     </div>
     <div style="max-width:1400px;margin:0 auto;padding:20px;">
       <!-- 筛选标签 -->
