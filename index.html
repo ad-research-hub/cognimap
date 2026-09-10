@@ -825,7 +825,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .model-tab{padding:10px 20px;border:none;background:none;color:#94a3b8;cursor:pointer;font-size:14px;font-weight:600;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s}
 .model-tab.active{color:var(--primary);border-bottom-color:var(--primary)}
 .model-tab:hover{color:var(--primary)}
-.model-content{display:none}
+.model-content{display:none;margin-bottom:24px}
 .model-content.active{display:block}
 .model-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
 .model-card{background:var(--card);border-radius:12px;padding:16px;border:1px solid var(--border);transition:all .2s}
@@ -1132,10 +1132,8 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="chart-card" style="box-shadow:none;"><h3>企业领域分布（Top 10）</h3><div class="chart-container"><canvas id="dashCompanyChart"></canvas></div></div>
     </div>
     <div class="charts-row" style="margin-top:16px;">
-      <div class="chart-card" style="box-shadow:none;"><h3>AD临床试验数量变化趋势 (2017-2026)</h3><div class="chart-container"><canvas id="dashTrendChart"></canvas></div></div>
-    </div>
-    <div class="charts-row" style="margin-top:16px;">
-      <div class="chart-card" style="box-shadow:none;cursor:pointer;" onclick="navigate('epidemiology')">
+      <div class="chart-card" style="box-shadow:none;flex:1;min-width:0;"><h3>AD临床试验数量变化趋势 (2017-2026)</h3><div class="chart-container" style="height:400px;"><canvas id="dashTrendChart"></canvas></div></div>
+      <div class="chart-card" style="box-shadow:none;flex:1;min-width:0;cursor:pointer;" onclick="navigate('epidemiology')">
         <h3>🌍 全球AD流行病学地图（点击进入详情）</h3>
         <div class="chart-container" style="height:400px;"><div id="dashEpiMap" style="width:100%;height:100%;"></div></div>
       </div>
@@ -1249,7 +1247,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-icon" style="background:#dbeafe;">🧬</div>
       <h3>AD基因数据库</h3>
       <p>3个常染色体显性致病基因、20个高置信度因果基因、101个风险位点（76个经典GWAS位点+25个2021-2025年新发现），链接NCBI/OMIM/ClinVar/GWAS Catalog</p>
-      <div class="mod-count">99个基因 · 权威来源</div>
+      <div class="mod-count">124个基因 · 权威来源</div>
     </div>
     <!-- PET示踪剂数据库 -->
     <div class="module-card" onclick="navigate('pet')">
@@ -2270,15 +2268,15 @@ render();
   <div class="gene-stats-bar">
     <div class="gene-stat-item"><span class="gene-stat-num">3</span><span class="gene-stat-label">常染色体显性致病基因</span></div>
     <div class="gene-stat-item"><span class="gene-stat-num">20</span><span class="gene-stat-label">高置信度因果基因</span></div>
-    <div class="gene-stat-item"><span class="gene-stat-num">76</span><span class="gene-stat-label">GWAS风险位点</span></div>
-    <div class="gene-stat-item"><span class="gene-stat-num">99</span><span class="gene-stat-label">总基因数</span></div>
+    <div class="gene-stat-item"><span class="gene-stat-num">101</span><span class="gene-stat-label">GWAS风险位点</span></div>
+    <div class="gene-stat-item"><span class="gene-stat-num">124</span><span class="gene-stat-label">总基因数</span></div>
   
   <div id="chromosomeMapContainer" style="background:#fff;border-radius:16px;padding:24px;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
     <h3 style="color:var(--primary);font-size:16px;margin:0;">🧬 AD风险基因染色体定位图</h3>
     <div style="display:flex;gap:16px;font-size:12px;">
       <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:#dc2626;border-radius:2px;display:inline-block;"></span>致病基因 (20)</span>
-      <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:#3b82f6;border-radius:2px;display:inline-block;"></span>风险位点 (76)</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:#3b82f6;border-radius:2px;display:inline-block;"></span>风险位点 (101)</span>
     </div>
   </div>
   <div style="font-size:12px;color:#64748b;margin-bottom:12px;">
@@ -3241,7 +3239,8 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
   
   <div class="model-tabs">
-    <button class="model-tab active" onclick="switchModelTab('mouse', this)">🐭 小鼠模型</button>
+    <button class="model-tab active" onclick="switchModelTab('all', this)">📋 全部显示</button>
+    <button class="model-tab" onclick="switchModelTab('mouse', this)">🐭 小鼠模型</button>
     <button class="model-tab" onclick="switchModelTab('other', this)">🐒 其他动物</button>
     <button class="model-tab" onclick="switchModelTab('cell', this)">🧫 细胞模型</button>
     <button class="model-tab" onclick="switchModelTab('organoid', this)">🧠 类器官模型</button>
@@ -4665,7 +4664,7 @@ window.buildSearchIndex = function() {
     { name: '认知筛查小助手', desc: '5量表+6游戏', icon: '🧠', page: 'scales' },
     { name: '常用网站地图', desc: '60个网站', icon: '🌐', page: 'sitemap' },
     { name: '认知中心地图', desc: '全国记忆门诊', icon: '🗺️', page: 'centers' },
-    { name: 'AD基因数据库', desc: '99个基因', icon: '🧬', page: 'genes' },
+    { name: 'AD基因数据库', desc: '124个基因', icon: '🧬', page: 'genes' },
     { name: 'PET示踪剂数据库', desc: '18种示踪剂', icon: '📡', page: 'pet' },
     { name: 'AD模型数据库', desc: '35种模型', icon: '🐭', page: 'models' }
   ];
@@ -7068,8 +7067,12 @@ function renderModels() {
 function switchModelTab(tab, btn) {
   document.querySelectorAll('.model-tab').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('.model-content').forEach(c => c.classList.remove('active'));
-  document.getElementById('model-' + tab).classList.add('active');
+  if (tab === 'all') {
+    document.querySelectorAll('.model-content').forEach(c => c.classList.add('active'));
+  } else {
+    document.querySelectorAll('.model-content').forEach(c => c.classList.remove('active'));
+    document.getElementById('model-' + tab).classList.add('active');
+  }
 }
 
 function initModelPage() {
