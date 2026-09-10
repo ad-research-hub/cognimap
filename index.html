@@ -1133,7 +1133,12 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
     <div class="charts-row" style="margin-top:16px;">
       <div class="chart-card" style="box-shadow:none;"><h3>AD临床试验数量变化趋势 (2017-2026)</h3><div class="chart-container"><canvas id="dashTrendChart"></canvas></div></div>
-      <div class="chart-card" style="box-shadow:none;cursor:pointer;" onclick="navigate('epidemiology')"><h3>全球AD流行病学地图</h3><div class="chart-container"><div id="dashEpiMap" style="width:100%;height:100%;"></div></div></div>
+    </div>
+    <div class="charts-row" style="margin-top:16px;">
+      <div class="chart-card" style="box-shadow:none;cursor:pointer;" onclick="navigate('epidemiology')">
+        <h3>🌍 全球AD流行病学地图（点击进入详情）</h3>
+        <div class="chart-container" style="height:400px;"><div id="dashEpiMap" style="width:100%;height:100%;"></div></div>
+      </div>
     </div>
   </div>
   <div class="modules-grid">
