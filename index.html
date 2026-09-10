@@ -1108,7 +1108,7 @@ window.addEventListener('unhandledrejection', function(e) {
         <div class="hero-stat"><div class="num">18</div><div class="label">PET示踪剂</div></div>
         <div class="hero-stat"><div class="num">35</div><div class="label">AD模型</div></div>
         <div class="hero-stat"><div class="num">60</div><div class="label">常用网站</div></div>
-        <div class="hero-stat"><div class="num">16</div><div class="label">功能模块</div></div>
+        <div class="hero-stat"><div class="num">17</div><div class="label">功能模块</div></div>
       </div>
     </div>
     <div style="display:flex;gap:16px;justify-content:center;align-items:flex-start;flex-shrink:0;">
@@ -1213,6 +1213,15 @@ window.addEventListener('unhandledrejection', function(e) {
       <p>交互式3D人脑解剖图谱，JHU白质图谱189个脑区，支持旋转缩放、爆炸视图、区域高亮</p>
       <div class="mod-count">189 脑区 · 3D交互 · 专业来源</div>
     </div>
+    <!-- AD鉴别诊断与共病 -->
+    <div class="module-card" onclick="navigate('differential')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-10</span>
+      <div class="mod-icon" style="background:#fce7f3;">🔬</div>
+      <h3>鉴别诊断与共病</h3>
+      <p>12种需与AD鉴别的痴呆及神经退行性疾病（VaD/FTD/DLB/PDD/NPH/CJD/PSP/CBD/MSA/HD/抑郁假性痴呆/谵妄），含症状、诊断标准、鉴别要点；6种AD常见共病管理指南</p>
+      <div class="mod-count">12种鉴别诊断 · 6种共病管理 · 权威指南</div>
+    </div>
+
     <!-- AD学术会议日历 -->
     <div class="module-card" onclick="navigate('conference')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
@@ -2476,6 +2485,56 @@ render();
           <div style="font-size:14px;opacity:0.8;">正在加载3D脑图谱模型...</div>
           <div style="font-size:12px;opacity:0.5;margin-top:8px;">首次加载约需10-30秒，包含189个脑区模型</div>
         </div>
+  <!-- ===== AD鉴别诊断与共病页面 ===== -->
+  <div id="page-differential" class="page">
+    <div class="page-header" style="background:linear-gradient(135deg,#be185d 0%,#9d174d 100%);">
+      <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
+      <h2>🔬 AD鉴别诊断与共病管理</h2>
+      <p>基于NIA-AA 2021、IWG-2、DLB联盟标准、FTD诊断标准、MDS-PSP/MSA标准等权威指南，系统梳理需与AD鉴别的痴呆及神经退行性疾病，以及AD常见共病的管理策略</p>
+    </div>
+    <div style="max-width:1400px;margin:0 auto;padding:20px;">
+      <!-- 筛选标签 -->
+      <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;">
+        <button class="filter-btn active" onclick="filterDiff('all',this)">全部</button>
+        <button class="filter-btn" onclick="filterDiff('neurodegenerative',this)">神经退行性疾病</button>
+        <button class="filter-btn" onclick="filterDiff('vascular',this)">血管性</button>
+        <button class="filter-btn" onclick="filterDiff('reversible',this)">可逆性痴呆</button>
+        <button class="filter-btn" onclick="filterDiff('psychiatric',this)">精神科鉴别</button>
+        <button class="filter-btn" onclick="filterDiff('comorbidity',this)">共病管理</button>
+      </div>
+      
+      <!-- 鉴别诊断疾病卡片网格 -->
+      <h3 style="color:var(--primary);margin:24px 0 12px;border-left:4px solid #be185d;padding-left:12px;">📋 需与AD鉴别的疾病（12种）</h3>
+      <div id="diff-grid" class="gene-grid"></div>
+      
+      <!-- 共病管理 -->
+      <h3 style="color:var(--primary);margin:32px 0 12px;border-left:4px solid #be185d;padding-left:12px;">💊 AD常见共病管理（6种）</h3>
+      <div id="comorbidity-grid" class="gene-grid"></div>
+      
+      <!-- 鉴别诊断快速对比表 -->
+      <h3 style="color:var(--primary);margin:32px 0 12px;border-left:4px solid #be185d;padding-left:12px;">📊 核心鉴别诊断快速对比表</h3>
+      <div class="gene-table-wrap" style="overflow-x:auto;">
+        <table class="gene-table" style="font-size:13px;">
+          <thead><tr><th>疾病</th><th>起病方式</th><th>核心症状</th><th>记忆障碍</th><th>关键鉴别点</th><th>可逆性</th></tr></thead>
+          <tbody>
+            <tr><td><strong>AD</strong></td><td>隐匿起病</td><td>近记忆下降为主</td><td>早期突出</td><td>Aβ/Tau生物标志物阳性</td><td>进行性</td></tr>
+            <tr><td><strong>VaD</strong></td><td>急性/亚急性</td><td>执行功能障碍突出</td><td>相对保留</td><td>卒中病史、阶梯式进展、影像学梗死灶</td><td>部分可逆</td></tr>
+            <tr><td><strong>DLB</strong></td><td>隐匿起病</td><td>波动性认知+视幻觉+帕金森征</td><td>早期相对保留</td><td>RBD、对抗精神病药敏感、DaTscan异常</td><td>进行性</td></tr>
+            <tr><td><strong>FTD</strong></td><td>隐匿起病(50-60岁)</td><td>行为/人格改变或语言障碍</td><td>早期保留</td><td>早期社会行为脱抑制、额颞叶萎缩</td><td>进行性</td></tr>
+            <tr><td><strong>NPH</strong></td><td>逐渐起病</td><td>步态障碍+认知+尿失禁三联征</td><td>皮质下型</td><td>脑室扩大、步态磁感、分流手术有效</td><td>✅可逆</td></tr>
+            <tr><td><strong>CJD</strong></td><td>急性/亚急性</td><td>快速进展性痴呆+肌阵挛</td><td>全面快速下降</td><td><2年进展、MRI DWI高信号、EEG周期放电</td><td>致死性</td></tr>
+            <tr><td><strong>抑郁假性痴呆</strong></td><td>亚急性</td><td>抑郁症状+认知主诉</td><td>"I don't know"回答</td><td>抑郁先于认知、患者强调症状、抗抑郁治疗有效</td><td>✅可逆</td></tr>
+            <tr><td><strong>谵妄</strong></td><td>急性(小时-天)</td><td>注意力障碍+意识波动+幻觉</td><td>急性全面混乱</td><td>急性起病、昼夜波动、有明确诱因(感染/药物/手术)</td><td>✅可逆</td></tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div style="margin-top:24px;padding:16px;background:var(--card);border-radius:12px;border:1px solid var(--border);font-size:13px;color:#94a3b8;">
+        <strong>数据来源：</strong>NIA-AA Research Framework (2018/2021) · IWG-2 Diagnostic Criteria (Dubois et al. 2014/2021) · DLB Consortium Third Report (McKeith et al. 2017) · FTD Diagnostic Criteria (Rascovsky et al. 2011; Gorno-Tempini et al. 2011) · MDS-PSP Criteria (Höglinger et al. 2017) · MDS-MSA Criteria (Gilman et al. 2008; Wenning et al. 2022) · NPH Consensus Guidelines (Relkin et al. 2005; 中国iNPH共识2026) · WHO ICD-11 · 中国阿尔茨海默病痴呆诊疗指南2025
+      </div>
+    </div>
+  </div>
+
         <iframe id="brain3dFrame" src="https://rnorlund.github.io/brainWhiz/index.html?atlas=jhu&explode=0.4" style="width:100%;height:100%;border:none;display:block;" onload="document.getElementById('brain3dLoading').style.display='none'" allow="fullscreen"></iframe>
       </div>
       <div style="margin-top:12px;padding:14px 18px;background:#f1f5f9;border-radius:10px;font-size:13px;color:#475569;line-height:2;">
@@ -2571,8 +2630,230 @@ navigate = function(page) {
     if (page === 'genes') { initGenePage(); }
     if (page === 'pet') { initPETPage(); }
     if (page === 'models') { initModelPage(); }
+    if (page === 'differential') { initDifferential(); }
 };
 
+
+
+// ===== AD鉴别诊断与共病数据 =====
+const DIFFERENTIAL_DISEASES = [
+  {id:1, name:"血管性痴呆", nameEn:"Vascular Dementia (VaD)", category:"vascular", icon:"🩸",
+   onset:"急性或亚急性起病，常有明确脑卒中病史",
+   core:"执行功能障碍突出（计划、组织、思维迟缓），注意力下降，精神运动迟缓",
+   memory:"记忆障碍相对较轻，呈"皮质下型"遗忘（回忆障碍为主，再认相对保留）",
+   diagnosis:"①符合痴呆诊断标准；②脑血管病证据（影像学梗死灶/白质病变）；③认知障碍与脑血管病有明确时间关联；④排除其他病因",
+   differential:"与AD鉴别：阶梯式进展、卒中病史、执行功能>记忆障碍、影像学梗死灶。Hachinski缺血评分≥7分支持VaD",
+   biomarkers:"MRI可见多发梗死灶、脑白质高信号(Fazekas≥2级)、关键部位梗死(丘脑/海马/角回)；SPECT/PET可见斑片状低灌注",
+   guidelines:"NINDS-AIREN标准(1993) · DSM-5 · 中国血管性认知障碍诊治指南2024",
+   prevalence:"占痴呆病因15-20%，仅次于AD；80岁以上患病率约5-8%"},
+  {id:2, name:"额颞叶痴呆", nameEn:"Frontotemporal Dementia (FTD)", category:"neurodegenerative", icon:"🧠",
+   onset:"隐匿起病，发病年龄较早（45-65岁多见）",
+   core:"行为变异型(bvFTD)：人格改变、社会行为脱抑制、情感淡漠、刻板行为、饮食改变；原发性进行性失语(PPA)：进行性语言障碍（非流利型/语义型/少词型）",
+   memory:"早期记忆和视空间功能相对保留，这是与AD鉴别的关键",
+   diagnosis:"bvFTD标准(Rascovsky 2011)：①行为/认知进行性下降；②至少3项核心特征（脱抑制、淡漠/迟钝、丧失同情/共情、 perseverative/刻板行为、口欲亢进、执行功能障碍）；③排除其他病因",
+   differential:"与AD鉴别：发病年龄早、早期人格/行为改变而非记忆下降、额颞叶萎缩、记忆相对保留。与精神疾病鉴别：进行性器质性损害、影像学萎缩",
+   biomarkers:"MRI/CT可见额颞叶萎缩（不对称性）；FDG-PET可见额颞叶低代谢；脑脊液Tau通常正常（区别于AD）；TDP-43/Tau/FUS病理",
+   guidelines:"Rascovsky et al. 2011 (bvFTD) · Gorno-Tempini et al. 2011 (PPA) · 国际FTD联盟标准",
+   prevalence:"占65岁以下痴呆病因20-30%；45-65岁人群患病率约15-22/10万"},
+  {id:3, name:"路易体痴呆", nameEn:"Dementia with Lewy Bodies (DLB)", category:"neurodegenerative", icon:"👁️",
+   onset:"隐匿起病，男性略多",
+   core:"三大核心特征：①波动性认知障碍（注意力和警觉性显著波动）；②反复发作的形象具体的视幻觉；③自发性帕金森综合征（运动迟缓、肌强直、震颤较轻）",
+   memory:"早期记忆障碍相对较轻，但注意力和执行功能障碍突出；认知呈波动性",
+   diagnosis:"DLB联盟第三版标准(McKeith 2017)：①痴呆为核心症状；②2项核心特征或1项核心+1项指示性生物标志物=很可能DLB；③1项核心特征=可能DLB。指示性标志物：DaTscan异常、REM睡眠行为障碍(RBD)、对神经阻滞剂高度敏感",
+   differential:"与AD鉴别：波动性认知、视幻觉、帕金森征、RBD、对抗精神病药敏感。与PDD鉴别："一年规则"——痴呆在帕金森征出现前或1年内发生为DLB；帕金森病史>1年后出现痴呆为PDD",
+   biomarkers:"DaTscan/SPECT可见纹状体多巴胺转运体摄取减少；MIBG心肌显像可见心脏交感神经支配减少；REM睡眠行为障碍(RBD)是重要前驱标志；脑脊液α-synuclein种子扩增试验",
+   guidelines:"McKeith IG et al. Neurology 2017;89:88-100 (DLB Consortium Third Report)",
+   prevalence:"占痴呆病因5-10%；75岁以上患病率约5%；男性:女性≈1.5:1"},
+  {id:4, name:"帕金森病痴呆", nameEn:"Parkinson Disease Dementia (PDD)", category:"neurodegenerative", icon:"🤖",
+   onset:"在已确诊帕金森病(PD)基础上，病程中逐渐出现痴呆",
+   core:"帕金森运动症状（静止性震颤、肌强直、运动迟缓、姿势不稳）+ 认知障碍（执行功能、注意力、视空间功能障碍突出）+ 神经精神症状（幻觉、抑郁、淡漠）",
+   memory:"记忆障碍存在但不是最突出的，再认记忆相对保留；言语流畅性下降明显",
+   diagnosis:"①确诊特发性帕金森病；②痴呆发生在PD病程中（通常>1年）；③认知障碍累及多个认知域并影响日常生活；④排除其他病因",
+   differential:"与DLB鉴别："一年规则"是主要临床区分——PD运动症状先于痴呆>1年为PDD。与AD鉴别：有明确PD病史、执行/视空间>记忆、帕金森运动症状突出",
+   biomarkers:"DaTscan可见纹状体多巴胺转运体减少；MRI可见海马相对保留（区别于AD）；脑脊液α-synuclein异常；认知下降与PD病程和严重程度相关",
+   guidelines:"Emre M et al. Lancet Neurol 2007;6:1000-1008 (PDD诊断标准) · AAN指南2024",
+   prevalence:"PD患者病程10年以上痴呆发生率约60-80%；PD患者痴呆年转化率约10%"},
+  {id:5, name:"正常压力脑积水", nameEn:"Normal Pressure Hydrocephalus (NPH)", category:"reversible", icon:"💧",
+   onset:"逐渐起病，多见于60岁以上老年人",
+   core:"经典三联征（Hakim三联征）：①步态障碍（最早最常见，小碎步、磁性步态、宽基底、抬脚困难、起步冻结）；②认知障碍（反应迟钝、注意力下降、执行功能障碍，类似"皮质下痴呆"）；③排尿障碍（尿频、尿急、尿失禁）",
+   memory:"记忆障碍存在但不是最突出的，以注意力和执行功能障碍为主；步态改善后认知常随之改善",
+   diagnosis:"中国iNPH共识2026：①三联征中至少1项；②影像学脑室扩大（Evan指数>0.3）；③脑脊液压力正常（70-200mmH₂O）；④排除其他病因。脑脊液放液试验(Tap Test)阳性支持诊断",
+   differential:"与AD鉴别：步态障碍突出且早于认知、脑室扩大、皮质萎缩不明显、脑脊液放液试验阳性、分流手术有效。与帕金森病鉴别：步态磁感、无静止性震颤、左旋多巴反应差",
+   biomarkers:"MRI/CT可见脑室系统扩大（Evan指数>0.3）、脑沟不宽（"脑室扩大与脑萎缩不成比例"）、DESH征象（蛛网膜下腔狭窄、脑室扩大、凸面脑沟变浅）；脑脊液压力正常；放液试验后步态改善",
+   guidelines:"Relkin N et al. Neurologist 2005 · 中国特发性正常压力脑积水诊治专家共识2026版",
+   prevalence:"老年人患病率约1-2%；在痴呆患者中约占5-10%；是少数可手术治疗的"可逆性痴呆""},
+  {id:6, name:"克雅病", nameEn:"Creutzfeldt-Jakob Disease (CJD)", category:"neurodegenerative", icon:"⚡",
+   onset:"急性或亚急性起病，进展迅速",
+   core:"快速进展性痴呆（数周至数月内全面认知下降）+ 肌阵挛（约90%患者出现，惊吓诱发）+ 小脑症状（共济失调）+ 视觉障碍 + 锥体外系症状 + 无动性缄默（晚期）",
+   memory:"全面快速认知下降，包括记忆、定向、语言、执行功能均迅速恶化；病程通常<2年",
+   diagnosis:"WHO/CJD国际监测网标准：①进行性痴呆+肌阵挛；②特征性EEG（周期性同步放电PSWC，约0.5-2Hz）；③脑脊液14-3-3蛋白阳性；④MRI DWI/FLAIR可见尾状核/壳核或至少2个皮层区高信号。RT-QuIC阳性是重要诊断依据",
+   differential:"与AD鉴别：进展速度极快（月 vs 年）、肌阵挛、EEG周期放电、MRI DWI高信号、病程<2年致死。与其他快速进展性痴呆鉴别：自身免疫性脑炎、副肿瘤综合征、桥本脑病、感染性脑炎",
+   biomarkers:"MRI DWI高信号（皮层绸带征/基底节高信号，敏感性>90%）；EEG周期性尖慢复合波；脑脊液14-3-3蛋白、S100B、神经元特异性烯醇化酶升高；RT-QuIC检测脑脊液朊蛋白种子活性（敏感性>90%，特异性>98%）",
+   guidelines:"WHO CJD Surveillance Criteria · Zerr I et al. Ann Neurol 2009 · 中国CJD监测方案",
+   prevalence:"全球年发病率约1-2/100万；散发性CJD(sCJD)占85-90%；平均发病年龄65-69岁；平均病程4-6个月，90%在1年内死亡"},
+  {id:7, name:"进行性核上性麻痹", nameEn:"Progressive Supranuclear Palsy (PSP)", category:"neurodegenerative", icon:"👀",
+   onset:"隐匿起病，平均发病年龄63岁",
+   core:"经典型(PSP-RS)：垂直核上性凝视麻痹（尤其向下凝视）+ 姿势不稳伴反复跌倒（发病3年内）+ 轴性肌强直 + 构音障碍/吞咽困难 + 认知障碍（执行功能、注意力下降，额叶型痴呆）",
+   memory:"认知障碍以执行功能和注意力下降为主，类似额叶痴呆；记忆相对保留；约50%患者发展为痴呆",
+   diagnosis:"MDS-PSP标准(Höglinger 2017)：①40岁后逐渐起病；②垂直核上性凝视麻痹或垂直扫视速度减慢；③姿势不稳伴跌倒（3年内）；④排除其他病因。很可能PSP需满足核心功能域标准",
+   differential:"与AD鉴别：垂直凝视麻痹、早期反复跌倒、轴性强直、额叶型认知障碍、中脑萎缩（"蜂鸟征"）。与PD鉴别：垂直凝视障碍、早期跌倒、轴性>肢体强直、左旋多巴反应差、无震颤",
+   biomarkers:"MRI可见中脑萎缩（"蜂鸟征"/"企鹅征"，中脑面积<135mm²）；FDG-PET可见中脑/额叶低代谢；脑脊液Tau（尤其磷酸化Tau）可能升高；4R Tau病理",
+   guidelines:"Höglinger GU et al. Mov Disord 2017;32:853-864 (MDS-PSP Criteria)",
+   prevalence:"患病率约5-7/10万；占帕金森叠加综合征约50%；平均病程6-9年"},
+  {id:8, name:"皮质基底节变性", nameEn:"Corticobasal Degeneration (CBD)", category:"neurodegenerative", icon:"✋",
+   onset:"隐匿起病，平均发病年龄63岁，不对称起病",
+   core:"皮质基底节综合征(CBS)：不对称性肌强直/运动迟缓 + 肢体失用（观念运动性失用）+ 肌张力障碍（常为患肢）+ 肌阵挛（刺激敏感性）+ "异己手"现象 + 皮层感觉障碍 + 认知/语言障碍",
+   memory:"认知障碍存在但以执行功能、视空间、语言障碍为主；约50%患者发展为痴呆；记忆相对保留",
+   diagnosis:"Armstrong标准(2013)：①不对称性起病；②至少2项：肢体强直/运动迟缓、肢体失用、肌张力障碍、肌阵挛；③至少1项皮层特征（异己手、皮层感觉障碍、构音障碍/失语）；④排除其他病因",
+   differential:"与AD鉴别：不对称性运动症状、失用、异己手、肌张力障碍、顶叶萎缩。与PSP鉴别：不对称性、失用/异己手、无垂直凝视麻痹。与PD鉴别：不对称性、失用、左旋多巴反应差、早期认知障碍",
+   biomarkers:"MRI可见不对称性额顶叶萎缩（"刀刃样萎缩"）；FDG-PET可见不对称性额顶叶低代谢；脑脊液Tau可能升高；4R Tau病理（星形细胞斑）",
+   guidelines:"Armstrong MJ et al. Neurology 2013;80:496-503 · MDS非典型帕金森综合征标准",
+   prevalence:"患病率约4-7/10万；占帕金森叠加综合征约5-10%；平均病程6-8年"},
+  {id:9, name:"多系统萎缩", nameEn:"Multiple System Atrophy (MSA)", category:"neurodegenerative", icon:"🌀",
+   onset:"隐匿起病，平均发病年龄57岁",
+   core:"两大亚型：MSA-P（帕金森型，以运动迟缓/强直为主）和MSA-C（小脑型，以小脑性共济失调为主）。共同特征：严重自主神经功能衰竭（尿失禁/尿潴留、体位性低血压、勃起功能障碍）+ 构音障碍 + 吞咽困难 + 快速进展",
+   memory:"认知障碍相对较轻，约20-30%患者有轻度认知障碍；以执行功能和注意力下降为主；痴呆发生率低于AD/DLB",
+   diagnosis:"MDS-MSA标准(Gilman 2008, Wenning 2022修订)：①自主神经功能衰竭（尿失禁/残余尿>100ml或体位性低血压收缩压下降≥30mmHg或舒张压≥15mmHg）；②左旋多巴反应不良的帕金森综合征或小脑性共济失调；③排除其他病因。临床确诊MSA需2项核心特征+MRI标志",
+   differential:"与AD鉴别：自主神经功能衰竭突出、小脑/帕金森运动症状、认知相对保留、快速进展。与PD鉴别：早期自主神经衰竭、小脑症状、左旋多巴反应差、快速进展、无震颤",
+   biomarkers:"MRI可见壳核萎缩/裂隙征、脑桥"十字征"（MSA-C）、小脑中脚萎缩；FDG-PET可见纹状体/小脑/脑干低代谢；MIBG心肌显像通常正常（区别于PD/DLB）；α-synuclein病理（胶质细胞胞质包涵体GCI）",
+   guidelines:"Gilman S et al. Neurology 2008;71:670-676 · Wenning GK et al. 2022修订",
+   prevalence:"患病率约3-5/10万；占帕金森叠加综合征约20-30%；平均病程6-9年，较PD进展快"},
+  {id:10, name:"亨廷顿病", nameEn:"Huntington Disease (HD)", category:"neurodegenerative", icon:"🎭",
+   onset:"通常30-50岁起病，有明确常染色体显性遗传家族史",
+   core:"三联征：①运动障碍（舞蹈样动作——不自主、无目的、快速的肢体/面部扭动；晚期变为肌张力障碍/帕金森征）；②认知障碍（执行功能、注意力、思维灵活性下降，最终发展为痴呆）；③精神症状（抑郁、易激惹、冲动、淡漠、精神病性症状）",
+   memory:"认知障碍以执行功能和注意力下降为主，记忆相对保留；语言流畅性下降明显；认知下降与运动症状平行",
+   diagnosis:"①典型临床表现（运动+认知+精神）；②阳性家族史（常染色体显性遗传）；③基因检测：HTT基因CAG三核苷酸重复扩增≥36次（正常10-35次）；④排除其他病因",
+   differential:"与AD鉴别：发病年龄早、舞蹈样动作、精神症状突出、阳性家族史、基因检测阳性、尾状核萎缩。与其他舞蹈症鉴别：小舞蹈病（风湿热）、神经棘红细胞增多症、肝豆状核变性、药物性",
+   biomarkers:"MRI/CT可见尾状核萎缩（侧脑室前角扩大呈"蝴蝶状"）、大脑皮层萎缩；FDG-PET可见尾状核/壳核低代谢；基因检测HTT CAG重复数是确诊依据；脑脊液/血液亨廷顿蛋白",
+   guidelines:"HD Society of America Guidelines · 国际亨廷顿病研究组标准 · 中国亨廷顿病诊治指南2023",
+   prevalence:"全球患病率约5-10/10万；西欧/北美较高（10-15/10万），亚洲较低（1-4/10万）；平均病程15-20年"},
+  {id:11, name:"抑郁假性痴呆", nameEn:"Depressive Pseudodementia", category:"psychiatric", icon:"😔",
+   onset:"亚急性起病（数周至数月），常有明确诱因或应激事件",
+   core:"抑郁症状群：情绪低落、兴趣减退、快感缺失、精力下降、睡眠障碍（早醒/入睡困难）、食欲改变、自责自罪、消极观念；认知主诉：患者主动强调记忆差、注意力不集中、"脑子变笨了"",
+   memory:"认知测试特点：常回答"我不知道"而非尝试错误答案；测试表现不一致（不同时间差异大）；努力程度低；客观记忆损害与主诉程度不匹配；再认记忆相对保留",
+   diagnosis:"①符合重性抑郁障碍诊断标准（DSM-5/ICD-11）；②认知障碍与抑郁发作时间相关；③抑郁症状先于或与认知障碍同时出现；④抗抑郁治疗后认知功能改善；⑤排除神经退行性疾病",
+   differential:"与AD鉴别：起病较快、患者强调认知问题（AD患者常否认/淡化）、"I don't know"回答、测试表现不一致、抑郁症状突出、抗抑郁治疗有效、无AD生物标志物。注意：老年抑郁可能是AD的前驱表现，需长期随访",
+   biomarkers:"无特异性神经退行性生物标志物；脑脊液Aβ42/40和p-Tau正常（区别于AD）；MRI海马无明显萎缩；FDG-PET无典型AD模式的颞顶叶低代谢；抑郁量表（PHQ-9/GDS/HAMD）评分高",
+   guidelines:"DSM-5-TR · ICD-11 · 中国抑郁障碍防治指南第二版 · NICE老年抑郁指南",
+   prevalence:"老年人群抑郁患病率约5-10%；抑郁患者认知障碍发生率约30-50%；约10-15%的"假性痴呆"患者最终发展为真性痴呆"},
+  {id:12, name:"谵妄", nameEn:"Delirium", category:"reversible", icon:"🌙",
+   onset:"急性起病（数小时至数天），症状在24小时内波动",
+   core:"核心特征：①注意力障碍（无法集中、维持或转移注意力）；②意识水平改变（清晰度下降、嗜睡或激越）；③认知功能急性全面紊乱（定向障碍、记忆损害、语言障碍、知觉异常如幻觉/错觉）；④睡眠-觉醒周期紊乱（昼夜颠倒、失眠或嗜睡）",
+   memory:"急性全面认知混乱，包括定向力（尤其时间/地点）、注意力、记忆均急性受损；症状呈波动性（白天减轻、夜间加重——"日落综合征"）",
+   diagnosis:"DSM-5标准：①注意力和意识障碍急性发生（数小时-天）；②症状在一天内波动；③认知功能改变（记忆、定向、语言、视空间、知觉）；④有证据表明障碍由躯体疾病、物质中毒/戒断或多种病因直接导致；⑤不能用已有的神经认知障碍更好解释",
+   differential:"与AD鉴别：急性起病（小时-天 vs 月-年）、波动性病程、注意力障碍为核心、意识水平改变、有明确诱因（感染/药物/手术/代谢紊乱）、可逆性。与抑郁鉴别：急性起病、意识波动、注意力障碍、幻觉/错觉常见、有明确躯体诱因",
+   biomarkers:"无特异性；重点查找诱因：血常规（感染/贫血）、电解质、血糖、肝肾功能、甲状腺功能、维生素B12、药物筛查、感染指标（CRP/PCT/尿常规/胸片）、脑电图（弥漫性慢波）；CAM意识模糊评估法是床旁筛查工具",
+   guidelines:"DSM-5-TR · ICD-11 · NICE谵妄指南 · 中国老年患者围术期谵妄管理专家共识",
+   prevalence:"住院老年患者谵妄发生率约20-30%；ICU患者高达60-80%；术后老年患者约15-50%；痴呆患者发生谵妄风险增加2-5倍；是老年患者急性认知改变的最常见原因"}
+];
+
+const COMORBIDITY_DATA = [
+  {id:1, name:"心血管病与高血压", icon:"❤️",
+   prevalence:"AD患者合并高血压约60-70%，合并冠心病约20-30%，合并房颤约10-15%",
+   impact:"中年期高血压是AD发病的独立危险因素；血管病变加速认知下降；合并脑血管病时AD临床表现更重、进展更快",
+   management:"①血压控制目标：65岁以下<130/80mmHg，65岁以上<140/90mmHg（避免过度降压导致脑灌注不足）；②优选对认知有潜在获益的降压药（钙通道阻滞剂、ACEI/ARB）；③他汀类药物管理血脂（LDL-C目标根据心血管风险分层）；④房颤患者抗凝治疗预防脑栓塞；⑤抗血小板治疗用于二级预防",
+   caution:"避免使用可能加重认知障碍的药物（如某些β受体阻滞剂、中枢性降压药可乐定）；过度降压可能加重脑灌注不足和认知下降",
+   guidelines:"中国高血压防治指南2024 · 中国成人血脂异常防治指南2023 · 2026 ACC认知障碍与心血管病科学声明",
+   evidence:"SPRINT研究显示强化降压可降低轻度认知障碍风险；PROGRESS研究显示培哚普利+吲达帕胺可降低卒中后痴呆风险"},
+  {id:2, name:"糖尿病", icon:"🩸",
+   prevalence:"AD患者合并2型糖尿病约15-25%；糖尿病患者AD发病风险增加约1.5-2倍",
+   impact:"糖尿病通过胰岛素抵抗、脑微血管病变、晚期糖基化终产物(AGEs)、氧化应激等机制加速AD病理；糖尿病患者认知下降速度更快；高血糖可能加重Aβ聚集",
+   management:"①血糖控制目标：HbA1c≤7%（老年患者可适当放宽至7.5-8.0%，避免低血糖）；②优选对认知有潜在获益的降糖药（二甲双胍、GLP-1受体激动剂如利拉鲁肽/司美格鲁肽、SGLT2抑制剂）；③每年进行标准化认知功能筛查；④管理糖尿病并发症（肾病、视网膜病变、神经病变）；⑤营养干预（MIND饮食/地中海饮食）",
+   caution:"避免低血糖（低血糖可导致急性认知损害和脑损伤）；噻唑烷二酮类可能增加心衰风险；胰岛素治疗需注意体重增加和低血糖",
+   guidelines:"中国2型糖尿病防治指南2024 · 阿尔茨海默病高危因素管理专家共识2026 · ADA Standards of Care 2026",
+   evidence:"UKPDS研究显示强化血糖控制可降低微血管并发症；观察性研究显示二甲双胍使用与AD风险降低相关；GLP-1受体激动剂的神经保护作用正在临床试验中验证"},
+  {id:3, name:"抑郁", icon:"😔",
+   prevalence:"AD患者抑郁发生率约30-50%，是AD最常见的神经精神症状之一",
+   impact:"抑郁加重认知损害、加速功能下降、增加照护者负担、降低生活质量；抑郁可能是AD的前驱症状或危险因素；抑郁与AD病理（Aβ/Tau）相互影响",
+   management:"①非药物治疗优先：认知行为治疗(CBT)、回忆疗法、光照治疗、音乐治疗、运动疗法、社交活动；②药物治疗：SSRI类（舍曲林、艾司西酞普兰）为一线选择，米氮平适用于伴失眠/食欲下降者；③胆碱酯酶抑制剂（多奈哌齐、卡巴拉汀）可能改善AD患者的抑郁/焦虑症状；④美金刚对中重度AD的神经精神症状可能有益；⑤定期筛查（PHQ-9/GDS-15）",
+   caution:"避免使用三环类抗抑郁药（抗胆碱能副作用加重认知损害）；避免使用苯二氮䓬类（增加跌倒、谵妄、认知下降风险）；抗抑郁药起效慢（4-6周），需足疗程；注意5-羟色胺综合征风险",
+   guidelines:"中国阿尔茨海默病痴呆诊疗指南2025 · 中国抑郁障碍防治指南第二版 · NICE痴呆神经精神症状管理指南",
+   evidence:"荟萃分析显示SSRI对AD抑郁疗效有限但安全性好；胆碱酯酶抑制剂对AD抑郁有轻度获益；CBT对轻度AD抑郁有效；非药物治疗应作为基础"},
+  {id:4, name:"睡眠障碍", icon:"😴",
+   prevalence:"AD患者睡眠障碍发生率约40-70%，包括失眠、睡眠呼吸暂停、昼夜节律紊乱、日落综合征、REM睡眠行为障碍",
+   impact:"睡眠障碍加重认知损害（睡眠剥夺影响Aβ清除——类淋巴系统在睡眠期活跃）；睡眠紊乱加速AD病理进展；夜间行为问题（游走、激越）增加照护者负担和跌倒风险；睡眠呼吸暂停加重脑缺氧",
+   management:"①睡眠卫生教育：固定作息、白天光照暴露、限制白天午睡、避免睡前咖啡因/酒精；②非药物治疗：光照治疗（早晨30-60分钟强光）、认知行为治疗失眠(CBT-I)、音乐疗法、芳香疗法；③治疗睡眠呼吸暂停（CPAP持续气道正压通气）；④药物治疗谨慎：褪黑素（1-5mg，睡前）可改善睡眠节律；避免使用苯二氮䓬类和非苯二氮䓬类催眠药（唑吡坦等）；⑤管理"日落综合征"（傍晚增加陪伴、减少环境刺激）",
+   caution:"苯二氮䓬类药物增加跌倒、谵妄、认知下降和死亡风险，应避免使用；抗精神病药用于睡眠问题风险大于获益；褪黑素长期使用安全性需进一步研究",
+   guidelines:"中国阿尔茨海默病痴呆诊疗指南2025 · AASM临床实践指南 · 中国成人失眠诊断与治疗指南2024",
+   evidence:"研究显示睡眠剥夺导致脑脊液Aβ清除减少约40%；CPAP治疗睡眠呼吸暂停可改善认知功能；光照治疗可改善AD患者昼夜节律紊乱；CBT-I对老年失眠有效"},
+  {id:5, name:"癫痫", icon:"⚡",
+   prevalence:"AD患者癫痫发生率约10-22%，远高于普通老年人（1-2%）；早发型AD（<65岁）癫痫风险更高",
+   impact:"癫痫发作加重认知损害（发作后状态、反复亚临床放电）；癫痫增加跌倒和外伤风险；癫痫是AD进展加速的标志；癫痫持续状态是医疗急症",
+   management:"①单药治疗优先：左乙拉西坦（药物相互作用少、无肝酶诱导、认知副作用小）为AD患者首选；拉莫三嗪（需缓慢加量避免皮疹）；②避免使用可能加重认知障碍的抗癫痫药（苯巴比妥、苯妥英钠、丙戊酸钠——注意丙戊酸可能加重认知下降和震颤）；③避免使用卡马西平/奥卡西平（与胆碱酯酶抑制剂有相互作用，可能加重认知）；④治疗诱因（感染、代谢紊乱、药物）；⑤脑电图监测（包括长程/睡眠脑电图）",
+   caution:"抗抑郁药（尤其安非他酮、SNRI、三环类）和抗精神病药可能降低癫痫阈值；抗Aβ抗体（仑卡奈单抗等）在合并癫痫患者中需谨慎（ARIA-E可能诱发癫痫）；避免突然停药导致癫痫持续状态",
+   guidelines:"中国成人癫痫诊疗指南2024 · NICE癫痫指南 · ILAE成人癫痫治疗指南",
+   evidence:"AD患者癫痫常为局灶性发作（伴或不伴意识障碍）；左乙拉西坦在AD患者中耐受性好且可能改善认知；癫痫发作与AD严重程度相关；亚临床癫痫放电可能加速认知下降"},
+  {id:6, name:"营养不良与体重下降", icon:"🍽️",
+   prevalence:"AD患者营养不良发生率约20-45%；体重下降在AD诊断前数年即可出现，是AD的早期标志之一",
+   impact:"营养不良加重认知损害、增加感染风险、延缓疾病恢复、增加跌倒和骨折风险、降低生活质量、增加死亡率；体重下降是AD进展的独立预测因素",
+   management:"①定期营养评估（MNA-SF微型营养评估简表、BMI、体重变化）；②高蛋白饮食（1.0-1.2g/kg/天，衰弱/疾病期1.2-1.5g/kg/天）；③充足热量摄入（25-35kcal/kg/天）；④MIND饮食/地中海饮食模式（富含鱼类、坚果、橄榄油、蔬菜水果、全谷物）；⑤补充ω-3脂肪酸（DHA/EPA）、维生素D、维生素B12、叶酸；⑥进食环境优化（安静、充足光照、食物易咀嚼吞咽）；⑦严重营养不良考虑肠内营养（管饲）；⑧口腔健康管理",
+   caution:"避免过度限制饮食（低盐低脂可能导致营养不足）；注意吞咽功能评估（晚期AD患者吞咽困难常见，需防误吸）；维生素E高剂量（>400IU/天）可能增加全因死亡率，不推荐常规补充；管饲在终末期AD患者中的获益存在伦理争议",
+   guidelines:"中国老年人营养不良诊疗专家共识2024 · ESPEN老年营养指南 · 中国阿尔茨海默病痴呆诊疗指南2025",
+   evidence:"MIND饮食可降低AD发病风险53%（高依从性）；高蛋白摄入与AD患者认知功能维持相关；维生素D缺乏与AD风险增加相关；ω-3脂肪酸补充对轻度AD可能有轻度认知获益"}
+];
+
+// 渲染鉴别诊断页面
+function initDifferential() {
+  const grid = document.getElementById('diff-grid');
+  if (!grid) return;
+  grid.innerHTML = DIFFERENTIAL_DISEASES.map(d => `
+    <div class="gene-card" data-category="${d.category}" style="cursor:pointer;" onclick="toggleDiffDetail(${d.id})">
+      <div style="font-size:28px;margin-bottom:8px;">${d.icon}</div>
+      <h4 style="margin:0 0 4px;color:var(--primary);">${d.name}</h4>
+      <p style="font-size:11px;color:#64748b;margin:0 0 8px;">${d.nameEn}</p>
+      <p style="font-size:12px;color:#94a3b8;margin:0;line-height:1.5;">${d.onset.substring(0,50)}...</p>
+      <div id="diff-detail-${d.id}" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:12px;line-height:1.7;">
+        <p><strong style="color:#be185d;">核心症状：</strong>${d.core}</p>
+        <p><strong style="color:#be185d;">记忆特点：</strong>${d.memory}</p>
+        <p><strong style="color:#be185d;">诊断标准：</strong>${d.diagnosis}</p>
+        <p><strong style="color:#be185d;">与AD鉴别：</strong>${d.differential}</p>
+        <p><strong style="color:#be185d;">生物标志物：</strong>${d.biomarkers}</p>
+        <p><strong style="color:#be185d;">患病率：</strong>${d.prevalence}</p>
+        <p><strong style="color:#be185d;">指南来源：</strong>${d.guidelines}</p>
+      </div>
+    </div>
+  `).join('');
+  
+  const comGrid = document.getElementById('comorbidity-grid');
+  if (comGrid) {
+    comGrid.innerHTML = COMORBIDITY_DATA.map(c => `
+      <div class="gene-card" style="cursor:pointer;" onclick="toggleComDetail(${c.id})">
+        <div style="font-size:28px;margin-bottom:8px;">${c.icon}</div>
+        <h4 style="margin:0 0 8px;color:var(--primary);">${c.name}</h4>
+        <p style="font-size:12px;color:#94a3b8;margin:0 0 8px;line-height:1.5;"><strong>患病率：</strong>${c.prevalence.substring(0,60)}...</p>
+        <div id="com-detail-${c.id}" style="display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-size:12px;line-height:1.7;">
+          <p><strong style="color:#be185d;">对AD影响：</strong>${c.impact}</p>
+          <p><strong style="color:#be185d;">管理策略：</strong>${c.management}</p>
+          <p><strong style="color:#be185d;">注意事项：</strong>${c.caution}</p>
+          <p><strong style="color:#be185d;">循证证据：</strong>${c.evidence}</p>
+          <p><strong style="color:#be185d;">指南来源：</strong>${c.guidelines}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+function toggleDiffDetail(id) {
+  const el = document.getElementById('diff-detail-' + id);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function toggleComDetail(id) {
+  const el = document.getElementById('com-detail-' + id);
+  if (el) el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function filterDiff(category, btn) {
+  document.querySelectorAll('#page-differential .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#diff-grid .gene-card').forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
 
 // ===== AD学术会议日历数据 =====
 const CONFERENCE_DATA = [
@@ -3167,7 +3448,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v277 · 数据更新至 2026-09-08</div>
+  <div>版本 v278 · 数据更新至 2026-09-10</div>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
