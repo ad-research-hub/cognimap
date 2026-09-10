@@ -2272,6 +2272,888 @@ render();
     <div class="gene-stat-item"><span class="gene-stat-num">20</span><span class="gene-stat-label">高置信度因果基因</span></div>
     <div class="gene-stat-item"><span class="gene-stat-num">76</span><span class="gene-stat-label">GWAS风险位点</span></div>
     <div class="gene-stat-item"><span class="gene-stat-num">99</span><span class="gene-stat-label">总基因数</span></div>
+  
+  <div id="chromosomeMapContainer" style="background:#fff;border-radius:16px;padding:24px;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+    <h3 style="color:var(--primary);font-size:16px;margin:0;">🧬 AD风险基因染色体定位图</h3>
+    <div style="display:flex;gap:16px;font-size:12px;">
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:#dc2626;border-radius:2px;display:inline-block;"></span>致病基因 (20)</span>
+      <span style="display:flex;align-items:center;gap:4px;"><span style="width:12px;height:12px;background:#3b82f6;border-radius:2px;display:inline-block;"></span>风险位点 (76)</span>
+    </div>
+  </div>
+  <div style="font-size:12px;color:#64748b;margin-bottom:12px;">
+    数据来源：ADSP Gene Verification Committee (Bellenguez et al. 2022, Nat Genet) | 点击基因标记查看详情 | 鼠标悬停显示基因名称
+  </div>
+  <div id="chromosomeMap" style="width:100%;overflow-x:auto;padding:10px 0;">
+    <svg id="chromosomeSvg" width="1200" height="520" xmlns="http://www.w3.org/2000/svg" style="min-width:1000px;">
+
+      <g class="chromosome-group" data-chrom="1" transform="translate(80,40)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="56" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="53" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="61" width="30" height="65" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="144" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr1</text>
+
+        <g class="gene-marker" data-gene="SORT1" data-chrom="1" data-pos="109345810" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SORT1', 1, 109345810, '风险')">
+          <line x1="-5" y1="55" x2="-8" y2="55" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="55" r="3" fill="#3b82f6">
+            <title>SORT1 (chr1:109,345,810) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="CR1" data-chrom="1" data-pos="207577223" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('CR1', 1, 207577223, '风险')">
+          <line x1="-5" y1="105" x2="-8" y2="105" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="-8" cy="105" r="3" fill="#dc2626">
+            <title>CR1 (chr1:207,577,223) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="2" transform="translate(260,40)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="55" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="52" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="60" width="30" height="63" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="141" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr2</text>
+
+        <g class="gene-marker" data-gene="ADAM17" data-chrom="2" data-pos="9558882" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('ADAM17', 2, 9558882, '风险')">
+          <line x1="-5" y1="4" x2="-8" y2="4" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="4" r="3" fill="#3b82f6">
+            <title>ADAM17 (chr2:9,558,882) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="PRKD3" data-chrom="2" data-pos="37304796" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('PRKD3', 2, 37304796, '风险')">
+          <line x1="-5" y1="18" x2="-8" y2="18" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="18" r="3" fill="#3b82f6">
+            <title>PRKD3 (chr2:37,304,796) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="NCK2" data-chrom="2" data-pos="105749599" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('NCK2', 2, 105749599, '风险')">
+          <line x1="-5" y1="53" x2="-8" y2="53" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="53" r="3" fill="#3b82f6">
+            <title>NCK2 (chr2:105,749,599) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="BIN1" data-chrom="2" data-pos="127135234" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('BIN1', 2, 127135234, '致病')">
+          <line x1="-5" y1="64" x2="-8" y2="64" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="-8" cy="64" r="3" fill="#dc2626">
+            <title>BIN1 (chr2:127,135,234) - 致病</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="WDR12" data-chrom="2" data-pos="202878716" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('WDR12', 2, 202878716, '风险')">
+          <line x1="-5" y1="103" x2="-8" y2="103" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="103" r="3" fill="#3b82f6">
+            <title>WDR12 (chr2:202,878,716) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="INPP5D" data-chrom="2" data-pos="233117202" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('INPP5D', 2, 233117202, '风险')">
+          <line x1="-5" y1="118" x2="-8" y2="118" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="118" r="3" fill="#3b82f6">
+            <title>INPP5D (chr2:233,117,202) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="3" transform="translate(440,40)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="45" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="42" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="50" width="30" height="50" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="118" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr3</text>
+
+        <g class="gene-marker" data-gene="MME" data-chrom="3" data-pos="155069722" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('MME', 3, 155069722, '风险')">
+          <line x1="-5" y1="78" x2="-8" y2="78" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="78" r="3" fill="#3b82f6">
+            <title>MME (chr3:155,069,722) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="4" transform="translate(620,40)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="43" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="40" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="48" width="30" height="48" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="114" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr4</text>
+
+        <g class="gene-marker" data-gene="IDUA" data-chrom="4" data-pos="993555" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('IDUA', 4, 993555, '风险')">
+          <line x1="30" y1="0" x2="35" y2="0" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="0" r="3" fill="#3b82f6">
+            <title>IDUA (chr4:993,555) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="CLNK" data-chrom="4" data-pos="11023507" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('CLNK', 4, 11023507, '风险')">
+          <line x1="30" y1="5" x2="35" y2="5" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="5" r="3" fill="#3b82f6">
+            <title>CLNK (chr4:11,023,507) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="RHOH" data-chrom="4" data-pos="40197226" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('RHOH', 4, 40197226, '风险')">
+          <line x1="30" y1="20" x2="35" y2="20" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="20" r="3" fill="#3b82f6">
+            <title>RHOH (chr4:40,197,226) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="5" transform="translate(800,40)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="41" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="38" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="46" width="30" height="46" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="110" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr5</text>
+
+        <g class="gene-marker" data-gene="ANKH" data-chrom="5" data-pos="14724304" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('ANKH', 5, 14724304, '风险')">
+          <line x1="30" y1="7" x2="35" y2="7" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="7" r="3" fill="#3b82f6">
+            <title>ANKH (chr5:14,724,304) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="COX7C" data-chrom="5" data-pos="86927378" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('COX7C', 5, 86927378, '风险')">
+          <line x1="30" y1="44" x2="35" y2="44" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="44" r="3" fill="#3b82f6">
+            <title>COX7C (chr5:86,927,378) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="TNIP1" data-chrom="5" data-pos="151052827" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('TNIP1', 5, 151052827, '风险')">
+          <line x1="30" y1="76" x2="35" y2="76" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="76" r="3" fill="#3b82f6">
+            <title>TNIP1 (chr5:151,052,827) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="RASGEF1C" data-chrom="5" data-pos="180201150" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('RASGEF1C', 5, 180201150, '风险')">
+          <line x1="30" y1="91" x2="35" y2="91" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="91" r="3" fill="#3b82f6">
+            <title>RASGEF1C (chr5:180,201,150) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="6" transform="translate(980,40)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="38" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="35" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="43" width="30" height="43" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="104" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr6</text>
+
+        <g class="gene-marker" data-gene="HLA-DQA1" data-chrom="6" data-pos="32615322" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('HLA-DQA1', 6, 32615322, '风险')">
+          <line x1="30" y1="16" x2="35" y2="16" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="16" r="3" fill="#3b82f6">
+            <title>HLA-DQA1 (chr6:32,615,322) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="UNC5CL" data-chrom="6" data-pos="41036354" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('UNC5CL', 6, 41036354, '风险')">
+          <line x1="30" y1="20" x2="35" y2="20" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="20" r="3" fill="#3b82f6">
+            <title>UNC5CL (chr6:41,036,354) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="TREM2" data-chrom="6" data-pos="41161469" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('TREM2', 6, 41161469, '致病')">
+          <line x1="30" y1="20" x2="35" y2="20" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="35" cy="20" r="3" fill="#dc2626">
+            <title>TREM2 (chr6:41,161,469) - 致病</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="TREML2" data-chrom="6" data-pos="41181270" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('TREML2', 6, 41181270, '风险')">
+          <line x1="30" y1="20" x2="35" y2="20" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="20" r="3" fill="#3b82f6">
+            <title>TREML2 (chr6:41,181,270) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="CD2AP" data-chrom="6" data-pos="47517390" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('CD2AP', 6, 47517390, '风险')">
+          <line x1="30" y1="23" x2="35" y2="23" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="23" r="3" fill="#3b82f6">
+            <title>CD2AP (chr6:47,517,390) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="HS3ST5" data-chrom="6" data-pos="114291731" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('HS3ST5', 6, 114291731, '风险')">
+          <line x1="30" y1="57" x2="35" y2="57" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="57" r="3" fill="#3b82f6">
+            <title>HS3ST5 (chr6:114,291,731) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="7" transform="translate(80,170)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="36" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="33" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="41" width="30" height="40" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="99" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr7</text>
+
+        <g class="gene-marker" data-gene="UMAD1" data-chrom="7" data-pos="7817263" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('UMAD1', 7, 7817263, '风险')">
+          <line x1="-5" y1="3" x2="-8" y2="3" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="3" r="3" fill="#3b82f6">
+            <title>UMAD1 (chr7:7,817,263) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="ICA1" data-chrom="7" data-pos="8204382" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('ICA1', 7, 8204382, '风险')">
+          <line x1="-5" y1="4" x2="-8" y2="4" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="4" r="3" fill="#3b82f6">
+            <title>ICA1 (chr7:8,204,382) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="TMEM106B" data-chrom="7" data-pos="12229967" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('TMEM106B', 7, 12229967, '风险')">
+          <line x1="-5" y1="6" x2="-8" y2="6" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="6" r="3" fill="#3b82f6">
+            <title>TMEM106B (chr7:12,229,967) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="JAZF1" data-chrom="7" data-pos="28129126" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('JAZF1', 7, 28129126, '风险')">
+          <line x1="-5" y1="14" x2="-8" y2="14" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="14" r="3" fill="#3b82f6">
+            <title>JAZF1 (chr7:28,129,126) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="EPDR1" data-chrom="7" data-pos="37844191" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('EPDR1', 7, 37844191, '风险')">
+          <line x1="-5" y1="19" x2="-8" y2="19" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="19" r="3" fill="#3b82f6">
+            <title>EPDR1 (chr7:37,844,191) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SEC61G" data-chrom="7" data-pos="54873635" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SEC61G', 7, 54873635, '风险')">
+          <line x1="-5" y1="27" x2="-8" y2="27" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="27" r="3" fill="#3b82f6">
+            <title>SEC61G (chr7:54,873,635) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SPDYE3" data-chrom="7" data-pos="100334426" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SPDYE3', 7, 100334426, '风险')">
+          <line x1="-5" y1="51" x2="-8" y2="51" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="51" r="3" fill="#3b82f6">
+            <title>SPDYE3 (chr7:100,334,426) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="EPHA1" data-chrom="7" data-pos="143413669" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('EPHA1', 7, 143413669, '致病')">
+          <line x1="-5" y1="72" x2="-8" y2="72" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="-8" cy="72" r="3" fill="#dc2626">
+            <title>EPHA1 (chr7:143,413,669) - 致病</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="8" transform="translate(260,170)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="32" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="29" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="37" width="30" height="36" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="91" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr8</text>
+
+        <g class="gene-marker" data-gene="CTSB" data-chrom="8" data-pos="11844613" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('CTSB', 8, 11844613, '风险')">
+          <line x1="-5" y1="5" x2="-8" y2="5" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="5" r="3" fill="#3b82f6">
+            <title>CTSB (chr8:11,844,613) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="PTK2B" data-chrom="8" data-pos="27362470" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('PTK2B', 8, 27362470, '风险')">
+          <line x1="-5" y1="13" x2="-8" y2="13" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="13" r="3" fill="#3b82f6">
+            <title>PTK2B (chr8:27,362,470) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="CLU" data-chrom="8" data-pos="27607795" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('CLU', 8, 27607795, '风险')">
+          <line x1="-5" y1="13" x2="-8" y2="13" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="13" r="3" fill="#3b82f6">
+            <title>CLU (chr8:27,607,795) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SHARPIN" data-chrom="8" data-pos="144103704" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SHARPIN', 8, 144103704, '风险')">
+          <line x1="-5" y1="72" x2="-8" y2="72" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="72" r="3" fill="#3b82f6">
+            <title>SHARPIN (chr8:144,103,704) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="9" transform="translate(440,170)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="31" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="28" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="36" width="30" height="34" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="88" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr9</text>
+
+        <g class="gene-marker" data-gene="ABCA1" data-chrom="9" data-pos="104903697" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('ABCA1', 9, 104903697, '风险')">
+          <line x1="-5" y1="53" x2="-8" y2="53" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="53" r="3" fill="#3b82f6">
+            <title>ABCA1 (chr9:104,903,697) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="10" transform="translate(620,170)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="30" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="27" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="35" width="30" height="33" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="86" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr10</text>
+
+        <g class="gene-marker" data-gene="USP6NL" data-chrom="10" data-pos="11676714" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('USP6NL', 10, 11676714, '风险')">
+          <line x1="30" y1="5" x2="35" y2="5" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="5" r="3" fill="#3b82f6">
+            <title>USP6NL (chr10:11,676,714) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="ANK3" data-chrom="10" data-pos="60025170" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('ANK3', 10, 60025170, '风险')">
+          <line x1="30" y1="30" x2="35" y2="30" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="30" r="3" fill="#3b82f6">
+            <title>ANK3 (chr10:60,025,170) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="TSPAN14" data-chrom="10" data-pos="80494228" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('TSPAN14', 10, 80494228, '风险')">
+          <line x1="30" y1="40" x2="35" y2="40" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="40" r="3" fill="#3b82f6">
+            <title>TSPAN14 (chr10:80,494,228) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="BLNK" data-chrom="10" data-pos="96266650" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('BLNK', 10, 96266650, '风险')">
+          <line x1="30" y1="48" x2="35" y2="48" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="48" r="3" fill="#3b82f6">
+            <title>BLNK (chr10:96,266,650) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="PLEKHA1" data-chrom="10" data-pos="122413396" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('PLEKHA1', 10, 122413396, '风险')">
+          <line x1="30" y1="62" x2="35" y2="62" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="62" r="3" fill="#3b82f6">
+            <title>PLEKHA1 (chr10:122,413,396) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="11" transform="translate(800,170)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="30" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="27" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="35" width="30" height="33" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="86" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr11</text>
+
+        <g class="gene-marker" data-gene="SPI1" data-chrom="11" data-pos="47370397" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('SPI1', 11, 47370397, '致病')">
+          <line x1="30" y1="23" x2="35" y2="23" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="35" cy="23" r="3" fill="#dc2626">
+            <title>SPI1 (chr11:47,370,397) - 致病</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="MS4A4A" data-chrom="11" data-pos="60254475" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('MS4A4A', 11, 60254475, '风险')">
+          <line x1="30" y1="30" x2="35" y2="30" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="30" r="3" fill="#3b82f6">
+            <title>MS4A4A (chr11:60,254,475) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="EED" data-chrom="11" data-pos="86157598" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('EED', 11, 86157598, '风险')">
+          <line x1="30" y1="43" x2="35" y2="43" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="43" r="3" fill="#3b82f6">
+            <title>EED (chr11:86,157,598) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SORL1" data-chrom="11" data-pos="121564878" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('SORL1', 11, 121564878, '致病')">
+          <line x1="30" y1="61" x2="35" y2="61" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="35" cy="61" r="3" fill="#dc2626">
+            <title>SORL1 (chr11:121,564,878) - 致病</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="12" transform="translate(980,170)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="30" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="27" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="35" width="30" height="32" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="85" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr12</text>
+
+        <g class="gene-marker" data-gene="TPCN1" data-chrom="12" data-pos="113281983" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('TPCN1', 12, 113281983, '风险')">
+          <line x1="30" y1="56" x2="35" y2="56" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="56" r="3" fill="#3b82f6">
+            <title>TPCN1 (chr12:113,281,983) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="13" transform="translate(80,300)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="26" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="23" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="31" width="30" height="27" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="76" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr13</text>
+      </g>
+
+      <g class="chromosome-group" data-chrom="14" transform="translate(260,300)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="24" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="21" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="29" width="30" height="25" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr14</text>
+
+        <g class="gene-marker" data-gene="FERMT2" data-chrom="14" data-pos="52924962" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('FERMT2', 14, 52924962, '风险')">
+          <line x1="-5" y1="26" x2="-8" y2="26" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="26" r="3" fill="#3b82f6">
+            <title>FERMT2 (chr14:52,924,962) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SLC24A4" data-chrom="14" data-pos="92464917" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SLC24A4', 14, 92464917, '风险')">
+          <line x1="-5" y1="46" x2="-8" y2="46" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="46" r="3" fill="#3b82f6">
+            <title>SLC24A4 (chr14:92,464,917) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="15" transform="translate(440,300)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="22" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="19" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="27" width="30" height="24" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="69" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr15</text>
+
+        <g class="gene-marker" data-gene="SPPL2A" data-chrom="15" data-pos="50701814" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SPPL2A', 15, 50701814, '风险')">
+          <line x1="-5" y1="25" x2="-8" y2="25" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="25" r="3" fill="#3b82f6">
+            <title>SPPL2A (chr15:50,701,814) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="MINDY2" data-chrom="15" data-pos="58764824" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('MINDY2', 15, 58764824, '风险')">
+          <line x1="-5" y1="29" x2="-8" y2="29" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="29" r="3" fill="#3b82f6">
+            <title>MINDY2 (chr15:58,764,824) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="APH1B" data-chrom="15" data-pos="63277703" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('APH1B', 15, 63277703, '风险')">
+          <line x1="-5" y1="31" x2="-8" y2="31" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="31" r="3" fill="#3b82f6">
+            <title>APH1B (chr15:63,277,703) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SNX1" data-chrom="15" data-pos="64131307" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SNX1', 15, 64131307, '风险')">
+          <line x1="-5" y1="32" x2="-8" y2="32" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="32" r="3" fill="#3b82f6">
+            <title>SNX1 (chr15:64,131,307) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="CTSH" data-chrom="15" data-pos="78936857" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('CTSH', 15, 78936857, '风险')">
+          <line x1="-5" y1="39" x2="-8" y2="39" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="39" r="3" fill="#3b82f6">
+            <title>CTSH (chr15:78,936,857) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="16" transform="translate(620,300)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="20" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="17" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="25" width="30" height="20" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="63" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr16</text>
+
+        <g class="gene-marker" data-gene="DOC2A" data-chrom="16" data-pos="30010081" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('DOC2A', 16, 30010081, '风险')">
+          <line x1="30" y1="14" x2="35" y2="14" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="14" r="3" fill="#3b82f6">
+            <title>DOC2A (chr16:30,010,081) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="BCKDK" data-chrom="16" data-pos="31111250" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('BCKDK', 16, 31111250, '风险')">
+          <line x1="30" y1="15" x2="35" y2="15" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="15" r="3" fill="#3b82f6">
+            <title>BCKDK (chr16:31,111,250) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="IL34" data-chrom="16" data-pos="70660097" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('IL34', 16, 70660097, '风险')">
+          <line x1="30" y1="35" x2="35" y2="35" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="35" r="3" fill="#3b82f6">
+            <title>IL34 (chr16:70,660,097) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="MAF" data-chrom="16" data-pos="79574511" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('MAF', 16, 79574511, '风险')">
+          <line x1="30" y1="39" x2="35" y2="39" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="39" r="3" fill="#3b82f6">
+            <title>MAF (chr16:79,574,511) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="PLCG2" data-chrom="16" data-pos="81739398" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('PLCG2', 16, 81739398, '致病')">
+          <line x1="30" y1="40" x2="35" y2="40" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="35" cy="40" r="3" fill="#dc2626">
+            <title>PLCG2 (chr16:81,739,398) - 致病</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="FOXF1" data-chrom="16" data-pos="86420604" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('FOXF1', 16, 86420604, '风险')">
+          <line x1="30" y1="43" x2="35" y2="43" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="43" r="3" fill="#3b82f6">
+            <title>FOXF1 (chr16:86,420,604) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="PRDM7" data-chrom="16" data-pos="90103687" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('PRDM7', 16, 90103687, '风险')">
+          <line x1="30" y1="44" x2="35" y2="44" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="44" r="3" fill="#3b82f6">
+            <title>PRDM7 (chr16:90,103,687) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="17" transform="translate(800,300)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="18" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="15" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="23" width="30" height="19" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="60" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr17</text>
+
+        <g class="gene-marker" data-gene="WDR81" data-chrom="17" data-pos="1728046" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('WDR81', 17, 1728046, '风险')">
+          <line x1="30" y1="0" x2="35" y2="0" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="0" r="3" fill="#3b82f6">
+            <title>WDR81 (chr17:1,728,046) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SCIMP" data-chrom="17" data-pos="5233752" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SCIMP', 17, 5233752, '风险')">
+          <line x1="30" y1="2" x2="35" y2="2" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="2" r="3" fill="#3b82f6">
+            <title>SCIMP (chr17:5,233,752) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="MYO15A" data-chrom="17" data-pos="18156140" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('MYO15A', 17, 18156140, '风险')">
+          <line x1="30" y1="9" x2="35" y2="9" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="9" r="3" fill="#3b82f6">
+            <title>MYO15A (chr17:18,156,140) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="GRN" data-chrom="17" data-pos="44352876" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('GRN', 17, 44352876, '风险')">
+          <line x1="30" y1="22" x2="35" y2="22" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="22" r="3" fill="#3b82f6">
+            <title>GRN (chr17:44,352,876) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="WNT3" data-chrom="17" data-pos="46779275" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('WNT3', 17, 46779275, '风险')">
+          <line x1="30" y1="23" x2="35" y2="23" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="23" r="3" fill="#3b82f6">
+            <title>WNT3 (chr17:46,779,275) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="ABI3" data-chrom="17" data-pos="49219935" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('ABI3', 17, 49219935, '致病')">
+          <line x1="30" y1="24" x2="35" y2="24" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="35" cy="24" r="3" fill="#dc2626">
+            <title>ABI3 (chr17:49,219,935) - 致病</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="TSPOAP1" data-chrom="17" data-pos="58332680" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('TSPOAP1', 17, 58332680, '风险')">
+          <line x1="30" y1="29" x2="35" y2="29" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="29" r="3" fill="#3b82f6">
+            <title>TSPOAP1 (chr17:58,332,680) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="ACE" data-chrom="17" data-pos="63471557" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('ACE', 17, 63471557, '风险')">
+          <line x1="30" y1="32" x2="35" y2="32" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="35" cy="32" r="3" fill="#3b82f6">
+            <title>ACE (chr17:63,471,557) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="18" transform="translate(980,300)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="18" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="15" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="23" width="30" height="17" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="58" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr18</text>
+      </g>
+
+      <g class="chromosome-group" data-chrom="19" transform="translate(80,430)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="13" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="10" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="18" width="30" height="11" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="47" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr19</text>
+
+        <g class="gene-marker" data-gene="ABCA7" data-chrom="19" data-pos="1050875" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('ABCA7', 19, 1050875, '致病')">
+          <line x1="-5" y1="0" x2="-8" y2="0" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="-8" cy="0" r="3" fill="#dc2626">
+            <title>ABCA7 (chr19:1,050,875) - 致病</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="KLF16" data-chrom="19" data-pos="1854254" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('KLF16', 19, 1854254, '风险')">
+          <line x1="-5" y1="0" x2="-8" y2="0" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="0" r="3" fill="#3b82f6">
+            <title>KLF16 (chr19:1,854,254) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="APOE" data-chrom="19" data-pos="44905791" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('APOE', 19, 44905791, '致病')">
+          <line x1="-5" y1="22" x2="-8" y2="22" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="-8" cy="22" r="3" fill="#dc2626">
+            <title>APOE (chr19:44,905,791) - 致病</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SIGLEC11" data-chrom="19" data-pos="49950060" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SIGLEC11', 19, 49950060, '风险')">
+          <line x1="-5" y1="24" x2="-8" y2="24" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="24" r="3" fill="#3b82f6">
+            <title>SIGLEC11 (chr19:49,950,060) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="LILRB2" data-chrom="19" data-pos="54267597" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('LILRB2', 19, 54267597, '风险')">
+          <line x1="-5" y1="26" x2="-8" y2="26" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="26" r="3" fill="#3b82f6">
+            <title>LILRB2 (chr19:54,267,597) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="20" transform="translate(260,430)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="14" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="11" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="19" width="30" height="13" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="50" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr20</text>
+
+        <g class="gene-marker" data-gene="RBCK1" data-chrom="20" data-pos="413334" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('RBCK1', 20, 413334, '风险')">
+          <line x1="-5" y1="0" x2="-8" y2="0" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="0" r="3" fill="#3b82f6">
+            <title>RBCK1 (chr20:413,334) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="CASS4" data-chrom="20" data-pos="56423488" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('CASS4', 20, 56423488, '风险')">
+          <line x1="-5" y1="28" x2="-8" y2="28" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="28" r="3" fill="#3b82f6">
+            <title>CASS4 (chr20:56,423,488) - 风险</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="SLC2A4RG" data-chrom="20" data-pos="63743088" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('SLC2A4RG', 20, 63743088, '风险')">
+          <line x1="-5" y1="31" x2="-8" y2="31" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="31" r="3" fill="#3b82f6">
+            <title>SLC2A4RG (chr20:63,743,088) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="21" transform="translate(440,430)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="10" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="7" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="15" width="30" height="8" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="41" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr21</text>
+
+        <g class="gene-marker" data-gene="APP" data-chrom="21" data-pos="26101558" data-type="致病" style="cursor:pointer;" onclick="showGeneDetail('APP', 21, 26101558, '致病')">
+          <line x1="-5" y1="12" x2="-8" y2="12" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="-8" cy="12" r="3" fill="#dc2626">
+            <title>APP (chr21:26,101,558) - 致病</title>
+          </circle>
+        </g>
+
+        <g class="gene-marker" data-gene="ADAMTS1" data-chrom="21" data-pos="26775872" data-type="风险" style="cursor:pointer;" onclick="showGeneDetail('ADAMTS1', 21, 26775872, '风险')">
+          <line x1="-5" y1="13" x2="-8" y2="13" stroke="#3b82f6" stroke-width="2"/>
+          <circle cx="-8" cy="13" r="3" fill="#3b82f6">
+            <title>ADAMTS1 (chr21:26,775,872) - 风险</title>
+          </circle>
+        </g>
+      </g>
+
+      <g class="chromosome-group" data-chrom="22" transform="translate(620,430)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="11" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="8" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="16" width="30" height="9" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="43" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chr22</text>
+      </g>
+
+      <g class="chromosome-group" data-chrom="X" transform="translate(800,430)">
+        <!-- 染色体短臂 -->
+        <rect x="0" y="0" width="30" height="35" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体着丝粒 -->
+        <rect x="-3" y="32" width="36" height="8" rx="3" fill="#cbd5e1" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体长臂 -->
+        <rect x="0" y="40" width="30" height="39" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+        <!-- 染色体编号 -->
+        <text x="15.0" y="97" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">chrX</text>
+      </g>
+
+    </svg>
+  </div>
+  <div id="geneDetailPanel" style="display:none;margin-top:16px;padding:16px;background:#f8fafc;border-radius:12px;border:1px solid #e2e8f0;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <h4 id="geneDetailTitle" style="margin:0;color:var(--primary);"></h4>
+      <button onclick="document.getElementById('geneDetailPanel').style.display='none'" style="background:none;border:none;font-size:18px;cursor:pointer;color:#64748b;">×</button>
+    </div>
+    <div id="geneDetailContent" style="font-size:13px;color:#334155;line-height:1.8;"></div>
+  </div>
+</div>
+<script>
+function showGeneDetail(gene, chrom, pos, gtype) {
+  const panel = document.getElementById('geneDetailPanel');
+  const title = document.getElementById('geneDetailTitle');
+  const content = document.getElementById('geneDetailContent');
+  
+  const isCausal = ['PSEN2', 'PLCG2', 'MS4A6A', 'APP', 'PICALM', 'CASP7', 'SPI1', 'APBB3', 'SORL1', 'CR1', 'APOE', 'ABI3', 'ABCA7', 'PILRA', 'EPHA1', 'RIN3', 'ADAM10', 'BIN1', 'PSEN1', 'TREM2'].includes(gene);
+  const typeColor = isCausal ? '#dc2626' : '#3b82f6';
+  const typeLabel = isCausal ? '高置信度致病基因' : '风险位点';
+  
+  title.innerHTML = gene + ' <span style="font-size:12px;color:' + typeColor + ';background:' + typeColor + '15;padding:2px 8px;border-radius:10px;margin-left:8px;">' + typeLabel + '</span>';
+  
+  // 基因详细信息（基于已知生物学功能）
+  const geneInfo = {
+    'APOE': '载脂蛋白E，AD最强遗传风险因子。ε4等位基因使风险增加3-15倍，ε2等位基因具有保护作用。参与脂质转运和Aβ清除。',
+    'APP': '淀粉样前体蛋白，早发性AD致病基因。突变导致Aβ生成增加，是Aβ假说的核心证据。',
+    'PSEN1': '早老素1，早发性AD最常见致病基因。编码γ-分泌酶催化亚基，突变导致Aβ42/40比例升高。',
+    'PSEN2': '早老素2，早发性AD致病基因。与PSEN1同源，参与γ-分泌酶复合物。',
+    'TREM2': '髓系细胞触发受体2，小胶质细胞功能关键基因。R47H突变使AD风险增加约3倍。',
+    'BIN1': '桥接整合因子1，迟发性AD第二强风险因子。参与内吞作用和tau病理调控。',
+    'CR1': '补体受体1，参与免疫反应和Aβ清除。与AD风险和脑内Aβ沉积相关。',
+    'CLU': '聚集素（ApoJ），分子伴侣，参与Aβ聚集和清除。',
+    'SORL1': '分拣蛋白相关受体1，参与APP分选和内吞。罕见变异与早发性AD相关。',
+    'ABCA7': 'ATP结合盒转运体A7，参与脂质转运。功能缺失变异使AD风险增加约2倍。',
+    'PLCG2': '磷脂酶Cγ2，小胶质细胞信号通路。P522R变异具有保护作用。',
+    'SPI1': 'PU.1转录因子，小胶质细胞主调控因子。表达量与AD风险相关。',
+    'EPHA1': 'Eph受体A1，参与神经发育和突触功能。',
+    'ABI3': 'ABI家族成员3，小胶质细胞功能相关。',
+    'MS4A4A': '跨膜4结构域家族A成员4A，免疫细胞表面蛋白。',
+    'PICALM': '磷脂酰肌醇结合网格蛋白装配蛋白，参与内吞作用。',
+    'ADAM10': '去整合素和金属蛋白酶10，α-分泌酶，参与APP非淀粉样加工。',
+    'RIN3': 'Ras和Rab相互作用蛋白3，内吞运输相关。',
+    'CASP7': '半胱天冬酶7，细胞凋亡执行酶。',
+    'PILRA': '配对免疫球蛋白样2型受体α，免疫调节。'
+  };
+  
+  let info = geneInfo[gene] || '该基因与AD风险相关，具体功能正在研究中。';
+  
+  content.innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+      <div style="background:#fff;padding:10px 14px;border-radius:8px;">
+        <div style="font-size:11px;color:#94a3b8;">染色体位置 (hg38)</div>
+        <div style="font-weight:600;">chr${chrom}:${pos.toLocaleString()}</div>
+      </div>
+      <div style="background:#fff;padding:10px 14px;border-radius:8px;">
+        <div style="font-size:11px;color:#94a3b8;">证据等级</div>
+        <div style="font-weight:600;color:${typeColor};">${typeLabel}</div>
+      </div>
+    </div>
+    <div style="background:#fff;padding:12px 16px;border-radius:8px;margin-bottom:12px;">
+      <div style="font-size:11px;color:#94a3b8;margin-bottom:4px;">生物学功能</div>
+      <div>${info}</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <a href="https://www.genecards.org/cgi-bin/carddisp.pl?gene=${gene}" target="_blank" style="padding:6px 14px;background:#eff6ff;color:#1d4ed8;border-radius:6px;text-decoration:none;font-size:12px;font-weight:500;">GeneCards</a>
+      <a href="https://www.ncbi.nlm.nih.gov/gene/?term=${gene}+alzheimer" target="_blank" style="padding:6px 14px;background:#eff6ff;color:#1d4ed8;border-radius:6px;text-decoration:none;font-size:12px;font-weight:500;">NCBI Gene</a>
+      <a href="https://www.ebi.ac.uk/gwas/genes/${gene}" target="_blank" style="padding:6px 14px;background:#eff6ff;color:#1d4ed8;border-radius:6px;text-decoration:none;font-size:12px;font-weight:500;">GWAS Catalog</a>
+      <a href="https://adsp.niagads.org/gvc-top-hits-list/" target="_blank" style="padding:6px 14px;background:#f0fdf4;color:#166534;border-radius:6px;text-decoration:none;font-size:12px;font-weight:500;">ADSP来源</a>
+    </div>
+  `;
+  
+  panel.style.display = 'block';
+  panel.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+}
+</script>
   </div>
   
   <div class="gene-filter-bar">
@@ -2515,7 +3397,9 @@ render();
     </div>
   </div>
 
-  <!-- ===== AD鉴别诊断与共病页面 ===== -->
+  
+
+<!-- ===== AD鉴别诊断与共病页面 ===== -->
   <div id="page-differential" class="page">
     <div class="page-header" style="background:linear-gradient(135deg,#be185d 0%,#9d174d 100%);">
       <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
