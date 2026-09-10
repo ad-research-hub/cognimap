@@ -3247,9 +3247,9 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
   
   <div class="model-content active" id="model-mouse"><div class="model-grid" id="mouse-grid"></div></div>
-  <div class="model-content" id="model-other"><div class="model-grid" id="other-grid"></div></div>
-  <div class="model-content" id="model-cell"><div class="model-grid" id="cell-grid"></div></div>
-  <div class="model-content" id="model-organoid"><div class="model-grid" id="organoid-grid"></div></div>
+  <div class="model-content active" id="model-other"><div class="model-grid" id="other-grid"></div></div>
+  <div class="model-content active" id="model-cell"><div class="model-grid" id="cell-grid"></div></div>
+  <div class="model-content active" id="model-organoid"><div class="model-grid" id="organoid-grid"></div></div>
   
   <div style="margin-top:24px;padding:16px;background:var(--card);border-radius:12px;border:1px solid var(--border);font-size:13px;color:#94a3b8;">
     <strong>数据来源：</strong>Alzforum Research Models数据库(170+模型) · Jackson Laboratory · MODEL-AD联盟 · 文献综述(LaFerla, Oddo, Saito等)
@@ -7077,6 +7077,8 @@ function switchModelTab(tab, btn) {
 
 function initModelPage() {
   renderModels();
+  // 默认全部显示模式
+  document.querySelectorAll('.model-content').forEach(c => c.classList.add('active'));
 }
 
 
