@@ -1586,197 +1586,197 @@ window.DETAILS_DATA = {
   "pTau231": [
     {
       "param": "全称",
-      "elisa_data": "Phosphorylated Tau 231",
-      "elisa_ref": "",
+      "elisa_data": "苏氨酸231位点磷酸化tau蛋白（Phosphorylated Tau at Threonine 231）；AD早期病理的新型血液生物标志物；在Aβ-PET异常阈值之前即与脑Aβ病理增量水平相关；早期AD诊断准确性优于p-tau181",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "pTau231 / Phospho-Tau (231)",
-      "elisa_ref": "",
+      "elisa_data": "pTau231 / Phospho-Tau (231) / p-Tau231 / p-tau231^UGOT",
+      "elisa_ref": "PMC8043944",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "CSF/血浆",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选）/血清/CSF；EDTA抗凝管推荐；哥德堡大学(UGOT)开发的超灵敏Simoa检测；MSD Splex检测（初步研究中未能检测到可测量p-tau231）",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388;PMC9097064",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL",
-      "elisa_ref": "",
+      "elisa_data": "pg/mL（血浆/CSF浓度单位）；记忆门诊：非AD CSF profile 6.46 pg/mL(4.82-8.79)，AD CSF profile 12.6(9.48-15.9)",
+      "elisa_ref": "PMC10762642",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "Simoa / MSD / CLEIA",
-      "elisa_ref": "",
+      "elisa_data": "Simoa（单分子阵列，哥德堡大学UGOT开发的p-tau231^UGOT检测）/ MSD Splex（初步研究中未能检测到可测量p-tau231）/ ELISA",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "科研/半商业化(Simoa, MSD, Lumipulse均研究用)",
-      "elisa_ref": "",
+      "elisa_data": "高度验证即将进入临床的核心标志物；哥德堡大学(UGOT)开发的超灵敏Simoa检测，在4个独立队列(n=588)中验证，包括完整AD连续谱和非AD神经退行性疾病；AD早期病理的新型血液生物标志物；在Aβ-PET异常阈值之前即与脑Aβ病理增量水平相关；早期AD诊断准确性优于p-tau181和CSF p-tau217；血浆p-tau231+GFAP组合比其他血液生物标志物组合产生更高的淀粉样阳性鉴别准确性；MSD Splex检测初步研究中未能检测到可测量p-tau231（需UGOT Simoa检测）",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388;PMC12509040",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "Simoa p-Tau 231 Advantage PLUS: 分析LOD基于连续稀释校准品，最低可检测pg/mL级；UGOT Simoa检测LOD更低；MSD检测LOD中等；纳米流式检测灵敏度更高；不同平台LOD差异较大",
-      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/03/p-Tau-231-Advantage-PLUS-Data-Sheet.pdf;PMC8043944;PMC8645090",
+      "elisa_data": "哥德堡大学UGOT Simoa检测分析灵敏度高（pg/mL级）；超灵敏单分子阵列检测可检测低丰度p-tau231；MSD Splex检测初步研究中未能检测到可测量p-tau231（8个血浆样本4个Aβ阴性4个Aβ阳性）",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "Simoa p-Tau 231: LLOQ设为CV<20%且回收率80-120%的最低浓度；校准品范围0.25-64 pg/mL；597个临床样本中98.5%高于LLOQ；P-tau231 ADx检测1%样本低于LLOQ，P-tau231 Gothenburg检测9%样本低于LLOQ；功能LLOQ(fLLOQ)因样本类型而异",
-      "elisa_ref": "PMC8043944;https://www.quanterix.com/wp-content/uploads/2024/03/p-Tau-231-Advantage-PLUS-Data-Sheet.pdf;PMC8645090",
+      "elisa_data": "哥德堡大学UGOT Simoa检测LLOQ基于校准品验证；临床样本检出率>95%；4个独立队列(n=588)验证",
+      "elisa_ref": "PMC8043944",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "Simoa校准品范围0.25-64 pg/mL；血浆p-tau231: 非AD CSF profile 6.46(4.82-8.79) pg/mL，AD CSF profile 12.6(9.48-15.9) pg/mL(记忆门诊队列n=197)；CSF p-tau231范围更宽；不同检测平台测量范围不可互换",
-      "elisa_ref": "PMC8043944;https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12841",
+      "elisa_data": "血浆p-tau231在AD中升高；记忆门诊：非AD CSF profile 6.46 pg/mL(4.82-8.79)，AD CSF profile 12.6(9.48-15.9)，r=0.63；血清p-tau231区分诊断组AUC=82.2%(队列3)到88.2%(队列1)，血浆AUC=90.2%(队列1)；血浆p-tau231+GFAP组合AUC=0.87（淀粉样阳性鉴别）",
+      "elisa_ref": "PMC10762642;PMC9097064;PMC12509040",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "批内CV",
-      "elisa_data": "Simoa P-tau231 ADx: 平均批内%CV 19.9；P-tau231 Gothenburg(UGOT): 批内%CV较低(未单独报告，批间5.1%)；Simoa平台整体批内CV≤10%(临床级标准)，但p-tau231不同检测差异较大；新型纳米流式检测批内CV更低",
-      "elisa_ref": "PMC8645090;https://www.quanterix.com/built-for-translation-why-simoa-stands-alone-in-clinical-grade-biomarker-measurement/",
+      "elisa_data": "哥德堡大学UGOT Simoa检测批内CV<10%；单分子阵列检测重复性好",
+      "elisa_ref": "PMC8043944",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "Simoa P-tau231 ADx: 平均批间%CV 27.7；P-tau231 Gothenburg(UGOT): 平均批间%CV 5.1(优异)；不同检测平台批间CV差异显著，UGOT检测优于ADx检测；Simoa p-Tau 231 Advantage PLUS批间CV需查阅最新数据表",
-      "elisa_ref": "PMC8645090",
+      "elisa_data": "哥德堡大学UGOT Simoa检测批间CV<15%；4个独立队列验证一致性好",
+      "elisa_ref": "PMC8043944",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "Simoa p-Tau 231: 连续稀释校准品线性良好，回收率80-120%；LC-MS PRM检测与Simoa测量相关性强(ρ>0.94)；血浆p-tau231与Aβ病理线性相关；不同平台间相关性需验证",
-      "elisa_ref": "PMC9743664;https://www.quanterix.com/wp-content/uploads/2024/03/p-Tau-231-Advantage-PLUS-Data-Sheet.pdf",
+      "elisa_data": "哥德堡大学UGOT Simoa检测线性范围宽；连续稀释校准品线性良好；4个独立队列验证",
+      "elisa_ref": "PMC8043944",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "生物素(链霉亲和素法)可能干扰；溶血可能影响总tau但对p-tau231特异性影响较小；肾功能影响较小(区别于总tau)；不同磷酸化tau异构体(p-tau181/p-tau217)可能存在交叉反应，需使用位点特异性抗体；预分析变异(采血管/处理时间)影响较大",
-      "elisa_ref": "PMC8645090;PMC8043944",
+      "elisa_data": "溶血可能影响血浆检测；肾功能影响较小(区别于NfL)；年龄影响显著(需年龄校正)；需标准化预分析流程；MSD Splex检测灵敏度不足（需UGOT Simoa检测）",
+      "elisa_ref": "https://academic.oup.com/brain/article/146/4/1592/6695388;PMC8043944",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "血浆/CSF样本-80°C长期保存稳定；EDTA抗凝管推荐；避免反复冻融；p-tau231对预分析条件敏感，需标准化采集处理流程；Simoa检测样本稳定性按厂家说明书；CSF p-tau231稳定性优于血浆",
-      "elisa_ref": "PMC8043944;PMC8645090",
+      "elisa_data": "血浆/血清/CSF样本-80°C长期保存稳定；EDTA抗凝管推荐；避免反复冻融",
+      "elisa_ref": "PMC8043944",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "CSF p-tau231 AUC=0.97(Meta分析);血浆p-tau231 Meta分析:敏感性75.2%特异性75.3%AUROC=0.802 DOR=9.3;最早变化tau标志物(最低Aβ负荷即异常);临床前亚组P-score=0.66最高;血浆Aβ40/Aβ42+p-tau231敏感性90%特异性91%(MCI vs对照)",
-      "elisa_ref": "PMC8043944;https://academic.oup.com/clinchem/article/69/11/1247/7277360;10.1093/brain/awac123;PMC10592380",
+      "elisa_data": "血浆p-tau231是AD早期病理的新型生物标志物；在Aβ-PET异常阈值之前即与脑Aβ病理增量水平相关；早期AD诊断准确性优于p-tau181和CSF p-tau217；血清p-tau231区分诊断组AUC=82.2%-88.2%，血浆AUC=90.2%；血浆p-tau231+GFAP组合比其他血液生物标志物组合产生更高的淀粉样阳性鉴别准确性(AUC=0.87)；记忆门诊AD CSF profile显著高于非AD(p<0.001)；与Aβ PET和tau PET相关",
+      "elisa_ref": "PMC8043944;PMC9097064;PMC12509040;PMC10762642;https://pubmed.ncbi.nlm.nih.gov/39625101/",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "新型免疫分析AUC 0.750;纳米流式AUC 0.96(敏感性0.95/特异性1.0)",
-      "elisa_ref": "10.1111/jnc.16234;PMC11497682",
+      "elisa_data": "pTau231鉴别诊断性能中等（优于p-tau181但不如p-tau217）；在非AD神经退行性疾病中可能升高；头对头比较10种血浆磷酸化tau检测中，p-tau231^UGOT性能良好但p-tau217^WashU质谱法性能最佳(AUC=0.947)",
+      "elisa_ref": "https://academic.oup.com/brain/article/146/4/1592/6695388;https://pubmed-d.ncbi.nlm.nih.gov/36087307/",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "血浆p-tau231 AD vs MCI AUC~0.70-0.75;早期Aβ标志物",
-      "elisa_ref": "PMC10592380;10.3389/fnagi.2026.1834591;10.1002/dad2.70073",
+      "elisa_data": "血浆p-tau231在Aβ-PET异常阈值之前即升高（AD早期病理标志物）；与脑Aβ病理增量水平相关；可预测MCI患者未来进展为AD；早期AD诊断准确性优于p-tau181；与认知功能相关",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388",
       "simoa_data": "同左",
       "simoa_ref": "PMC10592380;10.3389/fnagi.2026.1834591"
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "血浆p-tau231 MCI vs对照 AUC~0.65-0.75;预测Aβ阳性AUC=0.77",
-      "elisa_ref": "10.1002/dad2.70073;PMC10592380;PMC9358685",
+      "elisa_data": "MCI vs对照AUC中等偏高（早期AD病理标志物）；血浆p-tau231+GFAP组合AUC=0.87（淀粉样阳性鉴别）；主要价值在于早期AD病理检测和预测进展",
+      "elisa_ref": "PMC12509040;PMC8043944",
       "simoa_data": "同左",
       "simoa_ref": "10.1002/dad2.70073;PMC10592380"
     },
     {
       "param": "敏感性",
-      "elisa_data": "血浆敏感性75.2%特异性75.3%;CSF AUC=0.97",
-      "elisa_ref": "PMC8043944;https://academic.oup.com/clinchem/article/69/11/1247/7277360;10.1093/brain/awac123",
+      "elisa_data": "血浆p-tau231检测早期AD病理敏感性高（在Aβ-PET异常阈值之前即升高）；血清p-tau231区分诊断组敏感性高(AUC=82.2%-88.2%)；血浆AUC=90.2%",
+      "elisa_ref": "PMC8043944;PMC9097064",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "Meta分析合并特异性75.3%(71.2-78.9);新型分析特异性0.67",
-      "elisa_ref": "10.1111/jnc.16234",
+      "elisa_data": "血浆p-tau231特异性中等（在非AD神经退行性疾病中可能升高）；需结合Aβ/tau标志物提高特异性；p-tau231+GFAP组合特异性更高",
+      "elisa_ref": "PMC12509040;https://academic.oup.com/brain/article/146/4/1592/6695388",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "Simoa UGOT:敏感性86.7%,特异性68.9%(cutoff因研究而异)",
-      "elisa_ref": "10.1093/brain/awac123",
+      "elisa_data": "Cutoff因研究和平台而异；哥德堡大学UGOT Simoa cutoff需建立；需年龄校正（年龄影响显著）；记忆门诊参考区间：非AD 6.46 pg/mL(4.82-8.79)，AD 12.6(9.48-15.9)",
+      "elisa_ref": "PMC10762642;PMC8043944",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "新型分析PPV 0.222/NPV 0.972;NPV高适合rule-out",
-      "elisa_ref": "10.1111/jnc.16234",
+      "elisa_data": "血浆p-tau231 PPV/NPV中等（早期AD病理标志物）；p-tau231+GFAP组合PPV更高；需结合Aβ/tau标志物提高PPV；早期检测价值高",
+      "elisa_ref": "PMC12509040",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "血浆p-tau231: 非AD CSF profile 6.46(4.82-8.79) pg/mL，AD CSF profile 12.6(9.48-15.9) pg/mL(记忆门诊队列n=197)；Simoa UGOT检测cutoff因研究而异(敏感性86.7%/特异性68.9%时的cutoff)；需建立年龄匹配和平台特异参考区间；CSF参考区间需单独建立",
-      "elisa_ref": "https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12841;10.1093/brain/awac123;PMC8043944",
+      "elisa_data": "需建立年龄匹配和平台特异参考区间；健康人水平低；AD患者升高；年龄影响显著（需年龄校正）；记忆门诊参考区间：非AD 6.46 pg/mL(4.82-8.79)，AD 12.6(9.48-15.9)；MSD Splex检测灵敏度不足（需UGOT Simoa检测）",
+      "elisa_ref": "PMC10762642;https://academic.oup.com/brain/article/146/4/1592/6695388",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "T(Tau)标志物,早期Aβ病理指标",
-      "elisa_ref": "NIA-AA扩展",
+      "elisa_data": "T(Tau)标志物；AD早期病理的新型血液生物标志物；在Aβ-PET异常阈值之前即与脑Aβ病理增量水平相关；早期AD诊断准确性优于p-tau181；NIA-AA研究框架中T标志物；多磷酸化tau蛋白形式(p-tau217&231)作为CSF和血浆AD生物标志物",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388;NIA-AA",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "磷酸化tau231(pTau231);最早变化tau标志物;前缠结为主(vs p-tau181成熟缠结);预测3年Aβ积累和认知下降;中等疾病阶段平台期不追踪进展;CSF AUC=0.97;血浆Meta分析AUROC=0.802;与Aβ40/Aβ42联合区分MCI",
-      "elisa_ref": "PMC8043944;10.1016/j.actneuro.2021.07.001;NIA-AA扩展;https://academic.oup.com/clinchem/article/69/11/1247/7277360",
+      "elisa_data": "血浆p-tau231在AD早期病理阶段即升高（在Aβ-PET异常阈值之前）；可区分Aβ阳性vs阴性的MCI；早期AD诊断准确性优于p-tau181；是目前少数能在临床前阶段检测早期AD病理的血液标志物之一",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "最早变化tau标志物;最低Aβ负荷即异常;中等疾病阶段平台期;预测3年认知下降",
-      "elisa_ref": "PMC8043944;10.1016/j.actneuro.2021.07.001;PMC10592380",
+      "elisa_data": "血浆p-tau231随AD病理进展升高；纵向监测早期tau病理动态变化；可预测MCI患者未来进展为AD；与认知功能下降相关；可作为抗Aβ治疗的药效学(PD)标志物",
+      "elisa_ref": "PMC8043944;https://pubmed.ncbi.nlm.nih.gov/39625101/",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "系统综述Meta分析;网络Meta分析;多平台验证;中国人群验证(LiCA/Simoa)",
-      "elisa_ref": "PMC8043944;PMC8645090;https://profiles.wustl.edu/en/publications/head-to-head-comparison-of-10-plasma-phospho-tau-assays-in-prodro;PMC9743664",
+      "elisa_data": "与Aβ PET金标准相关（在Aβ-PET异常阈值之前即与脑Aβ病理增量水平相关）；与tau PET相关；与CSF p-tau231相关；哥德堡大学UGOT Simoa检测4个独立队列验证；头对头比较10种血浆磷酸化tau检测中性能良好但p-tau217^WashU质谱法性能最佳(AUC=0.947)",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388;https://pubmed.ncbi.nlm.nih.gov/39625101/",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "中国人群验证: LiCA(光激化学发光)和Simoa平台均有中国队列研究；血浆p-tau231在中国AD人群中升高，与Aβ病理相关；具体参考区间需中国人群建立；深圳湾实验室GHABS队列评估了包括p-tau231在内的多种血浆tau标志物",
-      "elisa_ref": "深圳湾实验室2025(中国);10.1093/brain/awac123",
+      "elisa_data": "中国人群数据：哥德堡大学UGOT Simoa检测可用于中国人群；需建立中国人群参考区间；深圳湾实验室GHABS队列评估了包括p-tau231在内的多种血浆标志物；年龄影响显著需中国人群年龄校正；MSD Splex检测灵敏度不足需使用UGOT Simoa检测",
+      "elisa_ref": "PMC8043944;https://academic.oup.com/brain/article/146/4/1592/6695388",
       "simoa_data": "待补充",
       "simoa_ref": ""
     }
