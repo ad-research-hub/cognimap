@@ -4225,6 +4225,144 @@ function showMarkerDetail(marker) {
     }
   }
   if (marker.finding) html += `<div class="detail-section"><h3>📌 核心发现</h3><p style="font-size:13px;line-height:1.8;">${marker.finding}</p></div>`;
+
+  // pTau217专属介绍模块
+  if (marker.sheet_name === 'pTau217') {
+    html += `<div class="detail-section" style="background:linear-gradient(135deg,#eff6ff,#f0fdf4);border-left:4px solid #3b82f6;border-radius:8px;padding:20px;margin-bottom:20px;">
+      <h3 style="color:#1e40af;margin-bottom:15px;">🌟 pTau217 — AD血液生物标志物的"金标准"</h3>
+      <p style="font-size:13px;line-height:1.8;color:#374151;margin-bottom:15px;">磷酸化tau蛋白217位点（pTau217）是目前诊断性能最优的AD血液生物标志物，被2024年阿尔茨海默病协会（AA）修订的诊断标准列为Core 1生物标志物，可在Aβ PET异常提前5-7年预测AD病理，AUC达0.92-0.98。</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+        <div style="background:#fff;border-radius:8px;padding:15px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+          <div style="font-size:24px;font-weight:bold;color:#3b82f6;">0.983</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:5px;">中国队列AUC(AD vs对照)</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:15px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+          <div style="font-size:24px;font-weight:bold;color:#10b981;">95.0%</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:5px;">中国队列敏感性</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:15px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+          <div style="font-size:24px;font-weight:bold;color:#f59e0b;">96.0%</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:5px;">中国队列特异性</div>
+        </div>
+        <div style="background:#fff;border-radius:8px;padding:15px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+          <div style="font-size:24px;font-weight:bold;color:#8b5cf6;">97.9%</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:5px;">Roche Elecsys NPV(rule-out)</div>
+        </div>
+      </div>
+    </div>`;
+    
+    // 发现历史与监管里程碑
+    html += `<div class="detail-section">
+      <h3>📅 发现历史与监管里程碑</h3>
+      <div style="position:relative;padding-left:30px;">
+        <div style="position:absolute;left:8px;top:0;bottom:0;width:2px;background:#e5e7eb;"></div>
+        <div style="margin-bottom:15px;position:relative;">
+          <div style="position:absolute;left:-26px;top:2px;width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #fff;box-shadow:0 0 0 2px #3b82f6;"></div>
+          <div style="font-weight:bold;color:#1e40af;font-size:13px;">1984</div>
+          <div style="font-size:12px;color:#6b7280;">Glenner和Wong首次分离淀粉样蛋白，提出AD血液检测可能性</div>
+        </div>
+        <div style="margin-bottom:15px;position:relative;">
+          <div style="position:absolute;left:-26px;top:2px;width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #fff;box-shadow:0 0 0 2px #3b82f6;"></div>
+          <div style="font-weight:bold;color:#1e40af;font-size:13px;">2020.07</div>
+          <div style="font-size:12px;color:#6b7280;">Palmqvist S/Janelidze S等在JAMA发表开创性研究，瑞典BioFINDER-2队列n=1400+，首次证明血浆pTau217区分AD准确率接近100% <a href="https://pubmed.ncbi.nlm.nih.gov/32609790/" target="_blank" style="color:#3b82f6;">来源</a></div>
+        </div>
+        <div style="margin-bottom:15px;position:relative;">
+          <div style="position:absolute;left:-26px;top:2px;width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #fff;box-shadow:0 0 0 2px #3b82f6;"></div>
+          <div style="font-weight:bold;color:#1e40af;font-size:13px;">2020.10</div>
+          <div style="font-size:12px;color:#6b7280;">Mattsson-Carlgren N等在Brain发表队列研究，证明pTau217在AD早期即升高</div>
+        </div>
+        <div style="margin-bottom:15px;position:relative;">
+          <div style="position:absolute;left:-26px;top:2px;width:14px;height:14px;border-radius:50%;background:#3b82f6;border:2px solid #fff;box-shadow:0 0 0 2px #3b82f6;"></div>
+          <div style="font-weight:bold;color:#1e40af;font-size:13px;">2021</div>
+          <div style="font-size:12px;color:#6b7280;">ADNI研究验证pTau217优于pTau181，超过1000名ADNI参与者</div>
+        </div>
+        <div style="margin-bottom:15px;position:relative;">
+          <div style="position:absolute;left:-26px;top:2px;width:14px;height:14px;border-radius:50%;background:#10b981;border:2px solid #fff;box-shadow:0 0 0 2px #10b981;"></div>
+          <div style="font-weight:bold;color:#065f46;font-size:13px;">2024</div>
+          <div style="font-size:12px;color:#6b7280;">阿尔茨海默病协会（AA）修订诊断标准，pTau217列为Core 1生物标志物</div>
+        </div>
+        <div style="margin-bottom:15px;position:relative;">
+          <div style="position:absolute;left:-26px;top:2px;width:14px;height:14px;border-radius:50%;background:#f59e0b;border:2px solid #fff;box-shadow:0 0 0 2px #f59e0b;"></div>
+          <div style="font-weight:bold;color:#92400e;font-size:13px;">2025.05.16</div>
+          <div style="font-size:12px;color:#6b7280;">FDA批准Fujirebio Lumipulse G pTau217/β-Amyloid 1-42血浆比值——全球首个AD血液检测，一致性91.7%阳性/97.3%阴性 <a href="https://www.fda.gov/news-events/press-announcements/fda-authorizes-first-blood-test-help-alzheimers-disease" target="_blank" style="color:#3b82f6;">来源</a></div>
+        </div>
+        <div style="margin-bottom:15px;position:relative;">
+          <div style="position:absolute;left:-26px;top:2px;width:14px;height:14px;border-radius:50%;background:#f59e0b;border:2px solid #fff;box-shadow:0 0 0 2px #f59e0b;"></div>
+          <div style="font-weight:bold;color:#92400e;font-size:13px;">2026.05</div>
+          <div style="font-size:12px;color:#6b7280;">Roche Elecsys pTau217获CE标志（欧洲批准）</div>
+        </div>
+        <div style="position:relative;">
+          <div style="position:absolute;left:-26px;top:2px;width:14px;height:14px;border-radius:50%;background:#ef4444;border:2px solid #fff;box-shadow:0 0 0 2px #ef4444;"></div>
+          <div style="font-weight:bold;color:#991b1b;font-size:13px;">2026.08.24</div>
+          <div style="font-size:12px;color:#6b7280;">FDA批准Roche Elecsys pTau217血浆检测（与Eli Lilly合作）——首个单检测设计AD病理血液检测，可rule in/rule out淀粉样阳性，55岁以上认知下降人群 <a href="https://www.fda.gov/diagnostics-imaging/in-vitro-diagnostics/elecsys-ptau-217" target="_blank" style="color:#3b82f6;">来源</a></div>
+        </div>
+      </div>
+    </div>`;
+    
+    // 头对头比较
+    html += `<div class="detail-section">
+      <h3>📊 头对头比较：pTau217 vs 其他AD血液标志物</h3>
+      <table class="detail-table">
+        <thead><tr><th>标志物</th><th>AUC(AD vs对照)</th><th>优势</th><th>局限</th><th>商业化状态</th></tr></thead>
+        <tbody>
+          <tr style="background:#eff6ff;font-weight:bold;"><td>pTau217 ⭐</td><td>0.92-0.98</td><td>诊断性能最优；临床前即可检测；治疗监测有效；FDA已批准</td><td>不同平台cutoff不可互换；年龄影响显著</td><td>FDA批准（2025/2026）</td></tr>
+          <tr><td>pTau181</td><td>0.75-0.90</td><td>最早商业化；CSF检测成熟；可解决pTau217灰区</td><td>血浆性能劣于pTau217；高龄人群性能下降</td><td>FDA批准（2025.10）</td></tr>
+          <tr><td>pTau231</td><td>0.65-0.81</td><td>最早变化的tau标志物；前驱期为主</td><td>5.1%-27.7%差异大；临床特异性较差</td><td>科研用</td></tr>
+          <tr><td>GFAP</td><td>0.70-0.85</td><td>星形胶质细胞激活标志物；预测疾病进展</td><td>非AD特异；MS/TBI/TDP-43均升高；不用于AD诊断</td><td>CE标志</td></tr>
+          <tr><td>NfL</td><td>0.75-0.80</td><td>轴突变性敏感；预测疾病进展速度；唯一区分快速/缓慢进展</td><td>非AD特异；高/低cutoff均升高；不用于AD诊断</td><td>CE标志</td></tr>
+          <tr><td>Aβ42/40比值</td><td>0.80-0.85</td><td>反映Aβ病理；与pTau217联合性能最优</td><td>单独使用性能有限；受预分析影响大</td><td>FDA批准（2025.05，与pTau217联合）</td></tr>
+        </tbody>
+      </table>
+      <div style="font-size:11px;color:#6b7280;margin-top:8px;">数据来源：<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12483549/" target="_blank">PMC12483549</a> (Ruling in, ruling out); <a href="https://pubmed.ncbi.nlm.nih.gov/32609790/" target="_blank">JAMA 2020</a>; uthandunthemba 2026</div>
+    </div>`;
+    
+    // 临床应用指南
+    html += `<div class="detail-section">
+      <h3>🩺 临床应用指南</h3>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:15px;">
+        <div style="background:#ecfdf5;border:1px solid #10b981;border-radius:8px;padding:15px;">
+          <h4 style="color:#065f46;margin:0 0 10px 0;">✅ Rule In（确诊）</h4>
+          <ul style="font-size:12px;color:#374151;margin:0;padding-left:18px;line-height:1.8;">
+            <li>Lumipulse: pTau217 >0.34 ng/L → 高概率淀粉样阳性</li>
+            <li>Roche Elecsys: pTau217 ≥0.20 U/mL → 阳性</li>
+            <li>二级医疗PPV高，可直接启动Aβ治疗评估</li>
+            <li>结合APOE基因型和年龄进一步提高准确性</li>
+          </ul>
+        </div>
+        <div style="background:#eff6ff;border:1px solid #3b82f6;border-radius:8px;padding:15px;">
+          <h4 style="color:#1e40af;margin:0 0 10px 0;">❌ Rule Out（排除）</h4>
+          <ul style="font-size:12px;color:#374151;margin:0;padding-left:18px;line-height:1.8;">
+            <li>Lumipulse: pTau217 <0.22 ng/L → 低概率淀粉样阳性</li>
+            <li>Roche Elecsys: pTau217 <0.13 U/mL → 阴性</li>
+            <li>NPV高达97.9%，可有效排除AD病理</li>
+            <li>避免不必要的Aβ PET和CSF检查</li>
+          </ul>
+        </div>
+        <div style="background:#fffbeb;border:1px solid #f59e0b;border-radius:8px;padding:15px;">
+          <h4 style="color:#92400e;margin:0 0 10px 0;">⚠️ 灰区处理</h4>
+          <ul style="font-size:12px;color:#374151;margin:0;padding-left:18px;line-height:1.8;">
+            <li>Lumipulse: 0.22-0.34 ng/L → 灰区</li>
+            <li>Roche Elecsys: 0.13-0.20 U/mL → 灰区</li>
+            <li>灰区患者建议结合pTau181、GFAP、Aβ42/40比值综合判断</li>
+            <li>必要时进行Aβ PET或CSF检查确认</li>
+            <li>高龄人群性能下降，需谨慎解读</li>
+          </ul>
+        </div>
+        <div style="background:#faf5ff;border:1px solid #8b5cf6;border-radius:8px;padding:15px;">
+          <h4 style="color:#6d28d9;margin:0 0 10px 0;">💊 治疗监测</h4>
+          <ul style="font-size:12px;color:#374151;margin:0;padding-left:18px;line-height:1.8;">
+            <li>Lecanemab治疗3个月pTau217即可见下降</li>
+            <li>Donanemab治疗12周即可见pTau217可测量反应</li>
+            <li>可作为抗Aβ/抗tau治疗的药效学(PD)标志物</li>
+            <li>治疗前基线检测，治疗后定期监测变化趋势</li>
+          </ul>
+        </div>
+      </div>
+      <div style="font-size:11px;color:#6b7280;margin-top:10px;">指南来源：<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12483549/" target="_blank">PMC12483549</a> (Ruling in, ruling out); <a href="https://www.fda.gov/diagnostics-imaging/in-vitro-diagnostics/elecsys-ptau-217" target="_blank">FDA Roche Elecsys pTau217</a>; <a href="https://www.fda.gov/news-events/press-announcements/fda-authorizes-first-blood-test-help-alzheimers-disease" target="_blank">FDA Lumipulse</a></div>
+    </div>`;
+  }
+
+
   const detail = DETAILS_DATA[marker.sheet_name] || [];
   if (detail.length > 0) {
     const groups = [['基本信息', detail.slice(0,6)], ['分析性能', detail.slice(6,14)], ['临床性能', detail.slice(14,23)], ['AD特定特征', detail.slice(23,28)]];
