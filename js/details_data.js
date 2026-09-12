@@ -2,197 +2,197 @@ window.DETAILS_DATA = {
   "pTau217": [
     {
       "param": "全称",
-      "elisa_data": "Phosphorylated Tau at Threonine 217",
-      "elisa_ref": "",
+      "elisa_data": "Phosphorylated Tau at Threonine 217（苏氨酸217位点磷酸化tau蛋白）",
+      "elisa_ref": "PMC11351463",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "pTau217 / Phospho-Tau (217P)",
-      "elisa_ref": "",
+      "elisa_data": "pTau217 / Phospho-Tau (217P) / p-Tau217",
+      "elisa_ref": "PMC11351463",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "K2-EDTA血浆/CSF",
-      "elisa_ref": "",
+      "elisa_data": "K2-EDTA血浆（首选）/血清/CSF；血浆/血清等效（四分析验证）；室温4h稳定",
+      "elisa_ref": "10.1515/cclm-2025-0123;厂家说明",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL",
-      "elisa_ref": "",
+      "elisa_data": "pg/mL（Lumipulse用ng/L，Roche Elecsys用U/mL）",
+      "elisa_ref": "10.1515/cclm-2026-0234",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "CLEIA / Simoa / ECLIA",
-      "elisa_ref": "",
+      "elisa_data": "CLEIA（化学发光酶免疫分析，Lumipulse）/ Simoa（单分子阵列，Quanterix ALZpath）/ ECLIA（电化学发光，Roche Elecsys）/ MSD（电化学发光，Meso Scale Discovery）/ LiCA（光激化学发光，科美博阳）",
+      "elisa_ref": "10.1101/2026.02.04.26345353;10.1515/cclm-2025-0123",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "Lumipulse CE;Roche Elecsys CE(2026.5)+FDA(2026.8.24,与Eli Lilly合作开发,首个单检测设计AD病理血液检测,55岁以上认知下降人群);Simoa ALZpath;LucentAD",
-      "elisa_ref": "https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html;https://lite.cnn.com/2026/08/24/health/alzheimers-blood-test-fda",
+      "elisa_data": "【监管里程碑】2025.5.16 FDA批准Fujirebio Lumipulse G pTau217/β-Amyloid 1-42血浆比值（全球首个AD血液检测，一致性91.7%阳性/97.3%阴性）；2026.5 Roche Elecsys pTau217获CE标志；2026.8.24 FDA批准Roche Elecsys pTau217血浆检测（与Eli Lilly合作开发，首个单检测设计AD病理血液检测，55岁以上认知下降人群，可rule in/rule out淀粉样病理）；Simoa ALZpath（科研用）；LucentAD（科研用）；C2N Diagnostics（科研用）；中国NMPA已批准9个pTau217相关注册证（科美博阳LiCA、诺唯赞、伯杰医疗等）",
+      "elisa_ref": "https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html;https://lite.cnn.com/2026/08/24/health/alzheimers-blood-test-fda;PMC12889242;PMC12768187;https://uthandonethemba.com/2026/07/16/neurodegen-part4-biomarkers/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "分析灵敏度0.030",
-      "elisa_ref": "PMC11573816",
+      "elisa_data": "Lumipulse分析灵敏度0.030 pg/mL；Simoa LOD 0.0052-0.0074 pg/mL；Roche Elecsys LOD需查阅说明书；不同平台LOD差异较大",
+      "elisa_ref": "PMC11573816;Quanterix;10.1093/brain/awae123",
       "simoa_data": "0.0052-0.0074(旧);0.0004(SR-X)",
       "simoa_ref": "Quanterix;10.1093/brain/awae123"
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "0.03",
-      "elisa_ref": "PMC11826441;10.1002/alz.71147",
+      "elisa_data": "Lumipulse LLOQ 0.03 pg/mL；Simoa分析LLOQ 0.03 pg/mL(HD-X)，功能LLOQ 0.00978 pg/mL；98.5%以上临床样本高于LLOQ",
+      "elisa_ref": "PMC11826441;10.1002/alz.71147;Quanterix N4PE",
       "simoa_data": "功能LLOQ 0.06(旧);0.00978(HD-X);0.0129(SR-X)",
       "simoa_ref": "Quanterix;10.1136/jnnp-2024-334122"
     },
     {
       "param": "测量范围",
-      "elisa_data": "多平台诊断性能统计学相似;自动化(Roche/Fujirebio)精度和冻融稳定性(≥6周期)优于手动MSD(2周期);Simoa敏感性最优/Ella灰区最小/Lumipulse tau相关性最强(r=0.770);Lumipulse LLOQ 0.03 pg/mL;血浆/血清等效(四分析验证)",
+      "elisa_data": "多平台诊断性能统计学相似；自动化(Roche/Fujirebio)精度和冻融稳定性(≥6周期)优于手动MSD(2周期)；Simoa敏感性最优/Ella灰区最小/Lumipulse tau相关性最强(r=0.770)；Lumipulse LLOQ 0.03 pg/mL；血浆/血清等效(四分析验证)；Lumipulse测量范围0.03-30 pg/mL；Roche Elecsys测量范围需查阅说明书",
       "elisa_ref": "10.1101/2026.02.04.26345353;10.1002/alz.14541;PMC12215601;10.1515/cclm-2025-0123",
       "simoa_data": "0.007-30",
       "simoa_ref": "Quanterix;10.1093/brain/awae123"
     },
     {
       "param": "批内CV",
-      "elisa_data": "2.34%(阳)/3.75%(阴);低~5%,高<3.5%",
+      "elisa_data": "Lumipulse批内CV 2.34%(阳)/3.75%(阴)；Simoa批内CV低~5%,高<3.5%；Roche Elecsys批内CV需查阅说明书；自动化平台批内CV普遍<5%",
       "elisa_ref": "PMC11788209;10.1101/2024.01.01.24212345",
       "simoa_data": "9-11.4%",
       "simoa_ref": "10.1136/jnnp-2024-334122;PMC8645090"
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "1.31%(阳)/2.28%(阴);实验室内5.08%",
-      "elisa_ref": "PMC11788209;PMC11826441",
+      "elisa_data": "Lumipulse日间CV 1.31%(阳)/2.28%(阴)；Simoa实验室内CV 5.08%；Roche Elecsys批间CV需查阅说明书；自动化平台批间CV普遍<5%，优于手动MSD",
+      "elisa_ref": "PMC11788209;PMC11826441;10.1101/2026.02.04.26345353",
       "simoa_data": "10.5-14.6%",
       "simoa_ref": "10.1136/jnnp-2024-334122"
     },
     {
       "param": "线性r²",
-      "elisa_data": "r²>0.999(CLSI EP06, 10样本3重复)",
-      "elisa_ref": "10.3389/fneur.2025.1615152;PMC11660642",
+      "elisa_data": "Lumipulse r²>0.999(CLSI EP06, 10样本3重复)；Simoa线性范围宽，回收率80-120%；Roche Elecsys线性按CLSI EP06验证；不同平台间相关性好(r>0.90)",
+      "elisa_ref": "10.3389/fneur.2025.1615152;PMC11660642;10.1101/2026.02.04.26345353",
       "simoa_data": "r²=0.998(线性范围0.0046-3.4056 ng/L)",
       "simoa_ref": "10.1093/clinchem/hvae045;PMC12287614"
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "生物素(链霉亲和素)",
-      "elisa_ref": "厂家说明",
+      "elisa_data": "生物素(链霉亲和素法，服用生物素补充剂需停药)；溶血轻度影响；肾功能影响较小(区别于NfL)；年龄影响显著(需年龄校正)；APOE基因型影响阈值；不同磷酸化tau异构体交叉反应需使用位点特异性抗体",
+      "elisa_ref": "厂家说明;10.1093/clinchem/hvaf023;PMC12622074",
       "simoa_data": "溶血/黄疸/脂血无显著干扰",
       "simoa_ref": "10.1101/2026.02.04.26345353;PMC12287614"
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "EDTA血浆室温4h稳定;-80°C长期",
-      "elisa_ref": "厂家说明",
+      "elisa_data": "EDTA血浆室温4h稳定；冷藏(2-8°C)24h稳定；-80°C长期稳定(≥2年)；冻融≥6周期稳定(自动化平台)，手动MSD仅2周期；避免反复冻融；K2-EDTA管首选，血清管可接受",
+      "elisa_ref": "厂家说明;10.1101/2026.02.04.26345353;10.1515/cclm-2025-0123",
       "simoa_data": "EDTA血浆4°C 7天稳定;冻融3次稳定;-80°C长期",
       "simoa_ref": "PMC12287614;Quanterix"
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "Lumipulse AUC 0.93-0.96(初级/二级医疗);真实世界记忆门诊AUC 0.845;EOAD AUC 0.944(non-ND)/0.984(other-ND);中国队列AUC 0.983;Meta分析敏感性0.95/特异性0.94/AUC 0.99;BD-pTau217 Aβ分类AUC 0.96",
-      "elisa_ref": "PubMed 42351234;10.3389/fnagi.2026.1714247;10.1177/15333175221115247;PMC12183951;10.1073/pnas.2536792123;10.3389/fneur.2025.1615152",
+      "elisa_data": "【发现研究】2020年JAMA(Palmqvist/Janelidze):瑞典BioFINDER-2队列n=1400+,pTau217区分AD vs对照准确率接近100%,AUC>0.95；【多中心验证】Lumipulse AUC 0.93-0.96(初级/二级医疗)；真实世界记忆门诊AUC 0.845；早发性AD(EOAD)AUC 0.944(non-ND)/0.984(other-ND)；【中国队列】AUC 0.983区分AD与CU,敏感性95.0%/特异性96.0%/准确率95.7%(n=604记忆门诊)；【Meta分析】敏感性0.95/特异性0.94/AUC 0.99；BD-pTau217(脑源性)Aβ分类AUC 0.96；【常染色体显性AD】PSEN1携带者认知正常时即升高，预测后续Aβ/tau PET沉积",
+      "elisa_ref": "PubMed 32722745;10.3389/fnagi.2026.1714247;10.1177/15333175221115247;PMC12183951;10.1073/pnas.2536792123;10.3389/fneur.2025.1615152;PMC10271963;https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2025.1554805/pdf",
       "simoa_data": "0.955(AD vs NDD);0.937(AD vs HC)",
       "simoa_ref": "10.1093/brain/awae123"
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "Lumipulse vs SIMOA头对头AUC 0.952 vs 0.955;Elecsys vs Lumipulse AUC 0.907 vs 0.862;p-tau217/Aβ42比值tau PET AUC 0.947-0.974;BD-pTau217 Aβ+组tau阳性AUC 0.89(优于总pTau217 0.78)",
-      "elisa_ref": "PMC11953589;10.1073/pnas.2536792123",
+      "elisa_data": "Lumipulse vs SIMOA头对头AUC 0.952 vs 0.955(区分AD vs其他神经退行性疾病)；Elecsys vs Lumipulse AUC 0.907 vs 0.862；p-tau217/Aβ42比值tau PET AUC 0.947-0.974；BD-pTau217 Aβ+组tau阳性AUC 0.89(优于总pTau217 0.78)；FTLD(额颞叶痴呆)中pTau217不升高(区别于AD)，4R-tau病(PSP/CBD)中不升高；MS中不升高",
+      "elisa_ref": "PMC11953589;10.1073/pnas.2536792123;PubMed 34418401",
       "simoa_data": "0.955(AD vs NDD)",
       "simoa_ref": "10.1093/brain/awae123"
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "p-tau217随疾病进展最陡升高;双cutoff策略准确率94%;18%落入灰区;p-tau181重新分类77.4%不确定病例;ADNI中早发性AUC 0.940 vs晚发性0.892",
-      "elisa_ref": "PMC12906650;PubMed 42449500;10.1038/s41467-025-66728-2",
+      "elisa_data": "p-tau217随疾病进展最陡升高(SCD→MCI→AD痴呆连续升高)；双cutoff策略准确率94%(认知障碍单元)；18%落入灰区(不确定)，p-tau181可重新分类77.4%不确定病例；ADNI中早发性AUC 0.940 vs晚发性0.892；MCI阶段pTau217预测未来tau PET升高",
+      "elisa_ref": "PMC12906650;PubMed 42449500;10.1038/s41467-025-66728-2;PMC7653537",
       "simoa_data": "MCI进展预测:>0.8 pg/mL 3年转AD率56.8%;<0.23转AD率9.7%",
       "simoa_ref": "PMC11503049"
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "MCI(Aβ+ vs Aβ-) AUC 0.92;Janssen assay认知正常队列cutpoint 0.05 pg/ml;华中低教育人群CU阳性率11.8%(≥70岁25.9%);CI中26.6%阳性",
-      "elisa_ref": "PMC12622074;10.1002/alz.14541;10.1038/s41467-025-66728-2",
+      "elisa_data": "MCI(Aβ+ vs Aβ-) AUC 0.92；Janssen assay认知正常队列cutpoint 0.05 pg/ml；华中低教育人群CU阳性率11.8%(≥70岁25.9%)；CI中26.6%阳性；临床前AD(SCD)阶段即升高，早于tau PET阳性；高pTau217的tau PET阴性者未来内嗅皮层tau PET升高风险增加",
+      "elisa_ref": "PMC12622074;10.1002/alz.14541;10.1038/s41467-025-66728-2;PMC7653537",
       "simoa_data": "MCI(Aβ+ vs Aβ-):AUC 0.914(95%CI 0.868-0.948),cutoff 0.44",
       "simoa_ref": "10.1136/jnnp-2024-334122;PMC11503049"
     },
     {
       "param": "敏感性",
-      "elisa_data": "双cutoff模型敏感性94-96%(认知障碍单元);中国队列敏感性95.0%;LiCA cutoff 0.47 pg/mL敏感性85.8%;DiSMS/LyMedivh AXL敏感性94.4%(特异性100%);CBA敏感性88.9%(特异性100%)",
-      "elisa_ref": "10.1038/s41467-025-66728-2;10.1038/s41591-026-04206-y",
+      "elisa_data": "双cutoff模型敏感性94-96%(认知障碍单元)；中国队列敏感性95.0%；LiCA cutoff 0.47 pg/mL敏感性85.8%；DiSMS/LyMedivh AXL敏感性94.4%(特异性100%)；CBA敏感性88.9%(特异性100%)；Lumipulse FDA批准研究敏感性约90%；早期AD(SCD/MCI)敏感性略低于AD痴呆期但仍>80%",
+      "elisa_ref": "10.1038/s41467-025-66728-2;10.1038/s41591-026-04206-y;PMC12889242",
       "simoa_data": "双cutoff:95%敏感性(<0.40);整体敏感性>90%;Youden敏感性0.77",
       "simoa_ref": "PMC10370224;PMC12287614;PMC11868538"
     },
     {
       "param": "特异性",
-      "elisa_data": "双cutoff模型特异性91-100%;中国队列特异性96.0%;LiCA特异性89.6%;Lumipulse阈值<0.22低概率/>0.34高概率(95%敏感性/95%特异性预设)",
-      "elisa_ref": "10.1038/s41467-025-66728-2;10.1515/cclm-2026-0234",
+      "elisa_data": "双cutoff模型特异性91-100%；中国队列特异性96.0%；LiCA特异性89.6%；Lumipulse阈值<0.22低概率/>0.34高概率(95%敏感性/95%特异性预设)；Lumipulse FDA批准研究特异性约95%；非AD神经退行性疾病(FTLD/PSP/CBD/MS)中特异性高(不升高)",
+      "elisa_ref": "10.1038/s41467-025-66728-2;10.1515/cclm-2026-0234;PMC12889242;PubMed 34418401",
       "simoa_data": "双cutoff:95%特异性(>0.63);整体特异性>90%;Youden特异性0.91",
       "simoa_ref": "PMC10370224;PMC12287614;PMC11868538"
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "Lumipulse:<0.22 ng/L低/0.22-0.34中间/>0.34高概率;Janssen:0.05 pg/ml;LiCA中国:0.47 pg/mL;EOAD:0.42 pg/mL;Elecsys:<0.13阴性/0.13-0.20不确定/≥0.20阳性 U/mL",
-      "elisa_ref": "10.1515/cclm-2026-0234;PMC12622074;10.1177/15333175221115247;10.1093/clinchem/hvaf023",
+      "elisa_data": "【Lumipulse】<0.22 ng/L低概率/0.22-0.34中间/>0.34高概率(95%敏感性/95%特异性预设)；【Janssen】0.05 pg/ml；【LiCA中国】0.47 pg/mL(敏感性85.8%/特异性89.6%)；【EOAD】0.42 pg/mL；【Roche Elecsys】<0.13阴性/0.13-0.20不确定/≥0.20阳性 U/mL；【Simoa】不同研究cutoff 1.5-3.0 pg/mL；注意：不同平台cutoff不可互换，需使用平台特异阈值",
+      "elisa_ref": "10.1515/cclm-2026-0234;PMC12622074;10.1177/15333175221115247;10.1093/clinchem/hvaf023;10.1038/s41467-025-66728-2",
       "simoa_data": "0.44",
       "simoa_ref": "10.1136/jnnp-2024-334122"
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "Roche Elecsys NPV 97.9%;二级医疗PPV高;年龄特异性阈值PPV=0.7;双cutoff策略准确率94%;p-tau181整合灰区重新分类77.4%",
-      "elisa_ref": "PMC12176611;10.1002/alz.14541;PMC12906650",
+      "elisa_data": "Roche Elecsys NPV 97.9%(rule-out价值高)；二级医疗PPV高；年龄特异性阈值PPV=0.7；双cutoff策略准确率94%；p-tau181整合灰区重新分类77.4%；Lumipulse一致性91.7%阳性/97.3%阴性(FDA批准研究)；初级医疗PPV较低(患病率低)，二级医疗PPV较高",
+      "elisa_ref": "PMC12176611;10.1002/alz.14541;PMC12906650;PMC12889242;https://uthandonethemba.com/2026/07/16/neurodegen-part4-biomarkers/",
       "simoa_data": "PPV 95%需>0.8 pg/mL;NPV 95%需<0.23;Youden PPV 0.84/NPV 0.88",
       "simoa_ref": "PMC11503049;PMC11868538"
     },
     {
       "param": "参考区间",
-      "elisa_data": "A-T-健康人中位0.1 pg/mL(IQR 0.1-0.1);中国队列RI 0.006-0.47 pg/mL",
-      "elisa_ref": "PMC11536028;PMC12183951",
+      "elisa_data": "A-T-健康人中位0.1 pg/mL(IQR 0.1-0.1)；中国队列RI 0.006-0.47 pg/mL(150 CU/60 AD建立)；Lumipulse健康人<0.22 ng/L(低概率)；年龄影响显著，需年龄校正：≥70岁CU阳性率25.9%(华中低教育人群)；APOE ε4携带者阈值需调整；不同平台参考区间不可互换",
+      "elisa_ref": "PMC11536028;PMC12183951;10.1515/cclm-2026-0234;PMC12622074",
       "simoa_data": "Labcorp参考区间0.00-0.18 pg/mL;双cutpoint<0.40阴性/>0.63阳性",
       "simoa_ref": "Labcorp;PMC10370224;Mayo Clinic"
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "T(Tau)标志物",
-      "elisa_ref": "NIA-AA",
+      "elisa_data": "T(Tau)标志物；2024年阿尔茨海默病协会(AA)修订的生物学标准将pTau217列为Core 1生物标志物；反映脑内tau病理负荷，与tau PET高度相关；同时可间接反映Aβ病理(因Aβ驱动tau磷酸化)；NIA-AA 2018研究框架中T标志物",
+      "elisa_ref": "NIA-AA;https://uthandonethemba.com/2026/07/16/neurodegen-part4-biomarkers/;Alzheimer's Association 2024",
       "simoa_data": "T(Tau)标志物",
       "simoa_ref": "NIA-AA"
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "可区分SCD/MCI/AD痴呆;A+人群随进展升高",
-      "elisa_ref": "PMC11913990;PMC12676364;PMC7719022;10.1002/alz.71783;10.1038/s41591-026-04206-y",
+      "elisa_data": "【发现历史】2020年是pTau217元年：Palmqvist S/Janelidze S等在JAMA发表\"Discriminative Accuracy of Plasma Phospho-tau217 for Alzheimer Disease vs Other Neurodegenerative Disorders\"(PubMed 32722745)，瑞典BioFINDER-2队列n=1400+，首次证明血浆pTau217区分AD准确率接近100%；同年Mattsson-Carlgren N等在Brain发表\"Longitudinal plasma p-tau217 is increased in early stages of Alzheimer's disease\"(Brain 2020;143:3234-3241)，证明纵向升高；【疾病分期】可区分SCD(主观认知下降)/MCI/AD痴呆，随疾病进展连续升高；A+人群随进展升高；临床前AD(SCD)阶段即升高，早于tau PET阳性；是目前唯一能在临床前阶段可靠检测tau病理的血液标志物",
+      "elisa_ref": "PubMed 32722745;PMC7719022;PMC11913990;PMC12676364;10.1002/alz.71783;10.1038/s41591-026-04206-y;PMC7653537",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "p-tau217随疾病进展最陡升高;Aβ+后早期升高;抗Aβ治疗(lecanemab/donanemab)降低p-tau217;Lecanemab治疗3个月内血浆p-tau217下降,3-6个月下降更明显,下降幅度大的患者认知轨迹更好(P<0.001);Etalanetug治疗3月降78%/9月>90%(MTBR-tau243);p-tau217/Aβ42比值临床等效CSF",
-      "elisa_ref": "PMC12906650;PMC11953589;https://www.medscape.com/viewarticle/plasma-p-tau217-reduction-linked-better-cognitive-outcomes-2026a1000ref;10.1038/s41467-025-66728-2",
+      "elisa_data": "【自然病程】p-tau217随疾病进展最陡升高(SCD→MCI→AD痴呆)；Aβ+后早期升高；纵向分析中pTau217是唯一显示随访时显著升高的标志物；【抗Aβ治疗监测】Lecanemab治疗3个月内血浆p-tau217下降,3-6个月下降更明显,下降幅度大的患者认知轨迹更好(P<0.001)；Donanemab(TRAILBLAZER-ALZ试验)：血浆pTau217(Quanterix)给药12周后即显示可测量反应，76周研究期间平均下降；Etalanetug(抗tau抗体)治疗3月降78%/9月>90%(MTBR-tau243，pTau217也下降)；【临床意义】pTau217可作为抗Aβ/抗tau治疗的药效学(PD)标志物，治疗后下降反映药物作用",
+      "elisa_ref": "PMC12906650;PMC11953589;https://www.medscape.com/viewarticle/plasma-p-tau217-reduction-linked-better-cognitive-outcomes-2026a1000ref;10.1038/s41467-025-66728-2;PMC12483549;PMC9872855",
       "simoa_data": "同左;MCI>0.8 pg/mL 3年转AD率56.8%",
       "simoa_ref": "PMC11503049;10.1002/alz.14541"
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "p-tau217/Aβ42比值Aβ PET AUC 0.963-0.966/tau PET AUC 0.947-0.974，临床等效CSF p-tau181/Aβ42;质谱p-tau217(WashU)AUC=0.947(Aβ)/0.932(进展)，优于所有免疫分析;FDA 2026.8批准Roche Elecsys pTau217血浆检测(与Eli Lilly合作),首个单检测设计AD病理血液检测,可rule in/rule out淀粉样病理;记忆门诊准确率92-96%与CSF相当",
-      "elisa_ref": "PMC11953589;WashU 2026;NeurologyLive 2026;https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html;https://www.ohsu.edu/sites/default/files/2026-05/im26-fri-8-natonson.pdf",
+      "elisa_data": "【Aβ PET】p-tau217/Aβ42比值Aβ PET AUC 0.963-0.966，临床等效CSF p-tau181/Aβ42；单独pTau217预测Aβ PET阳性AUC 0.92-0.95；【tau PET】p-tau217/Aβ42比值tau PET AUC 0.947-0.974；pTau217与tau PET SUVR相关性r=0.770(Lumipulse最强)；临床前阶段高pTau217预测未来内嗅皮层tau PET升高；【金标准】质谱p-tau217(WashU)AUC=0.947(Aβ)/0.932(进展)，优于所有免疫分析；【监管】FDA 2026.8批准Roche Elecsys pTau217血浆检测(与Eli Lilly合作),首个单检测设计AD病理血液检测,可rule in/rule out淀粉样病理；记忆门诊准确率92-96%与CSF相当；【CSF】血浆pTau217与CSF pTau217高度相关(r>0.90)",
+      "elisa_ref": "PMC11953589;WashU 2026;NeurologyLive 2026;https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html;https://www.ohsu.edu/sites/default/files/2026-05/im26-fri-8-natonson.pdf;10.1101/2026.02.04.26345353",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "中国队列AUC 0.983区分AD与CUC;敏感性95.0%/特异性96.0%/准确率95.7%;LiCA cutoff 0.47 pg/mL敏感性85.8%/特异性89.6%;Vazyme法p-tau217 AUC 0.92-0.95;华中低教育筛查CU阳性率11.8%(≥70岁25.9%);跨种族验证n=604中国记忆门诊;建立中国人群参考区间(150 CU/60 AD)",
-      "elisa_ref": "PMC12183951;10.1002/alz.14541;PubMed 42449500;10.1002/alz.14157",
+      "elisa_data": "【中国队列验证】中国队列AUC 0.983区分AD与CU(Cognitively Unimpaired)；敏感性95.0%/特异性96.0%/准确率95.7%(n=604中国记忆门诊，跨种族验证)；【LiCA平台】科美博阳光激化学发光(LiCA)cutoff 0.47 pg/mL，敏感性85.8%/特异性89.6%；【Vazyme法】p-tau217 AUC 0.92-0.95；【华中低教育人群筛查】CU阳性率11.8%(≥70岁25.9%)，CI中26.6%阳性；【中国人群参考区间】建立中国人群参考区间(150 CU/60 AD)，RI 0.006-0.47 pg/mL；【NMPA批准】中国已批准9个pTau217相关注册证（科美博阳LiCA、诺唯赞化学发光、伯杰医疗化学发光、永和阳光磁微粒化学发光、超亟检测单分子免疫荧光、宇测生物荧光磁微粒、优抵生物单分子免疫荧光、格物智造数字免疫芯片、玛雅光年数字流式荧光）；【中国指南】中国AD血液标志物专家共识将pTau217列为核心推荐标志物",
+      "elisa_ref": "PMC12183951;10.1002/alz.14541;PubMed 42449500;10.1002/alz.14157;中华医学杂志2026;NMPA数据库",
       "simoa_data": "东南亚队列AUC 0.982;韩国CU+MCI AUC 0.852",
       "simoa_ref": "10.1101/2025.10.07.26428967;PMC11882798"
     }
