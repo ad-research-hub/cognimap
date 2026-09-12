@@ -200,197 +200,197 @@ window.DETAILS_DATA = {
   "pTau181": [
     {
       "param": "全称",
-      "elisa_data": "Phosphorylated Tau 181",
-      "elisa_ref": "",
+      "elisa_data": "苏氨酸181位点磷酸化tau蛋白（Phosphorylated Tau at Threonine 181）；首个体液p-Tau生物标志物；AD核心病理标志物；反映脑内tau病理负荷；pTau181/Aβ42比值是重要的诊断指标",
+      "elisa_ref": "PMC12784536;https://diagnostics.roche.com/us/en/products/lab/elecsys-phospho-tau-181p-csf-cps-000504.html",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "pTau181 / Phospho-Tau (181P)",
-      "elisa_ref": "",
+      "elisa_data": "pTau181 / Phospho-Tau (181P) / p-Tau181 / AT270",
+      "elisa_ref": "PMC12784536",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "CSF/血浆",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选，Roche Elecsys pTau181 Plasma 2025年FDA批准）/CSF（Roche Elecsys pTau181 CSF FDA-cleared）/血清；EDTA抗凝管推荐；Roche Elecsys和Fujirebio Lumipulse商业化检测",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252163.pdf;https://diagnostics.roche.com/content/dam/diagnostics/us/en/news-releases/pdf/pr-101325-elecsys-ptau181-test.pdf;https://diagnostics.roche.com/us/en/products/lab/elecsys-phospho-tau-181p-csf-cps-000504.html",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL",
-      "elisa_ref": "",
+      "elisa_data": "pg/mL（血浆/CSF浓度单位）；Roche Elecsys pTau181 Plasma测量范围0.300-10 pg/mL；CSF测量范围8.0-120 pg/mL",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;https://diagnostics.roche.com/us/en/products/lab/elecsys-phospho-tau-181p-csf-cps-000504.html",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "ECLIA / Simoa / CLEIA",
-      "elisa_ref": "",
+      "elisa_data": "ECLIA（电化学发光，Roche Elecsys Phospho-Tau (181P) Plasma/CSF）/ CLEIA（化学发光酶免疫分析，Fujirebio Lumipulse G pTau181 Plasma）/ Simoa（单分子阵列，Quanterix）/ ELISA（AT270抗体）",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252163.pdf;https://pmc.ncbi.nlm.nih.gov/articles/PMC10918996/;PMC12784536",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "CSF:Roche Elecsys FDA(2022.12);血浆:Roche Elecsys FDA(2025.10);Simoa/Lumipulse研究用",
-      "elisa_ref": "",
+      "elisa_data": "已获监管批准的临床级标志物；Roche Elecsys pTau181 Plasma 2025年FDA批准(K252163)，唯一FDA-cleared的初级保健血液检测，用于排除AD相关淀粉样病理(55岁以上认知下降患者)；首个IVDR认证的排除AD相关淀粉样病理的检测；Roche Elecsys pTau181 CSF FDA-cleared；Roche Elecsys pTau181/Aβ42 CSF比值FDA-cleared；Fujirebio Lumipulse G pTau181 Plasma RUO；ADx p-tau181记忆门诊AUC=0.94；中国NMPA已批准多个pTau181相关检测",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252163.pdf;https://diagnostics.roche.com/content/dam/diagnostics/us/en/news-releases/pdf/pr-101325-elecsys-ptau181-test.pdf;https://diagnostics.roche.com/gb/en/products/lab/elecsys-phospho-tau-181p-plasma-pid00001042.html;https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12841",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "Roche Elecsys pTau(181P) FDA批准;参考区间0.323-1.91(55-80岁,中位0.658);71-80岁0.358-3.43;年龄相关ρ=0.306;无性别/种族差异;Simoa Advantage V1 LOD 0.019/LLOQ 0.085 pg/mL;自动化(Roche/Fujirebio)精度和冻融稳定性优于手动MSD",
-      "elisa_ref": "FDA K252163;PMC11503049;10.1101/2026.02.04.26345353",
+      "elisa_data": "Roche Elecsys pTau181 Plasma分析灵敏度高；Simoa检测LOD pg/mL级；自动化平台灵敏度优于手动检测",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "LoQ 8.0",
-      "elisa_ref": "Roche pTau181 CSF说明",
+      "elisa_data": "Roche Elecsys pTau181 Plasma LLOQ基于CLSI EP06验证；测量范围0.300-10 pg/mL；CSF测量范围8.0-120 pg/mL；临床样本检出率>95%",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;https://diagnostics.roche.com/us/en/products/lab/elecsys-phospho-tau-181p-csf-cps-000504.html",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "8.0-120",
-      "elisa_ref": "Roche pTau181 CSF说明",
+      "elisa_data": "Roche Elecsys pTau181 Plasma: 线性范围0.300-10 pg/mL，按CLSI EP06-Ed2验证(3个血浆样本集多步稀释)；CSF: 测量范围8.0-120 pg/mL，cobas pro检测优异精密度和线性；ADx p-tau181记忆门诊AUC=0.94；血浆p-tau181增加3.5倍(AD患者vs对照)",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12841;https://www.quanterix.com/plasma-biomarkers-alzheimers-disease-detection/",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "批内CV",
-      "elisa_data": "重复性1.7-1.8%(CSF,15.6-20.5)",
-      "elisa_ref": "NMPA注册报告",
+      "elisa_data": "Roche Elecsys pTau181 Plasma批内CV<5%；CSF批内CV<4%；实验室内和实验室间变异2%-5%；与其他实验室Roche检测结果一致性好；自动化平台精密度优异",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;PMC6215060;https://academic.oup.com/clinchem/article/71/Supplement_1/hvaf086.481/8270405",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "中间精密度≤2.5%;2.6-3.2%(CSF)",
-      "elisa_ref": "Roche AD手册;NMPA报告",
+      "elisa_data": "Roche Elecsys pTau181 Plasma批间CV<5%；CSF批间CV<4%；实验室间一致性好；cobas pro检测优异精密度",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;https://diagnostics.roche.com/us/en/products/lab/elecsys-phospho-tau-181p-csf-cps-000504.html",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "Roche Elecsys pTau(181P) Plasma: 线性范围0.300-10 pg/mL，按CLSI EP06-Ed2验证(3个血浆样本集多步稀释)；CSF: 测量范围8.0-120 pg/mL，cobas pro检测优异精密度和线性；实验室内和实验室间变异2%-5%；与其他实验室Roche检测结果一致性好",
-      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;https://academic.oup.com/clinchem/article/71/Supplement_1/hvaf086.481/8270405;PMC6215060",
+      "elisa_data": "Roche Elecsys pTau181 Plasma: 线性范围0.300-10 pg/mL，按CLSI EP06-Ed2验证(3个血浆样本集多步稀释)；CSF: 测量范围8.0-120 pg/mL，cobas pro检测优异精密度和线性；实验室内和实验室间变异2%-5%；与其他实验室Roche检测结果一致性好；Lumipulse和Elecsys方法高度相关但有系统差异",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;PMC6215060;https://academic.oup.com/clinchem/article/71/Supplement_1/hvaf086.481/8270405",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "生物素(链霉亲和素)",
-      "elisa_ref": "Roche说明",
+      "elisa_data": "生物素(链霉亲和素法，服用生物素补充剂需停药)；溶血轻度影响；肾功能影响较小(区别于NfL)；年龄影响显著(需年龄校正)；APOE基因型影响阈值；不同磷酸化tau异构体交叉反应需使用位点特异性抗体；预分析变异(采血管/处理时间)影响较大",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;10.1093/clinchem/hvaf023",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "CSF稳定;机上16周(e801)/28天(e411)",
-      "elisa_ref": "Roche说明",
+      "elisa_data": "EDTA血浆室温4h稳定；冷藏(2-8°C)24h稳定；-80°C长期稳定(≥2年)；冻融稳定性好；避免反复冻融；K2-EDTA管首选，血清管可接受；CSF样本-80°C长期保存稳定",
+      "elisa_ref": "https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf;10.1515/cclm-2025-0123",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "AD vs CN AUC 0.90;Lumipulse预测淀粉样AUC 0.81(cutoff 1.52/敏感性0.79/特异性0.75);真实世界记忆门诊AUC 0.724;高龄人群AUC 0.886(优于p-tau217 0.655);P-tau181/Aβ42比值AD vs对照准确率96.2%(敏感性95.0%/特异性96.7%)",
-      "elisa_ref": "PMC12858865;PMC9652927;PMC10200198",
+      "elisa_data": "Roche Elecsys pTau181 Plasma: FDA批准基于大规模临床验证，唯一初级保健血液检测用于排除AD淀粉样病理；ADx p-tau181记忆门诊AUC=0.94(r=0.73)；Lumipulse pTau181单独或组合可作为AD病理筛查工具；Lumipulse Aβ42/p-tau181比值识别A+ aMCI准确率89.5%，敏感性95%；血浆p-tau181增加3.5倍(AD患者vs对照)；Elecsys CSF pTau181/Aβ42比值与tau-PET高度一致",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252163.pdf;https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12841;PMC10918996;PMC11266251;PMC12450182;https://www.quanterix.com/plasma-biomarkers-alzheimers-disease-detection/",
       "simoa_data": "血浆pTau181 AUC~0.80-0.85",
       "simoa_ref": "PMC12858865;PMC9652927;PMC10200198"
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "AD vs非AD神经退行性疾病AUC 0.84;P-tau181/Aβ42比值AD vs SIVD 88.3%/AD vs FTD 86.2%;与SIMOA p-tau217一致性88.3%;多平台pTau181 AUC 0.85(低于pTau217 0.88-0.89)",
-      "elisa_ref": "PMC12206629;PMC9555092;PMC11818795",
+      "elisa_data": "pTau181鉴别诊断性能中等(优于总tau但不如pTau217)；可区分AD vs其他神经退行性疾病(几乎与PET和CSF测量一样准确)；在FTLD(额颞叶痴呆)中pTau181可能升高(区别于pTau217)；4R-tau病(PSP/CBD)中可能升高；MS中不升高",
+      "elisa_ref": "https://www.quanterix.com/plasma-biomarkers-alzheimers-disease-detection/;PubMed 34418401;PMC12784536",
       "simoa_data": "血浆~0.75-0.80",
       "simoa_ref": "PMC12206629;PMC9555092;PMC11818795"
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "MCI中p-tau181区分Aβ+ vs Aβ- AUC 0.76(特异性0.87/敏感性0.59);p-tau181解决p-tau217灰区:18%灰区中唯一预测因子,重新分类77.4%;上海记忆研究8年随访:Aβ42/40+p-tau181+人口学改善AD转化预测",
-      "elisa_ref": "PMC11875946;PMC12906650;10.1002/alz.14157",
+      "elisa_data": "pTau181在Aβ+后早期升高；纵向分析中pTau181随疾病进展升高；较高pTau181与更陡的认知下降和颞叶灰质丢失相关；Lumipulse pTau181可预测未来进展为AD痴呆；pTau181/Aβ42比值临床等效CSF",
+      "elisa_ref": "https://www.quanterix.com/plasma-biomarkers-alzheimers-disease-detection/;PMC10918996;PMC11953589",
       "simoa_data": "血浆pTau181 AD vs MCI AUC~0.79",
       "simoa_ref": "10.1002/alz.14573;PMC10018178;PMC9852389"
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "MCI略高于CU(深圳p=0.696);p-tau181与认知评分负相关;ADNI 1189人基线p-tau181预测脑病理进展;低基线Aβ42/40与更快p-tau181增加相关",
-      "elisa_ref": "PMC11947039;PMC8590691;PMC12581300",
+      "elisa_data": "MCI vs对照AUC中等(单独pTau181)；pTau181/Aβ42比值AUC更高；Lumipulse Aβ42/p-tau181比值识别A+ aMCI准确率89.5%；pTau181可预测MCI进展为AD痴呆",
+      "elisa_ref": "PMC11266251;PMC10918996",
       "simoa_data": "血浆pTau181 MCI vs对照 AUC~0.70-0.75",
       "simoa_ref": "10.1002/alz.14573;PMC11947039;PMC10018178"
     },
     {
       "param": "敏感性",
-      "elisa_data": "Lumipulse cutoff 1.52敏感性0.79/特异性0.75/NPV 0.81/PPV 0.72;P-tau181/Aβ42比值敏感性95.0%;MCI中p-tau181敏感性0.59",
-      "elisa_ref": "PMC12858865;PMC12206629",
+      "elisa_data": "Roche Elecsys pTau181 Plasma敏感性高(rule-out价值)；Lumipulse Aβ42/p-tau181比值识别A+ aMCI敏感性95%；ADx p-tau181记忆门诊敏感性高(AUC=0.94)；CSF pTau181升高敏感性高",
+      "elisa_ref": "https://diagnostics.roche.com/content/dam/diagnostics/us/en/news-releases/pdf/pr-101325-elecsys-ptau181-test.pdf;PMC11266251;https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12841",
       "simoa_data": "血浆~75-80%",
       "simoa_ref": "PMC12858865;PMC12206629"
     },
     {
       "param": "特异性",
-      "elisa_data": "Lumipulse特异性0.75;P-tau181/Aβ42比值特异性96.7%;MCI中p-tau181特异性0.87;所有分析抗溶血/黄疸/脂血",
-      "elisa_ref": "PMC12858865;PMC12206629",
+      "elisa_data": "Roche Elecsys pTau181 Plasma特异性中等(需结合Aβ42)；pTau181/Aβ42比值特异性更高；Lumipulse Aβ42/p-tau181比值识别A+ aMCI特异性高；CSF pTau181升高特异性中等(区别于pTau217)",
+      "elisa_ref": "https://diagnostics.roche.com/content/dam/diagnostics/us/en/news-releases/pdf/pr-101325-elecsys-ptau181-test.pdf;PMC11266251",
       "simoa_data": "血浆~80-85%",
       "simoa_ref": "PMC12858865;PMC12206629"
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "Lumipulse:≤0.95阴性/≥1.3-1.5阳性/cutoff 1.52 pg/mL;Simoa:≤2.0-2.25阴性/≥2.5-3.0阳性;Roche Elecsys参考区间0.323-1.91 pg/mL(55-80岁);CSF >50 pg/mL;P-tau181/Aβ42比值参考区间0-0.109",
-      "elisa_ref": "HealthMatters;10.1038/s41467-025-66728-2;HealthMatters;FDA K252163;PMC12417335",
+      "elisa_data": "Roche Elecsys pTau181 Plasma cutoff按FDA批准标准(K252163)；CSF cutoff因平台和研究而异；Lumipulse cutoff按厂家说明书；需建立平台特异参考区间；不同平台测量值不可互换；年龄影响显著(需年龄校正)",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252163.pdf;https://florey.edu.au/wp-content/uploads/2025/10/1.-Insert.ElecsysPhosphoTau181PPlasma.09697870500.V1.en_.pdf",
       "simoa_data": "血浆cutoff因平台而异",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "PPV 0.90/NPV 0.64(Roche);NPV 0.81/PPV 0.72(Nat Sci Rep)",
-      "elisa_ref": "PMC12183927",
+      "elisa_data": "Roche Elecsys pTau181 Plasma NPV高(rule-out价值，唯一初级保健血液检测)；pTau181整合灰区重新分类77.4%；双cutoff策略准确率94%；年龄特异性阈值PPV=0.7；二级医疗PPV高，初级医疗PPV较低(患病率低)",
+      "elisa_ref": "https://diagnostics.roche.com/content/dam/diagnostics/us/en/news-releases/pdf/pr-101325-elecsys-ptau181-test.pdf;PMC12176611;10.1002/alz.14541",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "CSF健康人<27(Roche Elecsys)",
-      "elisa_ref": "Roche AD手册",
+      "elisa_data": "Roche Elecsys pTau181 Plasma参考区间按FDA批准标准；健康人水平低；AD患者升高(增加3.5倍)；年龄影响显著(需年龄校正)；APOE ε4携带者阈值需调整；不同平台参考区间不可互换；CSF参考区间需单独建立",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252163.pdf;https://www.quanterix.com/plasma-biomarkers-alzheimers-disease-detection/;10.1515/cclm-2026-0234",
       "simoa_data": "血浆参考区间待建立",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "T(Tau)标志物",
-      "elisa_ref": "NIA-AA",
+      "elisa_data": "T(Tau)标志物；首个体液p-Tau生物标志物；反映脑内tau病理负荷；与tau PET相关；2024年AA修订标准列为Core生物标志物；NIA-AA 2018研究框架中T标志物；中等特异性(区别于pTau217)；广泛使用的经典标志物",
+      "elisa_ref": "PMC12784536;Alzheimer's Association 2024;NIA-AA",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "T(tau病理)标志物;首个体液p-Tau标志物;中等特异性;广泛使用;p-tau/Aβ比值与Aβ PET/海马萎缩/皮质变薄/认知下降关联相当或略强于单独p-tau;真实世界1199人:淀粉样阳性2.60±1.22 vs阴性1.51±0.94 pg/mL;卒中降低诊断性能",
-      "elisa_ref": "PMC12784536;PMC12988372;PMC12977799",
+      "elisa_data": "pTau181在Aβ+后早期升高；可区分SCD/MCI/AD痴呆的tau病理状态；临床前AD(SCD)阶段即升高；是首个能在临床前阶段检测tau病理的血液标志物之一；pTau181/Aβ42比值诊断性能更优",
+      "elisa_ref": "https://www.quanterix.com/plasma-biomarkers-alzheimers-disease-detection/;PMC10918996",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "ADNI 1189人:基线p-tau181预测Aβ/tau/FDG病理进展;中国老年人纵向:低基线Aβ42/40与更快p-tau181/p-tau217增加相关;高GFAP与p-tau181增加和认知下降相关;抗Aβ治疗后p-tau181变化",
-      "elisa_ref": "PMC8590691;PMC12581300",
+      "elisa_data": "pTau181随疾病进展升高(SCD→MCI→AD痴呆)；纵向监测tau病理动态变化；较高pTau181与更陡的认知下降和颞叶灰质丢失相关；抗Aβ治疗(lecanemab/donanemab)降低pTau181；可作为抗Aβ治疗的药效学(PD)标志物",
+      "elisa_ref": "https://www.quanterix.com/plasma-biomarkers-alzheimers-disease-detection/;PMC12906650;PMC11953589",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "p-tau181与Aβ/tau/FDG PET相关;p-tau/Aβ比值临床等效CSF;P-tau181/Aβ42与SIMOA p-tau217一致性88.3%;深圳湾GHABS队列:p-tau217首个对Aβ异常升高,p-tau181随后",
-      "elisa_ref": "PMC8590691;PMC12206629;深圳湾实验室2025",
+      "elisa_data": "与tau PET金标准相关；pTau181/Aβ42比值与tau-PET高度一致；ADx p-tau181记忆门诊r=0.73,AUC=0.94；血浆p-tau181几乎与PET和CSF测量一样准确区分AD vs其他神经退行性疾病；Lumipulse和Elecsys方法高度相关但有系统差异；实验室间一致性好",
+      "elisa_ref": "PMC12450182;https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12841;https://www.quanterix.com/plasma-biomarkers-alzheimers-disease-detection/",
       "simoa_data": "血浆与CSF相关但绝对值不同",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "深圳湾GHABS队列:五种血浆tau标志物评估(p-tau217/181/231/BD-tau/NT1-tau);深圳社区队列:p-tau181在AD显著升高/MCI略高于CU(p=0.696);与认知负相关;中国人群LiCA/Simoa验证p-tau181识别Aβ阳性稳健;上海记忆研究8年随访:Aβ42/40+p-tau181改善AD转化预测;中国CLIA多中心CLEAR AD试验评估p-tau217/p-tau181",
-      "elisa_ref": "深圳湾实验室2025;PMC11947039;PMC12708543;10.1002/alz.14157;ClinicalTrials",
+      "elisa_data": "中国人群数据：Roche Elecsys和Lumipulse检测可用于中国人群；需建立中国人群参考区间；深圳湾实验室GHABS队列评估了包括pTau181在内的多种血浆标志物；中国NMPA已批准多个pTau181相关检测；中国队列验证pTau181诊断性能",
+      "elisa_ref": "PMC12183951;NMPA数据库",
       "simoa_data": "待补充",
       "simoa_ref": ""
     }
@@ -398,64 +398,64 @@ window.DETAILS_DATA = {
   "Aβ42": [
     {
       "param": "全称",
-      "elisa_data": "Amyloid-β 42",
-      "elisa_ref": "",
+      "elisa_data": "β-淀粉样蛋白1-42（Amyloid beta 1-42, Aβ1-42）；AD核心病理标志物；反映脑内淀粉样斑块负荷；Aβ42/Aβ40比值和pTau217/Aβ42比值是重要的诊断指标",
+      "elisa_ref": "PMC7246147;https://pmc.ncbi.nlm.nih.gov/articles/PMC12975021/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "Aβ42 / Amyloid-β (1-42)",
-      "elisa_ref": "",
+      "elisa_data": "Aβ42 / Aβ1-42 / Amyloid beta 42 / β-Amyloid (1-42)",
+      "elisa_ref": "PMC7246147",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "CSF/血浆",
-      "elisa_ref": "",
+      "elisa_data": "CSF（首选，FDA-cleared）/血浆（Lumipulse p-tau217/Aβ42比值FDA批准2025.5）/血清；EDTA抗凝管推荐；Roche Elecsys CSF和Fujirebio Lumipulse Plasma商业化检测",
+      "elisa_ref": "https://usinfo.roche.com/Alzheimers-HCP.html;PMC12889242;PMC12975021",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL",
-      "elisa_ref": "",
+      "elisa_data": "pg/mL（CSF/血浆浓度单位）；Roche Elecsys CSF测量范围200-1700 pg/mL(Gen I)/150-2500 pg/mL(Gen II)",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf;PMC10895336",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "ECLIA / CLEIA / Simoa",
-      "elisa_ref": "",
+      "elisa_data": "ECLIA（电化学发光，Roche Elecsys β-Amyloid (1-42) CSF II）/ CLEIA（化学发光酶免疫分析，Fujirebio Lumipulse G β-Amyloid 1-42 Plasma）/ IP-MS（免疫沉淀质谱，Shimadzu）/ ELISA（Athena Diagnostics）",
+      "elisa_ref": "https://usinfo.roche.com/Alzheimers-HCP.html;PMC12183990;PMC7246147",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "CSF:Roche Elecsys FDA(2022.12);血浆:研究用",
-      "elisa_ref": "",
+      "elisa_data": "已获监管批准的临床级标志物；Roche Elecsys β-Amyloid (1-42) CSF II FDA-cleared；Roche Elecsys pTau181/Aβ42 CSF比值FDA-cleared；2025.5.16 FDA批准Fujirebio Lumipulse G pTau217/β-Amyloid 1-42血浆比值（全球首个AD血液检测，一致性91.7%阳性/97.3%阴性）；Fujirebio Lumipulse G β-Amyloid 1-40/1-42 Plasma RUO；Shimadzu IP-MS日本LDT；Athena Diagnostics ELISA；Quest质谱分析",
+      "elisa_ref": "https://usinfo.roche.com/Alzheimers-HCP.html;PMC12889242;PMC12975021;PMC7246147;PMC12183990",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "LoB 50;LoD 100",
-      "elisa_ref": "Roche Aβ42 CSF II说明",
+      "elisa_data": "Roche Elecsys Aβ42 CSF II分析灵敏度高；无高浓度钩效应；无Aβ1-38或Aβ40交叉反应；Lumipulse分析灵敏度0.030 pg/mL(pTau217)",
+      "elisa_ref": "https://academic.oup.com/clinchem/article/69/11/1247/7277360;https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "LoQ 150",
-      "elisa_ref": "Roche Aβ42 CSF II说明",
+      "elisa_data": "Roche Elecsys Aβ42 CSF II LLOQ基于CLSI EP06验证；新鲜CSF预分析方案中位CV 1.39%(0.37-8.30)；其他验证研究within-run<1.8%；实验室内和实验室间变异2%-5%",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/reviews/K231348.pdf;https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.70797;PMC11567840",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "150-2500(Gen II;Gen I为200-1700)",
-      "elisa_ref": "Roche说明;10.1515/cclm-2022-0123",
+      "elisa_data": "Roche Elecsys Aβ42 CSF II: 线性范围150-2500 pg/mL(Gen II)，Gen I范围200-1700 pg/mL；血浆Aβ42/40预测CSF Aβ42/40异常AUC=0.64-0.87(因检测方法和样本而异)；质谱方法优于免疫分析",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf;PMC11484593;PMC10895336",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
@@ -468,127 +468,127 @@ window.DETAILS_DATA = {
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "中间精密度≤6%",
-      "elisa_ref": "Roche AD手册",
+      "elisa_data": "Roche Elecsys Aβ42 CSF II批间CV<5%；实验室间一致性%CV<4%；自动化平台精密度优于手动检测",
+      "elisa_ref": "https://academic.oup.com/clinchem/article/69/11/1247/7277360;PMC10895336",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "Roche Elecsys Aβ42 CSF II: 线性按CLSI EP06-ED2验证，cobas e 601分析仪3个稀释系列13个样本水平4重复，线性范围150-2500 pg/mL(Gen II)；Gen I范围200-1700 pg/mL；无高浓度钩效应；无Aβ1-38或Aβ40交叉反应",
-      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf;PMC10895336;PMC11567840",
+      "elisa_data": "Roche Elecsys Aβ42 CSF II: 线性按CLSI EP06-ED2验证，cobas e 601分析仪3个稀释系列13个样本水平4重复，线性范围150-2500 pg/mL(Gen II)；Gen I范围200-1700 pg/mL；无高浓度钩效应；无Aβ1-38或Aβ40交叉反应；Lumipulse和Elecsys方法高度相关(r>0.90)，但有系统差异",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf;PMC10895336;PMC11567840;PMC7970049",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "生物素;预分析变异大(采血管/处理时间)",
-      "elisa_ref": "Roche说明;预分析指南",
+      "elisa_data": "生物素(链霉亲和素法，服用生物素补充剂需停药)；溶血可能影响；内源性物质或治疗浓度药物无干扰效应(Roche Elecsys验证)；预分析变异(采血管/处理时间)影响较大；Aβ42易粘附管壁，需标准化采集处理",
+      "elisa_ref": "https://academic.oup.com/clinchem/article/69/11/1247/7277360;PMC10895336",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "CSF需严格标准化采集;Aβ42对预分析极敏感",
-      "elisa_ref": "PMC6446057",
+      "elisa_data": "CSF样本-80°C长期保存稳定；避免反复冻融；Aβ42对预分析条件敏感，需标准化采集处理流程；Roche Elecsys检测样本稳定性按厂家说明书；EDTA抗凝管推荐(血浆)",
+      "elisa_ref": "PMC10895336;https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "Aβ42;AD中CSF降低(斑块沉积);血浆Aβ42+p-tau181敏感性94%特异性95%;Aβ42/p-tau181比值敏感性0.90 AUC最优;血浆Aβ42水平在AD中可比(部分研究);与Aβ PET相关",
-      "elisa_ref": "PMC10895336;10.1002/alz.14573;PMC11402670;PMC9918613;Roche AD手册",
+      "elisa_data": "Lumipulse pTau217/Aβ42血浆比值: 基于499个血浆样本临床研究，敏感性91.7%，特异性97.3%(FDA批准2025.5.16)；阳性预测一致性>90%，阴性预测一致性97.3%；Lumipulse Aβ42+P-tau组合鉴别力最高(AUC=0.915,95%CI 0.822-1.000)；血浆Aβ42/40预测CSF Aβ42/40异常AUC=0.64-0.87(质谱方法更优)；Roche Elecsys CSF Aβ42/pTau181比值与tau-PET高度一致",
+      "elisa_ref": "PMC12975021;PMC12889242;PMC7970049;PMC11484593;PMC12450182",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "CSF Aβ42非AD特异;鉴别价值有限",
-      "elisa_ref": "PMC11251870;PMC11350132;PMC9463096;PMC10862167",
+      "elisa_data": "Aβ42降低非AD特异性(在其他痴呆中也可能降低)；Aβ42/40比值和pTau/Aβ42比值特异性更高；Lumipulse pTau217/Aβ42比值可区分AD vs其他痴呆",
+      "elisa_ref": "PMC11484593;PMC12889242",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "血浆Aβ42/40 MCI vs对照 AUC~0.65-0.70;AD vs MCI区分有限",
-      "elisa_ref": "10.1002/alz.14573;PMC11402670;PMC12144780",
+      "elisa_data": "Aβ42在临床前AD阶段即降低(Aβ病理早期标志物)；Aβ42/40比值预测Aβ PET阳性；pTau217/Aβ42比值临床等效CSF；Lumipulse Aβ42/p-tau181比值识别A+ aMCI准确率89.5%，敏感性95%",
+      "elisa_ref": "PMC11266251;PMC12975021;PMC7246147",
       "simoa_data": "同左",
       "simoa_ref": "10.1002/alz.14573;PMC11402670"
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "血浆Aβ42/40 MCI vs对照 AUC~0.65-0.70",
-      "elisa_ref": "10.1002/alz.14573;PMC11402670;PMC9918613",
+      "elisa_data": "MCI vs对照AUC中等(单独Aβ42)；Aβ42/pTau比值AUC更高；Lumipulse Aβ42/p-tau181比值识别A+ aMCI准确率89.5%",
+      "elisa_ref": "PMC11266251",
       "simoa_data": "同左",
       "simoa_ref": "10.1002/alz.14573;PMC11402670"
     },
     {
       "param": "敏感性",
-      "elisa_data": "血浆Aβ42+p-tau181敏感性94%特异性95%",
-      "elisa_ref": "PMC10895336;PMC12450607;Roche AD手册",
+      "elisa_data": "Lumipulse pTau217/Aβ42血浆比值敏感性91.7%(FDA批准研究)；Lumipulse Aβ42/p-tau181比值识别A+ aMCI敏感性95%；CSF Aβ42降低敏感性高",
+      "elisa_ref": "PMC12975021;PMC11266251",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "LC-MS/MS Aβ42/40特异性83%;pTau217/Aβ42比值特异性87-92%",
-      "elisa_ref": "PMC12450607",
+      "elisa_data": "Lumipulse pTau217/Aβ42血浆比值特异性97.3%(FDA批准研究)；阴性预测一致性97.3%；CSF Aβ42降低特异性中等(需结合pTau)",
+      "elisa_ref": "PMC12975021;PMC12889242",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "LC-MS/MS Aβ42/40 0.160;FDA 2025批准Lumipulse G pTau217/Aβ42比值",
-      "elisa_ref": "PMC12450607;https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf;FDA 2025 Lumipulse G批准文件",
+      "elisa_data": "Roche Elecsys CSF Aβ42 cutoff因平台和研究而异；Lumipulse pTau217/Aβ42比值cutoff按FDA批准标准；需建立平台特异参考区间；不同平台测量值不可互换(Lumipulse vs Elecsys有系统差异)",
+      "elisa_ref": "PMC7970049;https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "CSF Aβ42/40比值与Amyloid PET一致性90%",
-      "elisa_ref": "Roche AD手册",
+      "elisa_data": "Lumipulse pTau217/Aβ42血浆比值PPV高(阳性预测一致性>90%)，NPV高(阴性预测一致性97.3%)；Roche Elecsys pTau181血浆NPV高(rule-out价值)",
+      "elisa_ref": "PMC12889242;https://diagnostics.roche.com/content/dam/diagnostics/us/en/news-releases/pdf/pr-101325-elecsys-ptau181-test.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "CSF健康人>1030(Roche);需平台特异参考区间",
-      "elisa_ref": "Roche AD手册",
+      "elisa_data": "Roche Elecsys CSF Aβ42参考区间按厂家说明书；健康人CSF Aβ42水平高，AD患者降低；血浆Aβ42水平需建立参考区间；年龄影响显著(需年龄校正)；APOE基因型影响阈值",
+      "elisa_ref": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf;PMC10895336",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "A(Amyloid)标志物",
-      "elisa_ref": "NIA-AA",
+      "elisa_data": "A(Amyloid)标志物；反映脑内淀粉样斑块负荷；2024年AA修订标准列为Core生物标志物；Aβ42降低是AD最早的体液生物标志物变化；NIA-AA 2018研究框架中A标志物；Aβ42/40比值和pTau/Aβ42比值临床应用更广泛",
+      "elisa_ref": "PMC7246147;Alzheimer's Association 2024;NIA-AA",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "β-淀粉样蛋白42(Aβ42);淀粉样斑块主要成分;AD中CSF降低(沉积);血浆Aβ42+p-tau181早期检测敏感性94%特异性95%;Aβ42/p-tau181比值最优;与Aβ PET相关;Aβ42/40比值更稳定;ATN框架A标志物",
-      "elisa_ref": "PMC10895336;NIA-AA框架;Roche AD手册;https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf",
+      "elisa_data": "Aβ42在临床前AD阶段即降低(最早的体液标志物变化)；可区分SCD/MCI/AD痴呆的Aβ病理状态；Aβ42/40比值和pTau/Aβ42比值诊断性能更优；是目前唯一能在临床前阶段可靠检测Aβ病理的体液标志物之一",
+      "elisa_ref": "PMC7246147;PMC12975021",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "临床前即开始降低;与Aβ沉积同步;随疾病进展CSF持续降低",
-      "elisa_ref": "PMC10895336;10.1038/s41591-023-02476-4;Roche AD手册",
+      "elisa_data": "Aβ42随疾病进展降低(临床前→MCI→痴呆)；纵向监测Aβ病理动态变化；抗Aβ治疗(lecanemab/donanemab)可增加CSF Aβ42(清除斑块后释放)；可作为抗Aβ治疗的药效学(PD)标志物",
+      "elisa_ref": "PMC12906650;PMC11953589",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "系统综述Meta分析;多平台验证;FDA批准检测;中国人群验证",
-      "elisa_ref": "PMC10895336;PMC6215060;https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221842.pdf;NMPA批准文件",
+      "elisa_data": "与Aβ PET金标准高度相关；pTau217/Aβ42比值Aβ PET AUC 0.963-0.966，临床等效CSF pTau181/Aβ42；Roche Elecsys CSF pTau181/Aβ42比值与tau-PET高度一致；Lumipulse和Elecsys方法高度相关(r>0.90)但有系统差异；实验室间一致性%CV<4%",
+      "elisa_ref": "PMC11953589;PMC12450182;PMC7970049;https://academic.oup.com/clinchem/article/69/11/1247/7277360",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "NMPA已批准CSF试剂盒",
-      "elisa_ref": "NMPA",
+      "elisa_data": "中国人群数据：Lumipulse和Roche Elecsys检测可用于中国人群；需建立中国人群参考区间；深圳湾实验室GHABS队列评估了包括Aβ42在内的多种血浆标志物；中国NMPA已批准多个Aβ42相关检测",
+      "elisa_ref": "PMC12183951;NMPA数据库",
       "simoa_data": "待补充",
       "simoa_ref": ""
     }
