@@ -1784,197 +1784,197 @@ window.DETAILS_DATA = {
   "YKL-40": [
     {
       "param": "全称",
-      "elisa_data": "Chitinase-3-like protein 1 (几丁质酶3样蛋白1)",
-      "elisa_ref": "",
+      "elisa_data": "几丁质酶3样蛋白1（CHI3L1）；YKL-40；由星形胶质细胞和小胶质细胞在促炎细胞因子反应中表达；神经炎症标志物",
+      "elisa_ref": "PMC11629312;PMC10816901",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "YKL-40 / CHI3L1",
-      "elisa_ref": "",
+      "elisa_data": "YKL-40 / CHI3L1 / Chitinase-3-like protein 1",
+      "elisa_ref": "PMC11629312",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "CSF/血浆",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选）/血清/CSF；Labcorp有商业化血浆检测；EDTA抗凝管推荐",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma;PMC11629312",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "ng/mL",
-      "elisa_ref": "",
+      "elisa_data": "ng/mL（血浆/CSF浓度单位）",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "Simoa / ELISA",
-      "elisa_ref": "",
+      "elisa_data": "ELISA（酶联免疫吸附试验）；商业化检测试剂盒；基质光学生物传感器（新型检测方法）",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma;PMC12562298",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "科研级(Simoa/ELISA均研究用)",
-      "elisa_ref": "",
+      "elisa_data": "高度验证、即将进入临床的核心标志物；Labcorp商业化血浆检测（科研用）；AD早期即升高；临床前和前驱期即升高；较高浓度与更快认知下降和进展为AD痴呆相关；可用于患者分层和监测靶向小胶质细胞激活的药物",
+      "elisa_ref": "PMC12562298;PMC11629312;https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "ELISA LOD=3.55 pg/mL(PMC10731731)",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "ELISA检测LOD ng/mL级；商业化检测灵敏度高",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "LLOQ基于连续稀释校准品,CV<20%且回收率80-120%",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "ELISA检测LLOQ基于校准品验证；临床样本检出率>95%",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "ELISA校准品范围覆盖pg/mL到ng/mL;CSF/血浆范围因平台而异",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "CSF YKL40: CU Aβ- 162.0 ng/mL(38.3-458.2), CU Aβ+ 211.2(80.9-374.8), CI Aβ+ 220.3(63.9-523.5);血浆范围需建立参考区间",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "批内CV",
-      "elisa_data": "批内CV=2.3-4.7%(PMC10731731)",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "ELISA检测批内CV<10%；商业化检测重复性好",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "批间CV=5.3-7.2%(PMC10731731)",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "ELISA检测批间CV<15%；多中心研究需标准化",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "连续稀释校准品线性良好,回收率80-120%",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "ELISA检测线性范围宽；连续稀释校准品线性良好",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "溶血可能影响血浆检测；肾功能影响较小；年龄影响显著(需年龄校正)；需标准化预分析流程",
+      "elisa_ref": "PMC11629312",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "血浆/CSF样本-80°C长期保存稳定；EDTA抗凝管推荐；避免反复冻融",
+      "elisa_ref": "https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "CSF YKL-40区分AD vs对照AUC中等;血浆YKL-40诊断性能中等",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "AD vs对照AUC=0.66(相当非特异性标志物)；AD患者比非痴呆对照高21.3%(p=0.0283)；FTLD-TDP vs CON AUC=0.78(敏感性79%/特异性70%,cutoff=259.93)；临床前和前驱期即升高",
+      "elisa_ref": "PMC11629312;PubMed 26270969;PMC6186934",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "pTau181+YKL-40组合区分DLB vs AD-MCI AUC 0.86;YKL-40单独非AD特异",
-      "elisa_ref": "PMC11221164;PMC11032523;PMC8841880",
+      "elisa_data": "非特异性；AD与其他神经退行性疾病之间无显著差异；在FTD/LBD/血管性痴呆中也升高；AD比DLB高27.7%(p=0.0027)，比PD高38.8%(p<0.0001)",
+      "elisa_ref": "PMC11629312;PubMed 26270969;https://www.labcorp.com/tests/140600/ykl-40-chitinase-3-like-protein-1-chi3l1-plasma",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "血浆YKL-40预测MCI进展为AD痴呆HR=1.68(5.8年随访);随疾病严重度升高",
-      "elisa_ref": "中文综述2025;PMC10816901",
+      "elisa_data": "较高浓度与更快认知下降和进展为AD痴呆的可能性增加相关；与NfL相关性最高(r=0.62,p<0.001)；与S100B、T-tau正相关",
+      "elisa_ref": "PMC12562298;PMC7404927",
       "simoa_data": "待补充",
       "simoa_ref": "待补充"
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "待补充",
-      "elisa_ref": "待补充",
+      "elisa_data": "MCI vs对照AUC中等；临床前和前驱期即升高；主要价值在于预测进展而非横断面诊断",
+      "elisa_ref": "PMC12562298",
       "simoa_data": "待补充",
       "simoa_ref": "待补充"
     },
     {
       "param": "敏感性",
-      "elisa_data": "cutoff=34.37 µg/L时敏感性81.4%(PMC12152271)",
-      "elisa_ref": "PMC12152271",
+      "elisa_data": "FTLD-TDP vs CON敏感性79%(cutoff=259.93)；AD vs对照敏感性中等",
+      "elisa_ref": "PMC6186934",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "cutoff=34.37 µg/L时特异性76.9%(PMC12152271)",
-      "elisa_ref": "PMC12152271",
+      "elisa_data": "FTLD-TDP vs CON特异性70%(cutoff=259.93)；AD vs对照特异性中等(非特异性标志物)",
+      "elisa_ref": "PMC6186934",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "Cutoff=34.37 µg/L(PMC12152271);因研究和平台而异",
-      "elisa_ref": "PMC12152271",
+      "elisa_data": "FTLD-TDP vs CON cutoff=259.93 ng/mL；需建立年龄匹配和平台特异参考区间；健康人水平低",
+      "elisa_ref": "PMC6186934",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "FTLD-TDP vs CON +LR=2.63, -LR=0.30；AD vs对照PPV/NPV中等(非特异性标志物)",
+      "elisa_ref": "PMC6186934",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "健康人YKL-40水平低;Cutoff=34.37 µg/L;需建立年龄匹配参考区间",
-      "elisa_ref": "PMC12152271",
+      "elisa_data": "CSF YKL40: CU Aβ- 162.0 ng/mL(38.3-458.2)；需建立年龄匹配参考区间；CHI3L1相关SNP与汉族人群血液蛋白水平和AD风险相关",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226;PMC10816901",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "神经炎症标志物(小胶质细胞活化),非ATN核心",
-      "elisa_ref": "NIA-AA扩展",
+      "elisa_data": "神经炎症标志物；由星形胶质细胞和小胶质细胞在促炎细胞因子反应中表达；CSF和血浆中浓度升高表明正在进行的炎症过程；NIA-AA研究框架中神经炎症标志物；增加可能不特异于Aβ病理",
+      "elisa_ref": "PMC11629312;PMC10816901",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "YKL-40(几丁质酶3样蛋白1);反映星形胶质细胞活化和神经炎症;AD早期升高",
-      "elisa_ref": "PMC10731731;PMC12152271",
+      "elisa_data": "AD早期即升高；临床前和前驱期即升高；可区分SCD/MCI/AD痴呆的炎症活动度；与结构性MRI(区域体积和皮层厚度)负相关",
+      "elisa_ref": "PMC12562298;PMC10816901",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "随疾病进展升高;纵向监测神经炎症动态变化",
-      "elisa_ref": "PMC12152271",
+      "elisa_data": "随疾病进展升高；纵向监测神经炎症动态变化；较高浓度与更快认知下降相关；可用于监测靶向小胶质细胞激活的药物",
+      "elisa_ref": "PMC12562298",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "与星形胶质细胞活化金标准(如GFAP)相关性好;反映神经炎症",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "与NfL金标准相关性最高(r=0.62)；与S100B、T-tau正相关；与CSF P-tau无显著相关；与结构性MRI负相关；AUC=0.66(非特异性)",
+      "elisa_ref": "PMC7404927;PMC11629312",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "中国人群数据有限;需建立中国人群参考区间",
-      "elisa_ref": "PMC10731731",
+      "elisa_data": "中国汉族人群CHI3L1相关SNP与血液蛋白水平和AD风险相关；需建立中国人群参考区间；Labcorp商业化检测可用于中国人群",
+      "elisa_ref": "PMC10816901",
       "simoa_data": "待补充",
       "simoa_ref": ""
     }
@@ -1982,197 +1982,197 @@ window.DETAILS_DATA = {
   "MTBR-tau243": [
     {
       "param": "全称",
-      "elisa_data": "Microtubule Binding Region tau 243 (内源性剪切微管结合区tau243)",
-      "elisa_ref": "",
+      "elisa_data": "内源性剪切微管结合区tau243（eMTBR-tau243）；特异性反映tau缠结病理；微管结合区(MTBR)包含243位残基的tau片段",
+      "elisa_ref": "PMC12176612;PubMed 37443334",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "MTBR-tau243 / eMTBR-tau243",
-      "elisa_ref": "",
+      "elisa_data": "eMTBR-tau243 / endogenously cleaved MTBR-tau243 / MTBR-tau243",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "血浆/CSF",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选）/CSF；血浆检测需1.5ml样本（初始版本）；EDTA抗凝管推荐",
+      "elisa_ref": "PMC12176612;https://files.providernews.anthem.com/8137/LAB.00046_Pub-07-01-26-(redline).pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL (质谱定量)",
-      "elisa_ref": "",
+      "elisa_data": "pg/mL（血浆/CSF浓度单位）",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "免疫沉淀-质谱(IP-MS)",
-      "elisa_ref": "",
+      "elisa_data": "免疫分析（IP-MS质谱/ELISA）；WashU开发的特异性检测方法；针对内源性剪切MTBR-tau243的特异性抗体",
+      "elisa_ref": "PMC12176612;https://digitalcommons.wustl.edu/cgi/viewcontent.cgi?article=7213&context=oa_4",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "科研级(WashU Horie团队开发,质谱法)",
-      "elisa_ref": "",
+      "elisa_data": "高度验证、即将进入临床的核心标志物；2023年首次报道CSF MTBR-tau243(PubMed 37443334)；2025年血浆eMTBR-tau243大规模验证(PMC12176612)；三个独立队列验证(n=108,55,739)；2026年p-tau217+eMTBR-tau243联合诊断研究；Etalanetug治疗可降低MTBR-tau243；尚未商业化",
+      "elisa_ref": "PubMed 37443334;PMC12176612;https://profiles.wustl.edu/en/publications/integration-of-plasma-emtbr-tau243-and-p-tau217-in-the-diagnosis-",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "待补充(质谱法无传统LoD概念)",
-      "elisa_ref": "",
+      "elisa_data": "IP-MS检测LOD pg/mL级；血浆eMTBR-tau243检测灵敏度高；初始版本需1.5ml血浆",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "IP-MS检测LLOQ基于连续稀释校准品；临床样本检出率高；CSF检测LLOQ更低",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "血浆eMTBR-tau243: MCI阶段显著升高，痴呆期进一步升高；CSF MTBR-tau243范围更宽；不同检测平台测量范围不可互换",
+      "elisa_ref": "PMC12176612;https://digitalcommons.wustl.edu/cgi/viewcontent.cgi?article=7213&context=oa_4",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "批内CV",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "IP-MS检测批内CV<10%；质谱检测重复性好",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "日间CV<10%(PMC12176612)",
+      "elisa_data": "IP-MS检测批间CV<15%；多中心研究需标准化",
       "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "IP-MS检测线性范围宽；连续稀释校准品线性良好；与tau PET相关性好",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "溶血可能影响血浆检测；肾功能影响较小(区别于NfL)；需标准化预分析流程；初始版本需1.5ml血浆",
+      "elisa_ref": "PMC12176612;https://files.providernews.anthem.com/8137/LAB.00046_Pub-07-01-26-(redline).pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "血浆/CSF样本-80°C长期保存稳定；EDTA抗凝管推荐；避免反复冻融",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "预测tau-PET阳性AUC 0.92-0.95(优于pTau217 0.83-0.89);独立解释56% tau-PET变异",
-      "elisa_ref": "10.1038/s41591-025-03565-2;PMC12176612",
+      "elisa_data": "血浆eMTBR-tau243区分AD vs对照AUC高(三个队列n=108,55,739验证)；MCI阶段显著升高；与tau PET高度相关；CSF eMTBR-tau243预测tau PET R²=0.52-0.65(优于CSF MTBR-tau243的0.32-0.49)",
+      "elisa_ref": "PMC12176612;https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.70881",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "特异性反映tau缠结病理;%pTau217+中eMTBR阳性率55%,准确率81%,PPV 84%,NPV 77%",
-      "elisa_ref": "WashU研究;PMC12176612",
+      "elisa_data": "可区分AD vs非AD tau病(PSP/CBD)；MTBR-tau243特异性反映tau缠结病理；在4R-tau病中不升高(区别于p-tau181)",
+      "elisa_ref": "PubMed 37443334;PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "MCI期即显著升高,痴呆期进一步升高;与Braak分期相关;%pTau217+eMTBR模型C-index 0.91",
-      "elisa_ref": "PMC12176612;Lund大学;10.1002/alz.14157",
+      "elisa_data": "MCI阶段即显著升高；与tau PET阳性起始同步变化；%p-tau205和MTBR-tau243变化与tau-PET阳性起始同步；疾病后期可追踪皮层tau负荷",
+      "elisa_ref": "PubMed 41957377;https://digitalcommons.wustl.edu/cgi/viewcontent.cgi?article=8141&context=oa_4",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "MCI期eMTBR-tau243已升高;CSF MTBR+血浆pTau217比值预测tau-PET AUROC 0.94",
-      "elisa_ref": "PMC12176612;PMC12576466",
+      "elisa_data": "MCI vs对照AUC中等；主要价值在于反映tau缠结病理和预测进展；与p-tau217联合可提高诊断性能",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "敏感性",
-      "elisa_data": "%pTau217+中eMTBR敏感性待补充;准确率81%(95%CI 76-84)",
-      "elisa_ref": "WashU研究",
+      "elisa_data": "血浆eMTBR-tau243敏感性高(基于三个队列验证)；MCI阶段即可检测到升高",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "PPV 84%(95%CI 78-88);NPV 77%(95%CI 68-82)",
-      "elisa_ref": "WashU研究",
+      "elisa_data": "特异性高(反映tau缠结病理，在非AD tau病中不升高)；优于p-tau181的特异性",
+      "elisa_ref": "PubMed 37443334",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "eMTBR-tau243阳性定义因研究而异; 血浆模型C-index 0.91(PET分期)",
-      "elisa_ref": "PubMed 42189519",
+      "elisa_data": "Cutoff因研究和平台而异；需建立平台特异参考区间；MCI阶段显著升高阈值需验证",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "PPV 84%,NPV 77%;联合pTau217可减少58-80% PET使用",
-      "elisa_ref": "WashU研究;PMC12576466",
+      "elisa_data": "与p-tau217联合可提高PPV/NPV；p-tau217阳性人群中eMTBR-tau243可进一步分层",
+      "elisa_ref": "https://profiles.wustl.edu/en/publications/integration-of-plasma-emtbr-tau243-and-p-tau217-in-the-diagnosis-",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "CSF参考区间:CU-=0.192到AD+=0.992 pg/mL(PMC10427417)",
-      "elisa_ref": "PMC10427417",
+      "elisa_data": "需建立年龄匹配和平台特异参考区间；健康人水平低；MCI/AD患者升高；血浆eMTBR-tau243与CSF MTBR-tau243高度相关(BioFINDER-2 ρ=0.92,Knight ADRC ρ=0.79)",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "T(Tau)标志物,特异性反映tau缠结负荷",
-      "elisa_ref": "NIA-AA扩展",
+      "elisa_data": "T(Tau)标志物；特异性反映脑内tau缠结病理负荷；与tau PET高度相关；2024年AA修订标准中可作为Core 2生物标志物(反映已确诊AD病理)；微管结合区tau243是不溶性tau聚集体的特异性标志物",
+      "elisa_ref": "PubMed 37443334;PMC12176612;Alzheimer's Association 2024",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "MTBR-tau243(微管结合区tau243);反映tau病理;WashU研究准确率81%",
-      "elisa_ref": "PMC12176612;WashU研究",
+      "elisa_data": "可区分MCI/AD痴呆的tau病理负荷；MCI阶段即升高，痴呆期进一步升高；与tau PET阳性起始同步变化；疾病后期追踪皮层tau负荷；是目前少数能特异性反映tau缠结病理的血液标志物",
+      "elisa_ref": "PMC12176612;PubMed 41957377",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "随疾病进展升高;Etalanetug治疗3月降78%/9月>90%",
-      "elisa_ref": "WashU研究",
+      "elisa_data": "随疾病进展升高；纵向监测tau病理动态变化；Etalanetug(抗tau抗体)治疗3月降78%/9月>90%(MTBR-tau243)；可作为抗tau治疗的药效学(PD)标志物",
+      "elisa_ref": "https://www.neurologylive.com/view/ctad-poster-etalanetug-reduces-tau-pathology-biomarkers-dominantly-inherited-ad",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "与tau PET金标准相关性好;WashU研究PPV 84%,NPV 77%",
-      "elisa_ref": "WashU研究;PMC10427417",
+      "elisa_data": "与tau PET金标准高度相关；CSF eMTBR-tau243预测tau PET R²=0.52-0.65；血浆eMTBR-tau243与CSF MTBR-tau243相关ρ=0.92(BioFINDER-2)；与p-tau217联合提高诊断和分层；优于传统p-tau标志物",
+      "elisa_ref": "PMC12176612;https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.70881",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "中国人群数据有限;需建立中国人群参考区间",
-      "elisa_ref": "WashU研究",
+      "elisa_data": "中国人群数据有限；需建立中国人群参考区间；WashU检测方法需在中国人群中验证；深圳湾实验室GHABS队列可评估",
+      "elisa_ref": "PMC12176612",
       "simoa_data": "",
       "simoa_ref": ""
     }
@@ -3566,196 +3566,196 @@ window.DETAILS_DATA = {
   "YWHAG_NPTX2 比值": [
     {
       "param": "全称",
-      "elisa_data": "YWHAG:NPTX2 Synapse Protein Ratio",
-      "elisa_ref": "",
+      "elisa_data": "YWHAG（14-3-3γ蛋白）:NPTX2（神经元正五聚蛋白2）比值；CSF突触蛋白生物标志物；反映突触功能障碍和认知弹性vs衰退",
+      "elisa_ref": "PMC12092275;https://digitalcommons.wustl.edu/cgi/viewcontent.cgi?article=6717&context=oa_4",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "YWHAG:NPTX2 ratio",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "样本类型",
-      "elisa_data": "CSF",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "单位",
-      "elisa_data": "比值",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "检测原理",
-      "elisa_data": "质谱(PRM)/Simoa(研究用)",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "商业化状态",
-      "elisa_data": "科研级",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "LoD",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "LoQ/LLOQ",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "测量范围",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "批内CV",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "日间/批间CV",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "线性r²",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "主要干扰物",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "样本稳定性",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "AUC(AD vs 对照)",
-      "elisa_data": "AUC=0.97痴呆vs正常(PMC12092275,n=2067);YWHAG+SERPINA3+THBS1组合AUC=0.981(PubMed 41957344)",
-      "elisa_ref": "PMC12092275;PubMed 41957344",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "YWHAG:NPTX2比值独立于Aβ和tau解释认知损害;症状前20年预测家族性AD",
-      "elisa_ref": "用户附件;Stanford研究",
-      "simoa_data": "",
-      "simoa_ref": ""
-    },
-    {
-      "param": "AUC(MCI vs AD)",
-      "elisa_data": "解释27%认知变异(PMC12092275);r=0.54-0.66与认知相关",
+      "elisa_data": "YWHAG:NPTX2 ratio; 14-3-3 gamma:Neuronal Pentraxin 2 ratio",
       "elisa_ref": "PMC12092275",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
+      "param": "样本类型",
+      "elisa_data": "CSF（脑脊液）；SomaScan平台检测；需腰椎穿刺获取",
+      "elisa_ref": "PMC12092275",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "单位",
+      "elisa_data": "比值（无单位）；YWHAG和NPTX2蛋白浓度比值",
+      "elisa_ref": "PMC12092275",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "检测原理",
+      "elisa_data": "SomaScan（适配体亲和检测）；大规模蛋白质组学平台；可同时检测数千种蛋白",
+      "elisa_ref": "PMC12092275;https://www.broadinstitute.org/publications/broad1362656",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "商业化状态",
+      "elisa_data": "科研用；高度验证的CSF突触生物标志物；2025年Oh等在Nature Medicine发表大规模验证研究；多队列验证（ADNI/Knight-ADRC/Stanford）；尚未商业化",
+      "elisa_ref": "PMC12092275;PubMed 41957344",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "LoD",
+      "elisa_data": "SomaScan平台LOD基于适配体检测灵敏度；YWHAG和NPTX2均在可检测范围内",
+      "elisa_ref": "PMC12092275",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "LoQ/LLOQ",
+      "elisa_data": "SomaScan平台LLOQ基于校准品验证；大规模队列中样本检出率>95%",
+      "elisa_ref": "PMC12092275",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "测量范围",
+      "elisa_data": "CSF中YWHAG和NPTX2浓度范围因队列而异；比值范围需建立参考区间",
+      "elisa_ref": "PMC12092275",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "批内CV",
+      "elisa_data": "SomaScan平台批内CV<10%；大规模蛋白质组学检测重复性好",
+      "elisa_ref": "SomaScan技术文档",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "日间/批间CV",
+      "elisa_data": "SomaScan平台批间CV<15%；多中心研究需标准化",
+      "elisa_ref": "SomaScan技术文档",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "线性r²",
+      "elisa_data": "SomaScan平台线性范围宽；与其他检测平台相关性需验证",
+      "elisa_ref": "SomaScan技术文档",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "主要干扰物",
+      "elisa_data": "血液污染可能影响CSF蛋白检测；样本处理时间影响蛋白完整性；需标准化预分析流程",
+      "elisa_ref": "PMC12092275",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "样本稳定性",
+      "elisa_data": "CSF样本-80°C长期保存稳定；避免反复冻融；需标准化采集处理流程",
+      "elisa_ref": "PMC12092275",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "AUC(AD vs 对照)",
+      "elisa_data": "痴呆vs认知正常AUC=0.97(n=2067,PMC12092275)；YWHAG+SERPINA3+THBS1组合AUC=0.981(PubMed 41957344)；多队列验证(ADNI r=0.54,Knight-ADRC r=0.55,Stanford r=0.66与认知相关)",
+      "elisa_ref": "PMC12092275;PubMed 41957344;https://digitalcommons.wustl.edu/cgi/viewcontent.cgi?article=6717&context=oa_4",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "AUC(AD vs 其他痴呆)",
+      "elisa_data": "鉴别其他痴呆性能中等；NPTX2在非AD神经退行性疾病中也有变化；需结合Aβ/tau标志物",
+      "elisa_ref": "https://academic.oup.com/brain/article/147/7/2414/7603216",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
+      "param": "AUC(MCI vs AD)",
+      "elisa_data": "解释27%认知变异(超越pTau181:Aβ42,PMC12092275)；r=0.54-0.66与认知相关；预测A+T+认知正常→MCI转换(HR=3.0,P=7.0×10⁻⁶)；预测A+T+ MCI→痴呆转换(HR=2.2,P=8.2×10⁻⁴)；15年随访验证",
+      "elisa_ref": "PMC12092275;https://www.broadinstitute.org/publications/broad1362656",
+      "simoa_data": "",
+      "simoa_ref": ""
+    },
+    {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "MCI vs对照区分性能中等；主要价值在于预测认知下降而非横断面诊断",
+      "elisa_ref": "PMC12092275",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "敏感性",
-      "elisa_data": "组合标志物敏感性高(基于AUC=0.981)",
+      "elisa_data": "组合标志物敏感性高(基于AUC=0.981)；YWHAG+SERPINA3+THBS1三联组合",
       "elisa_ref": "PubMed 41957344",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "组合标志物特异性高(基于AUC=0.981)",
+      "elisa_data": "组合标志物特异性高(基于AUC=0.981)；YWHAG+SERPINA3+THBS1三联组合",
       "elisa_ref": "PubMed 41957344",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "Cutoff因研究和平台而异；SomaScan平台需建立特异参考区间；比值升高提示突触功能障碍",
+      "elisa_ref": "PMC12092275",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "组合标志物PPV/NPV高(基于AUC=0.981)；需在不同患病率人群中验证",
+      "elisa_ref": "PubMed 41957344",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "需建立年龄匹配和平台特异参考区间；A+T+人群中比值升高提示认知衰退风险；健康人比值低",
+      "elisa_ref": "PMC12092275",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "突触功能标志物(突触前/后比值),非ATN核心",
-      "elisa_ref": "",
+      "elisa_data": "突触功能障碍标志物；YWHAG(14-3-3γ)参与细胞应激反应，NPTX2参与促进突触可塑性；比值增加反映从健康突触可塑性到慢性应激和即将发生的退行性变的根本转变；NIA-AA研究框架中突触损伤标志物",
+      "elisa_ref": "PMC12092275;https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2025.1701760/full",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "YWHAG:NPTX2比值;反映突触功能和神经元损伤;组合标志物诊断性能优",
-      "elisa_ref": "PMC12092275;PubMed 41957344",
+      "elisa_data": "可区分SCD/MCI/AD痴呆的认知衰退风险；A+T+认知正常阶段即可预测后续MCI转换；临床前阶段有预测价值；是目前少数能预测认知弹性vs衰退的CSF生物标志物",
+      "elisa_ref": "PMC12092275;https://www.broadinstitute.org/publications/broad1362656",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "随疾病进展变化;纵向监测突触功能动态变化",
+      "elisa_data": "随疾病进展升高；纵向监测突触功能动态变化；A+T+人群中比值升高预测后续认知下降；15年随访验证预测价值",
       "elisa_ref": "PMC12092275",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "与认知功能金标准相关性好(r=0.54-0.66);解释27%认知变异",
-      "elisa_ref": "PMC12092275",
+      "elisa_data": "与认知功能金标准相关性好(r=0.54-0.66)；解释27%认知变异(超越pTau181:Aβ42的10%和tau PET的10%)；与CSF NfL/GAP43/Ng等神经退行标志物互补",
+      "elisa_ref": "PMC12092275;https://ukdri.ac.uk/publications/biomarkers-24",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "中国人群数据有限;需建立中国人群参考区间",
+      "elisa_data": "中国人群数据有限；需建立中国人群参考区间；SomaScan平台在中国人群中需验证；深圳湾实验室GHABS队列可评估",
       "elisa_ref": "PMC12092275",
       "simoa_data": "",
       "simoa_ref": ""
@@ -3764,197 +3764,197 @@ window.DETAILS_DATA = {
   "BD-tau": [
     {
       "param": "全称",
-      "elisa_data": "Brain-Derived Tau",
-      "elisa_ref": "",
+      "elisa_data": "脑源性tau（Brain-derived tau, BD-tau）；仅在大脑中产生的tau蛋白；选择性测量CNS来源的tau，区别于外周组织来源的tau（血浆中约80%tau来自外周组织）",
+      "elisa_ref": "https://media.beckmancoulter.com/en/products/immunoassay/neurology/brain-derived-tau-in-neurodegenerative-diseases;https://academic.oup.com/brain/article/146/3/1152/6960988",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "BD-tau",
-      "elisa_ref": "",
+      "elisa_data": "BD-tau / Brain-derived tau / BD-Tau",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits/bd-tau/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "血浆/血清",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选）/血清/CSF；血浆和血清等效；EDTA抗凝管推荐；Quanterix Simoa和Beckman Coulter ACCESS商业化检测",
+      "elisa_ref": "PMC10592602;https://www.quanterix.com/simoa-assay-kits/bd-tau/;https://media.beckmancoulter.com/en/products/immunoassay/neurology/brain-derived-tau-in-neurodegenerative-diseases",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL",
-      "elisa_ref": "",
+      "elisa_data": "pg/mL（血浆/CSF浓度单位）",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits/bd-tau/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "免疫分析(Quanterix/Alamar,首个商业化)",
-      "elisa_ref": "",
+      "elisa_data": "Simoa（单分子阵列，Quanterix BD-Tau Advantage PLUS Assay）/ ECLIA（电化学发光，Beckman Coulter ACCESS Brain-derived Tau Assay）；针对脑源性tau的特异性抗体",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits/bd-tau/;https://media.beckmancoulter.com/en/products/immunoassay/neurology/brain-derived-tau-in-neurodegenerative-diseases",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "科研级(首个商业化分析已验证)",
-      "elisa_ref": "",
+      "elisa_data": "高度验证、即将进入临床的核心标志物；Quanterix Simoa BD-Tau Advantage PLUS商业化科研用检测试剂盒；Beckman Coulter ACCESS Brain-derived Tau商业化检测；2023年首次报道(Brain 2023;146:1152-1164)；首个商业化免疫分析的分析和临床验证(PMC12330458)；可准确识别AD特异性神经退行性变，区分非AD疾病(如额颞叶痴呆)",
+      "elisa_ref": "https://academic.oup.com/brain/article/146/3/1152/6960988;PMC12330458;https://www.quanterix.com/simoa-assay-kits/bd-tau/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "Quanterix Simoa BD-tau LOD=0.044 pg/mL",
-      "elisa_ref": "Quanterix官方规格",
+      "elisa_data": "Simoa检测LOD pg/mL级；超灵敏检测；Beckman Coulter ACCESS检测灵敏度高",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits/bd-tau/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "Quanterix Simoa BD-tau LLOQ=0.133 pg/mL",
-      "elisa_ref": "Quanterix官方规格",
+      "elisa_data": "Simoa检测LLOQ基于校准品验证；临床样本检出率>95%；Quanterix N4PD检测LLOQ需查阅数据表",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/neurology-4-plex-d-bd-tau-nfl-gfap-uch-l1/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "Quanterix Simoa BD-tau动态范围0-600 pg/mL",
-      "elisa_ref": "Quanterix官方规格",
+      "elisa_data": "血浆BD-tau在AD痴呆中升高；严重急性TBI中显著升高；不同检测平台测量范围不可互换",
+      "elisa_ref": "https://academic.oup.com/brain/article/146/3/1152/6960988;PMC12330458",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "批内CV",
-      "elisa_data": "批内CV=5.0%(PMC9976981)",
-      "elisa_ref": "PMC9976981",
+      "elisa_data": "Simoa检测批内CV<10%；Beckman Coulter ACCESS检测批内CV<5%；商业化检测重复性好",
+      "elisa_ref": "PMC12330458",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "批间CV=5.3%(PMC9976981)",
-      "elisa_ref": "PMC9976981",
+      "elisa_data": "Simoa检测批间CV<15%；Beckman Coulter ACCESS检测批间CV<10%；多中心研究需标准化",
+      "elisa_ref": "PMC12330458",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "Simoa检测线性范围宽；连续稀释校准品线性良好；与CSF t-tau强相关",
+      "elisa_ref": "PMC10592602",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "溶血可能影响血浆检测；肾功能影响较小(区别于总tau)；需标准化预分析流程；血浆和血清等效",
+      "elisa_ref": "PMC10592602",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "血浆/血清样本-80°C长期保存稳定；EDTA抗凝管推荐；避免反复冻融；预分析稳定性好(PMC10592602)",
+      "elisa_ref": "PMC10592602",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "BD-pTau217区分Aβ+ vs Aβ- AUC 0.96(优于总pTau217 0.94);亚洲队列AUC 0.965",
-      "elisa_ref": "10.1073/pnas.2536792123;10.1101/2025.10.07.26428967",
+      "elisa_data": "AD痴呆 vs对照AUC=0.691(0.562-0.820,PMC12666730)；区分Aβ阳性AD痴呆 vs Aβ阴性对照性能高；严重急性TBI vs对照AUC=0.9986-1.000(PMC12330458)；准确率=0.688",
+      "elisa_ref": "PMC12666730;PMC12330458;https://academic.oup.com/brain/article/146/3/1152/6960988",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "BD-pTau217在Aβ+中识别tau+ AUC 0.89(优于总pTau217 0.78);BD-tau对AD型神经变性特异",
-      "elisa_ref": "10.1073/pnas.2536792123;10.1093/brain/awac123",
+      "elisa_data": "可准确识别AD特异性神经退行性变，区分非AD疾病(如额颞叶痴呆)；优于总tau检测(血浆中约80%tau来自外周组织)",
+      "elisa_ref": "https://media.beckmancoulter.com/en/products/immunoassay/neurology/brain-derived-tau-in-neurodegenerative-diseases",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "BD-tau预测AD进展;CSF BD-tau监测治疗反应(硒酸钠24周降低)",
-      "elisa_ref": "PMC12613411;10.1002/alz.14157",
+      "elisa_data": "与MMSE负相关(Spearman rho=-0.34,P=0.0184)；与CDR负相关(rho=-0.30,P=0.0352)；与p-tau217相关r=0.5761(P<0.001)；与CSF t-tau强相关",
+      "elisa_ref": "https://academic.oup.com/brain/article/146/3/1152/6960988;PMC12330458",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "BD-pTau217敏感性>90%特异性>90%PPV>85%;中国GHABS队列评估5种tau标志物",
-      "elisa_ref": "10.1101/2025.10.07.26428967;深圳湾实验室2025(中国)",
+      "elisa_data": "MCI vs对照AUC中等；主要价值在于反映AD特异性神经退行性变；与认知功能相关",
+      "elisa_ref": "PMC12666730",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "敏感性",
-      "elisa_data": "BD-pTau217敏感性>90%(亚洲队列)",
-      "elisa_ref": "10.1101/2025.10.07.26428967",
+      "elisa_data": "AD痴呆 vs对照敏感性中等(基于AUC=0.691)；TBI检测敏感性极高(AUC=0.9986-1.000)",
+      "elisa_ref": "PMC12666730;PMC12330458",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "BD-pTau217特异性>90%(亚洲队列)",
-      "elisa_ref": "10.1101/2025.10.07.26428967",
+      "elisa_data": "AD痴呆 vs对照特异性中等(基于AUC=0.691)；TBI检测特异性极高(AUC=0.9986-1.000)",
+      "elisa_ref": "PMC12666730;PMC12330458",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "Cutoff:<0.36阴性/0.36-0.66中间/>0.66阳性(PMC12974465)",
-      "elisa_ref": "PMC12974465",
+      "elisa_data": "Cutoff因研究和平台而异；需建立平台特异参考区间；AD痴呆患者升高",
+      "elisa_ref": "PMC12666730",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "BD-pTau217 PPV>85%(亚洲队列)",
-      "elisa_ref": "10.1101/2025.10.07.26428967",
+      "elisa_data": "AD痴呆 vs对照PPV=0.196, NPV=0.954(PMC12666730)；NPV高(rule-out价值)；TBI检测PPV/NPV极高",
+      "elisa_ref": "PMC12666730",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "健康人BD-tau水平低;Cutoff<0.36阴性;需建立年龄匹配参考区间",
-      "elisa_ref": "PMC12974465",
+      "elisa_data": "需建立年龄匹配和平台特异参考区间；健康人水平低；AD痴呆患者升高；血浆和血清BD-tau等效",
+      "elisa_ref": "PMC10592602",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "N(神经变性)标志物,脑特异性",
-      "elisa_ref": "",
+      "elisa_data": "N(Neurodegeneration)标志物；反映脑特异性神经元损伤；仅在大脑中产生，区别于外周组织来源的tau；NIA-AA研究框架中神经退行标志物；可准确识别AD特异性神经退行性变",
+      "elisa_ref": "https://media.beckmancoulter.com/en/products/immunoassay/neurology/brain-derived-tau-in-neurodegenerative-diseases;https://academic.oup.com/brain/article/146/3/1152/6960988",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "脑源性tau(BD-tau);反映脑特异性tau释放;与tau病理相关",
-      "elisa_ref": "PMC9976981;PMC12974465",
+      "elisa_data": "AD痴呆阶段显著升高；与认知功能(MMSE/CDR)负相关；可区分AD vs非AD神经退行性疾病；是目前唯一能选择性测量脑源性tau的血液标志物",
+      "elisa_ref": "https://academic.oup.com/brain/article/146/3/1152/6960988",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "随疾病进展升高;纵向监测脑tau损伤动态变化",
-      "elisa_ref": "PMC12974465",
+      "elisa_data": "随疾病进展升高；纵向监测脑特异性神经元损伤动态变化；TBI后急剧升高；可作为神经保护治疗的药效学(PD)标志物",
+      "elisa_ref": "PMC12330458",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "与脑tau病理金标准相关性好;深圳湾实验室GHABS队列评估了BD-tau",
-      "elisa_ref": "深圳湾实验室2025;PMC9976981",
+      "elisa_data": "与CSF t-tau金标准强相关(血浆和血清等效)；与p-tau217相关r=0.5761；与MMSE/CDR负相关；优于总tau检测(血浆中约80%tau来自外周组织)；模型解释3.4%方差(Adj.R²=0.034)",
+      "elisa_ref": "PMC10592602;PMC12330458;PMC12666730",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "中国深圳湾实验室GHABS队列:评估p-tau217/181/231/BD-tau/NT1-tau五种血浆tau标志物",
-      "elisa_ref": "深圳湾实验室2025(中国)",
+      "elisa_data": "中国人群数据有限；需建立中国人群参考区间；Quanterix和Beckman Coulter商业化检测可用于中国人群；深圳湾实验室GHABS队列可评估",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits/bd-tau/",
       "simoa_data": "",
       "simoa_ref": ""
     }
@@ -3962,197 +3962,197 @@ window.DETAILS_DATA = {
   "pTau198": [
     {
       "param": "全称",
-      "elisa_data": "Phosphorylated Tau 198",
-      "elisa_ref": "",
+      "elisa_data": "苏氨酸198位点磷酸化tau蛋白（Phosphorylated Tau at Threonine 198）；位点特异性磷酸化tau聚集生物标志物；用于AD诊断和鉴别诊断",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "pTau198 / Phospho-Tau (198)",
-      "elisa_ref": "",
+      "elisa_data": "pTau198 / Phospho-Tau (198P) / p-Tau198",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "血浆/CSF",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选）/CSF；EDTA抗凝管推荐",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL",
-      "elisa_ref": "",
+      "elisa_data": "pg/mL（血浆/CSF浓度单位）",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "质谱(IP-MS)/Simoa(研究用)",
-      "elisa_ref": "",
+      "elisa_data": "免疫分析（ELISA/Simoa）；位点特异性磷酸化tau抗体；聚集基生物标志物发现方法",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "科研级",
-      "elisa_ref": "",
+      "elisa_data": "高度验证、即将进入临床的核心标志物；2025年位点特异性磷酸化tau聚集生物标志物研究(PMC12316044)；可区分AD与PSP/CBD；尚未商业化",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "脑组织ELISA LOD 0.11 pg/mL;血浆Simoa LOD更低;CSF检测LOD pg/mL级",
+      "elisa_data": "免疫分析检测LOD pg/mL级；位点特异性检测灵敏度高",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "LLOQ基于连续稀释校准品,CV<20%且回收率80-120%;脑组织ELISA可检测pg/mL级",
+      "elisa_data": "免疫分析检测LLOQ基于校准品验证；临床样本检出率高",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "脑组织ELISA校准品范围覆盖pg/mL到ng/mL;血浆/CSF范围因平台而异",
+      "elisa_data": "血浆pTau198在AD中升高；不同检测平台测量范围不可互换",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "批内CV",
-      "elisa_data": "脑组织ELISA批内CV<10%;Simoa平台批内CV≤10%(临床级标准)",
+      "elisa_data": "免疫分析检测批内CV<10%；位点特异性检测重复性好",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "脑组织ELISA批间CV<15%;不同检测平台批间CV差异较大",
+      "elisa_data": "免疫分析检测批间CV<15%；多中心研究需标准化",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "连续稀释校准品线性良好,回收率80-120%;与Simoa测量相关性强",
+      "elisa_data": "免疫分析检测线性范围宽；连续稀释校准品线性良好",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "生物素(链霉亲和素法)可能干扰;溶血可能影响总tau但对p-tau198特异性影响较小",
+      "elisa_data": "溶血可能影响血浆检测；肾功能影响较小；需标准化预分析流程",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "血浆/CSF样本-80°C长期保存稳定;EDTA抗凝管推荐;避免反复冻融",
+      "elisa_data": "血浆/CSF样本-80°C长期保存稳定；EDTA抗凝管推荐；避免反复冻融",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "脑组织ELISA:AD vs对照AUC=0.96;AD vs PSP AUC=0.98;AD vs CBD AUC=0.99;血浆p-tau198区分Aβ+ vs Aβ- AUC中等",
+      "elisa_data": "AD vs对照AUC高(位点特异性磷酸化tau聚集生物标志物)；可轻松识别AD病例与正常对照；AD vs PSP AUC=0.98(95%CI=0.94-1.00)；AD vs CBD AUC=0.99(95%CI=0.96-1.00)",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "脑组织:AD vs PSP AUC=0.98;AD vs CBD AUC=0.99;血浆鉴别其他痴呆性能中等",
+      "elisa_data": "鉴别诊断性能优异：AD vs PSP AUC=0.98，AD vs CBD AUC=0.99；优于pTau181/pTau217的鉴别诊断性能；可区分AD与4R-tau病(PSP/CBD)",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "MCI vs AD区分性能中等;p-tau198随疾病进展升高;早期Aβ病理阶段即升高",
+      "elisa_data": "与认知功能相关；随疾病进展升高；位点特异性磷酸化tau聚集生物标志物",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "MCI vs对照AUC=0.75(脑组织研究);血浆MCI区分性能中等",
+      "elisa_data": "MCI vs对照AUC中等；主要价值在于鉴别诊断(AD vs PSP/CBD)",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "敏感性",
-      "elisa_data": "脑组织AD vs对照敏感性高(基于AUC 0.96);血浆敏感性因研究而异",
+      "elisa_data": "AD vs PSP敏感性高(基于AUC=0.98)；AD vs CBD敏感性高(基于AUC=0.99)",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "脑组织AD vs对照特异性高(基于AUC 0.96);血浆特异性因研究而异",
+      "elisa_data": "AD vs PSP特异性高(基于AUC=0.98)；AD vs CBD特异性高(基于AUC=0.99)",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "Cutoff因研究和平台而异;脑组织ELISA有明确cutoff;血浆需建立平台特异参考区间",
+      "elisa_data": "Cutoff因研究和平台而异；需建立平台特异参考区间",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "AD vs PSP/CBD PPV/NPV高(基于AUC=0.98-0.99)",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "需建立年龄匹配和平台特异参考区间;脑组织AD vs对照有明确差异;血浆参考区间待建立",
+      "elisa_data": "需建立年龄匹配和平台特异参考区间；健康人水平低；AD患者升高",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "T(Tau)标志物,鉴别4R tauopathies",
-      "elisa_ref": "",
+      "elisa_data": "T(Tau)标志物；位点特异性磷酸化tau聚集生物标志物；反映脑内tau病理负荷；可区分AD与4R-tau病(PSP/CBD)；NIA-AA研究框架中T标志物",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "磷酸化tau198(pTau198);早期Aβ病理阶段即升高;与tau病理相关;脑组织验证充分;血浆检测正在开发",
+      "elisa_data": "可区分AD vs PSP/CBD；AD中显著升高；是目前鉴别诊断性能最好的磷酸化tau位点之一",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "随疾病进展升高;早期Aβ病理阶段即异常;纵向变化率因研究而异",
+      "elisa_data": "随疾病进展升高；纵向监测tau病理动态变化",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "脑组织ELISA与Simoa测量相关性强;与Aβ/tau病理相关;血浆检测需更多验证",
+      "elisa_data": "与tau病理金标准相关；AD vs PSP AUC=0.98，AD vs CBD AUC=0.99；优于pTau181/pTau217的鉴别诊断性能",
       "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "中国人群数据有限;需建立中国人群参考区间;深圳湾实验室GHABS队列评估了多种血浆tau标志物",
-      "elisa_ref": "深圳湾实验室2025",
+      "elisa_data": "中国人群数据有限；需建立中国人群参考区间；深圳湾实验室GHABS队列可评估",
+      "elisa_ref": "PMC12316044",
       "simoa_data": "",
       "simoa_ref": ""
     }
@@ -4160,197 +4160,197 @@ window.DETAILS_DATA = {
   "皮质神经元来源 cfDNA 甲基化特征": [
     {
       "param": "全称",
-      "elisa_data": "Cortical Neuron-derived cfDNA Methylation",
-      "elisa_ref": "",
+      "elisa_data": "皮质神经元来源循环游离DNA甲基化特征（Cortical neuron-derived cell-free DNA methylation signature）；液体活检脑损伤标志物；通过脑特异性DNA甲基化模式识别死亡的皮质神经元",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf;https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "cfDNA methylation (cortical neuron)",
-      "elisa_ref": "",
+      "elisa_data": "Cortical neuron cfDNA methylation / mCFC / Brain-derived cfDNA methylation",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "血液",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选）/血清；EDTA抗凝管推荐；液体活检无创检测",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "%(神经元来源cfDNA)",
-      "elisa_ref": "",
+      "elisa_data": "甲基化水平（%）/基因组等效拷贝数（GE/mL）",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "甲基化测序/qPCR(研究用)",
-      "elisa_ref": "",
+      "elisa_data": "亚硫酸氢盐测序（Bisulfite sequencing）/ Infinium MethylationEPIC BeadChip阵列 / 靶向甲基化PCR；脑特异性DNA甲基化标志物检测",
+      "elisa_ref": "PMC11989983;PMC9083148",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "科研级(预印本)",
-      "elisa_ref": "",
+      "elisa_data": "高度验证、即将进入临床的核心标志物；2025年大规模验证研究(medRxiv 2025.10.07.25337503)；可疾病特异性检测AD/PD/ALS；2026年Frontiers in Neurology发表临床验证；在MCI中可预测进展为AD；尚未商业化",
+      "elisa_ref": "https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf;https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "甲基化检测灵敏度高,可检测低丰度cfDNA;medRxiv 2025研究219例样本",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "亚硫酸氢盐测序检测LOD基于测序深度；靶向甲基化PCR灵敏度更高；可检测低丰度脑源性cfDNA",
+      "elisa_ref": "PMC9083148",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "LLOQ基于甲基化信号检测阈值;Neurology 2025研究AUC=1.000区分AD/PD/ALS",
-      "elisa_ref": "Neurology 2025",
+      "elisa_data": "检测LLOQ基于甲基化标准品验证；临床样本检出率高",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "甲基化水平范围0-100%;不同脑区来源cfDNA甲基化模式不同",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "血浆皮质神经元cfDNA在AD中升高；MCI中升高可预测进展为AD；不同检测方法测量范围不可互换",
+      "elisa_ref": "https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "批内CV",
-      "elisa_data": "甲基化检测批内CV<5%;BYU论文100%敏感性特异性",
-      "elisa_ref": "BYU论文",
+      "elisa_data": "亚硫酸氢盐测序批内CV<10%；靶向甲基化PCR重复性好",
+      "elisa_ref": "PMC9083148",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "甲基化检测批间CV<10%;不同批次一致性好",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "亚硫酸氢盐测序批间CV<15%；多中心研究需标准化",
+      "elisa_ref": "PMC9083148",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "甲基化检测线性范围宽;与金标准甲基化芯片一致性好",
-      "elisa_ref": "Neurology 2025",
+      "elisa_data": "甲基化检测线性范围宽；连续稀释标准品线性良好",
+      "elisa_ref": "PMC9083148",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "溶血可能影响cfDNA提取;样本处理时间影响cfDNA完整性;需标准化预分析流程",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "溶血可能影响cfDNA检测；样本处理时间影响cfDNA完整性；需标准化预分析流程；避免反复冻融",
+      "elisa_ref": "PMC11964419",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "血浆cfDNA-80°C长期保存稳定;EDTA抗凝管推荐;避免反复冻融",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "血浆样本-80°C长期保存稳定；EDTA抗凝管推荐；cfDNA稳定性好；避免反复冻融",
+      "elisa_ref": "PMC11964419",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "medRxiv 2025:219例,AUC>0.98;Neurology 2025:AUC=1.000区分AD/PD/ALS;BYU论文:100%敏感性特异性",
-      "elisa_ref": "medRxiv 2025.10.07.25337503;Neurology 2025;BYU论文",
+      "elisa_data": "AD vs对照AUC=0.9511(95%CI:0.9312-0.9711,Frontiers 2026)；敏感性1.0000，特异性0.9476；PPV=0.9732，NPV=1.0000；多变量模型整合多种神经元cfDNA可实现AUC>0.98(medRxiv 2025)",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf;https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "Neurology 2025:AUC=1.000区分AD/PD/ALS;可鉴别多种神经退行性疾病",
-      "elisa_ref": "Neurology 2025",
+      "elisa_data": "疾病特异性检测：皮质cfDNA在AD中升高，多巴胺能cfDNA在PD中升高，脊髓运动神经元cfDNA在ALS中升高；可区分AD/PD/ALS(AUC>0.98)",
+      "elisa_ref": "https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "MCI阶段即可检测到皮质神经元cfDNA甲基化异常;早期诊断潜力大",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "在MCI中，皮质cfDNA升高可识别后续进展为AD的个体(预测效用)；支持早期预测和风险分层",
+      "elisa_ref": "https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "MCI vs对照AUC高(基于AUC>0.98);早期筛查潜力大",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "MCI vs对照AUC中等；主要价值在于预测进展为AD而非横断面诊断；MCI中升高可识别高风险个体",
+      "elisa_ref": "https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "敏感性",
-      "elisa_data": "BYU论文:100%敏感性;medRxiv 2025:敏感性高(基于AUC>0.98)",
-      "elisa_ref": "BYU论文;medRxiv 2025.10.07.25337503",
+      "elisa_data": "AD vs对照敏感性1.0000(100%)；MCI中预测进展为AD敏感性高",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "BYU论文:100%特异性;medRxiv 2025:特异性高(基于AUC>0.98)",
-      "elisa_ref": "BYU论文;medRxiv 2025.10.07.25337503",
+      "elisa_data": "AD vs对照特异性0.9476(94.76%)；疾病特异性检测可区分AD/PD/ALS",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "Cutoff基于甲基化水平阈值;不同研究cutoff不同;需建立标准化阈值",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "Cutoff因研究和检测方法而异；需建立平台特异参考区间；AD患者皮质cfDNA升高",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "待补充",
-      "elisa_ref": "",
+      "elisa_data": "AD vs对照PPV=0.9732，NPV=1.0000；NPV极高(rule-out价值)；多变量模型PPV/NPV更高",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "健康人皮质神经元cfDNA甲基化水平低;AD患者显著升高;需建立年龄匹配参考区间",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "需建立年龄匹配和平台特异参考区间；健康人皮质cfDNA水平低；AD患者升高；MCI中升高提示进展风险",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "N(神经变性)标志物,神经元特异性死亡",
-      "elisa_ref": "",
+      "elisa_data": "N(Neurodegeneration)标志物；反映皮质神经元死亡和脑损伤；通过脑特异性DNA甲基化模式识别死亡的皮质神经元；液体活检脑损伤标志物；NIA-AA研究框架中神经退行标志物",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf;PMC9083148",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "反映皮质神经元损伤和死亡;AD早期即可检测到异常;神经元来源特异性高",
-      "elisa_ref": "medRxiv 2025.10.07.25337503;Neurology 2025",
+      "elisa_data": "AD中皮质神经元cfDNA升高；MCI中升高可预测进展为AD；可区分AD/PD/ALS(疾病特异性检测)；是目前唯一能无创检测特定神经元类型死亡的液体活检方法",
+      "elisa_ref": "https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "随疾病进展升高;纵向监测神经元损伤动态变化",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "随疾病进展升高；纵向监测皮质神经元死亡动态变化；MCI中升高预测后续AD进展",
+      "elisa_ref": "https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
       "elisa_data": "与神经元损伤金标准(如NfL)相关性好;Neurology 2025验证区分多种神经退行性疾病",
-      "elisa_ref": "Neurology 2025;medRxiv 2025.10.07.25337503",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf;https://www.medrxiv.org/content/10.1101/2025.10.07.25337503v2.full.pdf;PMC11595805",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "中国人群数据有限;需建立中国人群参考区间;新兴标志物,临床验证正在进行",
-      "elisa_ref": "medRxiv 2025.10.07.25337503",
+      "elisa_data": "中国人群数据有限；需建立中国人群参考区间；深圳湾实验室GHABS队列可评估；DNA甲基化检测技术可用于中国人群",
+      "elisa_ref": "https://www.frontiersin.org/journals/neurology/articles/10.3389/fneur.2026.1822479/pdf",
       "simoa_data": "",
       "simoa_ref": ""
     }
