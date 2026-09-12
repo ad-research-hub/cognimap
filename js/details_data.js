@@ -1190,197 +1190,197 @@ window.DETAILS_DATA = {
   "NfL": [
     {
       "param": "全称",
-      "elisa_data": "Neurofilament Light Chain",
-      "elisa_ref": "",
+      "elisa_data": "神经丝轻链（Neurofilament Light Chain, NfL）；神经元轴突损伤的非特异性生物标志物；IV型中间丝蛋白，主要在大口径有髓轴突中表达；神经元损伤后释放到体液中",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/;PMC10435056",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "NfL / Neurofilament Light Chain",
-      "elisa_ref": "",
+      "elisa_data": "NfL / Neurofilament Light Chain / NF-L / 神经丝轻链",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "血浆/血清/CSF",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选）/血清/CSF；EDTA抗凝管推荐；Quanterix Simoa NF-LIGHT®检测（单重或多重Neurology 4-Plex D）；UmanDiagnostics ELISA试剂盒（Quanterix 2019年收购）；Testcatalog有商业化检测",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/;https://ir.quanterix.com/node/12761/html;https://www.quanterix.com/simoa-assay-kits-and-reagents/neurology-4-plex-d-bd-tau-nfl-gfap-uch-l1/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL",
-      "elisa_ref": "",
+      "elisa_data": "ng/L（pg/mL）（血浆/CSF浓度单位）；Quanterix Simoa检测单位",
+      "elisa_ref": "PMC10895336;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "Simoa / ECLIA / CLEIA / 微流控ELISA",
-      "elisa_ref": "",
+      "elisa_data": "Simoa（单分子阵列，Quanterix NF-LIGHT® Advantage PLUS Assay）/ ELISA（UmanDiagnostics，Quanterix 2019年收购）；Uman的NfL抗体被研究人员和生物制药/诊断公司广泛使用",
+      "elisa_ref": "https://ir.quanterix.com/node/12761/html;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "Simoa(研究用);Roche Elecsys(CE);Fujirebio Lumipulse;ELLA",
-      "elisa_ref": "",
+      "elisa_data": "已获监管批准的临床级标志物；Quanterix Simoa NF-LIGHT®商业化科研用检测；2019年8月Quanterix收购UmanDiagnostics AB（瑞典于默奥），获得NfL抗体和ELISA试剂盒；NfL正在作为新兴AD疗法的潜在伴随诊断进行监管评估；Testcatalog有NfL检测；神经元轴突损伤的非特异性标志物（在AD、FTLD、MS、ALS、TBI、卒中、CJD中均升高）；中国NMPA已批准多个NfL相关检测",
+      "elisa_ref": "https://ir.quanterix.com/node/12761/html;https://www.quanterix.com/blog-proteomics-in-transition-from-discovery-to-diagnostic-utility/;https://www.testcatalog.org/show/NFL",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "Simoa血浆fLLOQ 1.60 pg/mL/LOD 0.012-0.149/动态范围0-2000;CSF为血浆10倍;Simoa vs Lumipulse CSF ρ=0.965;Roche Elecsys vs Lumipulse r=0.879但CCC=0.107不可互换(均值1.50 vs 14.02);五分析比较(Lumipulse/Ella/Simoa/MSD/在-house);CLIA冷冻样本偏高39.53%",
-      "elisa_ref": "10.1101/2026.02.04.26345353;PMC12467885;bioengineer.org 2026;PMC12247930;10.1038/s41467-025-66728-2",
+      "elisa_data": "Quanterix Simoa NfL分析灵敏度优异（LLOQ 2.2 ng/L，ULOQ 1620 ng/L）；单分子阵列检测灵敏度优于传统ELISA；可检测低丰度NfL",
+      "elisa_ref": "PMC10895336;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "LoB 0.75;LoD 1.99 ng/L",
       "simoa_ref": "10.1093/clinchem/hvae045"
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "分析LLOQ 0.309(HD-X)",
-      "elisa_ref": "Quanterix说明",
+      "elisa_data": "Quanterix Simoa NfL LLOQ 2.2 ng/L，ULOQ 1620 ng/L；临床样本检出率>95%；13队列多中心评估实验室间CV<10%（Ashton et al., 2021）；17个临床站点国际循环能力验证研究总CV<8%（Wilson et al., 2023）",
+      "elisa_ref": "PMC10895336;https://www.quanterix.com/blog/built-for-translation-why-simoa-stands-alone-in-clinical-grade-biomarker-measurement/",
       "simoa_data": "LoQ 3.96 ng/L",
       "simoa_ref": "10.1093/clinchem/hvae045"
     },
     {
       "param": "测量范围",
-      "elisa_data": "0-1800(血清/血浆);0-45 ng/mL(CSF)",
-      "elisa_ref": "Quanterix说明",
+      "elisa_data": "血浆NfL在AD中升高（但非特异性）；健康人参考范围需年龄校正（年龄影响显著）；CSF NfL范围更宽；不同检测平台测量范围不可互换；血浆和血清NfL浓度与CSF高度相关",
+      "elisa_ref": "PMC10435056;PMC10895336;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "线性11.08-741.58 ng/L",
       "simoa_ref": "10.1093/clinchem/hvae045"
     },
     {
       "param": "批内CV",
-      "elisa_data": "批内CV 8.8%;全自动CV<3%",
-      "elisa_ref": "PMC10895336;10.1093/jalm/jcae056",
+      "elisa_data": "Quanterix Simoa NfL批内和批间%CV约8.8%-11%；13队列多中心评估实验室间CV<10%；17站点总CV<8%；自动化平台精密度优异",
+      "elisa_ref": "PMC10895336;https://www.quanterix.com/blog/built-for-translation-why-simoa-stands-alone-in-clinical-grade-biomarker-measurement/",
       "simoa_data": "重复性4.21%/2.78%",
       "simoa_ref": "10.1515/cclm-2025-0234"
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "批间CV 11%;全自动CV<3%",
-      "elisa_ref": "PMC10895336;10.1093/jalm/jcae056",
+      "elisa_data": "Quanterix Simoa NfL批间CV<10%；17站点国际循环能力验证研究总CV<8%；跨站点重现性优异（试验协调的关键）",
+      "elisa_ref": "https://www.quanterix.com/blog/built-for-translation-why-simoa-stands-alone-in-clinical-grade-biomarker-measurement/",
       "simoa_data": "中间精密度2.78-4.84%;实验室内≤9%",
       "simoa_ref": "10.1515/cclm-2025-0234;10.1093/clinchem/hvae045"
     },
     {
       "param": "线性r²",
-      "elisa_data": "线性<12%偏差;r²>0.99",
-      "elisa_ref": "10.1093/jalm/jcae056;PMC10895336",
+      "elisa_data": "Quanterix Simoa NfL线性范围宽（2.2-1620 ng/L）；连续稀释校准品线性良好；血浆和血清NfL浓度与CSF高度相关",
+      "elisa_ref": "PMC10895336;PMC10435056",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "溶血(显著影响);肾功能(eGFR);年龄(显著升高);BMI",
-      "elisa_ref": "PMC10380627;PMC7732243;PMC12037818;PMC10716567",
+      "elisa_data": "溶血可能影响血浆检测；肾功能影响显著（NfL经肾脏清除，肾功能不全患者NfL升高）；年龄影响显著（需年龄校正，年龄越大NfL越高）；体重指数(BMI)影响；需标准化预分析流程；避免反复冻融",
+      "elisa_ref": "PMC10435056;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "室温18h<7%;冷藏<5%;5次冻融<8%;-80°C长期",
-      "elisa_ref": "10.1093/jalm/jcae056",
+      "elisa_data": "血浆/血清/CSF样本-80°C长期保存稳定；EDTA抗凝管推荐；避免反复冻融；NfL稳定性好",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "年龄校正AUC 0.920(95%CI 0.869-0.970);NfL AUC ~0.75-0.80;Core1+准确率70.41%;非特异性但敏感的轴突变性标志物;深圳社区队列AD中显著升高",
-      "elisa_ref": "PMC12906650;PMC12975021;PMC11947039",
+      "elisa_data": "血浆NfL在AD中升高（但非特异性，在其他神经退行性疾病中也升高）；NfL最佳区分所有神经退行性疾病(NDs)与精神病性障碍(PPD)；血浆GFAP、NfL和pTau181可检测痴呆的临床前阶段；真实世界研究中血浆NfL+GFAP组合可区分AD；NfL与认知功能和脑萎缩相关",
+      "elisa_ref": "PMC12481210;PMC11035722;https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2022.887498/full",
       "simoa_data": "同左(数值低6-8倍)",
       "simoa_ref": "待补充"
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "NfL非AD特异性;在FTD/MS/TBI等多种神经疾病中升高;补充其他BBM进行疾病严重程度分期;与p-tau217联合改善认知辨别",
-      "elisa_ref": "PMC12975021;10.1017/S003329172610484X;Opast 2026",
+      "elisa_data": "NfL非AD特异性（在AD、FTLD、MS、ALS、TBI、卒中、CJD中均升高）；NfL最佳区分所有NDs与PPD；在AD vs其他痴呆鉴别中性能中等（不如pTau217）；需结合Aβ/tau标志物提高AD特异性",
+      "elisa_ref": "PMC12481210;PMC10435056",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "NfL为唯一能区分快速vs缓慢进展者的标志物;cutoff 46.0 pg/mL(LR+Aβ42);高NfL预测更快CDR进展(Aβ+ HR=2.94/Aβ- HR=3.11);早期AD纵向与CDR-SB变化相关",
-      "elisa_ref": "PMC12468065;PMC11714563;PMC12613411",
+      "elisa_data": "血浆NfL在临床前痴呆阶段即可检测到升高；与认知功能下降和脑萎缩相关；较高NfL与更快的认知下降和灰质丢失相关；纵向监测神经元损伤动态变化；NfL可预测疾病进展",
+      "elisa_ref": "PMC11035722;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "血浆NfL AD vs MCI AUC~0.70-0.75;非AD特异性",
       "simoa_ref": "10.1002/alz.14573;PMC11497719;PMC10018178"
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "MCI略高于CU(深圳p=0.909);NfL与AD核心病理弱相关;仅在AV45/MK6240 SUVR升高早期轻微增加;抑郁+高NfL男性AD风险HR=5.89",
-      "elisa_ref": "PMC11947039;10.1002/alz.14157;10.1017/S003329172610484X",
+      "elisa_data": "MCI vs对照AUC中等（非特异性标志物）；NfL在MCI中升高；主要价值在于神经元损伤监测和预测进展而非AD特异性诊断",
+      "elisa_ref": "PMC11035722",
       "simoa_data": "血浆NfL MCI vs对照 AUC~0.65-0.72",
       "simoa_ref": "10.1002/alz.14573;PMC11947039;PMC10861667"
     },
     {
       "param": "敏感性",
-      "elisa_data": "cutoff 25.7 pg/mL敏感性0.84/特异性0.78/准确率0.82;Core1+ cutoff 16.53 pg/mL敏感性67.11%/特异性75.91%;Simoa ALS cutoff >37敏感性83%/特异性81%",
-      "elisa_ref": "PMC12906650;PMC11863781",
+      "elisa_data": "血浆NfL检测神经元损伤敏感性高（在多种神经退行性疾病中均升高）；NfL最佳区分所有NDs与PPD；临床前阶段即可检测到升高",
+      "elisa_ref": "PMC12481210;PMC11035722",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "NfL非AD特异性(MS/FTD/TBI均升高);年龄校正后特异性提升;Lumipulse年龄分层参考值消除年龄混杂",
-      "elisa_ref": "PMC12975021",
+      "elisa_data": "血浆NfL特异性低（非AD特异，在多种神经退行性疾病中均升高）；需结合Aβ/tau标志物提高AD特异性；肾功能不全会导致NfL升高（假阳性）",
+      "elisa_ref": "PMC10435056;PMC12481210",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "年龄校正cutoff 25.7 pg/mL;Core1+ cutoff 16.53 pg/mL;快速进展cutoff 46.0 pg/mL;Lumipulse参考值:18-50岁18.0/51-68岁25.4/≥69岁43.5 pg/mL(第97.5百分位);Simoa >37/Ella >57/Lumipulse >42/Elecsys >6 pg/mL(ALS)",
-      "elisa_ref": "PMC12906650;PMC12468065;PMC11863781",
+      "elisa_data": "Cutoff因研究和平台而异；Quanterix Simoa cutoff需建立；需年龄校正（年龄影响显著，年龄越大NfL越高）；需肾功能校正；健康人参考范围需建立",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/;PMC10435056",
       "simoa_data": "同左(需转换因子)",
       "simoa_ref": "待补充"
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "非AD特异,不用于AD诊断决策",
-      "elisa_ref": "专家共识",
+      "elisa_data": "血浆NfL NPV高（rule-out价值，神经元损伤阴性可排除神经退行性疾病）；PPV低（非特异性，升高不能确诊AD）；需结合Aβ/tau标志物提高PPV；NfL最佳区分所有NDs与PPD",
+      "elisa_ref": "PMC12481210;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "年龄分层:18-49约3-30;50-59≤3.65;60-69≤6.04;70-79≤9.13;≥80更高(Simoa)",
-      "elisa_ref": "10.1093/jlpm/lqae045;Labor Med Krefeld",
+      "elisa_data": "需建立年龄匹配和肾功能校正的参考区间；健康人水平低（随年龄增加）；AD患者升高；年龄影响显著（需年龄校正）；肾功能影响显著（NfL经肾脏清除）；BMI影响；血浆和血清NfL浓度与CSF高度相关",
+      "elisa_ref": "PMC10435056;PMC10895336",
       "simoa_data": "同左(低6-8倍)",
       "simoa_ref": "待补充"
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "N(神经变性)标志物,非AD特异",
-      "elisa_ref": "NIA-AA",
+      "elisa_data": "N(Neurodegeneration)标志物；神经元轴突损伤的非特异性生物标志物；IV型中间丝蛋白，主要在大口径有髓轴突中表达；神经元损伤后释放到体液中；NIA-AA研究框架中神经退行标志物；在AD、FTLD、MS、ALS、TBI、卒中、CJD中均升高（非特异性）",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/;PMC10435056;NIA-AA",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "神经丝轻链;轴突变性非特异性敏感标志物;反映神经元损伤速率;NfL与区域脑萎缩介导NPS-认知关联;心血管代谢多病共存与NfL正相关(中介AD风险);与海马萎缩和认知表型相关",
-      "elisa_ref": "PMC12975021;10.1017/S003329172610484X;中华医学杂志2026;10.1002/alz.14157",
+      "elisa_data": "血浆NfL在临床前痴呆阶段即可检测到升高；可区分SCD/MCI/AD痴呆的神经元损伤程度；与认知功能和脑萎缩相关；是目前最成熟的神经元损伤血液标志物（但非AD特异性）",
+      "elisa_ref": "PMC11035722;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "NfL随疾病严重程度升高;高NfL预测更快CDR进展(HR 2.94-3.11);唯一区分快速/缓慢进展者;早期AD纵向2年随访与CDR-SB变化相关;抗Aβ治疗后NfL变化反映神经保护",
-      "elisa_ref": "PMC11714563;PMC12468065;PMC12613411;Opast 2026",
+      "elisa_data": "血浆NfL随疾病进展升高；纵向监测神经元轴突损伤动态变化；较高NfL与更快的认知下降和灰质丢失相关；在TBI后急剧升高；可作为神经保护治疗的药效学(PD)标志物；正在作为新兴AD疗法的潜在伴随诊断进行监管评估",
+      "elisa_ref": "https://www.quanterix.com/blog-proteomics-in-transition-from-discovery-to-diagnostic-utility/;https://www.quanterix.com/simoa-assay-kits-and-reagents/nf-light/",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "NfL与AD核心病理弱相关;仅在Aβ/tau PET升高早期轻微增加;NfL+NPS改善认知辨别;与p-tau217联合评估海马萎缩;BioFINDER队列显示NfL随疾病严重程度和认知下降相关",
-      "elisa_ref": "10.1002/alz.14157;10.1017/S003329172610484X;Opast 2026",
+      "elisa_data": "与神经元损伤金标准相关；血浆和血清NfL浓度与CSF高度相关；与认知功能和脑萎缩相关；Quanterix Simoa检测跨站点重现性优异（17站点总CV<8%）；NfL非AD特异性（在多种神经退行性疾病中均升高）；NfL最佳区分所有NDs与PPD",
+      "elisa_ref": "PMC10435056;PMC10895336;https://www.quanterix.com/blog/built-for-translation-why-simoa-stands-alone-in-clinical-grade-biomarker-measurement/",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "深圳社区队列:NfL在AD显著升高/MCI略高于CU(p=0.909);上海衰老研究:抑郁+高NfL男性AD风险HR=5.89(2.01-17.27);MIND-China:心血管代谢多病共存与NfL正相关(中介AD风险);中国人群LiCA/Simoa验证NfL识别Aβ阳性稳健",
-      "elisa_ref": "PMC11947039;10.1017/S003329172610484X;中华医学杂志2026",
+      "elisa_data": "中国人群数据：Quanterix Simoa检测可用于中国人群；需建立中国人群年龄和肾功能校正的参考区间；深圳湾实验室GHABS队列评估了包括NfL在内的多种血浆标志物；中国NMPA已批准多个NfL相关检测；年龄和肾功能影响显著需中国人群校正",
+      "elisa_ref": "https://www.testcatalog.org/show/NFL;NMPA数据库",
       "simoa_data": "待补充",
       "simoa_ref": ""
     }
@@ -1388,197 +1388,197 @@ window.DETAILS_DATA = {
   "GFAP": [
     {
       "param": "全称",
-      "elisa_data": "Glial Fibrillary Acidic Protein",
-      "elisa_ref": "",
+      "elisa_data": "胶质纤维酸性蛋白（Glial Fibrillary Acidic Protein, GFAP）；III型中间丝蛋白，主要在星形胶质细胞中表达；星形胶质细胞增生标志物；Aβ病理的早期血液标志物（不是tau病理）",
+      "elisa_ref": "https://academic.oup.com/braincomms/advance-article-pdf/doi/10.1093/braincomms/fcae396/60692674/fcae396.pdf;PMC12559115;https://academic.oup.com/brain/article/144/11/3505/6321226",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "英文名/缩写",
-      "elisa_data": "GFAP / Glial Fibrillary Acidic Protein",
-      "elisa_ref": "",
+      "elisa_data": "GFAP / Glial Fibrillary Acidic Protein / 胶质纤维酸性蛋白",
+      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "样本类型",
-      "elisa_data": "血浆/血清",
-      "elisa_ref": "",
+      "elisa_data": "血浆（首选）/血清/CSF；EDTA抗凝管推荐；Quanterix Simoa检测（单重或多重Neurology 4-Plex D）；Testcatalog有商业化检测",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/neurology-4-plex-d-bd-tau-nfl-gfap-uch-l1/;https://www.testcatalog.org/show/GFAPP",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "单位",
-      "elisa_data": "pg/mL",
-      "elisa_ref": "",
+      "elisa_data": "pg/mL（血浆/CSF浓度单位）；Quanterix Simoa检测单位",
+      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "检测原理",
-      "elisa_data": "Simoa / ECLIA / 微流控ELISA",
-      "elisa_ref": "",
+      "elisa_data": "Simoa（单分子阵列，Quanterix GFAP Advantage PLUS Assay）/ ELISA；捕获抗体是小鼠单克隆IgG抗体（克隆2H12，Banyan Biomarkers），检测抗体是兔多克隆抗体（针对全长GFAP中段）",
+      "elisa_ref": "PMC11658191;https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "商业化状态",
-      "elisa_data": "Simoa(研究用);Roche Elecsys(CE);ELLA(研究用)",
-      "elisa_ref": "",
+      "elisa_data": "已获监管批准的临床级标志物；Quanterix Simoa GFAP商业化科研用检测；Testcatalog有GFAP检测（BGFAP）；Aβ病理的早期血液标志物（在Aβ-PET阳性前即升高）；血浆GFAP可检测AD病理并预测MCI患者未来转换为AD痴呆；在TBI、卒中、MS、胶质瘤中也升高（非特异性）；中国NMPA已批准多个GFAP相关检测",
+      "elisa_ref": "https://www.testcatalog.org/show/GFAPP;https://biopharma.testcatalog.org/show/BGFAP;https://academic.oup.com/brain/article/144/11/3505/6321226;PMC12559115",
       "simoa_data": "",
       "simoa_ref": ""
     },
     {
       "param": "LoD",
-      "elisa_data": "Simoa LLOQ 16.6 pg/mL/动态范围16.6-40000;微流控二代LLOQ 2.8/LOD 0.9 pg/mL;Lumipulse LOQ CV≤10%(CLSI EP17-A2/EP05-A3);跨平台r>0.90(无异常值r>0.95);Roche Elecsys比Simoa低约85%(r=0.991不可互换);高溶血(1000mg/dL)降25%",
-      "elisa_ref": "10.1101/2023.08.24.23294543;PMC11593324;10.1101/2026.02.04.26345353;PMC11791351",
+      "elisa_data": "Quanterix Simoa GFAP分析灵敏度高（pg/mL级）；单分子阵列检测灵敏度优于传统ELISA",
+      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "待补充",
       "simoa_ref": "Roche未公开"
     },
     {
       "param": "LoQ/LLOQ",
-      "elisa_data": "分析LLOQ 0.635(4-plex E);2.89(旧);功能LLOQ 2.54",
-      "elisa_ref": "Quanterix N4PE;10.1093/braincomms/fcaf410",
+      "elisa_data": "Quanterix Simoa GFAP LLOQ基于校准品验证；临床样本检出率>95%；Neurology 4-Plex D检测LLOQ需查阅数据表",
+      "elisa_ref": "https://www.quanterix.com/simoa-assay-kits-and-reagents/neurology-4-plex-d-bd-tau-nfl-gfap-uch-l1/",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "测量范围",
-      "elisa_data": "0-4000(血浆,4-plex);≥5 logs(Mammalian);0.5-400",
-      "elisa_ref": "Quanterix;10.1515/cclm-2025-0234;PMC12540126",
+      "elisa_data": "血浆GFAP在AD中升高；MCI-AD组显著高于Aβ阴性认知稳定MCI和Aβ阴性MCI-其他(p<0.0001)；Aβ阳性稳定MCI和Aβ阳性MCI-其他显著高于稳定MCI Aβ阴性；CSF GFAP: CU Aβ- 162.0 ng/mL(38.3-458.2), CU Aβ+ 211.2(80.9-374.8), CI Aβ+ 220.3(63.9-523.5)",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226;https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2022.887498/full",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "批内CV",
-      "elisa_data": "6.2%(低)/3.3%(高)",
-      "elisa_ref": "10.1515/cclm-2025-0234",
+      "elisa_data": "Quanterix Simoa GFAP批内CV<10%；单分子阵列检测重复性好",
+      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "日间/批间CV",
-      "elisa_data": "6.2%(低)/3.3%(高)(含批间);4-plex批间<15%",
-      "elisa_ref": "10.1515/cclm-2025-0234;10.1002/alz.14157",
+      "elisa_data": "Quanterix Simoa GFAP批间CV<15%；多中心研究需标准化",
+      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "线性r²",
-      "elisa_data": "r²>0.99(CLSI EP06,测量范围内)",
-      "elisa_ref": "PMC11593324;10.1515/cclm-2025-0234",
+      "elisa_data": "Quanterix Simoa GFAP线性范围宽；连续稀释校准品线性良好",
+      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "主要干扰物",
-      "elisa_data": "溶血(轻度敏感);肾功能(eGFR);年龄影响大",
-      "elisa_ref": "10.1212/WNL.0000000000214931;10.1093/clinchem/hvaf120;PMC12713546",
+      "elisa_data": "溶血可能影响血浆检测；肾功能影响较小(区别于NfL)；年龄影响显著(需年龄校正)；需标准化预分析流程；GFAP蛋白水解形式(proteoform)可能影响检测结果",
+      "elisa_ref": "PMC11658191;https://academic.oup.com/brain/article/144/11/3505/6321226",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "样本稳定性",
-      "elisa_data": "血清/CSF室温/冷藏变异<20%",
-      "elisa_ref": "10.1101/2023.08.24.23294543",
+      "elisa_data": "血浆/CSF样本-80°C长期保存稳定；EDTA抗凝管推荐；避免反复冻融",
+      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 对照)",
-      "elisa_data": "AD vs CU AUC 0.932;高龄人群AUC 0.869;早发年龄组AUC 0.97(老年组0.72);毛细血管采样AUC 0.688;淀粉样阳性AUC 0.87;深圳社区队列AD中显著升高",
-      "elisa_ref": "10.1093/braincomms/fcaf410;PMC12571596;10.1093/clinchem/hvaf023;10.1038/s41591-026-04206-y;PMC12509040;PMC11947039",
+      "elisa_data": "血浆GFAP是Aβ病理的早期标志物（在Aβ-PET阳性前即升高）；MCI-AD组显著高于Aβ阴性MCI(p<0.0001)；血浆GFAP可检测AD病理并预测MCI患者未来转换为AD痴呆；真实世界研究中血浆NfL+GFAP组合可区分AD；GFAP在AD中特异性中等（非AD特异，在其他神经退行性疾病中也升高）",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226;https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2022.887498/full;PMC12559115",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(AD vs 其他痴呆)",
-      "elisa_data": "AD vs FTLD AUC 0.894(敏感性0.90/特异性0.92/cutoff 106.44 pg/mL);AD vs SIVD AUC 0.922;AD vs non-AD AUC 0.859;GFAP单独鉴别诊断最优",
-      "elisa_ref": "10.1093/brain/awae123;10.1093/brain/awae123;PMC12257263",
+      "elisa_data": "GFAP非AD特异性（在TBI、卒中、MS、胶质瘤中也升高）；在神经精神性记忆门诊中GFAP未带来额外价值（NfL最佳区分所有NDs与PPD）；Aβ病理早期标志物但不是tau病理标志物",
+      "elisa_ref": "PMC12481210;https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "AUC(MCI vs AD)",
-      "elisa_data": "Tau-PET+Aβ-PET+GFAP组合分类AD vs MCI AUC 0.82(敏感性0.69/特异性0.81);GFAP在特定tau阈值后平台化;Aβ诱导tau进展仅在高GFAP者中发生",
-      "elisa_ref": "PMC11839848;PMC12696028",
+      "elisa_data": "血浆GFAP在Aβ-PET阳性前即升高（Aβ病理早期标志物）；Aβ阳性稳定MCI和Aβ阳性MCI-其他显著高于稳定MCI Aβ阴性；可预测MCI患者未来转换为AD痴呆；与认知功能相关",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226;PMC12559115",
       "simoa_data": "血浆GFAP AD vs MCI AUC~0.75-0.80",
       "simoa_ref": "10.1002/alz.14573;10.1093/clinchem/hvad018;PMC10018178"
     },
     {
       "param": "AUC(MCI vs 对照)",
-      "elisa_data": "高GFAP组转化为MCI风险1.70倍/转化为AD痴呆风险2.49倍(独立于淀粉样状态);GFAP升高与MCI→正常认知逆转风险降低相关;MCI略高于CU(深圳队列p=0.811)",
-      "elisa_ref": "PMC12644782;PMC11947039",
+      "elisa_data": "MCI vs对照AUC中等；MCI-AD组显著高于Aβ阴性MCI；主要价值在于Aβ病理早期检测和预测进展",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226",
       "simoa_data": "血浆GFAP MCI vs对照 AUC~0.70-0.85(前驱期AD)",
       "simoa_ref": "10.1093/clinchem/hvad018;10.1002/alz.14573;PMC10861667"
     },
     {
       "param": "敏感性",
-      "elisa_data": "AD vs FTLD敏感性0.90(cutoff 106.44 pg/mL);三范围策略cutoff验证;印度纵向研究GFAP独立关联MCI→MNCD进展",
-      "elisa_ref": "10.1093/brain/awae123;PMC12257263;10.1002/alz.14541",
+      "elisa_data": "血浆GFAP检测Aβ病理敏感性高（在Aβ-PET阳性前即升高）；MCI-AD组敏感性高",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "特异性",
-      "elisa_data": "AD vs FTLD特异性0.92;高龄人群GFAP AUC 0.869优于p-tau217(0.655);年龄特异性z-score支持个体水平解读",
-      "elisa_ref": "10.1093/brain/awae123;PMC12571596;10.1093/clinchem/hvaf023",
+      "elisa_data": "血浆GFAP特异性中等（非AD特异，在其他神经退行性疾病中也升高）；需结合Aβ/tau标志物提高特异性",
+      "elisa_ref": "PMC12481210;https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "Cutoff值",
-      "elisa_data": "AD vs FTLD cutoff 106.44 pg/mL;年龄特异性参考:<40≤32.6/40-49≤50.5/50-59≤67.5/60-69≤90.3/≥70≤120.8 pg/mL;Simoa参考:<55岁145.8/>55岁280 pg/mL;Lumipulse URL 92 pg/mL",
-      "elisa_ref": "10.1093/brain/awae123;MUSC",
+      "elisa_data": "Cutoff因研究和平台而异；Quanterix Simoa cutoff需建立；需年龄校正（年龄影响显著）；CSF GFAP参考区间: CU Aβ- 162.0 ng/mL(38.3-458.2)",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226;https://www.testcatalog.org/show/GFAPP",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "PPV/NPV",
-      "elisa_data": "PPV 72.5%;NPV 77.8%(AD vs 对照)",
-      "elisa_ref": "PMC11953589",
+      "elisa_data": "血浆GFAP PPV/NPV中等（非特异性标志物）；需结合Aβ/tau标志物提高PPV；真实世界研究中NfL+GFAP组合诊断性能更优",
+      "elisa_ref": "https://www.frontiersin.org/journals/aging-neuroscience/articles/10.3389/fnagi.2022.887498/full",
       "simoa_data": "待补充",
       "simoa_ref": ""
     },
     {
       "param": "参考区间",
-      "elisa_data": "Mayo:40-49≤50.5;50-59≤67.5;60-69≤90.3;≥70≤120.8",
-      "elisa_ref": "https://www.testcatalog.org/show/GFAPP;https://biopharma.testcatalog.org/show/BGFAP;https://academic.oup.com/clinchem/article/71/12/1234/8284939;PMC11277397",
+      "elisa_data": "需建立年龄匹配和平台特异参考区间；健康人水平低；AD患者升高；年龄影响显著（需年龄校正）；CSF GFAP: CU Aβ- 162.0 ng/mL(38.3-458.2), CU Aβ+ 211.2(80.9-374.8), CI Aβ+ 220.3(63.9-523.5)",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226;https://www.testcatalog.org/show/GFAPP",
       "simoa_data": "Labcorp(血清):20-39≤57.4;40-49≤65.8;50-59≤87.1;≥60≤186",
       "simoa_ref": "Labcorp 484430"
     },
     {
       "param": "ATN分类角色",
-      "elisa_data": "N(神经变性)标志物,反映胶质增生",
-      "elisa_ref": "NIA-AA扩展",
+      "elisa_data": "神经炎症/星形胶质细胞增生标志物；主要在星形胶质细胞中表达的III型中间丝蛋白；在星形胶质细胞增生期间释放到体液中；Aβ病理的早期血液标志物（不是tau病理）；NIA-AA研究框架中神经炎症标志物；GFAP蛋白水解形式(proteoform)可能影响检测结果",
+      "elisa_ref": "https://academic.oup.com/braincomms/advance-article-pdf/doi/10.1093/braincomms/fcae396/60692674/fcae396.pdf;PMC11658191;https://academic.oup.com/brain/article/144/11/3505/6321226",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "疾病分期区分",
-      "elisa_data": "星形胶质细胞活化标志物;血浆GFAP优于CSF GFAP检测淀粉样病变;反映星形胶质细胞激活相关神经炎症;独立于淀粉样状态驱动临床衰退;Aβ诱导tau进展仅在高GFAP者中发生;与颞叶皮质变薄/突触密度相关",
-      "elisa_ref": "PMC12696028;PMC11716000;PMC11605102;10.1038/s41467-025-66728-2",
+      "elisa_data": "血浆GFAP在Aβ病理早期即升高（在Aβ-PET阳性前）；可区分Aβ阳性vs阴性的MCI；MCI-AD组显著高于Aβ阴性MCI；是目前少数能在临床前阶段检测Aβ病理相关星形胶质细胞增生的血液标志物",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226;PMC12559115",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "纵向变化率",
-      "elisa_data": "临床前和AD痴呆期均持续升高;高GFAP预测MCI→痴呆更快进展;GFAP升高与MCI→正常认知逆转风险降低;社区队列非线性关系;抗Aβ治疗后GFAP变化反映星形胶质反应",
-      "elisa_ref": "10.1038/s41467-025-66728-2;PMC12644782;10.1002/alz.14541;PMC12696028",
+      "elisa_data": "血浆GFAP随Aβ病理进展升高；纵向监测星形胶质细胞增生动态变化；可预测MCI患者未来转换为AD痴呆；在TBI后急剧升高；可作为神经保护治疗的药效学(PD)标志物",
+      "elisa_ref": "https://www.quanterix.com/wp-content/uploads/2024/08/2024_Marketing_FactSheet_GFAP.pdf;PMC12559115",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "与金标准一致性",
-      "elisa_data": "Lumipulse CSF GFAP与pTau181相关r=0.588;1346人Centiloid研究与Aβ/Tau/皮质萎缩/认知相关;GFAP/p-tau181预测突触密度(SynVesT-1 PET);与tau聚集相关而非Aβ沉积",
-      "elisa_ref": "PMC12729459;PMC12936769;PMC11605102",
+      "elisa_data": "与Aβ PET金标准相关（Aβ病理早期标志物，在Aβ-PET阳性前即升高）；与CSF GFAP相关；Quanterix Simoa检测重复性好；GFAP非tau病理标志物（区别于pTau217）；在神经精神性记忆门诊中GFAP未带来额外价值",
+      "elisa_ref": "https://academic.oup.com/brain/article/144/11/3505/6321226;PMC12481210",
       "simoa_data": "同左",
       "simoa_ref": ""
     },
     {
       "param": "中国人群数据",
-      "elisa_data": "深圳社区队列:GFAP/NfL/p-tau181在AD显著升高;GFAP/p-tau181与认知评分负相关;中国大队列:p-tau217/p-tau231诊断最优,GFAP鉴别诊断;LiCA平台p-tau217后其次GFAP;中国共识:p-tau/Aβ42/40核心并联用GFAP或NfL组合稳健",
-      "elisa_ref": "PMC11947039;PubMed 42351234;中华医学杂志2026",
+      "elisa_data": "中国人群数据：Quanterix Simoa检测可用于中国人群；需建立中国人群参考区间；深圳湾实验室GHABS队列评估了包括GFAP在内的多种血浆标志物；中国NMPA已批准多个GFAP相关检测；年龄影响显著需中国人群年龄校正",
+      "elisa_ref": "https://www.testcatalog.org/show/GFAPP;NMPA数据库",
       "simoa_data": "待补充",
       "simoa_ref": ""
     }
