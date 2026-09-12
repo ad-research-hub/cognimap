@@ -1516,7 +1516,7 @@ function showMarkerDetail(marker) {
       html += `<div class="detail-section"><h3>🏥 NMPA获批信息（${allItems.length}个注册证）</h3><table class="detail-table"><thead><tr><th style="width:35%">注册证编号</th><th style="width:40%">注册人/企业</th><th style="width:25%">检测方法/产品</th></tr></thead><tbody>${allItems.map(i => `<tr><td>${i.reg}</td><td>${i.company}</td><td>${i.method||i.product||'-'}</td></tr>`).join('')}</tbody></table></div>`;
     }
   }
-  if (marker.finding) html += `<div class="detail-section"><h3>📌 核心发现</h3><p style="font-size:13px;
+  if (marker.finding) html += `<div class="detail-section"><h3>📌 核心发现</h3><p style="font-size:13px;line-height:1.8;">${marker.finding}</p></div>`;
   // pTau217专属介绍模块
   if (marker.sheet_name === 'pTau217') {
     html += `<div class="detail-section" style="background:linear-gradient(135deg,#eff6ff,#f0fdf4);border-left:4px solid #3b82f6;border-radius:8px;padding:20px;margin-bottom:20px;">
@@ -1602,7 +1602,7 @@ function showMarkerDetail(marker) {
       </div>
       <p style="font-size:11px;color:#888;margin-top:10px;">指南来源：<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12483549/" target="_blank">PMC12483549 (Ruling in, ruling out)</a>; <a href="https://www.medscape.com/viewarticle/plasma-p-tau217-reduction-linked-better-cognitive-outcomes-2026a1000ref" target="_blank">Medscape 2026 (Lecanemab监测)</a>; <a href="https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html" target="_blank">Roche FDA批准文件</a></p>
     </div>`;
-  }line-height:1.8;">${marker.finding}</p></div>`;
+  }
   const detail = DETAILS_DATA[marker.sheet_name] || [];
   if (detail.length > 0) {
     const groups = [['基本信息', detail.slice(0,6)], ['分析性能', detail.slice(6,14)], ['临床性能', detail.slice(14,23)], ['AD特定特征', detail.slice(23,28)]];
