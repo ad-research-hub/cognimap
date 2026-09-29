@@ -2734,7 +2734,7 @@ window.COMPANIES_DATA = [
     "name": "Anavex Life Sciences（Nasdaq: AVXL）",
     "country": "加拿大",
     "products": "暂无AD上市产品",
-    "pipeline": "blarcamesine/ANAVEX®2-73（口服，σ1受体激动剂/M受体激动剂，早期AD，IIb/III期ATTENTION-AD研究完成，长达4年开放标签扩展研究显示持续获益，2025年9月发表精准医学结果，计划III期ANAVEX2-73-AD-005试验，已向FDA提交所有AD临床试验数据，现金跑道至2028财年）",
+    "pipeline": "blarcamesine/ANAVEX2-73（SIGMAR1激动剂，口服；2026年3月撤回欧盟上市申请，2026年3月底向FDA提交早期AD的IND申请，美国开展两项基础临床药理学研究）",
     "website": "https://www.anavex.com",
     "cat_order": 7,
     "name_cn": "",
@@ -2759,9 +2759,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026-03：撤回EMA上市申请，EMA曾建议拒绝批准",
-      "2026-07：2026年Q2财报：美国IND已开放，两项基础临床药理学研究进行中",
-      "2026-08：Phase 3 AD试验850例患者全部入组，超过原目标760例"
+      "2026年3月25日：撤回blarcamesine在欧盟的上市许可申请（EMA曾在2025年12月建议拒绝）。来源：https://www.ema.europa.eu/en/medicines/human/EPAR/blarcamesine-anavex",
+      "2026年3月底：向FDA提交早期AD的IND申请，开展两项基础临床药理学研究。来源：https://anavex.com/news/anavex-life-sciences-reports-preliminary-second-quarter-2026-financial-results-and-provides-business-update/"
     ]
   },
   {
@@ -2769,7 +2768,7 @@ window.COMPANIES_DATA = [
     "name": "Annovis Bio（Nasdaq: ANVS）",
     "country": "美国",
     "products": "暂无AD上市产品",
-    "pipeline": "buntanetap/ANVS401（口服小分子，抑制APP和tau蛋白翻译减少神经毒性蛋白，II/3期结果发表于Nature Portfolio；关键III期NCT06709014，850例早期AD pTau217阳性患者，6个月症状数据预计2027年初，18个月疾病修饰数据；FDA已对齐双NDA路径）",
+    "pipeline": "buntanetap/posiphen（口服多神经毒性蛋白翻译抑制剂，抑制APP/Aβ、tau、α-synuclein、TDP-43翻译；III期AD试验2026年7月完成入组850例，6个月症状数据预计2026年下半年读出，NDA预计2027年初提交）",
     "website": "https://www.annovisbio.com",
     "cat_order": 7,
     "name_cn": "",
@@ -2794,7 +2793,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026-05：恢复纽交所上市合规"
+      "2026年9月23日：宣布与Weave Bio（AI监管平台）合作，准备buntanetap治疗AD的NDA。来源：https://www.annovisbio.com/press-release-detail?i=170212",
+      "2026年7月：buntanetap治疗早期AD的关键性III期试验完成入组，850例患者（超过原目标760例），患者为pTau217阳性早期AD。来源：https://www.annovisbio.com/press-release/annovis-reaches-full-enrollment-in-pivotal-phase-3-trial-of-buntanetap-for-early-alzheimers-disease",
+      "2026年8月：报告2026年第二季度财务结果，III期试验完全入组。来源：https://www.annovisbio.com/press-release/annovis-provides-corporate-updates-and-second-quarter-2026-financial-results"
     ]
   },
   {
