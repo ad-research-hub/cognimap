@@ -934,6 +934,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "专注神经退行性疾病的生物科技公司，核心技术为ABC（Antibody Brain Carrier）脑递送平台；与GSK合作开发nivisnebart；2026年终止nivisnebart II期后转向tau siRNA和抗Aβ抗体管线",
     "news": [
+      "2026年Q2：AL137（ABC平台抗Aβ抗体）完成IND-enabling研究选为lead molecule；GSK 7月6日正式终止22亿美元神经科学合作（2027年1月2日生效）。来源：https://investors.alector.com/news-releases/news-release-details/alector-reports-second-quarter-2026-financial-results-and/",
       "2026年4月29日：nivisnebart/AL101 II期PROGRESS-AD中期无效分析后终止；7月latozinemab FTD-GRN III期INFRONT-3未达终点；GSK 7月6日终止22亿美元合作，2027年1月2日生效。来源：https://investors.alector.com/news-releases/news-release-details/alector-discontinue-phase-2-progress-ad-trial-nivisnebart/",
       "2026年7月6日：GSK正式终止与Alector的22亿美元神经科学合作，2027年1月2日生效。Alector继续推进自有ABC平台AL037/AL137（AD抗体）和AL064/AL164（Tau siRNA）。来源：https://www.biopharmadive.com/news/gsk-alector-deal-end-terminate-brain-drugs-neuroscience/824815/",
       "2026年3月：AL002 II期INVOKE-2试验结果发表于Nature Medicine，381例早期AD患者未达到CDR-SB主要终点，停止长期扩展研究。来源：https://pubmed.ncbi.nlm.nih.gov/41787076/",
@@ -2938,6 +2939,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月22日：FDA解除simufilam临床暂停，推进TSC相关癫痫II期；公司已更名Filana Therapeutics(FLNA)，退出AD领域。来源：http://archive.fast-edgar.com/20260922/A222B22CZ22EN2ZU222R2CE5W3QSGZ22Z282/exh_991.htm",
       "2026年9月：simufilam清除FDA临床暂停，推进TSC相关癫痫II期试验。来源：https://www.neurologylive.com/view/simufilam-clears-fda-hold-advances-phase-2-trial-tuberous-sclerosis-complex",
       "2025年3月：宣布退出AD领域，simufilam两项III期试验未达共同主要终点。来源：https://www.pharnexcloud.com/yaopin/simufilam",
       "2026年1月：simufilam III期结果发表于《Journal of Prevention of Alzheimer's Disease》。来源：https://www.ncbi.nlm.nih.gov/pubmed/41500915",
