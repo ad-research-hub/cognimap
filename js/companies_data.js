@@ -2413,10 +2413,10 @@ window.COMPANIES_DATA = [
     "name": "Neurotrope（已与Metuchen合并→改名Petros）",
     "country": "美国",
     "products": "暂无AD上市产品",
-    "pipeline": "bryostatin-1（海洋来源大环内酯，PKC激活剂，增强BDNF合成和分泌，改善突触生长、学习和记忆，II期临床用于晚期AD，NCT04538066，IIa期阳性顶线结果，IIb期进行中）",
+    "pipeline": "bryostatin-1（PKCε激活剂，海洋天然产物，II期AD试验，中重度AD亚组MMSE 10-14显示认知改善，公司计划启动II期研究）",
     "website": "https://www.neurotrope.com",
     "cat_order": 6,
-    "name_cn": "",
+    "name_cn": "Neurotrope（现Neurotrope Biosciences/NBI）",
     "name_en": "Neurotrope, Inc. (已与Metuchen合并→改名Petros Pharmaceuticals)",
     "location": "美国纽约州纽约",
     "history": [
@@ -2437,7 +2437,10 @@ window.COMPANIES_DATA = [
         "event": "与Metuchen合并改名为Petros Pharmaceuticals"
       }
     ],
-    "news": []
+    "news": [
+      "2026年：公司更名为Neurotrope Biosciences Inc. (NBI)，计划启动bryostatin-1中重度AD II期研究。来源：https://synapse.patsnap.com/drug/9240573b178347d48cf68ba13799fa73",
+      "2026年4月：AdisInsight更新，bryostatin-1最高研发阶段II期AD。来源：https://adisinsight.springer.com/drugs/800037834"
+    ]
   },
   {
     "category": "六、治疗药物——基因治疗/APOE靶向",
