@@ -753,6 +753,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年：BMS-986446正式更名为moponetug，II期TargetTau-1约310例早期AD进行中，主要完成预计2027年11月，2025年10月获FDA快速通道认定。来源：https://www.sec.gov/Archives/edgar/data/1559053/000155905326000021/exhibit991q22026earningsre.htm",
       "2026年3月：AD/PD 2026展示BMS-986446数据，靶向tau MTBR区域R1-R3，阻止tau细胞间传播。来源：https://www.businesswire.com/news/home/20260321254343/en/Prothena-Partners-Present-Data-Supporting-Next-Generation-Treatments-for-Parkinsons-and-Alzheimers-Disease-at-ADPD-2026",
       "2026年7月：报告2026年第一季度财务结果，BMS-986446 II期TargetTau-1试验进行中。来源：https://ir.prothena.com/investors/press-releases/news-details/2026/Prothena-Reports-First-Quarter-2026-Financial-Results-and-Business-Highlights/default.aspx",
       "2025年1月：BMS-986446获FDA快速通道资格认定，II期研究完全入组。来源：https://ir.prothena.com/investors/press-releases/news-details/2025/Prothenas-Partner-Bristol-Myers-Squibb-Obtains-Fast-Track-Designation-from-the-U-S--FDA-for-BMS-986446-PRX005-an-Anti-MTBR-Tau-Targeting-Antibody-for-the-Treatment-of-Alzheimers-Disease/default.aspx"
@@ -929,6 +930,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "专注神经退行性疾病的生物科技公司，核心技术为ABC（Antibody Brain Carrier）脑递送平台；与GSK合作开发nivisnebart；2026年终止nivisnebart II期后转向tau siRNA和抗Aβ抗体管线",
     "news": [
+      "2026年4月29日：nivisnebart/AL101 II期PROGRESS-AD中期无效分析后终止；7月latozinemab FTD-GRN III期INFRONT-3未达终点；GSK 7月6日终止22亿美元合作，2027年1月2日生效。来源：https://investors.alector.com/news-releases/news-release-details/alector-discontinue-phase-2-progress-ad-trial-nivisnebart/",
       "2026年7月6日：GSK正式终止与Alector的22亿美元神经科学合作，2027年1月2日生效。Alector继续推进自有ABC平台AL037/AL137（AD抗体）和AL064/AL164（Tau siRNA）。来源：https://www.biopharmadive.com/news/gsk-alector-deal-end-terminate-brain-drugs-neuroscience/824815/",
       "2026年3月：AL002 II期INVOKE-2试验结果发表于Nature Medicine，381例早期AD患者未达到CDR-SB主要终点，停止长期扩展研究。来源：https://pubmed.ncbi.nlm.nih.gov/41787076/",
       "2026年8月：报告2026年第二季度财务结果，AL064 tau siRNA项目进展。来源：https://investors.alector.com/node/11046/pdf"
@@ -994,6 +996,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年7月：mivelsiran唐氏综合征AD II期APPlauDS研究启动，德国/荷兰7月获授权招募；AAIC 2026展示I期无ARIA增加，CSF Aβ显著降低。来源：https://investors.alnylam.com/press-release?id=29966",
       "2026年7月AAIC：mivelsiran I期早期-onset AD数据，无ARIA风险增加，CSF APP和Aβ显著持久降低；启动唐氏综合征AD II期APPlauDS研究。来源：https://alnylampharmaceuticalsinc.gcs-web.com/news-releases/news-release-details/alnylam-highlights-progress-neuroscience-programs-aaic-2026",
       "2026年7月：在AAIC 2026上宣布启动唐氏综合征相关AD的II期APPlauDS研究，约30个全球中心招募早期AD患者。来源：https://alnylampharmaceuticalsinc.gcs-web.com/news-releases/news-release-details/alnylam-highlights-progress-neuroscience-programs-aaic-2026",
       "2026年7月：报告2026年第二季度财务结果，Mivelsiran II期启动。来源：https://investors.alnylam.com/press-release?id=29986"
