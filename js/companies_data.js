@@ -573,6 +573,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1896年成立；基因泰克为其全资子公司；AD研发由罗氏和基因泰克共同推进；2025年12月trontinemab II期取得阳性结果；2026年与Manifold Bio签订超20亿美元BBB穿梭技术合作",
     "news": [
+      "2026年9月10日：trontinemab全球多中心III期PrevenTRON在首都医科大学宣武医院启动，中美加日欧多国同步推进，首次将干预关口前移至症状前阶段。来源：https://healthnews.cn/news/industryNews/2026/0910/513782.html",
       "2026年7月23日：Elecsys血浆pTau217血液检测获CE标志，首个单检测设计的AD病理血液检测。来源：https://www.roche.com/media/releases/med-cor-2026-07-23",
       "2026年7月6日：AAIC展示trontinemab Ib/IIa期长期安全性、淀粉样蛋白清除和生物标志物数据。来源：https://www.gene.com/media/press-releases/15120/2026-07-06/genentech-and-roche-present-new-data-in-",
       "2026年7月19日：宣布PrevenTRON III期预防试验，在认知未受损高风险AD个体中评估trontinemab。来源：https://www.neurologylive.com/view/roche-unveils-preventron-phase-3-prevention-trial-trontinemab-cognitively-unimpaired-individuals-high-risk-alzheimers",
@@ -3915,6 +3916,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月14日：通化金马举行耄安通学术培训，启动琥珀酸安维吖啶片上市后IV期临床，持续验证长期安全性与有效性。来源：https://guba.eastmoney.com/news,gssz,1772382796.html",
       "2026-07：1类创新药琥珀酸安维吖啶片（耄安通）获NMPA批准上市，用于轻中度AD"
     ]
   },
