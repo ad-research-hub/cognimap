@@ -18,32 +18,9 @@ window.APPROVED_DRUGS_DATA = [
     "label_url": "https://www.aricept.com/docs/pdf/aricept_PI.pdf",
     "label_source": "FDA官方说明书 / 卫材官网",
     "references": [
-      {
-        "source": "FDA说明书 (Aricept PI)",
-        "url": "https://www.aricept.com/docs/pdf/aricept_PI.pdf"
-      },
-      {
-        "source": "丁香园用药助手",
-        "url": "https://drugs.dxy.cn/business/drug/81284.htm"
-      },
-      {
-        "source": "国家医保局2026年申报材料",
-        "url": "https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600164/YPSW202600164.pdf"
-      },
-      {
-        "source": "礼来Kisunla在中国获批 (2026年)",
-        "url": "https://investor.lilly.com/node/51751/pdf"
-      },
-      {
-        "source": "Kisunla三年长期数据：早期治疗降低27%疾病进展风险",
-        "url": "https://investor.lilly.com/node/52666/pdf"
-      },
-      {
-        "source": "欧盟委员会批准Kisunla (2025年9月)",
-        "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-kisunla-donanemab-receives-marketing-authorization-0"
-      }
+      "国家医保局：2026年国家医保药品目录调整申报材料-多奈单抗注射液（2026-06-08）。https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600143/YPSW202600143.pdf"
     ],
-    "status": "已上市（美国/欧盟/日本/英国/中国）",
+    "status": "已上市（美国FDA 2024-07完全批准）；2026年6月申报中国国家医保药品目录调整",
     "sort_order": 1
   },
   {
@@ -156,66 +133,23 @@ window.APPROVED_DRUGS_DATA = [
     "drug_class": "抗Aβ单克隆抗体（疾病修饰治疗）",
     "mechanism": "人源化IgG1单克隆抗体，选择性结合聚集性β淀粉样蛋白（Aβ），包括可溶性寡聚体和不溶性斑块，促进小胶质细胞介导的Aβ清除，延缓疾病进展。",
     "indication": "治疗早期阿尔茨海默病，包括轻度认知障碍（MCI）和轻度痴呆阶段，需确认存在Aβ病理。",
-    "dosage": "静脉输注：10mg/kg，每2周一次。皮下注射（IQLIK/乐意保皮下自动注射笔）：2026年7月FDA批准作为起始剂量，500mg/周自动注射器，可在家自行注射，维持期360mg/周。2026年8月海南博鳌乐城获批皮下自动注射剂型。2026年9月3日中国NMPA正式批准皮下自动注射剂型作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。治疗前需确认Aβ病理，建议检测ApoE ε4基因型。",
+    "dosage": "静脉输注：10mg/kg，每2周一次；皮下注射：维持剂量360mg/2周（2025年8月FDA获批），起始剂量500mg/周（两次250mg连续注射，2026年7月FDA获批，2026年9月中国NMPA获批皮下自动注射笔SC-AI）",
     "adverse_reactions": "最常见（≥10%）：输注相关反应、头痛、ARIA-E（淀粉样蛋白相关成像异常-脑水肿）。其他：ARIA-H（微出血/含铁血黄素沉积）、恶心、发热。ApoE ε4纯合子患者ARIA风险更高。",
     "contraindications": "对仑卡奈单抗或任何辅料严重超敏反应者禁用。脑出血风险患者慎用。",
-    "approval_date": "2023年1月（FDA加速批准），2023年7月（FDA完全批准），2024年1月（中国NMPA静脉剂型），2025年8月（FDA批准皮下维持剂量），2026年7月（FDA批准皮下注射剂型作为起始剂量），2026年9月（中国NMPA批准皮下自动注射剂型，日本批准皮下注射笔）",
+    "approval_date": "2023-01-06（FDA加速批准）；2023-07-06（FDA完全批准）；2025-04（欧盟批准）；2025-08（皮下维持剂量FDA获批）；2026-07（皮下起始剂量FDA获批）；2026-09-03（皮下自动注射笔中国NMPA获批）",
     "approval_body": "FDA / NMPA / EMA / PMDA",
     "price": "美国$26,500/年；中国约2760元/瓶（200mg/2ml），500mg/5ml规格",
     "insurance": "2024年纳入国家医保谈判目录；美国Medicare覆盖",
     "label_url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761269s012s015lbl.pdf",
     "label_source": "FDA官方说明书 / 卫材官网",
     "references": [
-      {
-        "source": "FDA说明书 (2025年8月更新)",
-        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761269s012s015lbl.pdf"
-      },
-      {
-        "source": "国家医保局2025年申报材料",
-        "url": "https://www.nhsa.gov.cn/attach/Ypsn2025/YPSW202500485/YPSW202500485.pdf"
-      },
-      {
-        "source": "卫材中国官网",
-        "url": "https://www.eisai.com.cn/category/news-zh/"
-      },
-      {
-        "source": "Alzheimer's Association",
-        "url": "https://www.alz.org/alzheimers-dementia/treatments/lecanemab-leqembi"
-      },
-      {
-        "source": "CLARITY-AD试验 (NEJM 2023)",
-        "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2212948"
-      },
-      {
-        "source": "FDA批准LEQEMBI IQLIK皮下注射起始剂量 (2026年7月)",
-        "url": "https://www.eisai.com/news/2026/news202640.html"
-      },
-      {
-        "source": "AAIC 2026 LEADER真实世界研究：82.5%患者保持稳定或改善",
-        "url": "https://investors.biogen.com/news-releases/news-release-details/leqembir-real-world-leader-study-presented-aaicr-2026-finds-over"
-      },
-      {
-        "source": "仑卡奈单抗皮下自动注射剂型博鳌乐城获批 (2026年8月)",
-        "url": "https://www.eisai.com.cn/2026/08/05/%E9%98%BF%E5%B0%94%E8%8C%A8%E6%B5%B7%E9%BB%98%E7%97%85%E6%96%B0%E8%8D%AF%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%88%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA/"
-      },
-      {
-        "source": "卫材中国官网-仑卡奈单抗皮下自动注射剂型在中国获批 (2026.09.03)",
-        "url": "https://www.eisai.com.cn/2026/09/03/%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%88%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%B0%84%E5%89%82%E5%9E%8B%E5%9C%A8%E4%B8%AD%E5%9B%BD/"
-      },
-      {
-        "source": "Eisai Global Press Release-LEQEMBI Subcutaneous Approved in China (2026.09.03)",
-        "url": "https://www.eisai.com/news/2026/news202649.html"
-      },
-      {
-        "source": "Biogen官网-LEQEMBI Pen在日本获批 (2026.09.16)",
-        "url": "https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan"
-      },
-      {
-        "source": "Eisai官网-加拿大药品局支持LEQEMBI公共报销 (2026.09.01)",
-        "url": "https://www.eisai.com/news/2026/news202648.html"
-      }
+      "卫材中国：乐意保皮下自动注射剂型在中国获批（2026-09-03）。https://www.eisai.com.cn/2026/09/03/",
+      "新华网：全球首个居家治疗AD皮下注射笔在中国获批（2026-09-04）。https://app.xinhuanet.com/news/article.html?articleId=20260904ed2cab24098c409793ebe5fd94708e23",
+      "Eisai：LEQEMBI Subcutaneous Formulation Approved in China（2026-09-03）。https://www.eisai.com/news/2026/news202649.html",
+      "Eisai：LEQEMBI FY2026 Q1 Revenue JPY 29.3 billion（2026-07-29）。https://www.eisai.com/news/2026/news202644.html",
+      "Biogen：LEADER Study at AAIC 2026 - 75.9% patients remained stable（2026-07-14）。https://investors.biogen.com/news-releases/news-release-details/leqembir-real-world-leader-study-presented-aaicr-2026-finds-over"
     ],
-    "status": "已上市",
+    "status": "已上市（美中欧日等多国）；皮下自动注射笔2026年9月中国获批，预计2026年12月底前中国上市，首个可居家使用AD药物",
     "sort_order": 5
   },
   {
@@ -270,7 +204,7 @@ window.APPROVED_DRUGS_DATA = [
     "name_cn": "甘露特钠",
     "name_en": "Sodium Oligomannate (GV-971)",
     "brand_name": "九期一",
-    "company": "绿谷医药（复星医药控股）",
+    "company": "绿谷制药（复星医药2025年12月以14.12亿元控股收购）",
     "drug_class": "海洋来源寡糖类药物",
     "mechanism": "以海洋褐藻提取物为原料制备的寡糖。官方称通过调节肠道菌群失衡、减少外周炎症细胞浸润、抑制神经炎症，从而改善认知功能。该机制仍存在学术争议，国际认可度有限。",
     "indication": "用于轻度至中度阿尔茨海默病，改善患者认知功能。",
@@ -285,48 +219,12 @@ window.APPROVED_DRUGS_DATA = [
     "label_url": "https://drugs.dxy.cn/business/drug/187840/detail.htm",
     "label_source": "NMPA / 丁香园用药助手",
     "references": [
-      {
-        "source": "NMPA批准公告 (2019.11.2)",
-        "url": "https://www.nmpa.gov.cn/zhuanti/cxylqx/cxypxx/20191102204301440.html"
-      },
-      {
-        "source": "丁香园用药助手说明书",
-        "url": "https://drugs.dxy.cn/business/drug/187840/detail.htm"
-      },
-      {
-        "source": "国家医保局2026年申报材料",
-        "url": "https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600426/YPSW202600426.pdf"
-      },
-      {
-        "source": "腾讯新闻-甘露特钠医保报道",
-        "url": "http://news.qq.com/rain/a/20231011A03E8Y00"
-      },
-      {
-        "source": "Cell Research 2019 (GV-971机制论文)",
-        "url": "https://www.nature.com/articles/s41422-019-0216-x"
-      },
-      {
-        "source": "复星医药14亿元收购绿谷医药 (2025年12月)",
-        "url": "https://www.cs.com.cn/ssgs/01/2026/05/22/detail_2026052210013575.html"
-      },
-      {
-        "source": "甘露特钠上市后确证性临床累计入组超1000例 (2026年8月)",
-        "url": "http://www.cnstock.com/commonDetail/771943"
-      },
-      {
-        "source": "复星医药业绩沟通会：预计2027年完成入组，2028年底-2029年初读出数据",
-        "url": "http://www.cnstock.com/commonDetail/780225"
-      },
-      {
-        "source": "复星医药2026年中期业绩-甘露特钠累计入组超1000例 (2026.08.25)",
-        "url": "https://www.fosunpharma.com/zh-tw/content/details37_14731.html"
-      },
-      {
-        "source": "财联社-复星医药业绩会：971入组超千人 (2026.09.25)",
-        "url": "https://www.cls.cn/detail/2465811"
-      }
+      "复星医药2026年中期业绩：甘露特钠胶囊上市后确证性临床累计入组超1000例（2026-08-25）。https://www.fosunpharma.com/zh-tw/content/details37_14731.html",
+      "复星医药：控股收购绿谷医药，加码布局中枢神经系统创新药管线（2025-12-15）。https://www.fosun.com/content/details46_4939.html",
+      "财联社：971入组超千人，AR1001预计年内读出III期顶线数据（2026-09-25）。https://www.cls.cn/detail/2465811",
+      "澎湃新闻：复星医药上半年营收增4.75%，971确证性临床进展顺利（2026-08-26）。https://m.thepaper.cn/newsDetail_forward_33953838"
     ],
-    "status": "已上市（中国，附条件批准；复星医药推进上市后确证性临床，截至2026年7月31日累计入组超1000例，超过计划入组50%，预计2027年完成入组）",
+    "status": "已上市（中国NMPA 2019年附条件批准）；上市后确证性III期临床进行中，截至2026年7月31日累计入组超1000例（超过计划50%），计划入组1950例，预计2027年底完成入组，2029年初数据读出",
     "sort_order": 7
   },
   {
