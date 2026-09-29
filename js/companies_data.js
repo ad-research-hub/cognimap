@@ -910,39 +910,21 @@ window.COMPANIES_DATA = [
     ]
   },
   {
-    "category": "三、治疗药物——神经炎症/免疫靶向",
+    "category": "治疗药物",
     "name": "Alector",
+    "name_cn": "Alector",
+    "name_en": "Alector, Inc.",
     "country": "美国",
-    "products": "暂无AD上市产品",
-    "pipeline": "nivisnebart（AL101/GSK4527226，TREM2激动剂，PROGRESS-AD II期，2026年4月因无效性分析终止）；AL002（TREM2激动抗体，II期失败，2025年1月终止与艾伯维合作）；Alector Brain Carrier (ABC)平台（抗体、酶、siRNA）",
+    "location": "加利福尼亚州南旧金山",
     "website": "https://www.alector.com",
-    "cat_order": 3,
-    "name_cn": "",
-    "name_en": "Alector, Inc. (Nasdaq: ALEC)",
-    "location": "美国加利福尼亚州南旧金山",
-    "history": [
-      {
-        "date": "2013",
-        "event": "Alector成立"
-      },
-      {
-        "date": "2021",
-        "event": "与GSK达成7亿美元首付神经科学合作"
-      },
-      {
-        "date": "2025-01",
-        "event": "AL002 II期失败，终止与艾伯维合作"
-      },
-      {
-        "date": "2026-04",
-        "event": "nivisnebart PROGRESS-AD II期因无效性分析终止"
-      },
-      {
-        "date": "2026-07",
-        "event": "GSK终止与Alector的神经科学合作"
-      }
-    ],
-    "news": []
+    "products": "暂无AD治疗药物上市",
+    "pipeline": "AL064/AL164（ABC脑递送技术+tau siRNA，非人灵长类显示tau mRNA敲低和pTau217持续降低，IND-enabling研究中）；AL137（ABC技术+抗Aβ抗体，设计用于清除脑内Aβ斑块并降低ARIA风险）；nivisnebart/AL101/GSK4527226（II期PROGRESS-AD因中期无效分析已终止）",
+    "cat_order": 1,
+    "history": "专注神经退行性疾病的生物科技公司，核心技术为ABC（Antibody Brain Carrier）脑递送平台；与GSK合作开发nivisnebart；2026年终止nivisnebart II期后转向tau siRNA和抗Aβ抗体管线",
+    "news": [
+      "2026年6月：Alector宣布终止nivisnebart（AL101/GSK4527226）II期PROGRESS-AD试验，因中期无效分析。来源：https://investors.alector.com/news-releases/news-release-details/alector-discontinue-phase-2-progress-ad-trial-nivisnebart/",
+      "2026年8月：Q2财报更新AL064/AL164 tau siRNA进展，非人灵长类显示稳健tau mRNA敲低和pTau217持续降低。来源：https://investors.alector.com/news-releases/news-release-details/alector-reports-second-quarter-2026-financial-results-and/"
+    ]
   },
   {
     "category": "三、治疗药物——神经炎症/免疫靶向",
@@ -1555,32 +1537,20 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "三、治疗药物——神经炎症/免疫靶向",
-    "name": "默沙东 Merck Sharp & Dohme",
+    "category": "治疗药物",
+    "name": "默沙东",
+    "name_cn": "默沙东",
+    "name_en": "Merck & Co., Inc. (MSD)",
     "country": "美国",
-    "products": "暂无AD上市产品",
-    "pipeline": "MK-2214（抗p-tau Ser413抗体，I期显示CSF游离pS413 tau近乎完全降低，II期PARADIGM NCT07033494，340例早期AD，2025年7月启动，预计2029年完成，获FDA快速通道）；MK-1167（AD候选，CTAD 2025展示数据）；verubecestat（BACE抑制剂，III期失败已终止）",
-    "website": "https://www.merck.com",
-    "cat_order": 3,
-    "name_cn": "默克",
-    "name_en": "Merck & Co., Inc.",
-    "location": "美国新泽西州罗威",
-    "history": [
-      {
-        "date": "1891",
-        "event": "Merck & Co.成立"
-      },
-      {
-        "date": "2025-07",
-        "event": "MK-2214 II期PARADIGM启动"
-      },
-      {
-        "date": "2025-12",
-        "event": "CTAD 2025展示MK-2214和MK-1167数据，MK-2214获FDA快速通道"
-      }
-    ],
+    "location": "新泽西州罗威",
+    "website": "https://www.msd.com",
+    "products": "暂无AD治疗药物上市",
+    "pipeline": "MK-2214（高亲和力抗tau单抗，FDA快速通道指定，CTAD 2025展示数据，NCT07033494，I/II期）；MK-1167（AD在研候选，CTAD 2025展示数据）；MK-3328（[18F]MK-3328 PET显像剂，用于量化Aβ斑块）；verubecestat/MK-8931（BACE1抑制剂，III期失败已终止）",
+    "cat_order": 1,
+    "history": "1891年成立；AD研发曾投入BACE1抑制剂verubecestat（III期失败），现转向tau靶向疗法MK-2214和PET显像剂",
     "news": [
-      "2026-07：AAIC公布MK-2214 I期CSF靶点近乎完全结合数据"
+      "2025年12月：CTAD 2025展示MK-2214和MK-1167数据，MK-2214获FDA快速通道指定。来源：https://www.merck.com/news/merck-showcases-data-for-alzheimers-disease-candidates-mk-2214-and-mk-1167-at-ctad-2025/",
+      "2026年：MSD 3Q2026管线显示MK-2214处于AD临床开发中。来源：https://www.msd.com/wp-content/uploads/sites/9/2026/08/Public-Pipeline-3Q2026-MSD.pdf"
     ]
   },
   {
@@ -3617,31 +3587,20 @@ window.COMPANIES_DATA = [
     ]
   },
   {
-    "category": "八、治疗药物——老靶点创新/仿制药（原研品牌方）",
-    "name": "诺华",
-    "country": "瑞士",
-    "products": "暂无AD上市产品",
-    "pipeline": "MEDI1814（抗Aβ42选择性单抗，与礼来合作，I期显示选择性降低CSF游离Aβ42，2025年Q1终止；阿斯利康2025年4月宣布退出整个神经科学领域，目前无活跃CNS管线）",
-    "website": "https://www.astrazeneca.com",
-    "cat_order": 8,
+    "category": "治疗药物",
+    "name": "阿斯利康",
     "name_cn": "阿斯利康",
     "name_en": "AstraZeneca plc",
-    "location": "英国剑桥",
-    "history": [
-      {
-        "date": "1999",
-        "event": "AstraZeneca成立"
-      },
-      {
-        "date": "2024-09",
-        "event": "MEDI1814 I期结果发表，选择性降低CSF Aβ42"
-      },
-      {
-        "date": "2025-04",
-        "event": "宣布退出神经科学领域，终止MEDI1814等全部CNS管线"
-      }
-    ],
-    "news": []
+    "country": "英国",
+    "location": "剑桥",
+    "website": "https://www.astrazeneca.com",
+    "products": "暂无AD治疗药物上市",
+    "pipeline": "MEDI1814（抗Aβ42单抗，与礼来合作，I期完成，2025年4月阿斯利康终止该项目，权益归还礼来）；AD管线目前较薄弱，主要聚焦肿瘤、心血管、代谢、呼吸领域",
+    "cat_order": 1,
+    "history": "1999年由瑞典阿斯特拉和英国捷利康合并成立；AD研发曾投入MEDI1814等项目，2025年调整研发优先级后缩减AD管线",
+    "news": [
+      "2025年4月：阿斯利康终止MEDI1814（与礼来合作的抗Aβ42单抗），权益归还礼来。来源：https://bcbn.org/boston-cambridge-biotech-news/2025/04/29/astrazeneca-culls-a-lilly-partnered-alzheimers-drug-alongside-2-other-neuroscience-meds-in-q1-clear-out/"
+    ]
   },
   {
     "category": "九、治疗药物——仿制药/小分子对症药（国内厂商）",
@@ -5235,35 +5194,21 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十五、检测诊断——数字认知评估",
+    "category": "数字疗法",
     "name": "Novoic",
+    "name_cn": "Novoic",
+    "name_en": "Novoic Ltd.",
     "country": "英国",
-    "products": "暂无AD上市产品（semaglutide用于糖尿病/肥胖症）",
-    "pipeline": "semaglutide（口服司美格鲁肽14mg，III期EVOKE NCT04777396和EVOKE+ NCT04777409，各1840例早期AD，2025年11月宣布未达主要终点CDR-SB，2026年3月The Lancet发表；生物标志物改善但未转化为临床进展延缓）",
-    "website": "https://www.novonordisk.com",
-    "cat_order": 15,
-    "name_cn": "诺和诺德",
-    "name_en": "Novo Nordisk A/S",
-    "location": "丹麦 Bagsværd",
-    "history": [
-      {
-        "date": "1923",
-        "event": "Novo Nordisk成立"
-      },
-      {
-        "date": "2021-05",
-        "event": "EVOKE和EVOKE+ III期试验启动"
-      },
-      {
-        "date": "2025-11",
-        "event": "宣布EVOKE/EVOKE+未达主要终点CDR-SB"
-      },
-      {
-        "date": "2026-03",
-        "event": "The Lancet发表EVOKE/EVOKE+完整结果"
-      }
-    ],
-    "news": []
+    "location": "伦敦",
+    "website": "https://novoic.com",
+    "products": "Storyteller（基于语音的AI认知筛查测试，10分钟完成，可预测Aβ PET阳性，AUC达0.77-0.85，已被ADNI4采用为认知评估工具）",
+    "pipeline": "持续优化语音AI模型，拓展多语言版本，与ADNI等大型队列合作验证",
+    "cat_order": 8,
+    "history": "临床后期数字医疗公司，专注AI语音生物标志物；2021年CTAD展示语音生物标志物可检测MCI和Aβ阳性；2024年Storyteller测试被ADNI4采用",
+    "news": [
+      "2024年：Novoic Storyteller语音测试被ADNI4选入认知评估套件。来源：https://adni.loni.usc.edu/adni-publications/Nosheny_2024_The%20ADNI%20Administrative%20Core-%20Ens.pdf",
+      "2022年：发表Alzheimer's & Dementia论文，远程语音AI系统筛查早期AD，AUC=0.85。来源：https://pubmed.ncbi.nlm.nih.gov/36348974/"
+    ]
   },
   {
     "category": "十五、检测诊断——数字认知评估",
@@ -5702,28 +5647,20 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
-    "name": "光宇生物",
-    "country": "单分子免疫",
-    "products": "磷酸化tau-217蛋白检测试剂盒（磁微粒免疫荧光法，50人份/盒、100人份/盒）",
-    "pipeline": "2026年5月21日获得磷酸化tau-217蛋白检测试剂盒行政许可；磁微粒免疫荧光法技术平台",
-    "website": "",
-    "cat_order": 17,
+    "category": "检测诊断",
+    "name": "光与生物",
     "name_cn": "深圳市光与生物科技有限公司",
     "name_en": "Shenzhen Guangyu Biotechnology Co., Ltd.",
-    "location": "中国深圳",
-    "history": [
-      {
-        "date": "2020",
-        "event": "深圳市光与生物成立"
-      },
-      {
-        "date": "2026-05",
-        "event": "磷酸化tau-217蛋白检测试剂盒获批（磁微粒免疫荧光法）"
-      }
-    ],
+    "country": "中国",
+    "location": "广东深圳",
+    "website": "https://www.vbdata.cn/companyDetail/ac1372f27d09f2004174a472264a4e4a",
+    "products": "磷酸化tau-217蛋白检测试剂盒（磁微粒免疫荧光法，2026年5月获NMPA二类医疗器械注册证）；Aβ1-42检测试剂盒",
+    "pipeline": "基于超高亮度上转化材料和超分辨光学系统的单分子检测平台；参编《阿尔茨海默病血浆标志物pTau217分析和诊断性能指南》团体标准（T/CITS 738—2026）",
+    "cat_order": 2,
+    "history": "专注精准医疗领域，依托核心的超高亮度上转化材料和独创的超分辨光学系统打造单分子检测平台；2025年7月pTau217试剂盒列入广东省第二类医疗器械优先审批；2026年5月获NMPA注册证",
     "news": [
-      "2026年：β淀粉样蛋白1-42（Aβ1-42）检测试剂盒（磁微粒免疫荧光法）获NMPA二类注册证（粤械注准）。来源：https://www.vbdata.cn/companyDetail/ac1372f27d09f2004174a472264a4e4a"
+      "2026年5月：磷酸化tau-217蛋白检测试剂盒（磁微粒免疫荧光法）获NMPA二类医疗器械注册证。来源：https://www.qcc.com/creport/090738f4c348e4edf4c964df24a03de7.html",
+      "2026年：参编《阿尔茨海默病血浆标志物pTau217分析和诊断性能指南》团体标准正式发布。来源：https://www.vbdata.cn/companyDetail/ac1372f27d09f2004174a472264a4e4a"
     ]
   },
   {
@@ -5808,27 +5745,21 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "岚煜生物",
-    "country": "免疫层析 / 免疫层析",
-    "products": "阿尔茨海默相关神经丝蛋白检测试剂盒（AD7c-NTP，干式荧光免疫层析法，苏械注准20232400135，尿液检测）",
-    "pipeline": "干式荧光免疫层析法技术平台；尿液AD7c-NTP检测，无创便捷筛查",
-    "website": "",
-    "cat_order": 17,
     "name_cn": "南京岚煜生物科技有限公司",
-    "name_en": "Nanjing Lanyu Biotechnology Co., Ltd.",
-    "location": "中国南京",
-    "history": [
-      {
-        "date": "2015",
-        "event": "南京岚煜生物成立"
-      },
-      {
-        "date": "2023-07",
-        "event": "AD7c-NTP尿液检测试剂盒获批（苏械注准20232400135）"
-      }
-    ],
-    "news": []
+    "name_en": "Nanjing Lansion Biotechnology Co., Ltd.",
+    "country": "中国",
+    "location": "江苏南京",
+    "website": "http://www.lansionbio.com",
+    "products": "人β淀粉样蛋白1-42检测试剂盒（干式荧光免疫层析法，苏械注准20232400087）；人磷酸化tau-181蛋白检测试剂盒；阿尔茨海默相关神经丝蛋白（AD7c-NTP）检测；微流控集成化检测平台、快速免疫诊断平台、手持式凝血分析平台、核酸检测平台",
+    "pipeline": "AD生物标志物联合检测方案（Aβ1-42+pTau181+AD7c-NTP），用于AD早期筛查",
+    "cat_order": 2,
+    "history": "2016年10月成立，D+轮融资；坚持主动式微流控技术与智能化仪器一体化诊断检测系统创新；以基层医疗为重点研发POCT诊断产品",
+    "news": [
+      "2023年：人β淀粉样蛋白1-42检测试剂盒获NMPA二类注册证（苏械注准20232400087）。来源：https://db.yaozh.com/jixie/3902079277154604.html",
+      "2024年：推出多项阿尔茨海默病生物标志物联合检测方案。来源：https://m.sohu.com/a/770485297_121443677/"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -6046,29 +5977,20 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "美联泰科",
-    "country": "化学发光",
-    "products": "MS-Fast系列单人份化学发光免疫平台；GFAP/PGP9.5 TBI检测试剂盒；全自动免疫组化染色机",
-    "pipeline": "2017年7月成立，美国加州和中国北京双研发中心；体外诊断产品（免疫诊断、病理诊断、分子诊断）；2021年3月国内首个TBI血液检测系统（GFAP、PGP9.5，30分钟出结果）；GFAP检测试剂盒（磁微粒化学发光法，京械注准20212400137）；全自动免疫组化染色机",
-    "website": [
-      ""
-    ],
-    "cat_order": 17,
     "name_cn": "北京美联泰科生物技术有限公司",
-    "name_en": "Beijing Meilian Taike Biotechnology Co., Ltd.",
-    "location": "中国北京",
-    "history": [
-      {
-        "date": "2017-07",
-        "event": "北京美联泰科生物技术有限公司成立"
-      },
-      {
-        "date": "2021-03",
-        "event": "国内首个TBI血液检测系统获批（GFAP、PGP9.5）"
-      }
-    ],
-    "news": []
+    "name_en": "Beijing Sophonix Biotechnology Co., Ltd.",
+    "country": "中国",
+    "location": "北京经济技术开发区",
+    "website": "https://www.sophonix.net",
+    "products": "MS-Fast系列全自动化学发光免疫分析仪及配套单人份磁微粒化学发光试剂；创伤性脑损伤标志物检测系统（国内首个，30分钟快速检测GFAP、PGP9.5）；心肌、炎症、性激素、甲功、贫血、肿瘤、骨代谢、脑损伤等系列试剂",
+    "pipeline": "持续拓展免疫诊断、病理诊断和分子诊断产品线",
+    "cat_order": 2,
+    "history": "2017年7月成立，在美国加州和中国北京设立双研发中心；2021年3月上市国内首个精准快速创伤性脑损伤血液检测系统；C+轮融资",
+    "news": [
+      "2021年3月：国内首个精准快速创伤性脑损伤血液检测系统上市。来源：https://www.kczg.org.cn/org/orgdetail?id=338595"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -6427,31 +6349,21 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十八、治疗器械——神经调控（非侵入性）",
-    "name": "Danyang Huichuang Medical Equipment Co., Ltd.",
-    "country": "中国",
-    "products": "NirSmart-700CS近红外脑功能成像系统；NirSpark近红外脑功能成像仪；穿戴式fNIRS设备；睡眠评估系统",
-    "pipeline": "近红外脑功能成像（fNIRS）技术领跑者；国家级专精特新\"小巨人\"企业，国家级高新技术企业；清华大学校友企业，汪待发团队；依托北京航空航天大学专家团队；用于AD等神经退行性疾病评估、辅助诊断与筛查；2026年3月发表经颅光调控设备专利；脑机接口技术",
-    "website": "",
-    "cat_order": 18,
+    "category": "医疗器械",
+    "name": "慧创医疗",
     "name_cn": "丹阳慧创医疗设备有限公司",
     "name_en": "Danyang Huichuang Medical Equipment Co., Ltd.",
-    "location": "中国江苏丹阳",
-    "history": [
-      {
-        "date": "2010",
-        "event": "丹阳慧创医疗设备有限公司成立"
-      },
-      {
-        "date": "2024",
-        "event": "获评国家级专精特新\"小巨人\"企业"
-      },
-      {
-        "date": "2026-03",
-        "event": "发表经颅光调控设备专利（CN2025117911W）"
-      }
-    ],
-    "news": []
+    "country": "中国",
+    "location": "江苏丹阳/北京",
+    "website": "http://www.hcmedx.cn",
+    "products": "NirScan 8000/9000近红外脑功能成像设备（157通道，首个获中国医疗器械注册证的超100通道fNIRS）；NirSmartII-3000系列（最高63通道）；MirsFata穿戴式光学脑机接口设备；NirSpark一站式数据分析软件；脑电图机EEG",
+    "pipeline": "fNIRS+脑电联用、fNIRS+经颅磁联用；脑机接口技术；AD等神经退行性疾病脑功能评估应用",
+    "cat_order": 3,
+    "history": "近红外(fNIRS)国家强制标准唯一企业起草单位（GB9706.271-2022）；核心参与两大国家级脑机接口项目；2026年光学脑机接口全球总部开工",
+    "news": [
+      "2026年5月：穿戴式光学脑机接口设备MirsFata在苏超比赛中实现全国首个'脑机接口观赛'。来源：http://www.hcmedx.cn/NewsList/0.html?ClassID=0&PageNo=55",
+      "fNIRS国家强制标准（GB9706.271-2022）唯一企业起草单位。来源：http://www.hcmedx.cn/Content/2297436.html"
+    ]
   },
   {
     "category": "十八、治疗器械——神经调控（非侵入性）",
@@ -8590,13 +8502,14 @@ window.COMPANIES_DATA = [
     "name_en": "Innovita Biological Technology Co., Ltd.",
     "country": "中国",
     "location": "北京",
-    "website": "https://www.innovita.com.cn/",
-    "products": "基于Simoa单分子免疫技术平台的AD体外诊断产品",
-    "pipeline": "p-Tau217、p-Tau181、NfL测定试剂盒",
+    "website": "https://www.innovita.com.cn",
+    "products": "基于Simoa®单分子免疫技术平台的磷酸化Tau 217蛋白（p-Tau 217）、磷酸化Tau 181蛋白（p-Tau 181）、神经丝轻链蛋白（NfL）检测试剂盒（2026年9月获NMPA批准）；呼吸道、消化道、优生优育、肝炎等POCT快速检测试剂",
+    "pipeline": "与Quanterix战略合作，基于Simoa单分子免疫技术平台开发AD血液标志物检测；2025年3月与Quanterix战略签约",
     "cat_order": 5,
     "history": "2026年9月2日，基于Simoa单分子免疫技术平台开发的磷酸化Tau217蛋白（p-Tau217）、磷酸化Tau181蛋白（p-Tau181）、神经丝轻链蛋白（NfL）测定试剂盒获NMPA二类注册证（京械注准）。",
     "news": [
-      "2026年9月2日：基于Simoa单分子免疫技术平台开发的p-Tau217、p-Tau181、NfL测定试剂盒获国家药监局（NMPA）二类注册证。来源：https://www.innovita.com.cn/Investor_Relations_details/c-%E9%BB%84%E8%AE%A4%E5%8F%82%E6%95%B0=2082375107847593984.html"
+      "2026年9月2日：基于Simoa®单分子免疫技术平台的p-Tau 217、p-Tau 181、NfL检测试剂盒获NMPA批准。来源：https://www.innovita.com.cn/Investor_Relations_details/c-%E9%BB%88%E8%AE%A4%E5%8F%82%E6%95%B0=2082375107847593984.html",
+      "2025年3月：与Quanterix战略签约，引入Simoa单分子免疫技术平台。来源：https://www.innovita.com.cn/news_details/c-_detailId=1904722623169900544.html"
     ]
   }
 ];
