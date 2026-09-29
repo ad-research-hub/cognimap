@@ -8418,5 +8418,39 @@ window.COMPANIES_DATA = [
       "2025年11月26日：β淀粉样蛋白1-42测定试剂盒获北京市药监局批准（京械注准20252400942）。来源：https://www.annoroad.com/news/company/12463.html",
       "2025年12月5日：磷酸化tau-181蛋白测定试剂盒获北京市药监局批准（京械注准20252400969）。来源：https://www.annoroad.com/news/company/12472.html"
     ]
+  },
+  {
+    "category": "一、治疗药物——神经炎症/免疫调节（创新药）",
+    "name": "赛诺菲 Sanofi",
+    "name_cn": "赛诺菲",
+    "name_en": "Sanofi S.A.",
+    "country": "法国",
+    "location": "法国巴黎",
+    "website": "https://www.sanofi.com",
+    "products": "暂无AD治疗药物上市",
+    "pipeline": "SAR448851（口服TREM2激动剂，II期TREMHANCE试验NCT07688213，160例早期AD，主要终点pTau217，主要完成预计2029年7月，CTAD 2026展示数据；I期显示良好安全性、高CNS穿透、CSF可溶性TREM2降低50%）",
+    "cat_order": 1,
+    "history": [
+      {
+        "date": "2024",
+        "event": "SAR448851 I期完成，115例，安全性良好"
+      },
+      {
+        "date": "2025",
+        "event": "SAR448851获FDA快速通道认定"
+      },
+      {
+        "date": "2026-07",
+        "event": "II期TREMHANCE试验启动招募"
+      },
+      {
+        "date": "2026-09",
+        "event": "TREMHANCE试验招募中，主要完成预计2029年7月"
+      }
+    ],
+    "news": [
+      "2026年9月：SAR448851口服TREM2激动剂II期TREMHANCE试验招募中，NCT07688213，160例早期AD，主要终点pTau217，主要完成预计2029年7月，CTAD 2026展示数据。来源：https://www.sanofi.com/en/clinical-trials/nct07688213",
+      "2026年7月：SAR448851 II期TREMHANCE试验设计公布，I期显示CSF可溶性TREM2降低50%，高CNS穿透。来源：https://www.neurologylive.com/view/sanofi-oral-trem2-agonist-sar448851-advances-phase-2-tremhance-trial-early-alzheimers"
+    ]
   }
 ];
