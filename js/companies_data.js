@@ -1106,6 +1106,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月11日：DNL921（ATV:Abeta）I期临床试验在ClinicalTrials.gov注册，计划入组178例，预计2030年4月完成，I/Ib期数据预计2027年。来源：https://www.vbdata.cn/companyDetail/f18166f0535311e7b9fa7dc2aecfc73c",
       "2026年8月：报告2026年第二季度财务结果，DNL628和DNL921两个AD项目进展。来源：https://investors.denalitherapeutics.com/news-releases/news-release-details/denali-therapeutics-reports-second-quarter-2026-financial",
       "2026年7月：AAIC 2026开幕式全体会议演讲，介绍血脑屏障递送技术突破。来源：https://investors.denalitherapeutics.com/news-releases/news-release-details/denali-therapeutics-give-opening-plenary-address-alzheimers",
       "2026年4月：收回DNL593（PTV:PGRN）全部权益，FTD-GRN I/II期数据预计2026年底。来源：https://investors.denalitherapeutics.com/node/11631/html"
@@ -2780,6 +2781,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年1月13日：加入欧盟委员会资助的ACCESS-AD项目，评估blarcamesine作为AD精准医学方法；2026年3月向FDA提交早期AD IND。来源：https://anavex.com/news/",
       "2026年3月25日：撤回欧盟上市申请（EMA 2025年12月建议拒绝，复审完成前撤回）。来源：https://www.ema.europa.eu/en/documents/medicine-qa/questions-answers-withdrawal-application-marketing-authorisation-blarcamesine-anavex-blarcamesine_en.pdf",
       "2026年3月：向FDA提交早期AD IND申请，启动两项临床药理学研究。来源：https://anavex.com/news/anavex-life-sciences-reports-preliminary-second-quarter-2026-financial-results-and-provides-business-update/"
     ]
