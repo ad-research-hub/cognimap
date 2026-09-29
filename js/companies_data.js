@@ -5892,23 +5892,20 @@ window.COMPANIES_DATA = [
     ]
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "玛雅光年",
-    "country": "单分子免疫（数字流式荧光）",
-    "products": "Aβ42、Aβ40、p-tau181、p-tau217四款检测试剂盒（国内首款流式单分子免疫检测技术SiMoFF，2025年1月获四川省药监局医疗器械注册证）",
-    "pipeline": "SiMoFF流式单分子免疫检测技术",
-    "website": "",
-    "cat_order": 17,
-    "name_cn": "玛雅光年",
-    "name_en": "Chengdu Maya Guangnian Technology Co., Ltd. (无锡博奥玛雅医学全资子公司)",
-    "location": "中国成都",
-    "history": [
-      {
-        "date": "2025-01",
-        "event": "四款AD血液核心标志物IVD试剂获四川省药监局注册证（国内首款SiMoFF技术）"
-      }
-    ],
-    "news": []
+    "name_cn": "成都玛雅光年科技有限公司",
+    "name_en": "Chengdu Maya Lightyear Technology Co., Ltd. (Boao Maya)",
+    "country": "中国",
+    "location": "四川成都",
+    "website": "https://www.mayahx.com",
+    "products": "四款阿尔茨海默病血液检测试剂获NMPA批准（全球首创流式单分子免疫检测技术）；与国家老年病临床医学研究中心（四川大学华西医院）共同成立'认知功能障碍早期诊断协同创新联合实验室'",
+    "pipeline": "流式单分子免疫检测技术平台；AD早期筛查技术创新研发与临床应用",
+    "cat_order": 2,
+    "history": "无锡博奥玛雅旗下企业；依托四川医疗资源和人才优势；计划两年内推动核心产品规模化生产并拓展全球市场",
+    "news": [
+      "2025年9月：四款阿尔茨海默病血液检测试剂获国家药监局批准，填补国内数字化流式检测空白。来源：http://www.stdaily.com/web/gdxw/2025-09/29/content_409908.html"
+    ]
   },
   {
     "category": "检测诊断",
@@ -5943,66 +5940,37 @@ window.COMPANIES_DATA = [
     ]
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "艾拓生命",
-    "country": "化学发光",
-    "products": "磷酸化tau-181蛋白测定试剂盒（磁微粒发光法，苏械注准20242401198）；β淀粉样蛋白1-42校准品（苏械注准20252400095）；磷酸化tau-181蛋白校准品（苏械注准20252400094）；全自动液态悬浮芯片检测仪",
-    "pipeline": "2018年成立，专注液相芯片技术，专精特新企业；依托江苏纳迪芯生命科技研究院；已推出细胞因子系列、阿尔茨海默病系列等29款医疗器械产品；2025年11月全自动液态悬浮芯片检测仪获批（全球首款基于成像原理）",
-    "website": "",
-    "cat_order": 17,
     "name_cn": "南京艾拓生命科技有限公司",
-    "name_en": "Nanjing Aituo Life Technology Co., Ltd.",
-    "location": "中国江苏南京江宁高新区",
-    "history": [
-      {
-        "date": "2018",
-        "event": "南京艾拓生命科技有限公司成立"
-      },
-      {
-        "date": "2024",
-        "event": "pTau181测定试剂盒获批（苏械注准20242401198）"
-      },
-      {
-        "date": "2025-01",
-        "event": "Aβ42和pTau181校准品获批"
-      },
-      {
-        "date": "2025-11",
-        "event": "全自动液态悬浮芯片检测仪获批（全球首款基于成像原理）"
-      }
-    ],
-    "news": []
+    "name_en": "Nanjing Atomlife Biotechnology Co., Ltd.",
+    "country": "中国",
+    "location": "江苏南京",
+    "website": "http://www.atomlife.net",
+    "products": "全自动液态悬浮芯片检测仪AT2000（全球首款基于成像原理，2025年11月获NMPA批准）；流式荧光技术平台；细胞因子、阿尔茨海默病等12项医疗器械注册证",
+    "pipeline": "多重磁微粒发光技术、微流控技术、数字PCR技术和液相芯片检测技术；依托江苏纳迪芯生命科技研究院",
+    "cat_order": 2,
+    "history": "2018年成立，南京江宁高新园；与中科院上海微系统与信息技术研究所产学研合作；获发明专利7项、实用新型专利18项",
+    "news": [
+      "2025年11月：全自动液态悬浮芯片检测仪AT2000获江苏省药监局批准上市，为全球首款基于成像原理的产品。来源：https://finance.sina.com.cn/jjxw/2025-11-11/doc-infwyqem4669909.shtml",
+      "2025年2月：AT2000进入江苏省第二类医疗器械创新产品注册程序。来源：https://da.jiangsu.gov.cn/art/2025/2/20/art_84605_11496349.html"
+    ]
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "艾珉生物",
-    "country": "化学发光",
-    "products": "人β淀粉样蛋白1-42（Aβ1-42）检测试剂盒（化学发光免疫分析法，桂械注准20232400138）；人磷酸化tau-181（p-tau-181）检测试剂盒（化学发光免疫分析法，桂械注准20232400139）；全自动化学发光免疫分析仪（桂械注准20222220108）",
-    "pipeline": "2023年7月获批Aβ1-42和pTau181检测试剂盒（化学发光法），用于AD辅助诊断；配套全自动化学发光免疫分析仪（吖啶酯直接化学发光法）；总部位于南宁市金凯工业园",
-    "website": [
-      ""
-    ],
-    "cat_order": 17,
     "name_cn": "广西艾珉生物科技有限公司",
     "name_en": "Guangxi Aimin Biotechnology Co., Ltd.",
-    "location": "中国广西南宁",
-    "history": [
-      [
-        {
-          "date": "2022",
-          "event": "全自动化学发光免疫分析仪获批（桂械注准20222220108）"
-        },
-        {
-          "date": "2023-07",
-          "event": "Aβ1-42检测试剂盒获批（桂械注准20232400138）"
-        },
-        {
-          "date": "2023-07",
-          "event": "pTau181检测试剂盒获批（桂械注准20232400139）"
-        }
-      ]
-    ],
-    "news": []
+    "country": "中国",
+    "location": "广西南宁",
+    "website": "https://www.aimercare.com.cn",
+    "products": "人磷酸化tau-181检测试剂盒（化学发光免疫分析法，桂械注准20232400139，用于AD辅助诊断）；人β淀粉样蛋白1-42检测试剂盒（化学发光免疫分析法，用于AD辅助诊断）",
+    "pipeline": "AD血液标志物化学发光检测面板（p-tau181+Aβ1-42）",
+    "cat_order": 2,
+    "history": "位于南宁金凯工业园；专业从事体外诊断试剂研发生产",
+    "news": [
+      "人磷酸化tau-181检测试剂盒获NMPA注册证（桂械注准20232400139），临床用于阿尔茨海默病辅助诊断。来源：https://db.yaozh.com/jixie/3829862784278470.html"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -6142,35 +6110,20 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "鸿宇泰",
-    "country": "化学发光 / 免疫层析",
-    "products": "人磷酸化P-tau-181测定试剂盒（磁微粒化学发光免疫分析法，津械注准20232400121）；NfL、AD7C-NTP、Aβ1-40、PGP9.5、GFAP测定试剂盒（2025年2月获批，天津市首款）；Aβ1-42检测试剂盒",
-    "pipeline": "荧光平台及化学发光平台AD血液标志物检测系列产品；检测血清/血浆/全血中Aβ1-42和P-tau-181；2025年2月新获批5项试剂，与先前6项组成11项脑科疾病检测试剂",
-    "website": [
-      ""
-    ],
-    "cat_order": 17,
     "name_cn": "天津鸿宇泰生物科技有限公司",
     "name_en": "Tianjin Hongyutai Biotechnology Co., Ltd.",
-    "location": "中国天津",
-    "history": [
-      [
-        {
-          "date": "2020-08",
-          "event": "天津鸿宇泰成立"
-        },
-        {
-          "date": "2023",
-          "event": "pTau181测定试剂盒获批（津械注准20232400121）"
-        },
-        {
-          "date": "2025-02",
-          "event": "新获批NfL/AD7C-NTP/Aβ1-40/PGP9.5/GFAP五项试剂（天津市首款）"
-        }
-      ]
-    ],
-    "news": []
+    "country": "中国",
+    "location": "天津",
+    "website": "",
+    "products": "5项AD相关检测产品注册（包括Aβ1-42、Aβ1-40、p-tau181等血液标志物检测试剂盒）",
+    "pipeline": "AD血液标志物化学发光检测面板",
+    "cat_order": 2,
+    "history": "天津体外诊断试剂企业，AD血检产品注册数量国内并列第二（与湖南诺唯赞并列）",
+    "news": [
+      "2024年：5项AD相关检测产品获NMPA注册，国内AD血检产品注册数量并列第二。来源：https://cndatamed.com/qianyanjishu/148.html"
+    ]
   },
   {
     "category": "十八、治疗器械——神经调控（非侵入性）",
