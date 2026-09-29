@@ -355,15 +355,16 @@ window.COMPANIES_DATA = [
     "country": "日本",
     "location": "东京",
     "website": "https://www.eisai.com",
-    "products": "LEQEMBI®/lecanemab（仑卡奈单抗，中国商品名乐意保®，抗Aβ原纤维单抗，与渤健合作；2023年1月FDA加速批准，2023年7月FDA完全批准，2024年1月中国NMPA静脉剂型，2025年4月欧盟批准，2025年8月FDA批准皮下维持剂量，2026年7月FDA批准皮下起始剂量IQLIK，2026年9月中国NMPA批准皮下自动注射剂型，2026年9月日本批准皮下注射笔，2026年9月加拿大支持公共报销）",
-    "pipeline": "etalanetug/E2814（抗MTBR tau单抗，II期，AAIC 2026展示联合仑卡奈单抗降低eMTBR-tau243数据）；AHEAD 3-45（临床前AD III期）；BAN2802（与BioArctic合作，BrainTransporter技术）",
+    "products": "LEQEMBI/仑卡奈单抗（中国商品名乐意保，与渤健合作；2023年FDA完全批准，2025年4月欧盟批准，2025年8月皮下维持剂量获批，2026年7月FDA批准皮下起始剂量IQLIK，2026年9月皮下自动注射笔中国获批，首个可居家使用AD药物；已在美中欧日等多国获批）",
+    "pipeline": "etalanetug/E2814（抗MTBR tau抗体，CTAD 2025展示eMTBR-tau243生物标志物降低数据，临床开发中）",
     "cat_order": 1,
     "history": "1941年成立；2007年与BioArctic签订lecanemab授权协议；2014年与渤健签订lecanemab联合开发商业化协议；2023年lecanemab获FDA完全批准成为全球首个证实可减缓AD认知功能下降的药物；2026年AAIC发表逾50项AD研究报告",
     "news": [
-      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
-      "2026年9月3日：仑卡奈单抗皮下自动注射剂型获中国NMPA批准，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
-      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
-      "2026年7月13日：FDA批准LEQEMBI IQLIK皮下注射作为早期AD起始剂量；AAIC展示etalanetug联合仑卡奈单抗降低eMTBR-tau243数据。来源：https://media-us.eisai.com/2026-07-13-FDA-Approves-LEQEMBI-IQLIK-R-lecanemab-irmb-Subcutaneous-Injection-as-an-Initiation-Dose-for-Early-Alzheimers-Disease"
+      "2026年9月3日：乐意保（仑卡奈单抗）皮下自动注射剂型在中国获批，用于早期AD初始治疗，预计12月底前中国上市。来源：https://www.eisai.com.cn/2026/09/03/%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%88%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%B0%84%E5%89%82%E5%9E%8B%E5%9C%A8%E4%B8%AD%E5%9B%BD/",
+      "2026年9月1日：加拿大药品管理局发布最终积极建议，支持LEQEMBI用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月：仑卡奈单抗纳入广西贵港、贺州、河池三地惠民保特定药品费用保障方案。来源：https://www.eisai.com.cn/category/news-zh/",
+      "2026年7月13日：FDA批准LEQEMBI IQLIK（仑卡奈单抗）皮下注射作为早期AD初始剂量。来源：https://media-us.eisai.com/2026-07-13-FDA-Approves-LEQEMBI-IQLIK-R-lecanemab-irmb-Subcutaneous-Injection-as-an-Initiation-Dose-for-Early-Alzheimers-Disease",
+      "2026年7月14日：AAIC展示LEADER真实世界研究结果，75.9%患者保持稳定，6.6%改善，平均治疗17个月。来源：https://media-us.eisai.com/2026-07-14-LEQEMBI-R-Real-World-LEADER-Study-Presented-at-AAIC-R-2026-Finds-Over-75-of-Early-Alzheimers-Patients-Enrolled-in-the-Study-Remained-Stable-and-Nearly-7-Improved-Over-an-Average-of-17-Months-of-Treatment"
     ]
   },
   {
@@ -1280,13 +1281,14 @@ window.COMPANIES_DATA = [
     "location": "马萨诸塞州剑桥",
     "website": "https://www.biogen.com",
     "products": "LEQEMBI®/lecanemab（仑卡奈单抗，与卫材联合开发商业化，全球首个获FDA完全批准的AD疾病修饰疗法）",
-    "pipeline": "diranersen/BIIB080（tau靶向反义寡核苷酸ASO，II期CELIA研究2026年5月公布顶线结果，首次证实tau靶向疗法可减少脑内tau病理并带来认知获益，FDA快速通道指定，计划推进III期）；与卫材合作lecanemab皮下剂型开发",
+    "pipeline": "LEQEMBI/仑卡奈单抗（与卫材合作，2026年9月皮下自动注射笔中国获批）；diranersen/BIIB080（抗tau反义寡核苷酸ASO，2026年5月II期CELIA研究顶线阳性，首个tau靶向治疗显示生物标志物影响和认知获益，2026年7月AAIC展示详细数据）",
     "cat_order": 1,
     "history": "1978年成立；2014年与卫材签订lecanemab联合开发协议；2021年Aduhelm（aducanumab）获FDA加速批准后因市场表现不佳于2024年撤回；2023年lecanemab获FDA完全批准；2026年diranersen II期CELIA取得阳性结果",
     "news": [
-      "2026年7月14日：AAIC 2026展示diranersen II期CELIA完整数据，证实有意义的临床结局和显著的tau减少。来源：https://biogen.gcs-web.com/news-releases/news-release-details/biogen-presents-phase-2-celia-data-aaic-demonstrating-meaningful",
-      "2026年5月14日：diranersen II期CELIA顶线结果公布，首个tau靶向疗法在随机II期研究中同时显示生物标志物影响和认知获益。来源：https://investors.biogen.com/news-releases/news-release-details/topline-results-phase-2-celia-study-diranersen-biib080-first",
-      "2026年9月3日：与卫材联合宣布仑卡奈单抗皮下自动注射剂型获中国NMPA批准。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-lecanemab-subcutaneous-formulation-initiation-treatment"
+      "2026年9月1日：LEQEMBI（仑卡奈单抗）皮下制剂作为早期AD初始治疗在中国获批。来源：https://investors.biogen.com/news/news-releases",
+      "2026年7月14日：AAIC展示diranersen（BIIB080）II期CELIA研究数据，显示tau病理减少和认知获益，首个tau靶向治疗随机II期研究同时显示生物标志物影响和认知获益。来源：https://investors.biogen.com/news-releases/news-release-details/biogen-presents-phase-2-celia-data-aaic-demonstrating-meaningful",
+      "2026年5月14日：diranersen II期CELIA研究顶线结果公布。来源：https://investors.biogen.com/news-releases/news-release-details/topline-results-phase-2-celia-study-diranersen-biib080-first",
+      "2026年7月12日：AAIC展示仑卡奈单抗皮下自动注射笔临床数据，疗效和安全性与静脉制剂相当。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-subcutaneous-autoinjector-clinical-data-supports"
     ]
   },
   {
@@ -2232,7 +2234,7 @@ window.COMPANIES_DATA = [
     "name": "诺和诺德",
     "country": "丹麦",
     "products": "Elecsys® pTau217血液检测（AD诊断产品）；暂无AD治疗药物上市",
-    "pipeline": "trontinemab/RG6102（Brainshuttle™双特异性2+1 Aβ靶向单抗，TfR1介导BBB穿越，I/II期显示91%患者淀粉样蛋白清除至阈值以下；III期TRONTIER 1/2约1600例18国2025年启动；PrevenTRON临床前AD预防III期2026年7月宣布）；gantenerumab（III期失败已终止）",
+    "pipeline": "semaglutide（口服司美格鲁肽14mg，evoke/evoke+ III期试验，2025年11月宣布未能在统计学上显著减缓AD进展，2026年3月结果发表于The Lancet；改善了AD相关生物标志物但未转化为疾病进展延迟）",
     "website": "https://www.roche.com",
     "cat_order": 5,
     "name_cn": "诺和诺德",
@@ -2253,10 +2255,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      "2025-11：EVOKE/EVOKE+ 3期试验：口服semaglutide未能显著减缓AD进展，项目终止",
-      "2026-06：AAN 2026公布semaglutide生物标志物和多组学免疫表型研究数据",
-      "2026-08：trontinemab III期TRONTIER 1/2推进中"
+      "2025年11月24日：evoke和evoke+ III期试验未能在统计学上显著减缓阿尔茨海默病进展，semaglutide改善了AD相关生物标志物但未转化为临床获益。来源：https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916462",
+      "2026年3月：evoke(+)主要结果发表于The Lancet。来源：https://sciencehub.novonordisk.com/content/dam/sciencehub/global/en/congresses-and-scientific-publications/scientific-publications/articles/other/evoke-ms/documents/evoke(+)%20primary%20manuscript_Publication%20Slide%20Deck_FINAL_18Mar26%20-%20Copy.pdf",
+      "2026年4月：AAN展示semaglutide对AD相关生物过程影响的生物标志物和多组学免疫表型分析结果。来源：https://sciencehub.novonordisk.com/content/dam/sciencehub/global/en/congresses-and-scientific-publications/congresses/aan2026/belmont-rausch/documents/aan-2026-biofluid-biomarker-oral-pressentation.pdf"
     ]
   },
   {
