@@ -1302,6 +1302,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1978年成立；2014年与卫材签订lecanemab联合开发协议；2021年Aduhelm（aducanumab）获FDA加速批准后因市场表现不佳于2024年撤回；2023年lecanemab获FDA完全批准；2026年diranersen II期CELIA取得阳性结果",
     "news": [
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批；diranersen II期CELIA阳性将启动III期，CSF tau降低50-65%。来源：https://investors.biogen.com/news-releases/news-release-details/biogen-highlight-breadth-alzheimers-disease-portfolio-aaic-2026",
       "2026年7月：diranersen II期CELIA数据公布，CSF总tau降低50-65%，60mg组认知下降减缓42%，渤健将启动III期临床开发。来源：https://www.businesswire.com/news/home/20260714961307/en/Ionis-Partner-Biogen-Presents-Phase-2-CELIA-Data-at-AAIC-Demonstrating-Meaningful-Clinical-Outcomes-and-Robust-Tau-Reduction-with-Diranersen-in-Early-Alzheimers-Disease",
       "2026年9月3日：与卫材联合开发的仑卡奈单抗皮下自动注射笔获中国NMPA批准，全球第二个、亚洲首个。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-lecanemab-subcutaneous-formulation-initiation-treatment",
       "2026年9月1日：LEQEMBI（仑卡奈单抗）皮下制剂作为早期AD初始治疗在中国获批。来源：https://investors.biogen.com/news/news-releases",
@@ -2176,6 +2177,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1876年成立；2003年启动AD研发；2024年多奈单抗获FDA批准成为第二款AD疾病修饰疗法；2026年AAIC展示pTau217血液检测和Aβ靶向治疗研究",
     "news": [
+      "2026年6月8日：多奈单抗（记能达）申报国家医保，北京药房报价6990元/支；FDA批准更新标签新给药方案；4月30日加拿大获批。来源：https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600143/YPSW202600143.pdf",
       "2026年9月：多奈单抗（记能达）北京药房报价6990元/支（20ml:350mg），2025年商保创新药目录纳入，有效期2026-2027年。来源：https://www.bjmxkn.com/mx2892.html",
       "2026年7月：ceperognastat II期PROSPECT-ALZ试验结果发表于JAMA，327例早期AD未达主要终点，高剂量认知恶化，礼来宣布停止AD开发。来源：https://pharmacally.com/ceperognastat-phase-2-prospect-alz-trial-alzheimers-jama/",
       "2026年4月30日：加拿大批准Kisunla（多奈单抗）。来源：https://dhpp.hpfb-dgpsa.ca/review-documents/resource/RDS1779283825657",
