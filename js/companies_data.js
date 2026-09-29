@@ -583,7 +583,7 @@ window.COMPANIES_DATA = [
     "name": "AC Immune",
     "country": "瑞士",
     "products": "暂无AD上市产品",
-    "pipeline": "ACI-24（Aβ疫苗，与罗氏/基因泰克合作，II期进行中）；ACI-35/JNJ-2056（抗pTau主动免疫疗法，与强生合作，Ib/IIa期完成，结果发表eBioMedicine）；ACI-7104（抗α-syn疫苗，PD）",
+    "pipeline": "ACI-24（Aβ疫苗，与罗氏/基因泰克合作，II期进行中）；ACI-35.030/JNJ-2056（抗pTau主动免疫疗法，与强生合作，IIb期ReTain试验NCT06544616约500例临床前AD进行中）；ACI-7104（抗α-syn疫苗，PD）",
     "website": "https://www.acimmune.com",
     "cat_order": 2,
     "name_cn": "",
@@ -608,6 +608,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年6月30日：ACI-24 ABATE II期前驱期AD 12个月数据公布，安全性和耐受性良好；启动AD4队列评估额外佐剂，触发Takeda 1200万美元里程碑。来源：https://ir.acimmune.com/node/12266/html",
       "2026年4月：ACI-35 Ib/IIa期结果发表于eBioMedicine。来源：https://ir.acimmune.com/node/11981/html",
       "2025年12月：ACI-24 II期中期结果公布。来源：https://ir.acimmune.com/node/12131/html"
     ]
@@ -750,6 +751,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年3月：AD/PD 2026展示BMS-986446数据，靶向tau MTBR区域R1-R3，阻止tau细胞间传播。来源：https://www.businesswire.com/news/home/20260321254343/en/Prothena-Partners-Present-Data-Supporting-Next-Generation-Treatments-for-Parkinsons-and-Alzheimers-Disease-at-ADPD-2026",
       "2026年7月：报告2026年第一季度财务结果，BMS-986446 II期TargetTau-1试验进行中。来源：https://ir.prothena.com/investors/press-releases/news-details/2026/Prothena-Reports-First-Quarter-2026-Financial-Results-and-Business-Highlights/default.aspx",
       "2025年1月：BMS-986446获FDA快速通道资格认定，II期研究完全入组。来源：https://ir.prothena.com/investors/press-releases/news-details/2025/Prothenas-Partner-Bristol-Myers-Squibb-Obtains-Fast-Track-Designation-from-the-U-S--FDA-for-BMS-986446-PRX005-an-Anti-MTBR-Tau-Targeting-Antibody-for-the-Treatment-of-Alzheimers-Disease/default.aspx"
     ]
@@ -990,6 +992,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年7月AAIC：mivelsiran I期早期-onset AD数据，无ARIA风险增加，CSF APP和Aβ显著持久降低；启动唐氏综合征AD II期APPlauDS研究。来源：https://alnylampharmaceuticalsinc.gcs-web.com/news-releases/news-release-details/alnylam-highlights-progress-neuroscience-programs-aaic-2026",
       "2026年7月：在AAIC 2026上宣布启动唐氏综合征相关AD的II期APPlauDS研究，约30个全球中心招募早期AD患者。来源：https://alnylampharmaceuticalsinc.gcs-web.com/news-releases/news-release-details/alnylam-highlights-progress-neuroscience-programs-aaic-2026",
       "2026年7月：报告2026年第二季度财务结果，Mivelsiran II期启动。来源：https://investors.alnylam.com/press-release?id=29986"
     ]
