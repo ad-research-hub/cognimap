@@ -83,7 +83,7 @@ window.COMPANIES_DATA = [
     "name": "Alzheon",
     "country": "美国",
     "products": "暂无AD上市产品",
-    "pipeline": "ALZ-801/valiltramiprosate（口服，每日两次，抑制可溶性神经毒性Aβ寡聚体形成，III期APOLLOE4研究（N=325，APOE ε4/ε4早期AD患者），2025年4月公布顶线结果，在MCI亚组显示临床疗效，显著降低血浆p-tau217，预防海马萎缩，FDA快速通道认定，2026年2月发表血浆生物标志物结果）",
+    "pipeline": "valiltramiprosate/ALZ-801（口服Aβ抗聚集药物，III期APOLLOE4试验未达主要终点，2026年2月公布血浆生物标志物结果验证作用机制，亚组分析显示认知功能和脑容量保护获益）",
     "website": "https://alzheon.com",
     "cat_order": 1,
     "name_cn": "",
@@ -108,7 +108,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026年9月8日：Alzheon宣布同行评审论文发表，显示口服valiltramiprosate/ALZ-801实现持续血浆生物标志物降低，与更好的认知、功能和脑萎缩结果相关。来源：https://alzheon.com/alzheon-announces-peer-reviewed-publication-showing-oral-valiltramiprosate-alz-801-achieves-sustained-plasma-biomarker-reductions-linked-to-better-cognitive-functional-and-brain-atrophy-outcomes-in/"
+      "2026年2月：公布III期和II期研究血浆生物标志物结果，验证首创作用机制，强调认知、功能和脑容量保护获益。来源：https://alzheon.com/category/news/",
+      "2026年7月：新鲜分析重塑Alzheon口服AD药物，亚组分析显示获益。来源：https://alzheon.com/fresh-analyses-reshape-alzheons-oral-alzheimers-drug/"
     ]
   },
   {
@@ -116,7 +117,7 @@ window.COMPANIES_DATA = [
     "name": "Alzinova",
     "country": "瑞典",
     "products": "暂无AD上市产品",
-    "pipeline": "ALZ-101（Aβ42寡聚体特异性治疗疫苗，Aβ42CC稳定寡聚体衍生物，诱导针对低丰度神经毒性Aβ寡聚体的抗体，Ib期完成，2025年12月试验结束，2026年发表结果，无ARIA，诱导免疫应答，准备全球II期研究）；ALZ-201（临床前，更特异性的寡聚体靶向免疫疗法）",
+    "pipeline": "ALZ-101（Aβ聚集抑制剂，治疗和诊断双途径，早期AD II期计划招募120例，首例预计2026/2027年初）",
     "website": "https://www.alzinova.com",
     "cat_order": 1,
     "name_cn": "",
@@ -137,7 +138,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026年9月21日：世界阿尔茨海默病日之际，Alzinova推进双线战略——启动治疗性疫苗ALZ-101全球II期试验，同时推进基于相同专利技术的血液诊断项目。来源：https://rss.globenewswire.com/news-release/2026/09/21/3365783/0/en/alzinova-advances-dual-approach-to-alzheimer-s-treatment-and-diagnosis-as-world-alzheimer-s-day-highlights-unmet-need.html"
+      "2026年9月21日：世界阿尔茨海默病日，Alzinova推进AD治疗和诊断双途径，ALZ-101 II期计划招募120例早期AD患者。来源：https://rss.globenewswire.com/news-release/2026/09/21/3365783/0/en/alzinova-advances-dual-approach-to-alzheimer-s-treatment-and-diagnosis-as-world-alzheimer-s-day-highlights-unmet-need.html"
     ]
   },
   {
@@ -1078,7 +1079,7 @@ window.COMPANIES_DATA = [
     "name": "Denali Therapeutics",
     "country": "美国",
     "products": "暂无AD上市产品；AVLAYAH（2025年FDA批准，Hunter综合征，首个BBB穿越酶替代疗法）",
-    "pipeline": "DNL921（ATV:Abeta，AD，IND-enabling阶段）；DNL593/TAK-594（PTV:PGRN，progranulin替代疗法，FTD-GRN，I/II期40例，2026年4月武田终止合作，Denali收回全部权益，数据预计2027年上半年）；TransportVehicle™平台（首个FDA批准的BBB穿越技术）",
+    "pipeline": "DNL628（OTV:MAPT，靶向tau的寡核苷酸转运载体，Ib期AD临床研究进行中，2026Q1首例给药）；DNL921（ATV:Abeta，靶向Aβ的抗体转运载体，I/Ib期进行中，数据预计2027年）；DNL593（PTV:PGRN，progranulin，FTD-GRN I/II期，2026年4月收回全部权益，数据预计2026年底）",
     "website": "https://www.denalitherapeutics.com",
     "cat_order": 3,
     "name_cn": "",
@@ -1099,7 +1100,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2027：DNL593 I/II期数据预计上半年读出"
+      "2026年8月：报告2026年第二季度财务结果，DNL628和DNL921两个AD项目进展。来源：https://investors.denalitherapeutics.com/news-releases/news-release-details/denali-therapeutics-reports-second-quarter-2026-financial",
+      "2026年7月：AAIC 2026开幕式全体会议演讲，介绍血脑屏障递送技术突破。来源：https://investors.denalitherapeutics.com/news-releases/news-release-details/denali-therapeutics-give-opening-plenary-address-alzheimers",
+      "2026年4月：收回DNL593（PTV:PGRN）全部权益，FTD-GRN I/II期数据预计2026年底。来源：https://investors.denalitherapeutics.com/node/11631/html"
     ]
   },
   {
