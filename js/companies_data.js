@@ -582,7 +582,7 @@ window.COMPANIES_DATA = [
     "name": "AC Immune",
     "country": "瑞士",
     "products": "暂无AD上市产品",
-    "pipeline": "ACI-24.060（脂质体Aβ主动免疫疫苗，与武田合作，II期ABATE NCT05462106，前驱期AD+唐氏综合征队列，2026年6月公布12个月中期数据；武田首付1亿美元+最高21亿美元）；ACI16664（Tau Morphomer小分子，与礼来合作）；ACI-7104（抗α-synuclein疫苗，PD II期）",
+    "pipeline": "ACI-24（Aβ疫苗，与罗氏/基因泰克合作，II期进行中）；ACI-35/JNJ-2056（抗pTau主动免疫疗法，与强生合作，Ib/IIa期完成，结果发表eBioMedicine）；ACI-7104（抗α-syn疫苗，PD）",
     "website": "https://www.acimmune.com",
     "cat_order": 2,
     "name_cn": "",
@@ -607,9 +607,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026-04：启动ACI-24 ABATE试验最终队列AD4，获Takeda 1200万美元里程碑付款",
-      "2026-06：公布ACI-24 ABATE试验前3个队列12个月中期数据",
-      "2026-08：2026上半年财报：管线持续推进，H2预计更多临床结果"
+      "2026年4月：ACI-35 Ib/IIa期结果发表于eBioMedicine。来源：https://ir.acimmune.com/node/11981/html",
+      "2025年12月：ACI-24 II期中期结果公布。来源：https://ir.acimmune.com/node/12131/html"
     ]
   },
   {
@@ -2740,7 +2739,7 @@ window.COMPANIES_DATA = [
     "name": "Anavex Life Sciences（Nasdaq: AVXL）",
     "country": "加拿大",
     "products": "暂无AD上市产品",
-    "pipeline": "blarcamesine/ANAVEX2-73（SIGMAR1激动剂，口服；2026年3月撤回欧盟上市申请，2026年3月底向FDA提交早期AD的IND申请，美国开展两项基础临床药理学研究）",
+    "pipeline": "blarcamesine/ANAVEX2-73（SIGMAR1激动剂，2026年3月撤回欧盟上市申请，同月向FDA提交早期AD IND，启动ADME和药物相互作用研究）",
     "website": "https://www.anavex.com",
     "cat_order": 7,
     "name_cn": "",
@@ -2765,8 +2764,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026年3月25日：撤回blarcamesine在欧盟的上市许可申请（EMA曾在2025年12月建议拒绝）。来源：https://www.ema.europa.eu/en/medicines/human/EPAR/blarcamesine-anavex",
-      "2026年3月底：向FDA提交早期AD的IND申请，开展两项基础临床药理学研究。来源：https://anavex.com/news/anavex-life-sciences-reports-preliminary-second-quarter-2026-financial-results-and-provides-business-update/"
+      "2026年3月25日：撤回欧盟上市申请（EMA 2025年12月建议拒绝，复审完成前撤回）。来源：https://www.ema.europa.eu/en/documents/medicine-qa/questions-answers-withdrawal-application-marketing-authorisation-blarcamesine-anavex-blarcamesine_en.pdf",
+      "2026年3月：向FDA提交早期AD IND申请，启动两项临床药理学研究。来源：https://anavex.com/news/anavex-life-sciences-reports-preliminary-second-quarter-2026-financial-results-and-provides-business-update/"
     ]
   },
   {
@@ -2774,7 +2773,7 @@ window.COMPANIES_DATA = [
     "name": "Annovis Bio（Nasdaq: ANVS）",
     "country": "美国",
     "products": "暂无AD上市产品",
-    "pipeline": "buntanetap/posiphen（口服多神经毒性蛋白翻译抑制剂，抑制APP/Aβ、tau、α-synuclein、TDP-43翻译；III期AD试验2026年7月完成入组850例，6个月症状数据预计2026年下半年读出，NDA预计2027年初提交）",
+    "pipeline": "buntanetap（口服药物，抑制APP和tau翻译，III期AD试验850例已完成入组，6个月症状数据预计2027Q1读出，18个月疾病修饰数据预计2028Q1读出，NDA预计2027年初提交）",
     "website": "https://www.annovisbio.com",
     "cat_order": 7,
     "name_cn": "",
@@ -2799,9 +2798,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026年9月23日：宣布与Weave Bio（AI监管平台）合作，准备buntanetap治疗AD的NDA。来源：https://www.annovisbio.com/press-release-detail?i=170212",
-      "2026年7月：buntanetap治疗早期AD的关键性III期试验完成入组，850例患者（超过原目标760例），患者为pTau217阳性早期AD。来源：https://www.annovisbio.com/press-release/annovis-reaches-full-enrollment-in-pivotal-phase-3-trial-of-buntanetap-for-early-alzheimers-disease",
-      "2026年8月：报告2026年第二季度财务结果，III期试验完全入组。来源：https://www.annovisbio.com/press-release/annovis-provides-corporate-updates-and-second-quarter-2026-financial-results"
+      "2026年9月23日：与Weave Bio（AI监管平台）合作，准备buntanetap的NDA提交。来源：https://www.annovisbio.com/press-release-detail?i=170212",
+      "2026年8月：II期季度报告，III期AD试验850例已完成入组，超过原计划760例。来源：https://www.annovisbio.com/press-release/annovis-provides-corporate-updates-and-second-quarter-2026-financial-results",
+      "2026年7月：宣布III期AD试验完成入组，早期AD患者pTau217阳性，主要终点ADAS-Cog13和ADCS-iADL。来源：https://www.annovisbio.com/press-release/annovis-reaches-full-enrollment-in-pivotal-phase-3-trial-of-buntanetap-for-early-alzheimers-disease"
     ]
   },
   {
