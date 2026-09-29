@@ -363,6 +363,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1941年成立；2007年与BioArctic签订lecanemab授权协议；2014年与渤健签订lecanemab联合开发商业化协议；2023年lecanemab获FDA完全批准成为全球首个证实可减缓AD认知功能下降的药物；2026年AAIC发表逾50项AD研究报告",
     "news": [
+      "2026年9月3日：仑卡奈单抗皮下自动注射笔获中国NMPA批准(全球第二个、亚洲首个，预计12月底前中国上市)；8月纳入辽惠保、9月纳入海南乐城特药险；FY2026 Q1全球收入293亿日元。来源：https://www.eisai.com.cn/2026/09/03/",
       "2026年9月：仑卡奈单抗纳入海南\"乐城特药险\"B款升级版；9月3日皮下自动注射笔获中国NMPA批准（全球第二、亚洲首个），预计12月底前中国上市。来源：https://www.eisai.com.cn/category/news-zh/",
       "2026年9月3日：仑卡奈单抗皮下自动注射笔获中国NMPA批准，全球第二个、亚洲首个，预计12月底前中国上市，首个可居家使用AD药物。来源：https://www.eisai.com.cn/2026/09/03/%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%88%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%B0%84%E5%89%82%E5%9E%8B%E5%9C%A8%E4%B8%AD%E5%9B%BD/",
       "2026年9月3日：乐意保（仑卡奈单抗）皮下自动注射剂型在中国获批，用于早期AD初始治疗，预计12月底前中国上市。来源：https://www.eisai.com.cn/2026/09/03/%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%88%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%B0%84%E5%89%82%E5%9E%8B%E5%9C%A8%E4%B8%AD%E5%9B%BD/",
@@ -2181,6 +2182,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1876年成立；2003年启动AD研发；2024年多奈单抗获FDA批准成为第二款AD疾病修饰疗法；2026年AAIC展示pTau217血液检测和Aβ靶向治疗研究",
     "news": [
+      "2026年9月17日：加拿大药品局建议多奈单抗公共报销；4月30日加拿大获批；6月8日申报中国医保(记能达)；ceperognastat II期失败已停止AD开发。来源：https://www.pharmasist.ca/news/cda-amc-donanemab-reimbursement-recommendation-2026",
       "2026年6月8日：多奈单抗（记能达）申报国家医保，北京药房报价6990元/支；FDA批准更新标签新给药方案；4月30日加拿大获批。来源：https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600143/YPSW202600143.pdf",
       "2026年9月：多奈单抗（记能达）北京药房报价6990元/支（20ml:350mg），2025年商保创新药目录纳入，有效期2026-2027年。来源：https://www.bjmxkn.com/mx2892.html",
       "2026年7月：ceperognastat II期PROSPECT-ALZ试验结果发表于JAMA，327例早期AD未达主要终点，高剂量认知恶化，礼来宣布停止AD开发。来源：https://pharmacally.com/ceperognastat-phase-2-prospect-alz-trial-alzheimers-jama/",
