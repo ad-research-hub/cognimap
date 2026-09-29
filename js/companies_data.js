@@ -6990,27 +6990,21 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "二十二、数字疗法/健康管理",
+    "category": "数字疗法",
     "name": "MemoryCareAI",
+    "name_cn": "MemoryCareAI（现名Scienza Health）",
+    "name_en": "MemoryCareAI Inc. (now Scienza Health)",
     "country": "美国",
-    "products": "AI认知健康平台（智能头像Rachel，神经心理评估，语音/面部/眼球生物标志物分析）",
-    "pipeline": "AI驱动的NeuroTech SaaS平台，2024年成立；智能头像\"Rachel\"进行神经心理评估，分析语音、面部表情、眼球运动；30种语音和面部生物标志物分析；200万+患者记录纵向数据集；专利临床验证语音生物标志物技术用于MCI、AD、PD、抑郁、焦虑、PTSD早期检测；HIPAA和GDPR合规；11-50员工；2025年3月更名为Scienza Health",
-    "website": "",
-    "cat_order": 22,
-    "name_cn": "",
-    "name_en": "MemoryCareAI (now Scienza Health)",
     "location": "美国",
-    "history": [
-      {
-        "date": "2024",
-        "event": "MemoryCareAI成立"
-      },
-      {
-        "date": "2025-03",
-        "event": "更名为Scienza Health"
-      }
-    ],
-    "news": []
+    "website": "https://www.dementia-ai.com",
+    "products": "Scienza: AI Co-Clinician（App Store已上线）；AI驱动的认知健康平台，结合语音生物标志物、200万+患者记录数据集和情感智能数字人",
+    "pipeline": "阿尔茨海默病、相关痴呆和帕金森病的早期检测、个性化护理和持续管理",
+    "cat_order": 5,
+    "history": "原名MemoryCareAI，后更名为Scienza Health； pioneering the future of cognitive health",
+    "news": [
+      "MemoryCareAI更名为Scienza Health，推出Scienza: AI Co-Clinician应用。来源：https://www.healthtechalpha.com/venture/scienza-health/product",
+      "App Store上线Scienza: AI Co-Clinician应用。来源：https://apps.apple.com/cn/developer/memorycareai-inc/id1788498373"
+    ]
   },
   {
     "category": "二十二、数字疗法/健康管理",
@@ -7866,21 +7860,10 @@ window.COMPANIES_DATA = [
     "name_cn": "",
     "name_en": "Elan Corporation plc (已被收购)",
     "location": "爱尔兰都柏林",
-    "history": [
-      {
-        "date": "1969",
-        "event": "Elan Corporation成立"
-      },
-      {
-        "date": "2009",
-        "event": "AD免疫治疗项目（含bapineuzumab）被Janssen收购"
-      },
-      {
-        "date": "2013",
-        "event": "Elan被Perrigo收购，公司解体"
-      }
-    ],
-    "news": []
+    "history": "Elan Corporation曾是爱尔兰制药公司，2013年被Perrigo收购解体；其AD相关资产已被分割转让",
+    "news": [
+      "2013年被Perrigo收购，公司解体，AD相关资产已分割转让"
+    ]
   },
   {
     "category": "三十、其他检测相关——历史参考企业",
