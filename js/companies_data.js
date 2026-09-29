@@ -4078,27 +4078,21 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十一、检测诊断——IVD大厂（血液/CSF试剂）",
-    "name": "JYAMS PET Research & Development Limited",
-    "country": "（待确认）",
-    "products": "18F-FDG等PET显像剂；18F-LNC1001（Tau PET显像剂）",
-    "pipeline": "2006年成立，PET放射性药物研发公司，47项专利；东诚生化全资子公司；2022年4月将18F-LNC1001（Tau PET显像剂）专利转让给烟台蓝纳成生物；主要做肿瘤PET显像剂，18F-LNC1001为AD Tau PET显像剂",
-    "website": "",
-    "cat_order": 11,
+    "category": "医疗器械",
+    "name": "东诚安迪科",
     "name_cn": "南京江原安迪科正电子研究发展有限公司",
-    "name_en": "JYAMS PET Research & Development Ltd.",
-    "location": "中国江苏南京",
-    "history": [
-      {
-        "date": "2006",
-        "event": "JYAMS PET Research & Development Ltd.成立"
-      },
-      {
-        "date": "2022-04",
-        "event": "将18F-LNC1001（Tau PET显像剂）专利转让给烟台蓝纳成生物"
-      }
-    ],
-    "news": []
+    "name_en": "Nanjing Jiangyuan Andike Positron Research & Development Co., Ltd.",
+    "country": "中国",
+    "location": "江苏南京",
+    "website": "http://www.pet-tracer.com.cn",
+    "products": "18F-FDG注射液；氟[18F]贝他吡注射液（florbetapir，Aβ PET显像剂）；氟[18F]妥西吡注射液（Flortaucipir，tau PET显像剂）；高锝[99mTc]酸钠注射液；碘[131I]化钠；氯化锶[89SrCl2]；覆盖全国近30个放射性药品生产配送中心，覆盖93.5%人口核医学需求",
+    "pipeline": "氟[18F]妥西吡注射液（Flortaucipir）2026年3月在中国开展药代动力学和辐射剂量学临床试验（CTR20261218）",
+    "cat_order": 3,
+    "history": "2006年成立；2018年被东诚药业（SZ002675）收购成为全资子公司；国内放射性药物生产配送网络化布局领先企业",
+    "news": [
+      "2026年3月：氟[18F]妥西吡注射液（Flortaucipir）在中国开展临床试验，用于AD患者tau NFT密度和分布PET成像。来源：https://data.pharnexcloud.com/1/table/39",
+      "2018年：被东诚药业收购，成为东诚安迪科品牌。来源：https://www.dcb-group.com/zgs/html/319.html"
+    ]
   },
   {
     "category": "十一、检测诊断——IVD大厂（血液/CSF试剂）",
@@ -5842,11 +5836,9 @@ window.COMPANIES_DATA = [
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
     "name": "新健康成",
     "country": "化学发光",
-    "products": "全自动生化分析仪、生化检测试剂、POCT、校准品、质控品、清洗液等200多个产品",
-    "pipeline": "布局电化学、阿尔兹海默症、居家检测等新领域；2025年12月参加IVD产业供需研讨会发布AD领域布局",
-    "website": [
-      "http://www.xinchengbio.com"
-    ],
+    "products": "生化诊断试剂（肝功能、肾功能、糖代谢、血脂、心血管等）；POCT免疫层析类（心肌标志物、感染标志物等）；800速及2000速全自动生化分析仪；全血质控品（非人血源配方专利）",
+    "pipeline": "辅助诊断阿尔兹海默病的试剂盒（发明专利CN202411907805.4，2024年申请）",
+    "website": "http://www.xinchengbio.com",
     "cat_order": 17,
     "name_cn": "四川新健康成生物股份有限公司",
     "name_en": "Sichuan Xinchengbio Co., Ltd.",
@@ -5863,7 +5855,9 @@ window.COMPANIES_DATA = [
         }
       ]
     ],
-    "news": []
+    "news": [
+      "2024年12月：申请'辅助诊断阿尔兹海默病的试剂盒及其制备方法和应用'发明专利（CN119335197A）。来源：https://shuidi.cn/company-8927ed38741339558ae90f1675ec381b.html"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -5885,23 +5879,21 @@ window.COMPANIES_DATA = [
     "news": ""
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "格物致和",
-    "country": "单分子免疫",
-    "products": "p-tau217、p-tau181血液单检试剂盒（NMPA注册）",
-    "pipeline": "与宝太生物联合研发Inspirer HT单分子免疫检测技术（飞克级蛋白标志物检测，超灵敏全自动高通量，2026年3月厦门海沧发布）",
-    "website": "",
-    "cat_order": 17,
-    "name_cn": "格物致和",
-    "name_en": "Gewu Zhihe (Xiamen) Biotechnology",
-    "location": "中国厦门",
-    "history": [
-      {
-        "date": "2026-03",
-        "event": "与宝太生物联合发布Inspirer HT单分子免疫检测技术"
-      }
-    ],
-    "news": []
+    "name_cn": "格物致和生物科技（北京）有限公司",
+    "name_en": "Iomics Bio (Beijing) Co., Ltd.",
+    "country": "中国",
+    "location": "北京顺义",
+    "website": "https://www.iomicsbio.com",
+    "products": "基于数字免疫芯片法的单分子免疫检测面板，覆盖AD ATN经典靶标：Aβ42/Aβ40、p-tau181、p-tau217（国内首证，2025年2月）、p-tau231（2025年3月获证）、GFAP、NfL；全自动生物芯片阅读仪Inspirer HT（川械注准20262220058，2026年5月获批）",
+    "pipeline": "血浆p-tau217检测达到双90%标准（灵敏度/特异性均>90%），经多中心临床验证；宝太生物战略投资企业",
+    "cat_order": 2,
+    "history": "总部北京，顺义区设有检测仪器、微流控芯片和生物试剂三大模块研发中心；自主研发高分辨成像系统、微流控芯片和AI图像识别技术",
+    "news": [
+      "2025年2月：p-Tau217单分子检测获国内首证。来源：https://www.iomicsbio.com/news/list/",
+      "2026年5月：全自动生物芯片阅读仪Inspirer HT获NMPA注册证（川械注准20262220058）。来源：http://www.biotime.cn/"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -5954,27 +5946,20 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "纽康度",
-    "country": "免疫层析",
-    "products": "S100-β/NSE/GFAP/UCH-L1/IL-6/P-tau联合检测试剂盒（免疫荧光层析法，湘械注准20232...）",
-    "pipeline": "2021年6月成立，法定代表人朱辉；专注生物制品和三类医疗器械研发；拥有\"一种用于创伤性脑损伤检测的生物标记物及其应用\"专利；六联检试剂盒含P-tau（AD相关标志物）",
-    "website": "",
-    "cat_order": 17,
     "name_cn": "长沙纽康度生物科技有限公司",
-    "name_en": "Changsha Niukangdu Biotechnology Co., Ltd.",
-    "location": "中国湖南长沙开福区",
-    "history": [
-      {
-        "date": "2021-06",
-        "event": "长沙纽康度生物科技有限公司成立"
-      },
-      {
-        "date": "2023",
-        "event": "S100-β/NSE/GFAP/UCH-L1/IL-6/P-tau六联检试剂盒获批"
-      }
-    ],
-    "news": []
+    "name_en": "Hunan Qankorey Biotechnology Co., Ltd.",
+    "country": "中国",
+    "location": "湖南长沙",
+    "website": "http://www.shixinmiaomu.com/index1.html",
+    "products": "全球首个尿液β淀粉样蛋白检测试剂盒；Aβ单克隆抗体（核心原料自主供应）；依立山（中药AD干预制剂，预计2026年上半年上市）",
+    "pipeline": "AD早期筛查干化学产品；长沙和墨尔本双研发中心",
+    "cat_order": 2,
+    "history": "专注AD全产业链服务的生物技术企业，提供预防、筛查、诊断、治疗综合解决方案",
+    "news": [
+      "2025年8月：尿液β淀粉样蛋白检测试剂盒引发广泛关注，可实现无症状期AD快速筛查。来源：https://hnrb.hunantoday.cn/hnrb_epaper/html/2025-08/11/content_1749223.htm"
+    ]
   },
   {
     "category": "检测诊断",
@@ -6144,35 +6129,21 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "赛基生物",
-    "country": "微球流式",
-    "products": "阿尔茨海默病外周血生物标志物联合检测试剂盒（流式荧光发光法，Aβ1-42/Aβ1-40/T-Tau/p-Tau-181/α-synuclein五联检，2023年NMPA获批）",
-    "pipeline": "全球首款AD血液标志物联合检测试剂盒；血浆P-tau181 AUC达0.904，P-tau181/Aβ42比值诊断性能>95%；临床检测符合度>90%；多色抗体冻干技术；2025年亮相德国MEDICA布局海外；与张楠教授团队合作",
-    "website": [
-      "https://cell-genebio.com"
-    ],
-    "cat_order": 17,
     "name_cn": "杭州赛基生物科技股份有限公司",
     "name_en": "Hangzhou Cell-Gene Biotechnology Co., Ltd.",
-    "location": "中国杭州",
-    "history": [
-      [
-        {
-          "date": "2015",
-          "event": "杭州赛基生物成立"
-        },
-        {
-          "date": "2023",
-          "event": "AD外周血联合检测试剂盒获NMPA认证（国内最早流式荧光法AD试剂盒）"
-        },
-        {
-          "date": "2025",
-          "event": "亮相德国MEDICA，布局海外市场"
-        }
-      ]
-    ],
-    "news": []
+    "country": "中国",
+    "location": "浙江杭州",
+    "website": "https://cell-genebio.com",
+    "products": "基于流式荧光技术（CBA）的AD血液标志物检测试剂盒（血浆P-tau181区分AD与对照AUC达0.904，P-tau181/Aβ42比值准确率96.2%，与Simoa平台诊断一致性88.3%）；多指标细胞因子联合检测试剂盒；PD-1试剂盒；肿瘤伴随诊断因子；200多种流式检测配套试剂",
+    "pipeline": "AD外周血生物标志物联合检测面板；流式荧光技术平台持续优化",
+    "cat_order": 2,
+    "history": "2016年成立，专注新型流式细胞免疫平台；国内首家多指标细胞因子联合检测试剂盒；2023年获批'新型诊断技术与免疫治疗浙江省工程研究中心'",
+    "news": [
+      "2026年6月：发表研究证实流式荧光AD血检试剂盒性能对标Simoa，血浆P-tau181 AUC=0.904。来源：https://cell-genebio.com/article/5740399062210179",
+      "2025年：助力中国脑健康行动-阿尔茨海默病社区筛查。来源：https://cell-genebio.com/article/5490932678333074"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -8510,6 +8481,23 @@ window.COMPANIES_DATA = [
     "news": [
       "2026年9月2日：基于Simoa®单分子免疫技术平台的p-Tau 217、p-Tau 181、NfL检测试剂盒获NMPA批准。来源：https://www.innovita.com.cn/Investor_Relations_details/c-%E9%BB%88%E8%AE%A4%E5%8F%82%E6%95%B0=2082375107847593984.html",
       "2025年3月：与Quanterix战略签约，引入Simoa单分子免疫技术平台。来源：https://www.innovita.com.cn/news_details/c-_detailId=1904722623169900544.html"
+    ]
+  },
+  {
+    "category": "检测诊断",
+    "name": "安诺优达",
+    "name_cn": "安诺优达基因科技（北京）股份有限公司",
+    "name_en": "Annoroad Gene Technology Co., Ltd.",
+    "country": "中国",
+    "location": "北京",
+    "website": "https://www.annoroad.com",
+    "products": "β淀粉样蛋白1-42测定试剂盒（磁微粒荧光发光法，京械注准20252400942，2025年11月获批）；磷酸化tau-181蛋白测定试剂盒（磁微粒荧光发光法，京械注准20252400969，2025年12月获批）；NextSeq 550AR基因测序仪（国械注准20173220330）；NIPT等基因检测服务",
+    "pipeline": "AD血液标志物检测面板（Aβ1-42+pTau181）；2026年4月向港交所提交上市申请",
+    "cat_order": 2,
+    "history": "2012年成立，专注基因科技和创新；2017年NextSeq 550AR基因测序仪获NMPA批准；2025年连续获批两个AD血液检测试剂盒",
+    "news": [
+      "2025年11月26日：β淀粉样蛋白1-42测定试剂盒获北京市药监局批准（京械注准20252400942）。来源：https://www.annoroad.com/news/company/12463.html",
+      "2025年12月5日：磷酸化tau-181蛋白测定试剂盒获北京市药监局批准（京械注准20252400969）。来源：https://www.annoroad.com/news/company/12472.html"
     ]
   }
 ];
