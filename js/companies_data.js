@@ -119,7 +119,9 @@ window.COMPANIES_DATA = [
         "event": "ALZ-801血浆生物标志物结果发表"
       }
     ],
-    "news": []
+    "news": [
+      "2026年9月8日：Alzheon宣布同行评审论文发表，显示口服valiltramiprosate/ALZ-801实现持续血浆生物标志物降低，与更好的认知、功能和脑萎缩结果相关。来源：https://alzheon.com/alzheon-announces-peer-reviewed-publication-showing-oral-valiltramiprosate-alz-801-achieves-sustained-plasma-biomarker-reductions-linked-to-better-cognitive-functional-and-brain-atrophy-outcomes-in/"
+    ]
   },
   {
     "category": "一、治疗药物——抗Aβ靶向（创新药）",
@@ -146,7 +148,9 @@ window.COMPANIES_DATA = [
         "event": "ALZ-101 Ib期结果发表，准备全球II期研究"
       }
     ],
-    "news": []
+    "news": [
+      "2026年9月21日：世界阿尔茨海默病日之际，Alzinova推进双线战略——启动治疗性疫苗ALZ-101全球II期试验，同时推进基于相同专利技术的血液诊断项目。来源：https://rss.globenewswire.com/news-release/2026/09/21/3365783/0/en/alzinova-advances-dual-approach-to-alzheimer-s-treatment-and-diagnosis-as-world-alzheimer-s-day-highlights-unmet-need.html"
+    ]
   },
   {
     "category": "一、治疗药物——抗Aβ靶向（创新药）",
@@ -242,6 +246,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月22日：Leqembi在瑞典私人诊所可用，首位患者开始治疗，这是自2025年4月欧盟获批以来瑞典首位在临床试验外接受治疗的患者。来源：https://synapse.patsnap.com/organization/635303cd2a1bda78327edc826d223bf2",
       {
         "date": "2026-04",
         "event": "Leqembi年销售额超5亿欧元，获2000万欧元里程碑付款"
@@ -407,6 +412,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
       {
         "date": "2026-07",
@@ -591,6 +598,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       {
         "date": "2026-05",
         "event": "Elecsys pTau217血液检测获得CE标志，与礼来合作开发"
@@ -639,6 +649,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
       {
         "date": "2025-09",
@@ -684,6 +697,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
       {
         "date": "2026-08",
         "event": "trontinemab III期TRONTIER 1/2推进中"
@@ -903,7 +917,9 @@ window.COMPANIES_DATA = [
         "event": "Elecsys pTau217获FDA批准，首个单生物标志物AD血液检测"
       }
     ],
-    "news": []
+    "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083"
+    ]
   },
   {
     "category": "二、治疗药物——抗tau靶向",
@@ -1472,6 +1488,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       {
         "date": "2026-08",
         "event": "加拿大CDA-AMC发布lecanemab报销最终正面建议"
@@ -1832,7 +1850,9 @@ window.COMPANIES_DATA = [
         "event": "remlifanserin获FDA快速通道认定，RADIANT项目III期启动"
       }
     ],
-    "news": []
+    "news": [
+      "2026年9月24日：remlifanserin治疗阿尔茨海默病精神病的II期试验未达到主要终点，股价下跌约11%。公司继续推进两项III期研究，移除30mg剂量组，仍预计峰值销售潜力约40亿美元。来源：https://www.bnnbloomberg.ca/business/company-news/2026/09/24/acadias-alzheimers-psychosis-drug-misses-main-goal-of-mid-stage-study/"
+    ]
   },
   {
     "category": "四、治疗药物——神经递质/对症治疗（创新药）",
@@ -1955,6 +1975,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年6月：AUVELITY正式推出用于治疗阿尔茨海默病相关激越症状，上市后前八周65岁以上人群品牌新处方量较上一季度同期增长126%。来源：https://stcn.com/article/detail/4170137.html",
       {
         "date": "2026-08",
         "event": "Auvelity AD激越适应症正式上市推广"
@@ -2399,6 +2420,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
       {
         "date": "2026",
         "event": "remternetug III期数据预计年底读出"
@@ -2497,6 +2519,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
       {
         "date": "2025-11",
         "event": "EVOKE/EVOKE+ 3期试验：口服semaglutide未能显著减缓AD进展，项目终止"
@@ -2764,6 +2787,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
       {
         "date": "2026-08",
@@ -3821,6 +3847,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
       {
         "date": "2026-08",
@@ -4497,6 +4525,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
       {
         "date": "2026-08",
         "event": "trontinemab III期TRONTIER 1/2推进中"
@@ -4777,7 +4806,9 @@ window.COMPANIES_DATA = [
         "event": "PrecivityAD2获FDA批准用于40岁及以上成人AD辅助诊断"
       }
     ],
-    "news": []
+    "news": [
+      "2026年9月：PrecivityAD2血液检测获FDA批准，适用于40岁及以上成人，是首个获批用于如此年轻年龄段的AD血液检测。来源：https://www.ajmc.com/view/fda-clears-first-alzheimer-blood-test-for-adults-as-young-as-40"
+    ]
   },
   {
     "category": "十二、检测诊断——专业血液/CSF生物标志物公司",
@@ -4977,6 +5008,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
       {
         "date": "2026-08",
@@ -5648,6 +5682,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
       {
         "date": "2026",
         "event": "remternetug III期数据预计年底读出"
@@ -6007,7 +6042,9 @@ window.COMPANIES_DATA = [
         "event": "磷酸化tau-217蛋白检测试剂盒获批（磁微粒免疫荧光法）"
       }
     ],
-    "news": []
+    "news": [
+      "2026年：β淀粉样蛋白1-42（Aβ1-42）检测试剂盒（磁微粒免疫荧光法）获NMPA二类注册证（粤械注准）。来源：https://www.vbdata.cn/companyDetail/ac1372f27d09f2004174a472264a4e4a"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -8102,6 +8139,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       {
         "date": "2026-08",
         "event": "trontinemab III期TRONTIER 1/2推进中"
@@ -8287,7 +8327,9 @@ window.COMPANIES_DATA = [
         "event": "PrecivityAD2获FDA批准用于40岁及以上成人AD辅助诊断"
       }
     ],
-    "news": []
+    "news": [
+      "2026年9月：PrecivityAD2血液检测获FDA批准，适用于40岁及以上成人，是首个获批用于如此年轻年龄段的AD血液检测。来源：https://www.ajmc.com/view/fda-clears-first-alzheimer-blood-test-for-adults-as-young-as-40"
+    ]
   },
   {
     "category": "二十九、检测诊断——质谱/蛋白组学",
@@ -8430,6 +8472,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
       {
         "date": "2026-08",
         "event": "trontinemab III期TRONTIER 1/2推进中"
@@ -8877,5 +8920,21 @@ window.COMPANIES_DATA = [
       }
     ],
     "cat_order": 28
+  },
+  {
+    "category": "诊断试剂",
+    "name": "英诺特",
+    "name_cn": "北京英诺特生物技术股份有限公司",
+    "name_en": "Innovita Biological Technology Co., Ltd.",
+    "country": "中国",
+    "location": "北京",
+    "website": "https://www.innovita.com.cn/",
+    "products": "基于Simoa单分子免疫技术平台的AD体外诊断产品",
+    "pipeline": "p-Tau217、p-Tau181、NfL测定试剂盒",
+    "cat_order": 5,
+    "history": "2026年9月2日，基于Simoa单分子免疫技术平台开发的磷酸化Tau217蛋白（p-Tau217）、磷酸化Tau181蛋白（p-Tau181）、神经丝轻链蛋白（NfL）测定试剂盒获NMPA二类注册证（京械注准）。",
+    "news": [
+      "2026年9月2日：基于Simoa单分子免疫技术平台开发的p-Tau217、p-Tau181、NfL测定试剂盒获国家药监局（NMPA）二类注册证。来源：https://www.innovita.com.cn/Investor_Relations_details/c-%E9%BB%84%E8%AE%A4%E5%8F%82%E6%95%B0=2082375107847593984.html"
+    ]
   }
 ];
