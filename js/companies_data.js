@@ -5728,16 +5728,14 @@ window.COMPANIES_DATA = [
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
     "name": "常津生物",
-    "country": "酶联免疫",
-    "products": "人β淀粉样蛋白1-42（Aβ1-42）检测试剂盒（酶联免疫法）；可溶性生长刺激表达基因2蛋白（sST2）检测试剂盒（酶联免疫法，湘械注准20222400251）",
-    "pipeline": "高新技术企业、科技型中小企业、创新型中小企业；主要从事第二类、第三类医疗器械生产；Aβ1-42检测试剂盒（ELISA法）用于AD辅助诊断；生产基地位于津市市高新技术产业开发区",
-    "website": [
-      ""
-    ],
+    "country": "中国",
+    "products": "纳米生物材料和技术产品",
+    "pipeline": "针对阿尔茨海默病的纳米药物研发（与天津大学常津教授团队合作，包括女性特异性纳米药物、铁死亡抗AD智能纳米药物、抗氧化多靶点纳米药物等）",
+    "website": "https://www.qcc.com/creport/1fc3ed8d322da18e150d9ee77d025625.html",
     "cat_order": 17,
     "name_cn": "湖南常津生物科技有限公司",
     "name_en": "Hunan Changjin Biotechnology Co., Ltd.",
-    "location": "中国湖南长沙开福区",
+    "location": "湖南常德",
     "history": [
       [
         {
@@ -5750,7 +5748,12 @@ window.COMPANIES_DATA = [
         }
       ]
     ],
-    "news": []
+    "news": [
+      "湖南常津生物科技有限公司成立于2020年9月15日，法定代表人李茜，注册资本200万元，高新技术企业。来源：https://www.qcc.com/creport/1fc3ed8d322da18e150d9ee77d025625.html",
+      "天津大学常津教授团队研发针对女性阿尔茨海默症患者的特异性纳米药物，成果发表于《今日纳米》。来源：https://news.tju.edu.cn/info/1005/315819.htm",
+      "天津大学常津教授团队研发针对铁死亡抗阿尔兹海默症智能纳米药物。来源：https://news.tju.edu.cn/info/1012/341879.htm",
+      "天津大学常津教授团队研发可高效穿过血脑屏障的抗氧化多靶点纳米药物，成果发表于The Innovation。来源：https://news.sciencenet.cn/htmlpaper/2021/10/202110152118932467177.shtm"
+    ]
   },
   {
     "category": "检测诊断",
@@ -5825,21 +5828,23 @@ window.COMPANIES_DATA = [
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
     "name": "栅极芯致",
-    "country": "单分子免疫",
-    "products": "",
-    "pipeline": "（公开资料有限，待补充）",
-    "website": "",
+    "country": "中国",
+    "products": "超灵敏蛋白组学平台技术；生物传感和IVD微流控技术产品",
+    "pipeline": "蛋白标志物筛选发现和临床应用产品开发（超灵敏蛋白组学平台，核心团队涵盖半导体、微流控、试剂开发及AI算法等背景）",
+    "website": "https://www.pharnexcloud.com/trz/trz_61f3331dcad14cf656941191404cd431",
     "cat_order": 17,
     "name_cn": "栅极芯致",
-    "name_en": "",
-    "location": "单分子免疫",
+    "name_en": "Shenzhen Graphene Core Bio-Technology Co., Ltd.",
+    "location": "广东深圳",
     "history": [
       {
         "date": "",
         "event": "公开资料有限，待补充"
       }
     ],
-    "news": ""
+    "news": [
+      "深圳栅极芯致生物科技有限公司是超灵敏蛋白组学平台技术开发商，在生物传感和IVD微流控技术方面有多年技术积累，在蛋白标志物的筛选发现和临床应用方面有丰富的产品开发经验。来源：https://www.pharnexcloud.com/trz/trz_61f3331dcad14cf656941191404cd431"
+    ]
   },
   {
     "category": "检测诊断",
