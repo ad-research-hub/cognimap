@@ -2943,6 +2943,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月22日：simufilam清除FDA临床暂停，推进TSC相关癫痫II期；公司已更名为Filana Therapeutics(FLNA)，退出AD领域(两项III期失败)。来源：https://cassavasciencesinc.gcs-web.com/news-releases/news-release-details/filana-therapeutics-announces-fda-lift-clinical-hold-simufilam",
       "2026年9月22日：FDA解除simufilam临床暂停，推进TSC相关癫痫II期；公司已更名Filana Therapeutics(FLNA)，退出AD领域。来源：http://archive.fast-edgar.com/20260922/A222B22CZ22EN2ZU222R2CE5W3QSGZ22Z282/exh_991.htm",
       "2026年9月：simufilam清除FDA临床暂停，推进TSC相关癫痫II期试验。来源：https://www.neurologylive.com/view/simufilam-clears-fda-hold-advances-phase-2-trial-tuberous-sclerosis-complex",
       "2025年3月：宣布退出AD领域，simufilam两项III期试验未达共同主要终点。来源：https://www.pharnexcloud.com/yaopin/simufilam",
