@@ -17,18 +17,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-06",
-        "event": "提名两个EBD候选药物ACU301和ACU401"
-      },
-      {
-        "date": "2026-07",
-        "event": "AAIC 2026公布EBD项目数据，sabirnetug Phase 2顶线结果预计2026年底"
-      },
-      {
-        "date": "2025",
-        "event": "sabirnetug II期生物标志物数据公布"
-      }
+      "2026-06：提名两个EBD候选药物ACU301和ACU401",
+      "2026-07：AAIC 2026公布EBD项目数据，sabirnetug Phase 2顶线结果预计2026年底",
+      "2025：sabirnetug II期生物标志物数据公布"
     ]
   },
   {
@@ -57,10 +48,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2025",
-        "event": "AD02试验数据后续分析发表（Haaland et al., 2025）"
-      }
+      "2025：AD02试验数据后续分析发表（Haaland et al., 2025）"
     ]
   },
   {
@@ -178,10 +166,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2025-08",
-        "event": "AMX0035 PSP II期研究未达终点"
-      }
+      "2025-08：AMX0035 PSP II期研究未达终点"
     ]
   },
   {
@@ -210,10 +195,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2025-12",
-        "event": "ABvac40显示皮层灌注下降减缓"
-      }
+      "2025-12：ABvac40显示皮层灌注下降减缓"
     ]
   },
   {
@@ -247,14 +229,8 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年9月22日：Leqembi在瑞典私人诊所可用，首位患者开始治疗，这是自2025年4月欧盟获批以来瑞典首位在临床试验外接受治疗的患者。来源：https://synapse.patsnap.com/organization/635303cd2a1bda78327edc826d223bf2",
-      {
-        "date": "2026-04",
-        "event": "Leqembi年销售额超5亿欧元，获2000万欧元里程碑付款"
-      },
-      {
-        "date": "2026-09",
-        "event": "加拿大药品局发布Leqembi公共报销最终积极建议"
-      }
+      "2026-04：Leqembi年销售额超5亿欧元，获2000万欧元里程碑付款",
+      "2026-09：加拿大药品局发布Leqembi公共报销最终积极建议"
     ]
   },
   {
@@ -306,10 +282,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-02",
-        "event": "KRSA-028临床前数据显示潜在best-in-class特征"
-      }
+      "2026-02：KRSA-028临床前数据显示潜在best-in-class特征"
     ]
   },
   {
@@ -415,30 +388,12 @@ window.COMPANIES_DATA = [
       "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
-      {
-        "date": "2026-07",
-        "event": "与卫材共同宣布LEQEMBI IQLIK皮下注射获FDA批准"
-      },
-      {
-        "date": "2026-07",
-        "event": "Diranersen (BIIB080) CELIA试验2期结果公布：tau靶向疗法显示临床获益"
-      },
-      {
-        "date": "2026-08",
-        "event": "仑卡奈单抗皮下自动注射剂型在海南博鳌乐城获批"
-      },
-      {
-        "date": "2026-07",
-        "event": "AAIC 2026公布LEADER真实世界研究：82.5%早期AD患者保持稳定或改善"
-      },
-      {
-        "date": "2026-07",
-        "event": "FDA批准LEQEMBI IQLIK皮下注射作为起始剂量，可在家自行注射"
-      },
-      {
-        "date": "2026-08",
-        "event": "lecanemab皮下制剂中国BLA获优先审评"
-      }
+      "2026-07：与卫材共同宣布LEQEMBI IQLIK皮下注射获FDA批准",
+      "2026-07：Diranersen (BIIB080) CELIA试验2期结果公布：tau靶向疗法显示临床获益",
+      "2026-08：仑卡奈单抗皮下自动注射剂型在海南博鳌乐城获批",
+      "2026-07：AAIC 2026公布LEADER真实世界研究：82.5%早期AD患者保持稳定或改善",
+      "2026-07：FDA批准LEQEMBI IQLIK皮下注射作为起始剂量，可在家自行注射",
+      "2026-08：lecanemab皮下制剂中国BLA获优先审评"
     ]
   },
   {
@@ -601,19 +556,13 @@ window.COMPANIES_DATA = [
       "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
       "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
-      {
-        "date": "2026-05",
-        "event": "Elecsys pTau217血液检测获得CE标志，与礼来合作开发"
-      },
-      {
-        "date": "2026-08",
-        "event": "trontinemab III期TRONTIER 1/2推进中"
-      }
+      "2026-05：Elecsys pTau217血液检测获得CE标志，与礼来合作开发",
+      "2026-08：trontinemab III期TRONTIER 1/2推进中"
     ]
   },
   {
     "category": "一、治疗药物——抗Aβ靶向（创新药）",
-    "name": "礼来",
+    "name": "卫材",
     "country": "美国",
     "products": "LEQEMBI®/lecanemab（仑卡奈单抗，中国商品名乐意保®，与渤健合作，2023年FDA完全批准，2025年4月欧盟批准，2025年8月皮下维持剂量获批，2026年7月皮下起始剂量获批，首个可居家使用AD药物；已在美中欧日等多国获批）",
     "pipeline": "etalanetug/E2814（抗MTBR tau抗体，CTAD 2025展示eMTBR-tau243生物标志物降低数据，临床开发中）",
@@ -653,22 +602,10 @@ window.COMPANIES_DATA = [
       "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
-      {
-        "date": "2025-09",
-        "event": "Kisunla获欧盟委员会批准用于早期症状性AD"
-      },
-      {
-        "date": "2026",
-        "event": "公布Kisunla三年长期数据：早期治疗降低27%疾病进展风险"
-      },
-      {
-        "date": "2026",
-        "event": "Kisunla（多奈单抗）在中国获批，成为第四大获批市场"
-      },
-      {
-        "date": "2026-08",
-        "event": "lecanemab皮下制剂中国BLA获优先审评"
-      }
+      "2025-09：Kisunla获欧盟委员会批准用于早期症状性AD",
+      "2026：公布Kisunla三年长期数据：早期治疗降低27%疾病进展风险",
+      "2026：Kisunla（多奈单抗）在中国获批，成为第四大获批市场",
+      "2026-08：lecanemab皮下制剂中国BLA获优先审评"
     ]
   },
   {
@@ -698,10 +635,7 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      {
-        "date": "2026-08",
-        "event": "trontinemab III期TRONTIER 1/2推进中"
-      }
+      "2026-08：trontinemab III期TRONTIER 1/2推进中"
     ]
   },
   {
@@ -734,18 +668,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-04",
-        "event": "启动ACI-24 ABATE试验最终队列AD4，获Takeda 1200万美元里程碑付款"
-      },
-      {
-        "date": "2026-06",
-        "event": "公布ACI-24 ABATE试验前3个队列12个月中期数据"
-      },
-      {
-        "date": "2026-08",
-        "event": "2026上半年财报：管线持续推进，H2预计更多临床结果"
-      }
+      "2026-04：启动ACI-24 ABATE试验最终队列AD4，获Takeda 1200万美元里程碑付款",
+      "2026-06：公布ACI-24 ABATE试验前3个队列12个月中期数据",
+      "2026-08：2026上半年财报：管线持续推进，H2预计更多临床结果"
     ]
   },
   {
@@ -886,10 +811,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026",
-        "event": "BMS-986446 II期TargetTau-1完成入组"
-      }
+      "2026：BMS-986446 II期TargetTau-1完成入组"
     ]
   },
   {
@@ -966,10 +888,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2025-12",
-        "event": "tau PET结果公布，tau积累减少33-58%"
-      }
+      "2025-12：tau PET结果公布，tau积累减少33-58%"
     ]
   },
   {
@@ -994,10 +913,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-07",
-        "event": "AAIC公布VY1706 6个月灵长类持续tau降低数据"
-      }
+      "2026-07：AAIC公布VY1706 6个月灵长类持续tau降低数据"
     ]
   },
   {
@@ -1053,10 +969,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2025-06",
-        "event": "中国独立研究团队发表新证据支持masitinib治疗散发性AD"
-      }
+      "2025-06：中国独立研究团队发表新证据支持masitinib治疗散发性AD"
     ]
   },
   {
@@ -1124,14 +1037,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-01",
-        "event": "2025年总收入超14.5亿美元，盈利持续增长"
-      },
-      {
-        "date": "2026-08",
-        "event": "Q2财报：Alixorexton III期本季度启动，ALK7290/ALK4510推进早期研究"
-      }
+      "2026-01：2025年总收入超14.5亿美元，盈利持续增长",
+      "2026-08：Q2财报：Alixorexton III期本季度启动，ALK7290/ALK4510推进早期研究"
     ]
   },
   {
@@ -1160,10 +1067,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-07",
-        "event": "AAIC展示mivelsiran神经科学项目进展"
-      }
+      "2026-07：AAIC展示mivelsiran神经科学项目进展"
     ]
   },
   {
@@ -1273,10 +1177,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2027",
-        "event": "DNL593 I/II期数据预计上半年读出"
-      }
+      "2027：DNL593 I/II期数据预计上半年读出"
     ]
   },
   {
@@ -1340,10 +1241,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-08",
-        "event": "Q2财报：XPro IIb/3期注册项目推进中"
-      }
+      "2026-08：Q2财报：XPro IIb/3期注册项目推进中"
     ]
   },
   {
@@ -1490,10 +1388,7 @@ window.COMPANIES_DATA = [
     "news": [
       "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
-      {
-        "date": "2026-08",
-        "event": "加拿大CDA-AMC发布lecanemab报销最终正面建议"
-      }
+      "2026-08：加拿大CDA-AMC发布lecanemab报销最终正面建议"
     ]
   },
   {
@@ -1769,10 +1664,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-07",
-        "event": "AAIC公布MK-2214 I期CSF靶点近乎完全结合数据"
-      }
+      "2026-07：AAIC公布MK-2214 I期CSF靶点近乎完全结合数据"
     ]
   },
   {
@@ -1876,10 +1768,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2027-H2",
-        "event": "START研究顶线数据预计读出"
-      }
+      "2027-H2：START研究顶线数据预计读出"
     ]
   },
   {
@@ -1943,10 +1832,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-08",
-        "event": "向AriBio Lab累计投资50亿韩元，布局AD预防"
-      }
+      "2026-08：向AriBio Lab累计投资50亿韩元，布局AD预防"
     ]
   },
   {
@@ -1976,10 +1862,7 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年6月：AUVELITY正式推出用于治疗阿尔茨海默病相关激越症状，上市后前八周65岁以上人群品牌新处方量较上一季度同期增长126%。来源：https://stcn.com/article/detail/4170137.html",
-      {
-        "date": "2026-08",
-        "event": "Auvelity AD激越适应症正式上市推广"
-      }
+      "2026-08：Auvelity AD激越适应症正式上市推广"
     ]
   },
   {
@@ -2054,10 +1937,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2027-H2",
-        "event": "START研究顶线数据预计读出"
-      }
+      "2027-H2：START研究顶线数据预计读出"
     ]
   },
   {
@@ -2267,10 +2147,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026",
-        "event": "BMS-986446 II期TargetTau-1完成入组"
-      }
+      "2026：BMS-986446 II期TargetTau-1完成入组"
     ]
   },
   {
@@ -2349,10 +2226,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2027-H2",
-        "event": "START研究顶线数据预计读出"
-      }
+      "2027-H2：START研究顶线数据预计读出"
     ]
   },
   {
@@ -2421,10 +2295,7 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      {
-        "date": "2026",
-        "event": "remternetug III期数据预计年底读出"
-      }
+      "2026：remternetug III期数据预计年底读出"
     ]
   },
   {
@@ -2520,18 +2391,9 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      {
-        "date": "2025-11",
-        "event": "EVOKE/EVOKE+ 3期试验：口服semaglutide未能显著减缓AD进展，项目终止"
-      },
-      {
-        "date": "2026-06",
-        "event": "AAN 2026公布semaglutide生物标志物和多组学免疫表型研究数据"
-      },
-      {
-        "date": "2026-08",
-        "event": "trontinemab III期TRONTIER 1/2推进中"
-      }
+      "2025-11：EVOKE/EVOKE+ 3期试验：口服semaglutide未能显著减缓AD进展，项目终止",
+      "2026-06：AAN 2026公布semaglutide生物标志物和多组学免疫表型研究数据",
+      "2026-08：trontinemab III期TRONTIER 1/2推进中"
     ]
   },
   {
@@ -2753,13 +2615,13 @@ window.COMPANIES_DATA = [
     "category": "六、治疗药物——基因治疗/APOE靶向",
     "name": "Prevail Therapeutics（礼来旗下）",
     "country": "美国",
-    "products": "LEQEMBI®/lecanemab（仑卡奈单抗，中国商品名乐意保®，与渤健合作，2023年FDA完全批准，2025年4月欧盟批准，2025年8月皮下维持剂量获批，2026年7月皮下起始剂量获批，首个可居家使用AD药物；已在美中欧日等多国获批）",
-    "pipeline": "etalanetug/E2814（抗MTBR tau抗体，CTAD 2025展示eMTBR-tau243生物标志物降低数据，临床开发中）",
-    "website": "https://www.eisai.com",
+    "products": "基因治疗产品（PR001/PR006等，针对神经退行性疾病，AD相关项目临床前/早期临床阶段）",
+    "pipeline": "PR001（AAV基因治疗，针对GBA相关帕金森病和路易体痴呆）、PR006（针对GRN相关额颞叶痴呆）",
+    "website": "https://www.prevailtx.com/",
     "cat_order": 6,
-    "name_cn": "卫材",
-    "name_en": "Eisai Co., Ltd.",
-    "location": "日本东京",
+    "name_cn": "Prevail Therapeutics（礼来旗下）",
+    "name_en": "Prevail Therapeutics Inc.",
+    "location": "美国纽约",
     "history": [
       {
         "date": "1941",
@@ -2791,10 +2653,7 @@ window.COMPANIES_DATA = [
       "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
-      {
-        "date": "2026-08",
-        "event": "lecanemab皮下制剂中国BLA获优先审评"
-      }
+      "2026-08：lecanemab皮下制剂中国BLA获优先审评"
     ]
   },
   {
@@ -3035,18 +2894,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-03",
-        "event": "撤回EMA上市申请，EMA曾建议拒绝批准"
-      },
-      {
-        "date": "2026-07",
-        "event": "2026年Q2财报：美国IND已开放，两项基础临床药理学研究进行中"
-      },
-      {
-        "date": "2026-08",
-        "event": "Phase 3 AD试验850例患者全部入组，超过原目标760例"
-      }
+      "2026-03：撤回EMA上市申请，EMA曾建议拒绝批准",
+      "2026-07：2026年Q2财报：美国IND已开放，两项基础临床药理学研究进行中",
+      "2026-08：Phase 3 AD试验850例患者全部入组，超过原目标760例"
     ]
   },
   {
@@ -3079,10 +2929,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-05",
-        "event": "恢复纽交所上市合规"
-      }
+      "2026-05：恢复纽交所上市合规"
     ]
   },
   {
@@ -3493,10 +3340,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2025-12",
-        "event": "tau PET结果公布，tau积累减少33-58%"
-      }
+      "2025-12：tau PET结果公布，tau积累减少33-58%"
     ]
   },
   {
@@ -3803,10 +3647,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2027-H2",
-        "event": "START研究顶线数据预计读出"
-      }
+      "2027-H2：START研究顶线数据预计读出"
     ]
   },
   {
@@ -3850,10 +3691,7 @@ window.COMPANIES_DATA = [
       "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
-      {
-        "date": "2026-08",
-        "event": "lecanemab皮下制剂中国BLA获优先审评"
-      }
+      "2026-08：lecanemab皮下制剂中国BLA获优先审评"
     ]
   },
   {
@@ -3882,10 +3720,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-Q1",
-        "event": "Rexulti AD激越适应症收入增长22% CER"
-      }
+      "2026-Q1：Rexulti AD激越适应症收入增长22% CER"
     ]
   },
   {
@@ -4022,18 +3857,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2025-12",
-        "event": "复星医药约14.12亿元控股绿谷医药，甘露特钠纳入复星创新药管线"
-      },
-      {
-        "date": "2026-08",
-        "event": "甘露特钠上市后确证性临床累计入组超1000例，超过计划50%"
-      },
-      {
-        "date": "2025-12",
-        "event": "确证性试验方案设计获CDE认可，预计2029年初读出数据"
-      }
+      "2025-12：复星医药约14.12亿元控股绿谷医药，甘露特钠纳入复星创新药管线",
+      "2026-08：甘露特钠上市后确证性临床累计入组超1000例，超过计划50%",
+      "2025-12：确证性试验方案设计获CDE认可，预计2029年初读出数据"
     ]
   },
   {
@@ -4162,10 +3988,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-05",
-        "event": "OAB-14 IIa期受试者入组已完成"
-      }
+      "2026-05：OAB-14 IIa期受试者入组已完成"
     ]
   },
   {
@@ -4213,10 +4036,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-07",
-        "event": "1类创新药琥珀酸安维吖啶片（耄安通）获NMPA批准上市，用于轻中度AD"
-      }
+      "2026-07：1类创新药琥珀酸安维吖啶片（耄安通）获NMPA批准上市，用于轻中度AD"
     ]
   },
   {
@@ -4458,14 +4278,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-05",
-        "event": "Lumipulse G pTau 217 Plasma检测获得CE标志（IVDR）"
-      },
-      {
-        "date": "2026-09",
-        "event": "Lumipulse G NfL和pTau217血浆检测获巴西ANVISA批准"
-      }
+      "2026-05：Lumipulse G pTau 217 Plasma检测获得CE标志（IVDR）",
+      "2026-09：Lumipulse G NfL和pTau217血浆检测获巴西ANVISA批准"
     ]
   },
   {
@@ -4526,10 +4340,7 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      {
-        "date": "2026-08",
-        "event": "trontinemab III期TRONTIER 1/2推进中"
-      }
+      "2026-08：trontinemab III期TRONTIER 1/2推进中"
     ]
   },
   {
@@ -4558,10 +4369,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-03",
-        "event": "推出Atellica IM pTau217和BDTau研究用检测，布局脑健康研究组合"
-      }
+      "2026-03：推出Atellica IM pTau217和BDTau研究用检测，布局脑健康研究组合"
     ]
   },
   {
@@ -4690,10 +4498,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-06",
-        "event": "与Abbott签署全球许可协议，将pTau217抗体用于Abbott IVD检测开发"
-      }
+      "2026-06：与Abbott签署全球许可协议，将pTau217抗体用于Abbott IVD检测开发"
     ]
   },
   {
@@ -4906,18 +4711,9 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-01",
-        "event": "JAMA发表研究：多标志物方法评估AD风险预后价值"
-      },
-      {
-        "date": "2026-02",
-        "event": "提交FDA 510(k)多标志物算法血液检测（pTau217/Aβ42/Aβ40/GFAP/NfL）"
-      },
-      {
-        "date": "2026-07",
-        "event": "Anthem Blue Cross Blue Shield建立LucentAD Complete商业保险覆盖"
-      }
+      "2026-01：JAMA发表研究：多标志物方法评估AD风险预后价值",
+      "2026-02：提交FDA 510(k)多标志物算法血液检测（pTau217/Aβ42/Aβ40/GFAP/NfL）",
+      "2026-07：Anthem Blue Cross Blue Shield建立LucentAD Complete商业保险覆盖"
     ]
   },
   {
@@ -4974,13 +4770,13 @@ window.COMPANIES_DATA = [
     "category": "十三、检测诊断——PET显像剂",
     "name": "Avid Radiopharmaceuticals（礼来旗下）",
     "country": "美国",
-    "products": "LEQEMBI®/lecanemab（仑卡奈单抗，中国商品名乐意保®，与渤健合作，2023年FDA完全批准，2025年4月欧盟批准，2025年8月皮下维持剂量获批，2026年7月皮下起始剂量获批，首个可居家使用AD药物；已在美中欧日等多国获批）",
-    "pipeline": "etalanetug/E2814（抗MTBR tau抗体，CTAD 2025展示eMTBR-tau243生物标志物降低数据，临床开发中）",
-    "website": "https://www.eisai.com",
+    "products": "Amyvid（florbetapir F18，Aβ PET显像剂，2012年FDA批准）、flortaucipir F18（Tau PET显像剂）",
+    "pipeline": "下一代Aβ和Tau PET示踪剂研发",
+    "website": "https://www.avidrp.com/",
     "cat_order": 13,
-    "name_cn": "卫材",
-    "name_en": "Eisai Co., Ltd.",
-    "location": "日本东京",
+    "name_cn": "Avid Radiopharmaceuticals（礼来旗下）",
+    "name_en": "Avid Radiopharmaceuticals Inc.",
+    "location": "美国费城",
     "history": [
       {
         "date": "1941",
@@ -5012,10 +4808,7 @@ window.COMPANIES_DATA = [
       "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
       "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
-      {
-        "date": "2026-08",
-        "event": "lecanemab皮下制剂中国BLA获优先审评"
-      }
+      "2026-08：lecanemab皮下制剂中国BLA获优先审评"
     ]
   },
   {
@@ -5159,10 +4952,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-04",
-        "event": "欧韦宁®已进入全国约150家医疗机构"
-      }
+      "2026-04：欧韦宁®已进入全国约150家医疗机构"
     ]
   },
   {
@@ -5683,10 +5473,7 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      {
-        "date": "2026",
-        "event": "remternetug III期数据预计年底读出"
-      }
+      "2026：remternetug III期数据预计年底读出"
     ]
   },
   {
@@ -8142,10 +7929,7 @@ window.COMPANIES_DATA = [
       "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
       "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
-      {
-        "date": "2026-08",
-        "event": "trontinemab III期TRONTIER 1/2推进中"
-      }
+      "2026-08：trontinemab III期TRONTIER 1/2推进中"
     ]
   },
   {
@@ -8473,10 +8257,7 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      {
-        "date": "2026-08",
-        "event": "trontinemab III期TRONTIER 1/2推进中"
-      }
+      "2026-08：trontinemab III期TRONTIER 1/2推进中"
     ]
   },
   {
@@ -8877,10 +8658,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      {
-        "date": "2026-04",
-        "event": "pTau217检测试剂盒获NMPA注册证，成为国内少数获批该标志物的厂商"
-      }
+      "2026-04：pTau217检测试剂盒获NMPA注册证，成为国内少数获批该标志物的厂商"
     ],
     "cat_order": 17
   },
@@ -8906,18 +8684,9 @@ window.COMPANIES_DATA = [
     ],
     "news": [
       "2026年8月25日：复星医药中期业绩披露，甘露特钠胶囊（971）上市后确证性临床截至2026年7月31日累计入组超1000例，超过计划入组50%，预计2027年完成入组，2028年底至2029年初读出数据。来源：https://www.fosunpharma.com/zh-tw/content/details37_14731.html",
-      {
-        "date": "2026-08",
-        "event": "甘露特钠上市后确证性临床累计入组超1000例，预计2027年完成入组"
-      },
-      {
-        "date": "2026-05",
-        "event": "获得AR1001全球独家选择权，AD领域诊疗一体化布局不断夯实"
-      },
-      {
-        "date": "2025-12",
-        "event": "14.12亿元控股绿谷医药，拿下甘露特钠（GV-971）"
-      }
+      "2026-08：甘露特钠上市后确证性临床累计入组超1000例，预计2027年完成入组",
+      "2026-05：获得AR1001全球独家选择权，AD领域诊疗一体化布局不断夯实",
+      "2025-12：14.12亿元控股绿谷医药，拿下甘露特钠（GV-971）"
     ],
     "cat_order": 28
   },
