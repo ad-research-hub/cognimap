@@ -348,52 +348,22 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "一、治疗药物——抗Aβ靶向（创新药）",
-    "name": "卫材 / 渤健",
-    "country": "日本/美国",
-    "products": "LEQEMBI®/lecanemab（仑卡奈单抗，中国商品名乐意保®，与渤健合作，2023年FDA完全批准，2025年4月欧盟批准，2025年8月皮下维持剂量获批，2026年7月皮下起始剂量获批，首个可居家使用AD药物；已在美中欧日等多国获批）",
-    "pipeline": "etalanetug/E2814（抗MTBR tau抗体，CTAD 2025展示eMTBR-tau243生物标志物降低数据，临床开发中）",
-    "website": "https://www.eisai.com",
-    "cat_order": 1,
+    "category": "治疗药物",
+    "name": "卫材",
     "name_cn": "卫材",
     "name_en": "Eisai Co., Ltd.",
-    "location": "日本东京",
-    "history": [
-      {
-        "date": "1941",
-        "event": "Eisai成立"
-      },
-      {
-        "date": "2023-07",
-        "event": "lecanemab获FDA完全批准"
-      },
-      {
-        "date": "2024",
-        "event": "lecanemab在中国获批（商品名乐意保®）"
-      },
-      {
-        "date": "2025-04",
-        "event": "lecanemab获欧盟批准"
-      },
-      {
-        "date": "2025-08",
-        "event": "lecanemab皮下维持剂量获FDA批准"
-      },
-      {
-        "date": "2026-07",
-        "event": "lecanemab皮下起始剂量获FDA批准，首个可居家使用AD药物"
-      }
-    ],
+    "country": "日本",
+    "location": "东京",
+    "website": "https://www.eisai.com",
+    "products": "LEQEMBI®/lecanemab（仑卡奈单抗，中国商品名乐意保®，抗Aβ原纤维单抗，与渤健合作；2023年1月FDA加速批准，2023年7月FDA完全批准，2024年1月中国NMPA静脉剂型，2025年4月欧盟批准，2025年8月FDA批准皮下维持剂量，2026年7月FDA批准皮下起始剂量IQLIK，2026年9月中国NMPA批准皮下自动注射剂型，2026年9月日本批准皮下注射笔，2026年9月加拿大支持公共报销）",
+    "pipeline": "etalanetug/E2814（抗MTBR tau单抗，II期，AAIC 2026展示联合仑卡奈单抗降低eMTBR-tau243数据）；AHEAD 3-45（临床前AD III期）；BAN2802（与BioArctic合作，BrainTransporter技术）",
+    "cat_order": 1,
+    "history": "1941年成立；2007年与BioArctic签订lecanemab授权协议；2014年与渤健签订lecanemab联合开发商业化协议；2023年lecanemab获FDA完全批准成为全球首个证实可减缓AD认知功能下降的药物；2026年AAIC发表逾50项AD研究报告",
     "news": [
-      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
-      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
-      "2026年9月3日：仑卡奈单抗（乐意保）皮下自动注射剂型获中国NMPA批准，作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
-      "2026-07：与卫材共同宣布LEQEMBI IQLIK皮下注射获FDA批准",
-      "2026-07：Diranersen (BIIB080) CELIA试验2期结果公布：tau靶向疗法显示临床获益",
-      "2026-08：仑卡奈单抗皮下自动注射剂型在海南博鳌乐城获批",
-      "2026-07：AAIC 2026公布LEADER真实世界研究：82.5%早期AD患者保持稳定或改善",
-      "2026-07：FDA批准LEQEMBI IQLIK皮下注射作为起始剂量，可在家自行注射",
-      "2026-08：lecanemab皮下制剂中国BLA获优先审评"
+      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
+      "2026年9月3日：仑卡奈单抗皮下自动注射剂型获中国NMPA批准，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。来源：https://www.eisai.com.cn/2026/09/03/乐意保（仑卡奈单抗）的皮下自动注射剂型在中国/",
+      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
+      "2026年7月13日：FDA批准LEQEMBI IQLIK皮下注射作为早期AD起始剂量；AAIC展示etalanetug联合仑卡奈单抗降低eMTBR-tau243数据。来源：https://media-us.eisai.com/2026-07-13-FDA-Approves-LEQEMBI-IQLIK-R-lecanemab-irmb-Subcutaneous-Injection-as-an-Initiation-Dose-for-Early-Alzheimers-Disease"
     ]
   },
   {
@@ -524,40 +494,19 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "一、治疗药物——抗Aβ靶向（创新药）",
-    "name": "渤健",
-    "country": "美国",
-    "products": "暂无AD上市产品",
-    "pipeline": "trontinemab/RG6102（Brainshuttle™双特异性2+1 Aβ靶向单抗，TfR1介导BBB穿越，gantenerumab改良版，I/II期显示92%患者淀粉样蛋白清除至阈值以下；III期TRONTIER 1/2约1600例18国2025年启动；PrevenTRON临床前AD预防III期2026年7月宣布）；gantenerumab（III期失败已终止）",
-    "website": "https://www.gene.com",
-    "cat_order": 1,
+    "category": "治疗药物",
+    "name": "基因泰克",
     "name_cn": "基因泰克",
-    "name_en": "Genentech, Inc.（罗氏子公司）",
-    "location": "美国加州南旧金山",
-    "history": [
-      {
-        "date": "1976",
-        "event": "Genentech成立"
-      },
-      {
-        "date": "2009",
-        "event": "被罗氏收购"
-      },
-      {
-        "date": "2025-07",
-        "event": "宣布PrevenTRON临床前AD预防III期试验计划"
-      },
-      {
-        "date": "2026-07",
-        "event": "AAIC展示trontinemab长期安全性和生物标志物数据"
-      }
-    ],
+    "name_en": "Genentech, Inc.",
+    "country": "美国",
+    "location": "加利福尼亚州旧金山",
+    "website": "https://www.gene.com",
+    "products": "AD治疗药物均与母公司罗氏共享研发管线，暂无独立AD上市药物",
+    "pipeline": "trontinemab/RG6102（与罗氏共同开发，Brainshuttle Aβ靶向单抗，III期）；nivegacetor（口服γ-分泌酶调节剂）；RG6627（AD在研）；gantenerumab（抗Aβ单抗，III期失败已终止）",
+    "cat_order": 1,
+    "history": "1976年成立，1990年被罗氏收购成为全资子公司；AD研发与罗氏整合推进，2026年AAIC由基因泰克和罗氏联合发布AD管线数据",
     "news": [
-      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
-      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
-      "2026-05：Elecsys pTau217血液检测获得CE标志，与礼来合作开发",
-      "2026-08：trontinemab III期TRONTIER 1/2推进中"
+      "2026年7月：基因泰克与罗氏在AAIC 2026联合展示AD整合药物和诊断管线数据，包括trontinemab、nivegacetor和RG6627。来源：https://www.gene.com/media/press-releases/15120/2026-07-06/genentech-and-roche-present-new-data-in-"
     ]
   },
   {
@@ -609,33 +558,21 @@ window.COMPANIES_DATA = [
     ]
   },
   {
-    "category": "一、治疗药物——抗Aβ靶向（创新药）",
-    "name": "罗氏/基因泰克",
-    "country": "瑞士/美国",
-    "products": "Elecsys® pTau217血液检测（AD诊断产品）；暂无AD治疗药物上市",
-    "pipeline": "trontinemab/RG6102（Brainshuttle™双特异性2+1 Aβ靶向单抗，TfR1介导BBB穿越，I/II期显示91%患者淀粉样蛋白清除至阈值以下；III期TRONTIER 1/2约1600例18国2025年启动；PrevenTRON临床前AD预防III期2026年7月宣布）；gantenerumab（III期失败已终止）",
-    "website": "https://www.roche.com",
-    "cat_order": 1,
+    "category": "治疗药物",
+    "name": "罗氏",
     "name_cn": "罗氏",
     "name_en": "F. Hoffmann-La Roche Ltd.",
-    "location": "瑞士巴塞尔",
-    "history": [
-      {
-        "date": "1896",
-        "event": "Roche成立"
-      },
-      {
-        "date": "2025-07",
-        "event": "宣布PrevenTRON临床前AD预防III期试验计划"
-      },
-      {
-        "date": "2026-07",
-        "event": "AAIC展示trontinemab长期安全性和生物标志物数据"
-      }
-    ],
+    "country": "瑞士",
+    "location": "巴塞尔",
+    "website": "https://www.roche.com",
+    "products": "Elecsys® pTau217血浆检测（与礼来联合开发，2026年8月FDA批准，用于辅助判断55岁及以上认知衰退人群AD相关淀粉样蛋白病理）；Elecsys pTau181、ApoE4检测（CSF/血液）；暂无AD治疗药物上市",
+    "pipeline": "trontinemab/RG6102（Brainshuttle™双特异性2+1 Aβ靶向单抗，TfR1介导BBB穿越，II期2025年12月成功，III期TRONTIER 1/2约1600例18国2025年启动，PrevenTRON临床前AD预防III期2026年7月宣布）；nivegacetor（口服γ-分泌酶调节剂GSM，改变APP加工防止Aβ积累）；RG6627（AD在研）；semorinemab/RG6100（抗Tau单抗，II期）；gantenerumab（III期失败已终止）",
+    "cat_order": 1,
+    "history": "1896年成立；基因泰克为其全资子公司；AD研发由罗氏和基因泰克共同推进；2025年12月trontinemab II期取得阳性结果；2026年与Manifold Bio签订超20亿美元BBB穿梭技术合作",
     "news": [
-      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      "2026-08：trontinemab III期TRONTIER 1/2推进中"
+      "2026年8月：与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准。来源：https://wap.stockstar.com/detail/IG2026090200000083",
+      "2026年7月：AAIC展示trontinemab长期安全性、淀粉样蛋白清除和生物标志物数据，同时公布PrevenTRON III期设计。来源：https://www.gene.com/media/press-releases/15120/2026-07-06/genentech-and-roche-present-new-data-in-",
+      "2026年9月：PrevenTRON III期试验在美国、加拿大、英国启动入组（NCT07717411）。来源：https://adisinsight.springer.com/drugs/800055372"
     ]
   },
   {
@@ -1353,42 +1290,21 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "三、治疗药物——神经炎症/免疫靶向",
-    "name": "NeuroBiogen Co., Ltd",
-    "country": "韩国",
-    "products": "LEQEMBI®/lecanemab（仑卡奈单抗，与卫材合作，2023年FDA完全批准，2025年4月欧盟批准，2025年8月皮下维持剂量获批，2026年7月皮下起始剂量获批，首个可居家使用AD药物；2025年10月加拿大获批）",
-    "pipeline": "与卫材共同商业化lecanemab；ADNI等研究合作",
-    "website": "https://www.biogen.com",
-    "cat_order": 3,
+    "category": "治疗药物",
+    "name": "渤健",
     "name_cn": "渤健",
     "name_en": "Biogen Inc.",
-    "location": "美国马萨诸塞州剑桥",
-    "history": [
-      {
-        "date": "1978",
-        "event": "Biogen成立"
-      },
-      {
-        "date": "2023-07",
-        "event": "lecanemab获FDA完全批准"
-      },
-      {
-        "date": "2025-04",
-        "event": "lecanemab获欧盟批准"
-      },
-      {
-        "date": "2025-08",
-        "event": "lecanemab皮下维持剂量获FDA批准"
-      },
-      {
-        "date": "2026-07",
-        "event": "lecanemab皮下起始剂量获FDA批准，首个可居家使用AD药物"
-      }
-    ],
+    "country": "美国",
+    "location": "马萨诸塞州剑桥",
+    "website": "https://www.biogen.com",
+    "products": "LEQEMBI®/lecanemab（仑卡奈单抗，与卫材联合开发商业化，全球首个获FDA完全批准的AD疾病修饰疗法）",
+    "pipeline": "diranersen/BIIB080（tau靶向反义寡核苷酸ASO，II期CELIA研究2026年5月公布顶线结果，首次证实tau靶向疗法可减少脑内tau病理并带来认知获益，FDA快速通道指定，计划推进III期）；与卫材合作lecanemab皮下剂型开发",
+    "cat_order": 1,
+    "history": "1978年成立；2014年与卫材签订lecanemab联合开发协议；2021年Aduhelm（aducanumab）获FDA加速批准后因市场表现不佳于2024年撤回；2023年lecanemab获FDA完全批准；2026年diranersen II期CELIA取得阳性结果",
     "news": [
-      "2026年9月1日：加拿大药品局发布最终积极建议，支持LEQEMBI（仑卡奈单抗）用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
-      "2026年9月16日：LEQEMBI Pen（仑卡奈单抗皮下注射笔）在日本获批，成为新的给药途径。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan",
-      "2026-08：加拿大CDA-AMC发布lecanemab报销最终正面建议"
+      "2026年7月14日：AAIC 2026展示diranersen II期CELIA完整数据，证实有意义的临床结局和显著的tau减少。来源：https://biogen.gcs-web.com/news-releases/news-release-details/biogen-presents-phase-2-celia-data-aaic-demonstrating-meaningful",
+      "2026年5月14日：diranersen II期CELIA顶线结果公布，首个tau靶向疗法在随机II期研究中同时显示生物标志物影响和认知获益。来源：https://investors.biogen.com/news-releases/news-release-details/topline-results-phase-2-celia-study-diranersen-biib080-first",
+      "2026年9月3日：与卫材联合宣布仑卡奈单抗皮下自动注射剂型获中国NMPA批准。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-lecanemab-subcutaneous-formulation-initiation-treatment"
     ]
   },
   {
@@ -2257,45 +2173,22 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "五、治疗药物——GLP-1/代谢靶向",
-    "name": "Eli Lilly（Liraglutide适应症）",
-    "country": "美国",
-    "products": "Kisunla®/donanemab（多奈单抗，中国商品名记能达®，2024年FDA加速批准，2024年日本批准，2025年7月欧盟推荐批准（仅限APOE4非携带者/杂合子），2025年FDA批准更新标签（新滴定给药方案）；TRAILBLAZER-ALZ 2三年长期扩展数据显示持续获益）",
-    "pipeline": "remternetug/LY3372993（下一代抗Aβ抗体，靶向Aβp3-42，改良Fc工程降低ARIA风险，可皮下注射，III期TRAILBLAZER-ALZ 5和6，2026年底数据预计）",
-    "website": "https://www.lilly.com",
-    "cat_order": 5,
+    "category": "治疗药物",
+    "name": "礼来",
     "name_cn": "礼来",
     "name_en": "Eli Lilly and Company",
-    "location": "美国印第安纳州印第安纳波利斯",
-    "history": [
-      {
-        "date": "1876",
-        "event": "Eli Lilly成立"
-      },
-      {
-        "date": "2024-01",
-        "event": "donanemab获FDA加速批准"
-      },
-      {
-        "date": "2024-06",
-        "event": "donanemab在日本获批"
-      },
-      {
-        "date": "2025-03",
-        "event": "donanemab在北京宣武医院开出中国首方"
-      },
-      {
-        "date": "2025-07",
-        "event": "donanemab获欧盟推荐批准"
-      },
-      {
-        "date": "2025-07",
-        "event": "FDA批准donanemab更新标签（新滴定给药方案）"
-      }
-    ],
+    "country": "美国",
+    "location": "印第安纳州印第安纳波利斯",
+    "website": "https://www.lilly.com",
+    "products": "Kisunla®/donanemab（多奈单抗，中国商品名记能达®，抗Aβ单抗，2024年FDA加速批准，2024年日本批准，2025年欧盟经复议批准（限APOE4非携带者/杂合子），2025年FDA更新给药方案标签，2026年4月加拿大批准，2026年公布三年长期数据：早期治疗降低27%疾病进展风险；2026年Q1收入1.24亿美元，Q2收入1.67亿美元）",
+    "pipeline": "remternetug/LY3372993（下一代抗Aβ抗体，靶向Aβp3-42，改良Fc工程降低ARIA风险，可皮下注射，III期TRAILBLAZER-ALZ 5和6进行中，2026年底数据预计）；TRAILBLAZER-ALZ 3（临床前AD预防III期）；TRAILBLAZER-ALZ 5（中国等地区注册试验）；与罗氏联合开发Elecsys pTau217血浆检测（2026年8月FDA批准）",
+    "cat_order": 1,
+    "history": "1876年成立；2003年启动AD研发；2024年多奈单抗获FDA批准成为第二款AD疾病修饰疗法；2026年AAIC展示pTau217血液检测和Aβ靶向治疗研究",
     "news": [
-      "2026年8月：罗氏与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准，用于辅助判断55岁及以上认知衰退人群是否存在AD相关脑内淀粉样蛋白病理改变。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      "2026：remternetug III期数据预计年底读出"
+      "2026年9月：Kisunla（多奈单抗）2026年Q2收入1.67亿美元，Q1收入1.24亿美元，持续快速增长。来源：https://stcn.com/article/detail/4170137.html",
+      "2026年7月：AAIC 2026展示多奈单抗三年长期数据，早期治疗降低27%疾病进展风险；同时展示pTau217血液检测研究。来源：https://investor.lilly.com/news-releases/news-release-details/lilly-present-alzheimers-disease-diagnostic-and-therapeutic",
+      "2026年4月：加拿大卫生部批准Kisunla用于早期症状性AD。来源：https://dhpp.hpfb-dgpsa.ca/review-documents/resource/RDS1779283825657",
+      "2025年：FDA批准Kisunla更新标签，采用新的给药方案（基于Aβ清除的个体化给药）"
     ]
   },
   {
@@ -2372,8 +2265,8 @@ window.COMPANIES_DATA = [
     "pipeline": "trontinemab/RG6102（Brainshuttle™双特异性2+1 Aβ靶向单抗，TfR1介导BBB穿越，I/II期显示91%患者淀粉样蛋白清除至阈值以下；III期TRONTIER 1/2约1600例18国2025年启动；PrevenTRON临床前AD预防III期2026年7月宣布）；gantenerumab（III期失败已终止）",
     "website": "https://www.roche.com",
     "cat_order": 5,
-    "name_cn": "罗氏",
-    "name_en": "F. Hoffmann-La Roche Ltd.",
+    "name_cn": "诺和诺德",
+    "name_en": "Novo Nordisk A/S",
     "location": "瑞士巴塞尔",
     "history": [
       {
@@ -7904,8 +7797,8 @@ window.COMPANIES_DATA = [
     "pipeline": "trontinemab/RG6102（Brainshuttle™双特异性2+1 Aβ靶向单抗，TfR1介导BBB穿越，gantenerumab改良版，I/II期显示92%患者淀粉样蛋白清除至阈值以下；III期TRONTIER 1/2约1600例18国2025年启动；PrevenTRON临床前AD预防III期2026年7月宣布）；gantenerumab（III期失败已终止）",
     "website": "https://www.gene.com",
     "cat_order": 25,
-    "name_cn": "基因泰克",
-    "name_en": "Genentech, Inc.（罗氏子公司）",
+    "name_cn": "Apellis Pharmaceuticals",
+    "name_en": "Apellis Pharmaceuticals, Inc.",
     "location": "美国加州南旧金山",
     "history": [
       {
