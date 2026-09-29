@@ -108,6 +108,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月8日：ALZ-801/valiltramiprosate血浆生物标志物研究发表，显示持续降低pTau217等，与认知/功能/脑萎缩改善相关；APOLLOE4 III期APOE4/4纯合子进行中。来源：https://alzheon.com/alzheon-announces-peer-reviewed-publication-showing-oral-valiltramiprosate-alz-801-achieves-sustained-plasma-biomarker-reductions-linked-to-better-cognitive-functional-and-brain-atrophy-outcomes-in/",
       "2026年2月：公布III期和II期研究血浆生物标志物结果，验证首创作用机制，强调认知、功能和脑容量保护获益。来源：https://alzheon.com/category/news/",
       "2026年7月：新鲜分析重塑Alzheon口服AD药物，亚组分析显示获益。来源：https://alzheon.com/fresh-analyses-reshape-alzheons-oral-alzheimers-drug/"
     ]
@@ -138,6 +139,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月10日：ALZ-101启动全球II期运营准备，与Worldwide Clinical Trials合作，计划120例早期AD，首例预计2026/2027初；SEK5100万配股融资；获FDA快速通道。来源：https://view.news.eu.nasdaq.com/view?id=bea80130ca70795cff2d194e76c12a53",
       "2026年9月21日：世界阿尔茨海默病日，Alzinova推进AD治疗和诊断双途径，ALZ-101 II期计划招募120例早期AD患者。来源：https://rss.globenewswire.com/news-release/2026/09/21/3365783/0/en/alzinova-advances-dual-approach-to-alzheimer-s-treatment-and-diagnosis-as-world-alzheimer-s-day-highlights-unmet-need.html"
     ]
   },
