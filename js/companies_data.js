@@ -2156,10 +2156,11 @@ window.COMPANIES_DATA = [
     "location": "印第安纳州印第安纳波利斯",
     "website": "https://www.lilly.com",
     "products": "Kisunla/多奈单抗（donanemab，2024年7月FDA批准，2024年9月日本批准，2024年10月英国批准，2024年12月中国批准，2026年4月加拿大批准；2026年6月申报国家医保）",
-    "pipeline": "remternetug/LY3372993（N3pG-Aβ单抗，皮下注射，临床开发中）；P-tau217血液检测诊断（AAIC 2026展示与淀粉样PET对比的诊断性能数据）",
+    "pipeline": "remternetug/LY3372993（N3pG-Aβ单抗，皮下注射，临床开发中）；P-tau217血液检测诊断（AAIC 2026展示与淀粉样PET对比的诊断性能数据）；ceperognastat/LY3372689（口服OGA抑制剂，II期PROSPECT-ALZ 327例2026年7月JAMA发表未达终点，高剂量认知恶化，已停止AD开发）",
     "cat_order": 1,
     "history": "1876年成立；2003年启动AD研发；2024年多奈单抗获FDA批准成为第二款AD疾病修饰疗法；2026年AAIC展示pTau217血液检测和Aβ靶向治疗研究",
     "news": [
+      "2026年7月：ceperognastat II期PROSPECT-ALZ试验结果发表于JAMA，327例早期AD未达主要终点，高剂量认知恶化，礼来宣布停止AD开发。来源：https://pharmacally.com/ceperognastat-phase-2-prospect-alz-trial-alzheimers-jama/",
       "2026年4月30日：加拿大批准Kisunla（多奈单抗）。来源：https://dhpp.hpfb-dgpsa.ca/review-documents/resource/RDS1779283825657",
       "2026年7月9日：AAIC展示Kisunla（多奈单抗）长期扩展数据和P-tau217血液检测诊断性能数据。来源：https://investor.lilly.com/news-releases/news-release-details/lilly-present-alzheimers-disease-diagnostic-and-therapeutic",
       "2026年6月8日：多奈单抗申报国家医保药品目录调整。来源：https://www.nhsa.gov.cn/art/2026/6/29/art_109_21131.html",
@@ -2605,7 +2606,7 @@ window.COMPANIES_DATA = [
     "name": "Actinogen Medical",
     "country": "澳大利亚",
     "products": "暂无AD上市产品",
-    "pipeline": "Xanamem/emestedastat（选择性11β-HSD1抑制剂，减少大脑中过量皮质醇，用于轻中度AD，XanaMIA IIb/3期关键试验，247名患者，美国和澳大利亚，36周治疗，2026年1月DMC中期分析建议继续，2026年5月获EMA积极科学建议，预计2026年11月顶线结果）",
+    "pipeline": "Xanamem/emestedastat（口服皮质醇抑制剂，控制大脑皮质醇水平，IIb/III期XanaMIA试验247例已完成入组，2026年1月中期分析阳性，顶线结果预计2026年11月）",
     "website": "https://actinogen.com.au",
     "cat_order": 7,
     "name_cn": "",
@@ -2633,7 +2634,10 @@ window.COMPANIES_DATA = [
         "event": "XanaMIA顶线结果预计公布"
       }
     ],
-    "news": []
+    "news": [
+      "2026年9月23日：XanaMIA关键性AD试验完成最后一名患者访视，顶线结果按计划2026年11月公布。来源：https://rss.globenewswire.com/news-release/2026/09/23/3367466/0/en/actinogen-xanamia-pivotal-alzheimer-s-disease-trial-completes-final-patient-visit-with-topline-results-on-track-for-november.html",
+      "2026年1月：XanaMIA IIb/III期试验中期分析阳性，独立DMC建议继续试验。来源：https://actinogen.com.au/"
+    ]
   },
   {
     "category": "七、治疗药物——多靶点/创新机制",
