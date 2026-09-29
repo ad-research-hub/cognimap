@@ -5658,23 +5658,21 @@ window.COMPANIES_DATA = [
     ]
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
-    "name": "博芮健生物",
-    "country": "—",
-    "products": "AD7C尿液检测试剂盒；早期AD诊断标志物研究",
-    "pipeline": "BrAD-R13片（治疗AD的1类创新药，全新靶点，2025年8月I期临床圆满成功，华中科技大学同济医学院附属协和医院）；与先声药业合作联合实验室",
-    "website": "",
-    "cat_order": 17,
-    "name_cn": "博芮健生物",
-    "name_en": "Boruijian Biopharmaceutical Co., Ltd.",
-    "location": "中国深圳",
-    "history": [
-      {
-        "date": "2025-08",
-        "event": "BrAD-R13片I期临床试验圆满成功"
-      }
-    ],
-    "news": []
+    "category": "治疗药物",
+    "name": "博芮健制药",
+    "name_cn": "深圳博芮健制药有限公司",
+    "name_en": "Braegen Pharma Co., Ltd.",
+    "country": "中国",
+    "location": "广东深圳",
+    "website": "http://braegen.com.cn",
+    "products": "暂无AD治疗药物上市",
+    "pipeline": "BrAD-R13片（国家1类创新药，全球首款进入临床阶段的小分子TrkB受体激动剂，靶点为BDNF-TrkB信号通路神经保护+抑制AEP致病蛋白剪切，2025年9月完成I期临床试验，拟用于轻中度AD）；[18F]-F0502B（帕金森病早期诊断PET示踪剂，临床前验证完成）",
+    "cat_order": 1,
+    "history": "深圳光明科学城企业，A+轮融资（中科创星、同创伟业、启迪之星）；BrAD-R13获美国FDA及中国NMPA临床试验默示许可",
+    "news": [
+      "2025年9月：BrAD-R13片顺利完成I期临床试验，在华中科技大学同济医学院附属协和医院完成，验证安全性与药代动力学。来源：http://www.chinanews.com.cn/jk/2025/09-11/10480540.shtml",
+      "2024年8月：BrAD-R13完成I期临床试验首例受试者给药。来源：https://www.sznews.com/news/content/2024-08/30/content_31181169.htm"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -5712,31 +5710,20 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "安群生物",
-    "country": "化学发光 / 酶联免疫 / 免疫层析",
-    "products": "β淀粉样蛋白1-42测定试剂盒（化学发光法，粤械注准20212400023）；人磷酸化tau-181蛋白检测试剂盒（酶联免疫法，粤械注准20152400855）",
-    "pipeline": "AD辅助诊断试剂；化学发光法和酶联免疫法技术平台",
-    "website": "",
-    "cat_order": 17,
     "name_cn": "深圳市安群生物工程有限公司",
     "name_en": "Shenzhen Anqun Bioengineering Co., Ltd.",
-    "location": "中国深圳",
-    "history": [
-      {
-        "date": "2005",
-        "event": "深圳市安群生物成立"
-      },
-      {
-        "date": "2015",
-        "event": "pTau181酶联免疫法试剂盒获批（粤械注准20152400855）"
-      },
-      {
-        "date": "2021",
-        "event": "Aβ42化学发光法试剂盒获批（粤械注准20212400023）"
-      }
-    ],
-    "news": []
+    "country": "中国",
+    "location": "广东深圳",
+    "website": "https://anqun.com",
+    "products": "阿尔茨海默相关神经丝蛋白（AD7C-NTP）检测试剂盒（酶联免疫法、化学发光法、荧光层析法，粤械注准20142400082，定量检测尿液中AD7C-NTP浓度）；不孕不育、呼吸道疾病、老年痴呆早期筛查等8大系列48项产品注册证",
+    "pipeline": "老年痴呆早期筛查系列产品（国内创新产品）",
+    "cat_order": 2,
+    "history": "1994年成立，国内重要的临床免疫诊断试剂生产企业；国家高新技术企业；与中山大学、暨南大学等高校长期科研协作",
+    "news": [
+      "AD7C-NTP检测试剂盒获NMPA注册证（粤械注准20142400082），用于尿液AD7C-NTP定量检测。来源：https://www.ivddc.com/product/0000025889.html"
+    ]
   },
   {
     "category": "检测诊断",
@@ -5783,27 +5770,20 @@ window.COMPANIES_DATA = [
     "news": []
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "康巨全弘",
-    "country": "化学发光",
-    "products": "阿尔茨海默相关神经丝蛋白测定试剂盒（AD7C-NTP，磁微粒化学发光免疫分析法，渝械注准20242400130，尿液检测）",
-    "pipeline": "磁微粒化学发光免疫分析法技术平台；尿液AD7C-NTP检测",
-    "website": "",
-    "cat_order": 17,
     "name_cn": "重庆康巨全弘生物科技有限公司",
     "name_en": "Chongqing Kangju Quanhong Biotechnology Co., Ltd.",
-    "location": "中国重庆",
-    "history": [
-      {
-        "date": "2018",
-        "event": "重庆康巨全弘成立"
-      },
-      {
-        "date": "2024",
-        "event": "AD7C-NTP尿液检测试剂盒获批（渝械注准20242400130）"
-      }
-    ],
-    "news": []
+    "country": "中国",
+    "location": "重庆江北",
+    "website": "http://www.kjqhsw.cn",
+    "products": "磷酸化Tau-181蛋白测定试剂盒（磁微粒化学发光免疫分析法，渝械注准20242400129）；化学发光系列、特色纳米酶系列、生化系列、荧光免疫系列",
+    "pipeline": "纳米酶检测技术应用转化；AD血液标志物检测",
+    "cat_order": 2,
+    "history": "2017年成立，高新技术企业、科技型中小企业；建成3.3万平方米高科技智慧产业园，7个洁净车间；研发人员占比46%",
+    "news": [
+      "2024年：磷酸化Tau-181蛋白测定试剂盒获NMPA注册证（渝械注准20242400129）。来源：https://db.yaozh.com/jixie/3829862821601195.html"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
@@ -5896,35 +5876,20 @@ window.COMPANIES_DATA = [
     ]
   },
   {
-    "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
+    "category": "检测诊断",
     "name": "永和阳光",
-    "country": "化学发光",
-    "products": "磷酸化Tau-217蛋白测定试剂盒（p-Tau-217，磁微粒化学发光法，湘械注准20262400163）；神经丝轻链蛋白检测试剂盒",
-    "pipeline": "pTau217+NfL组合检测，AD早筛准确率近90%，能提前15-20年发现疾病细微变化；磁微粒化学发光法技术平台",
-    "website": [
-      ""
-    ],
-    "cat_order": 17,
     "name_cn": "湖南永和阳光生物科技股份有限公司",
-    "name_en": "Hunan Yonghe Sunshine Biotechnology Co., Ltd.",
-    "location": "中国湖南长沙",
-    "history": [
-      [
-        {
-          "date": "2010",
-          "event": "湖南永和阳光成立"
-        },
-        {
-          "date": "2026-03",
-          "event": "pTau217+NfL组合检测报道，早筛准确率近90%"
-        },
-        {
-          "date": "2026",
-          "event": "pTau217测定试剂盒获批（湘械注准20262400163）"
-        }
-      ]
-    ],
-    "news": []
+    "name_en": "Hunan Yonghe-sun Biotechnology Co., Ltd.",
+    "country": "中国",
+    "location": "湖南浏阳",
+    "website": "http://www.yh-sun.com",
+    "products": "体外生化诊断试剂及仪器；吖啶酯直接化学发光、高效液相色谱、循环酶、胶乳免疫增强、胶体金、免疫荧光六大核心技术；2026年推出磷酸化tau217+神经丝轻链蛋白AD早筛检测组合（准确率近90%）",
+    "pipeline": "AD早筛检测面板（p-tau217+NfL），可提前15-20年预警",
+    "cat_order": 2,
+    "history": "2007年成立，新三板上市公司（870853）；国家高新技术企业、专精特新'小巨人'企业；精准即时诊断(POCT)工程技术研究中心",
+    "news": [
+      "2026年：推出磷酸化tau217+神经丝轻链蛋白检测组合，AD早筛准确率近90%，被长沙晚报报道。来源：https://www.iesdouyin.com/share/video/7621519437510493026"
+    ]
   },
   {
     "category": "十七、检测诊断——国内IVD厂商（含图片信息）",
