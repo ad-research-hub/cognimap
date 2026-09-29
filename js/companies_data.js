@@ -361,6 +361,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1941年成立；2007年与BioArctic签订lecanemab授权协议；2014年与渤健签订lecanemab联合开发商业化协议；2023年lecanemab获FDA完全批准成为全球首个证实可减缓AD认知功能下降的药物；2026年AAIC发表逾50项AD研究报告",
     "news": [
+      "2026年9月3日：仑卡奈单抗皮下自动注射笔获中国NMPA批准，全球第二个、亚洲首个，预计12月底前中国上市，首个可居家使用AD药物。来源：https://www.eisai.com.cn/2026/09/03/%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%88%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%B0%84%E5%89%82%E5%9E%8B%E5%9C%A8%E4%B8%AD%E5%9B%BD/",
       "2026年9月3日：乐意保（仑卡奈单抗）皮下自动注射剂型在中国获批，用于早期AD初始治疗，预计12月底前中国上市。来源：https://www.eisai.com.cn/2026/09/03/%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%88%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%B0%84%E5%89%82%E5%9E%8B%E5%9C%A8%E4%B8%AD%E5%9B%BD/",
       "2026年9月1日：加拿大药品管理局发布最终积极建议，支持LEQEMBI用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
       "2026年9月：仑卡奈单抗纳入广西贵港、贺州、河池三地惠民保特定药品费用保障方案。来源：https://www.eisai.com.cn/category/news-zh/",
@@ -1294,6 +1295,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1978年成立；2014年与卫材签订lecanemab联合开发协议；2021年Aduhelm（aducanumab）获FDA加速批准后因市场表现不佳于2024年撤回；2023年lecanemab获FDA完全批准；2026年diranersen II期CELIA取得阳性结果",
     "news": [
+      "2026年9月3日：与卫材联合开发的仑卡奈单抗皮下自动注射笔获中国NMPA批准，全球第二个、亚洲首个。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-lecanemab-subcutaneous-formulation-initiation-treatment",
       "2026年9月1日：LEQEMBI（仑卡奈单抗）皮下制剂作为早期AD初始治疗在中国获批。来源：https://investors.biogen.com/news/news-releases",
       "2026年7月14日：AAIC展示diranersen（BIIB080）II期CELIA研究数据，显示tau病理减少和认知获益，首个tau靶向治疗随机II期研究同时显示生物标志物影响和认知获益。来源：https://investors.biogen.com/news-releases/news-release-details/biogen-presents-phase-2-celia-data-aaic-demonstrating-meaningful",
       "2026年5月14日：diranersen II期CELIA研究顶线结果公布。来源：https://investors.biogen.com/news-releases/news-release-details/topline-results-phase-2-celia-study-diranersen-biib080-first",
@@ -2166,6 +2168,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1876年成立；2003年启动AD研发；2024年多奈单抗获FDA批准成为第二款AD疾病修饰疗法；2026年AAIC展示pTau217血液检测和Aβ靶向治疗研究",
     "news": [
+      "2026年9月：多奈单抗（记能达）北京药房报价6990元/支（20ml:350mg），2025年商保创新药目录纳入，有效期2026-2027年。来源：https://www.bjmxkn.com/mx2892.html",
       "2026年7月：ceperognastat II期PROSPECT-ALZ试验结果发表于JAMA，327例早期AD未达主要终点，高剂量认知恶化，礼来宣布停止AD开发。来源：https://pharmacally.com/ceperognastat-phase-2-prospect-alz-trial-alzheimers-jama/",
       "2026年4月30日：加拿大批准Kisunla（多奈单抗）。来源：https://dhpp.hpfb-dgpsa.ca/review-documents/resource/RDS1779283825657",
       "2026年7月9日：AAIC展示Kisunla（多奈单抗）长期扩展数据和P-tau217血液检测诊断性能数据。来源：https://investor.lilly.com/news-releases/news-release-details/lilly-present-alzheimers-disease-diagnostic-and-therapeutic",
@@ -2808,6 +2811,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年4月28日：II/III期AD试验结果发表于Nature Portfolio。来源：https://www.annovisbio.com/press-release/annovis-publishes-phase-2-3-alzheimers-trial-results-in-nature-portfolio",
       "2026年9月23日：与Weave Bio（AI监管平台）合作，准备buntanetap的NDA提交。来源：https://www.annovisbio.com/press-release-detail?i=170212",
       "2026年8月：II期季度报告，III期AD试验850例已完成入组，超过原计划760例。来源：https://www.annovisbio.com/press-release/annovis-provides-corporate-updates-and-second-quarter-2026-financial-results",
       "2026年7月：宣布III期AD试验完成入组，早期AD患者pTau217阳性，主要终点ADAS-Cog13和ADCS-iADL。来源：https://www.annovisbio.com/press-release/annovis-reaches-full-enrollment-in-pivotal-phase-3-trial-of-buntanetap-for-early-alzheimers-disease"
