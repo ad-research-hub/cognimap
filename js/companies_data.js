@@ -1296,6 +1296,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1978年成立；2014年与卫材签订lecanemab联合开发协议；2021年Aduhelm（aducanumab）获FDA加速批准后因市场表现不佳于2024年撤回；2023年lecanemab获FDA完全批准；2026年diranersen II期CELIA取得阳性结果",
     "news": [
+      "2026年7月：diranersen II期CELIA数据公布，CSF总tau降低50-65%，60mg组认知下降减缓42%，渤健将启动III期临床开发。来源：https://www.businesswire.com/news/home/20260714961307/en/Ionis-Partner-Biogen-Presents-Phase-2-CELIA-Data-at-AAIC-Demonstrating-Meaningful-Clinical-Outcomes-and-Robust-Tau-Reduction-with-Diranersen-in-Early-Alzheimers-Disease",
       "2026年9月3日：与卫材联合开发的仑卡奈单抗皮下自动注射笔获中国NMPA批准，全球第二个、亚洲首个。来源：https://investors.biogen.com/news-releases/news-release-details/leqembir-lecanemab-subcutaneous-formulation-initiation-treatment",
       "2026年9月1日：LEQEMBI（仑卡奈单抗）皮下制剂作为早期AD初始治疗在中国获批。来源：https://investors.biogen.com/news/news-releases",
       "2026年7月14日：AAIC展示diranersen（BIIB080）II期CELIA研究数据，显示tau病理减少和认知获益，首个tau靶向治疗随机II期研究同时显示生物标志物影响和认知获益。来源：https://investors.biogen.com/news-releases/news-release-details/biogen-presents-phase-2-celia-data-aaic-demonstrating-meaningful",
@@ -2269,6 +2270,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年3月：semaglutide evoke/evoke+ III期试验结果发表于The Lancet，未达主要终点，1年延长期已终止。来源：https://pubmed.ncbi.nlm.nih.gov/?term=NCT04777409%5BSecondary+Source+ID%5D",
       "2025年11月24日：evoke和evoke+ III期试验未能在统计学上显著减缓阿尔茨海默病进展，semaglutide改善了AD相关生物标志物但未转化为临床获益。来源：https://www.novonordisk.com/news-and-media/news-and-ir-materials/news-details.html?id=916462",
       "2026年3月：evoke(+)主要结果发表于The Lancet。来源：https://sciencehub.novonordisk.com/content/dam/sciencehub/global/en/congresses-and-scientific-publications/scientific-publications/articles/other/evoke-ms/documents/evoke(+)%20primary%20manuscript_Publication%20Slide%20Deck_FINAL_18Mar26%20-%20Copy.pdf",
       "2026年4月：AAN展示semaglutide对AD相关生物过程影响的生物标志物和多组学免疫表型分析结果。来源：https://sciencehub.novonordisk.com/content/dam/sciencehub/global/en/congresses-and-scientific-publications/congresses/aan2026/belmont-rausch/documents/aan-2026-biofluid-biomarker-oral-pressentation.pdf"
