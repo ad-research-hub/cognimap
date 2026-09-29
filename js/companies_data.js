@@ -363,6 +363,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1941年成立；2007年与BioArctic签订lecanemab授权协议；2014年与渤健签订lecanemab联合开发商业化协议；2023年lecanemab获FDA完全批准成为全球首个证实可减缓AD认知功能下降的药物；2026年AAIC发表逾50项AD研究报告",
     "news": [
+      "2026年9月：仑卡奈单抗纳入海南\"乐城特药险\"B款升级版；9月3日皮下自动注射笔获中国NMPA批准（全球第二、亚洲首个），预计12月底前中国上市。来源：https://www.eisai.com.cn/category/news-zh/",
       "2026年9月3日：仑卡奈单抗皮下自动注射笔获中国NMPA批准，全球第二个、亚洲首个，预计12月底前中国上市，首个可居家使用AD药物。来源：https://www.eisai.com.cn/2026/09/03/%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%88%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%B0%84%E5%89%82%E5%9E%8B%E5%9C%A8%E4%B8%AD%E5%9B%BD/",
       "2026年9月3日：乐意保（仑卡奈单抗）皮下自动注射剂型在中国获批，用于早期AD初始治疗，预计12月底前中国上市。来源：https://www.eisai.com.cn/2026/09/03/%E4%B9%90%E6%84%8F%E4%BF%9D%EF%BC%88%E4%BB%91%E5%8D%A1%E5%A5%88%E5%8D%95%E6%8A%97%EF%BC%89%E7%9A%AE%E4%B8%8B%E8%87%AA%E5%8A%A8%E6%B3%A8%E5%B0%84%E5%89%82%E5%9E%8B%E5%9C%A8%E4%B8%AD%E5%9B%BD/",
       "2026年9月1日：加拿大药品管理局发布最终积极建议，支持LEQEMBI用于早期AD的公共报销。来源：https://www.eisai.com/news/2026/news202648.html",
@@ -575,6 +576,7 @@ window.COMPANIES_DATA = [
     "cat_order": 1,
     "history": "1896年成立；基因泰克为其全资子公司；AD研发由罗氏和基因泰克共同推进；2025年12月trontinemab II期取得阳性结果；2026年与Manifold Bio签订超20亿美元BBB穿梭技术合作",
     "news": [
+      "2026年9月10日：trontinemab PrevenTRON临床前AD预防III期在美/加/英启动入组（NCT07717411）；中国III期注册CTR20262874；TRONTIER 1/2约1600例18国进行中。来源：https://adisinsight.springer.com/drugs/800055372",
       "2026年9月10日：trontinemab全球多中心III期PrevenTRON在首都医科大学宣武医院启动，中美加日欧多国同步推进，首次将干预关口前移至症状前阶段。来源：https://healthnews.cn/news/industryNews/2026/0910/513782.html",
       "2026年7月23日：Elecsys血浆pTau217血液检测获CE标志，首个单检测设计的AD病理血液检测。来源：https://www.roche.com/media/releases/med-cor-2026-07-23",
       "2026年7月6日：AAIC展示trontinemab Ib/IIa期长期安全性、淀粉样蛋白清除和生物标志物数据。来源：https://www.gene.com/media/press-releases/15120/2026-07-06/genentech-and-roche-present-new-data-in-",
