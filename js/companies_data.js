@@ -921,12 +921,12 @@ window.COMPANIES_DATA = [
     "location": "加利福尼亚州南旧金山",
     "website": "https://www.alector.com",
     "products": "暂无AD治疗药物上市",
-    "pipeline": "AL064/AL164（ABC脑递送技术+tau siRNA，非人灵长类显示tau mRNA敲低和pTau217持续降低，IND-enabling研究中）；AL137（ABC技术+抗Aβ抗体，设计用于清除脑内Aβ斑块并降低ARIA风险）；nivisnebart/AL101/GSK4527226（II期PROGRESS-AD因中期无效分析已终止）",
+    "pipeline": "AL002（TREM2激动剂抗体，II期INVOKE-2试验2026年3月发表于Nature Medicine未达主要终点，停止长期扩展研究）；AL064/AL164（tau siRNA，非人灵长类显示tau mRNA敲低和pTau217降低）；latozinemab/AL101（progranulin升高，与GSK合作，III期INFRONT-3进行中）",
     "cat_order": 1,
     "history": "专注神经退行性疾病的生物科技公司，核心技术为ABC（Antibody Brain Carrier）脑递送平台；与GSK合作开发nivisnebart；2026年终止nivisnebart II期后转向tau siRNA和抗Aβ抗体管线",
     "news": [
-      "2026年6月：Alector宣布终止nivisnebart（AL101/GSK4527226）II期PROGRESS-AD试验，因中期无效分析。来源：https://investors.alector.com/news-releases/news-release-details/alector-discontinue-phase-2-progress-ad-trial-nivisnebart/",
-      "2026年8月：Q2财报更新AL064/AL164 tau siRNA进展，非人灵长类显示稳健tau mRNA敲低和pTau217持续降低。来源：https://investors.alector.com/news-releases/news-release-details/alector-reports-second-quarter-2026-financial-results-and/"
+      "2026年3月：AL002 II期INVOKE-2试验结果发表于Nature Medicine，381例早期AD患者未达到CDR-SB主要终点，停止长期扩展研究。来源：https://pubmed.ncbi.nlm.nih.gov/41787076/",
+      "2026年8月：报告2026年第二季度财务结果，AL064 tau siRNA项目进展。来源：https://investors.alector.com/node/11046/pdf"
     ]
   },
   {
@@ -2882,10 +2882,10 @@ window.COMPANIES_DATA = [
     "name": "Cassava Sciences（更名为Filana Therapeutics）",
     "country": "美国",
     "products": "暂无AD上市产品",
-    "pipeline": "simufilam（靶向filamin A蛋白的口服小分子，III期RETHINK-ALZ（N=804）和REFOCUS-ALZ（N=1125）均未达到共同主要终点、次要终点和探索性生物标志物终点，2024年11月停止开发，2025年Q2完全终止AD项目，2026年1月在JPAD发表详细III期结果）",
+    "pipeline": "simufilam（口服filamin A靶向药物，两项III期RETHINK-ALZ/REFOCUS-ALZ未达终点，2025年3月退出AD领域，公司更名为Filana Therapeutics转向TSC癫痫研究，2026年9月FDA解除临床搁置）",
     "website": "https://www.filanatx.com",
     "cat_order": 7,
-    "name_cn": "",
+    "name_cn": "Cassava Sciences（现Filana Therapeutics）",
     "name_en": "Cassava Sciences, Inc. (now Filana Therapeutics)",
     "location": "美国德克萨斯州奥斯汀",
     "history": [
@@ -2906,7 +2906,11 @@ window.COMPANIES_DATA = [
         "event": "simufilam III期结果在JPAD发表"
       }
     ],
-    "news": []
+    "news": [
+      "2025年3月：宣布退出AD领域，simufilam两项III期试验未达共同主要终点。来源：https://www.pharnexcloud.com/yaopin/simufilam",
+      "2026年1月：simufilam III期结果发表于《Journal of Prevention of Alzheimer's Disease》。来源：https://www.ncbi.nlm.nih.gov/pubmed/41500915",
+      "2026年9月：FDA解除simufilam临床搁置，允许TSC相关癫痫IIa期研究，公司更名为Filana Therapeutics。来源：https://www.filanatx.com/press-releases"
+    ]
   },
   {
     "category": "七、治疗药物——多靶点/创新机制",
