@@ -1100,10 +1100,10 @@ window.addEventListener('unhandledrejection', function(e) {
       <h2>阿尔茨海默病研究全景导航</h2>
       <div class="subtitle">整合标志物、企业、指南、药物、量表、医疗资源的一站式AD研究平台</div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="num">458</div><div class="label">生物标志物</div></div>
-        <div class="hero-stat"><div class="num">303</div><div class="label">企业机构</div></div>
-        <div class="hero-stat"><div class="num">601</div><div class="label">在研药物</div></div>
-        <div class="hero-stat"><div class="num">1611</div><div class="label">临床试验</div></div>
+        <div class="hero-stat"><div class="num" id="stat-markers">458</div><div class="label">生物标志物</div></div>
+        <div class="hero-stat"><div class="num" id="stat-companies">313</div><div class="label">企业机构</div></div>
+        <div class="hero-stat"><div class="num" id="stat-drugs">601</div><div class="label">在研药物</div></div>
+        <div class="hero-stat"><div class="num" id="stat-trials">1611</div><div class="label">临床试验</div></div>
         <div class="hero-stat"><div class="num">101</div><div class="label">AD风险基因</div></div>
         <div class="hero-stat"><div class="num">18</div><div class="label">PET示踪剂</div></div>
         <div class="hero-stat"><div class="num">35</div><div class="label">AD模型</div></div>
@@ -3470,13 +3470,13 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=286"></script>
-<script src="js/details_data.js?v=286"></script>
-<script src="js/nmpa_data.js?v=286"></script>
-<script src="js/companies_data.js?v=286"></script>
-<script src="js/drugs_data.js?v=286"></script>
-<script src="js/pipeline_data.js?v=286"></script>
-<script src="js/epi_world_map.js?v=286"></script>
+<script src="js/markers_data.js?v=287"></script>
+<script src="js/details_data.js?v=287"></script>
+<script src="js/nmpa_data.js?v=287"></script>
+<script src="js/companies_data.js?v=287"></script>
+<script src="js/drugs_data.js?v=287"></script>
+<script src="js/pipeline_data.js?v=287"></script>
+<script src="js/epi_world_map.js?v=287"></script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -4479,7 +4479,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v286 · 数据更新至 2026-09-29</div>
+  <div>版本 v287 · 数据更新至 2026-09-29</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
@@ -7222,5 +7222,35 @@ function initModelPage() {
 
 
 </script>
+
+<script>
+// 动态更新主页统计数据（从数据文件中读取实际数量）
+function updateHeroStats() {
+  try {
+    if (window.MARKERS_DATA) {
+      const m = document.getElementById('stat-markers');
+      if (m) m.textContent = window.MARKERS_DATA.length;
+    }
+    if (window.COMPANIES_DATA) {
+      const c = document.getElementById('stat-companies');
+      if (c) c.textContent = window.COMPANIES_DATA.length;
+    }
+    if (window.PIPELINE_DATA) {
+      const d = document.getElementById('stat-drugs');
+      if (d) d.textContent = window.PIPELINE_DATA.length;
+      const trials = window.PIPELINE_DATA.filter(p => p.nct_id || p.NCT).length;
+      const t = document.getElementById('stat-trials');
+      if (t && trials > 0) t.textContent = trials;
+    }
+  } catch(e) { console.log('stats update error', e); }
+}
+// 数据加载完成后执行
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', function() { setTimeout(updateHeroStats, 500); });
+} else {
+  setTimeout(updateHeroStats, 500);
+}
+</script>
+
 </body>
 </html>
