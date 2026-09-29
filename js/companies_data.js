@@ -729,7 +729,7 @@ window.COMPANIES_DATA = [
     "name": "Prothena Corporation（Nasdaq: PRTA）",
     "country": "爱尔兰/美国",
     "products": "暂无AD上市产品",
-    "pipeline": "PRX012（抗Aβ N端单抗，每月一次皮下注射，I期ASCENT完成，FDA快速通道，计划寻求合作；PRX012-TfR临床前）；BMS-986446/PRX005（抗tau MTBR抗体，与BMS合作，II期TargetTau-1，310例早期AD，已完成入组）",
+    "pipeline": "BMS-986446/PRX005（抗MTBR tau抗体，与百时美施贵宝合作，II期TargetTau-1试验约310例早期AD患者，主要完成预计2027年上半年，2025年1月获FDA快速通道资格）",
     "website": "https://www.prothena.com",
     "cat_order": 2,
     "name_cn": "",
@@ -750,7 +750,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026：BMS-986446 II期TargetTau-1完成入组"
+      "2026年7月：报告2026年第一季度财务结果，BMS-986446 II期TargetTau-1试验进行中。来源：https://ir.prothena.com/investors/press-releases/news-details/2026/Prothena-Reports-First-Quarter-2026-Financial-Results-and-Business-Highlights/default.aspx",
+      "2025年1月：BMS-986446获FDA快速通道资格认定，II期研究完全入组。来源：https://ir.prothena.com/investors/press-releases/news-details/2025/Prothenas-Partner-Bristol-Myers-Squibb-Obtains-Fast-Track-Designation-from-the-U-S--FDA-for-BMS-986446-PRX005-an-Anti-MTBR-Tau-Targeting-Antibody-for-the-Treatment-of-Alzheimers-Disease/default.aspx"
     ]
   },
   {
@@ -967,7 +968,7 @@ window.COMPANIES_DATA = [
     "name": "Alnylam Pharmaceuticals",
     "country": "美国",
     "products": "暂无AD上市产品",
-    "pipeline": "mivelsiran/ALN-APP（鞘内注射RNAi治疗，靶向APP mRNA，I期显示可溶性APP降低55%；II期cAPPricorn-1 CAA研究NCT06393712完成入组；II期APPlauDS唐氏综合征AD研究2026年7月启动；与Regeneron合作）；ALN-5288/MAPT（靶向tau的RNAi，临床前）",
+    "pipeline": "Mivelsiran/ALN-APP（RNAi治疗，靶向APP，治疗AD和CAA，II期cAPPricorn-1在CAA中进行，2026年7月启动唐氏综合征相关AD II期APPlauDS研究）；ALN-5288/MAPT（靶向tau的RNAi，I期临床）",
     "website": "https://www.alnylam.com",
     "cat_order": 3,
     "name_cn": "",
@@ -988,7 +989,8 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
-      "2026-07：AAIC展示mivelsiran神经科学项目进展"
+      "2026年7月：在AAIC 2026上宣布启动唐氏综合征相关AD的II期APPlauDS研究，约30个全球中心招募早期AD患者。来源：https://alnylampharmaceuticalsinc.gcs-web.com/news-releases/news-release-details/alnylam-highlights-progress-neuroscience-programs-aaic-2026",
+      "2026年7月：报告2026年第二季度财务结果，Mivelsiran II期启动。来源：https://investors.alnylam.com/press-release?id=29986"
     ]
   },
   {
