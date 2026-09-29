@@ -1114,6 +1114,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年8月11日：DNL921(ATV:Abeta)I期在ClinicalTrials.gov注册计划入组178例，数据预计2027年；DNL628(OTV:MAPT)Ib期3月首例给药，数据预计2027上半年。来源：https://investors.denalitherapeutics.com/news-releases/news-release-details/denali-therapeutics-reports-second-quarter-2026-financial",
       "2026年8月11日：DNL921（ATV:Abeta）I期临床试验在ClinicalTrials.gov注册，计划入组178例，预计2030年4月完成，I/Ib期数据预计2027年。来源：https://www.vbdata.cn/companyDetail/f18166f0535311e7b9fa7dc2aecfc73c",
       "2026年8月：报告2026年第二季度财务结果，DNL628和DNL921两个AD项目进展。来源：https://investors.denalitherapeutics.com/news-releases/news-release-details/denali-therapeutics-reports-second-quarter-2026-financial",
       "2026年7月：AAIC 2026开幕式全体会议演讲，介绍血脑屏障递送技术突破。来源：https://investors.denalitherapeutics.com/news-releases/news-release-details/denali-therapeutics-give-opening-plenary-address-alzheimers",
@@ -2661,6 +2662,7 @@ window.COMPANIES_DATA = [
       }
     ],
     "news": [
+      "2026年9月23日：XanaMIA IIb/III期完成最后患者访视（247例，美澳），顶线结果预计11月；1月DMC中期分析建议继续。来源：https://rss.globenewswire.com/news-release/2026/09/23/3367466/0/en/actinogen-xanamia-pivotal-alzheimer-s-disease-trial-completes-final-patient-visit-with-topline-results-on-track-for-november.html",
       "2026年9月23日：XanaMIA关键性AD试验完成最后一名患者访视，顶线结果按计划2026年11月公布。来源：https://rss.globenewswire.com/news-release/2026/09/23/3367466/0/en/actinogen-xanamia-pivotal-alzheimer-s-disease-trial-completes-final-patient-visit-with-topline-results-on-track-for-november.html",
       "2026年1月：XanaMIA IIb/III期试验中期分析阳性，独立DMC建议继续试验。来源：https://actinogen.com.au/"
     ]
