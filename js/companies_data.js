@@ -566,14 +566,15 @@ window.COMPANIES_DATA = [
     "country": "瑞士",
     "location": "巴塞尔",
     "website": "https://www.roche.com",
-    "products": "Elecsys® pTau217血浆检测（与礼来联合开发，2026年8月FDA批准，用于辅助判断55岁及以上认知衰退人群AD相关淀粉样蛋白病理）；Elecsys pTau181、ApoE4检测（CSF/血液）；暂无AD治疗药物上市",
-    "pipeline": "trontinemab/RG6102（Brainshuttle™双特异性2+1 Aβ靶向单抗，TfR1介导BBB穿越，II期2025年12月成功，III期TRONTIER 1/2约1600例18国2025年启动，PrevenTRON临床前AD预防III期2026年7月宣布）；nivegacetor（口服γ-分泌酶调节剂GSM，改变APP加工防止Aβ积累）；RG6627（AD在研）；semorinemab/RG6100（抗Tau单抗，II期）；gantenerumab（III期失败已终止）",
+    "products": "Elecsys血浆pTau217血液检测（2026年7月获CE标志，首个单检测设计的AD病理血液检测，用于在初级和二级医疗中判断淀粉样蛋白病理）；暂无AD治疗药物上市",
+    "pipeline": "trontinemab/RO7126209（Brainshuttle™双特异性2+1 Aβ靶向单抗，TfR1介导BBB穿越，Ib/IIa期显示91%患者淀粉样蛋白清除至阈值以下；III期TRONTIER 1/2约1600例18国2025年启动；2026年9月III期中国启动NCT07717411；PrevenTRON临床前AD预防III期2026年7月宣布）；gantenerumab（III期失败已终止）",
     "cat_order": 1,
     "history": "1896年成立；基因泰克为其全资子公司；AD研发由罗氏和基因泰克共同推进；2025年12月trontinemab II期取得阳性结果；2026年与Manifold Bio签订超20亿美元BBB穿梭技术合作",
     "news": [
-      "2026年8月：与礼来联合开发的Elecsys Phospho-Tau(217P) Plasma血液检测获FDA批准。来源：https://wap.stockstar.com/detail/IG2026090200000083",
-      "2026年7月：AAIC展示trontinemab长期安全性、淀粉样蛋白清除和生物标志物数据，同时公布PrevenTRON III期设计。来源：https://www.gene.com/media/press-releases/15120/2026-07-06/genentech-and-roche-present-new-data-in-",
-      "2026年9月：PrevenTRON III期试验在美国、加拿大、英国启动入组（NCT07717411）。来源：https://adisinsight.springer.com/drugs/800055372"
+      "2026年7月23日：Elecsys血浆pTau217血液检测获CE标志，首个单检测设计的AD病理血液检测。来源：https://www.roche.com/media/releases/med-cor-2026-07-23",
+      "2026年7月6日：AAIC展示trontinemab Ib/IIa期长期安全性、淀粉样蛋白清除和生物标志物数据。来源：https://www.gene.com/media/press-releases/15120/2026-07-06/genentech-and-roche-present-new-data-in-",
+      "2026年7月19日：宣布PrevenTRON III期预防试验，在认知未受损高风险AD个体中评估trontinemab。来源：https://www.neurologylive.com/view/roche-unveils-preventron-phase-3-prevention-trial-trontinemab-cognitively-unimpaired-individuals-high-risk-alzheimers",
+      "2026年9月10日：trontinemab III期临床试验在中国启动（NCT07717411）。来源：https://adisinsight.springer.com/drugs/800055372"
     ]
   },
   {
@@ -2152,15 +2153,15 @@ window.COMPANIES_DATA = [
     "country": "美国",
     "location": "印第安纳州印第安纳波利斯",
     "website": "https://www.lilly.com",
-    "products": "Kisunla®/donanemab（多奈单抗，中国商品名记能达®，抗Aβ单抗，2024年FDA加速批准，2024年日本批准，2025年欧盟经复议批准（限APOE4非携带者/杂合子），2025年FDA更新给药方案标签，2026年4月加拿大批准，2026年公布三年长期数据：早期治疗降低27%疾病进展风险；2026年Q1收入1.24亿美元，Q2收入1.67亿美元）",
-    "pipeline": "remternetug/LY3372993（下一代抗Aβ抗体，靶向Aβp3-42，改良Fc工程降低ARIA风险，可皮下注射，III期TRAILBLAZER-ALZ 5和6进行中，2026年底数据预计）；TRAILBLAZER-ALZ 3（临床前AD预防III期）；TRAILBLAZER-ALZ 5（中国等地区注册试验）；与罗氏联合开发Elecsys pTau217血浆检测（2026年8月FDA批准）",
+    "products": "Kisunla/多奈单抗（donanemab，2024年7月FDA批准，2024年9月日本批准，2024年10月英国批准，2024年12月中国批准，2026年4月加拿大批准；2026年6月申报国家医保）",
+    "pipeline": "remternetug/LY3372993（N3pG-Aβ单抗，皮下注射，临床开发中）；P-tau217血液检测诊断（AAIC 2026展示与淀粉样PET对比的诊断性能数据）",
     "cat_order": 1,
     "history": "1876年成立；2003年启动AD研发；2024年多奈单抗获FDA批准成为第二款AD疾病修饰疗法；2026年AAIC展示pTau217血液检测和Aβ靶向治疗研究",
     "news": [
-      "2026年9月：Kisunla（多奈单抗）2026年Q2收入1.67亿美元，Q1收入1.24亿美元，持续快速增长。来源：https://stcn.com/article/detail/4170137.html",
-      "2026年7月：AAIC 2026展示多奈单抗三年长期数据，早期治疗降低27%疾病进展风险；同时展示pTau217血液检测研究。来源：https://investor.lilly.com/news-releases/news-release-details/lilly-present-alzheimers-disease-diagnostic-and-therapeutic",
-      "2026年4月：加拿大卫生部批准Kisunla用于早期症状性AD。来源：https://dhpp.hpfb-dgpsa.ca/review-documents/resource/RDS1779283825657",
-      "2025年：FDA批准Kisunla更新标签，采用新的给药方案（基于Aβ清除的个体化给药）"
+      "2026年4月30日：加拿大批准Kisunla（多奈单抗）。来源：https://dhpp.hpfb-dgpsa.ca/review-documents/resource/RDS1779283825657",
+      "2026年7月9日：AAIC展示Kisunla（多奈单抗）长期扩展数据和P-tau217血液检测诊断性能数据。来源：https://investor.lilly.com/news-releases/news-release-details/lilly-present-alzheimers-disease-diagnostic-and-therapeutic",
+      "2026年6月8日：多奈单抗申报国家医保药品目录调整。来源：https://www.nhsa.gov.cn/art/2026/6/29/art_109_21131.html",
+      "2026年6月：意大利药品管理局(CSE)确认不纳入仑卡奈单抗和多奈单抗报销。来源：https://www.aifa.gov.it/documents/20142/3462301/Anti-amiloidi_motivazioni_CSE_26.06.2026.pdf"
     ]
   },
   {
