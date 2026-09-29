@@ -108,20 +108,10 @@ window.APPROVED_DRUGS_DATA = [
     "label_url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=a7b76864-6de7-45f6-be5b-5ecfca811627",
     "label_source": "FDA DailyMed / EMA / 灵北官网",
     "references": [
-      {
-        "source": "FDA DailyMed (口服液)",
-        "url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=a7b76864-6de7-45f6-be5b-5ecfca811627"
-      },
-      {
-        "source": "FDA DailyMed (缓释胶囊)",
-        "url": "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=24290655-47f3-4042-a977-a832c5161d2c"
-      },
-      {
-        "source": "EMA产品信息",
-        "url": "https://www.ema.europa.eu/documents/product-information/memantine-lek-epar-product-information_en.pdf"
-      }
+      "国家医保局：盐酸美金刚口崩片申报材料（2026-06-10）。https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600591/YPSW202600591.pdf",
+      "国家医保局：盐酸美金刚口溶膜申报材料（2026-06-09）。https://www.nhsa.gov.cn/attach/Ypsn2026/YPSN202600195/YPSN202600195.pdf"
     ],
-    "status": "已上市",
+    "status": "已上市（多国）；2026年6月盐酸美金刚口崩片申报国家医保药品目录调整（目录外）；盐酸美金刚口溶膜申报医保目录调整（目录内，2026年12月31日协议到期）",
     "sort_order": 4
   },
   {
@@ -272,12 +262,11 @@ window.APPROVED_DRUGS_DATA = [
     "label_url": "",
     "label_source": "FDA（历史）",
     "references": [
-      {
-        "source": "Alzheimer's Association治疗指南",
-        "url": "https://www.alz.org/alzheimers-dementia/treatments/medications-for-memory"
-      }
+      "Alzheimer's Association: Aducanumab Discontinued as an Alzheimer's Treatment. https://www.alz.org/alzheimers-dementia/treatments/aducanumab-news",
+      "FDA: Aduhelm (aducanumab) accelerated approval withdrawn November 1, 2024. https://tutorialdiary.com/medicare-and-medicaid-place-restrictions-on-new-alzheimers-drug-aduhelm-aducanumab.html",
+      "EMA: Withdrawal of application for marketing authorisation of Aduhelm (2022-04-20). https://www.ema.europa.eu/en/documents/medicine-qa/questions-answers-withdrawal-application-marketing-authorisation-aduhelm-aducanumab_hr.pdf"
     ],
-    "status": "已退市（2024年）",
+    "status": "已退市（2024年11月1日FDA撤回加速批准，Biogen停止商业化和进一步开发）；2021年6月获FDA加速批准，是首个抗Aβ单抗，但因疗效数据争议和医保限制最终退市",
     "sort_order": 9
   },
   {
@@ -310,43 +299,28 @@ window.APPROVED_DRUGS_DATA = [
     "id": "octohydroaminoacridine",
     "name_cn": "琥珀酸安维吖啶（耄安通）",
     "name_en": "Octohydroaminoacridine Succinate",
-    "brand_name": "耄安通®",
-    "company": "通化金马药业集团（000766.SZ）",
-    "drug_class": "胆碱酯酶抑制剂（双靶点）",
-    "mechanism": "中国自主研发的化学1类创新药（全新化学实体，曾用名琥珀八氢氨吖啶）。双靶点抑制乙酰胆碱酯酶（AChE）和丁酰胆碱酯酶（BuChE），提高脑内乙酰胆碱水平，改善轻中度AD患者认知功能。历时20余年研发，2015年8月获NMPA III期临床批件，2021年8月完成全部入组。",
+    "brand_name": "耄安通",
+    "company": "通化金马药业集团股份有限公司",
+    "drug_class": "胆碱酯酶抑制剂（双靶点AChE/BuChE）",
+    "mechanism": "中国首个具有完全自主知识产权的双胆碱酯酶抑制剂，同时抑制乙酰胆碱酯酶(AChE)和丁酰胆碱酯酶(BuChE)，提高脑内乙酰胆碱水平",
     "indication": "用于轻、中度阿尔茨海默病症状的治疗",
     "dosage": "口服，餐后服用。初始剂量一次2mg，一日3次，该剂量应至少维持1~2周；第三周开始增加至一次4mg，一日3次（12mg/日维持剂量）。",
     "adverse_reactions": "III期临床试验显示，试验组不良反应、不良事件、重要不良事件及严重不良事件发生率与安慰剂组均无统计学差异，耐受性和安全性良好。常见不良反应以胆碱能相关胃肠道反应为主（恶心、呕吐、腹泻等），具体以说明书为准。",
     "contraindications": "对本品活性成分或任何辅料过敏者禁用；严重肝功能不全患者慎用（详见说明书）",
-    "approval_date": "2026年6月25日（NMPA）",
-    "approval_body": "NMPA（国家药品监督管理局）",
+    "approval_date": "2026-06-25（获药品注册证书）；2026-07-14（NMPA正式批准上市）",
+    "approval_body": "中国NMPA（化学1类创新药）",
     "price": "挂网价：4mg 616元/盒（21片）、2mg 369元/盒（21片）；月费用约880元（4mg规格，自费）。已启动2026年国家医保目录申报",
     "insurance": "未纳入医保（2026年申报中）",
     "label_url": "https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600164/YPSW202600164.pdf",
     "label_source": "NMPA批准公告 / 国家医保局申报材料",
     "references": [
-      {
-        "source": "NMPA批准琥珀酸安维吖啶片上市公告",
-        "url": "https://www.nmpa.gov.cn/directory/web/nmpa/zhuanti/zt2023/ypgzhlfzh/shypqxgg/ggjzcx/20260714102827193.html"
-      },
-      {
-        "source": "通化金马《药品注册证书》公告（巨潮资讯）",
-        "url": "http://static.cninfo.com.cn/finalpage/2026-06-26/1225386817.PDF"
-      },
-      {
-        "source": "国家医保局2026年目录调整申报材料（含说明书用法用量）",
-        "url": "https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600164/YPSW202600164.pdf"
-      },
-      {
-        "source": "界面新闻：耄安通正式获批报道",
-        "url": "https://m.jiemian.com/article/14658253.html"
-      },
-      {
-        "source": "上海证券报：获批公告原文",
-        "url": "http://paper.cnstock.com/html/2026-06/26/content_2235379.htm"
-      }
+      "国家药监局：批准琥珀酸安维吖啶片上市（2026-07-14）。https://www.nmpa.gov.cn/directory/web/nmpa/zhuanti/zt2023/ypgzhlfzh/shypqxgg/ggjzcx/20260714102827193.html",
+      "通化市政府：通化金马1类创新药耄安通获批（2026-07-09）。http://www.tonghua.gov.cn/zwgk/thlb/thdt/202607/t20260709_777713.html",
+      "上海证券报：通化金马关于获得琥珀酸安维吖啶片《药品注册证书》的公告（2026-06-26）。http://paper.cnstock.com/html/2026-06/26/content_2235379.htm",
+      "上海证券报：通化金马与宣武医院签署战略合作，推进AD新药临床（2026-08-24）。http://www.cnstock.com/commonDetail/768747?commTag=true",
+      "国家医保局：琥珀酸安维吖啶片（耄安通）申报材料。https://www.nhsa.gov.cn/attach/Ypsn2026/YPSW202600164/YPSW202600164(ppt).pdf"
     ],
-    "status": "已上市（中国，2026年）",
+    "status": "已上市（2026年7月中国获批）；国内首个自主研发的AD治疗创新药；正推进国家医保目录准入",
     "sort_order": 11
   }
 ];
