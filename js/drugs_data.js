@@ -159,7 +159,7 @@ window.APPROVED_DRUGS_DATA = [
     "dosage": "静脉输注：10mg/kg，每2周一次。皮下注射（IQLIK/乐意保皮下自动注射笔）：2026年7月FDA批准作为起始剂量，500mg/周自动注射器，可在家自行注射，维持期360mg/周。2026年8月海南博鳌乐城获批皮下自动注射剂型。2026年9月3日中国NMPA正式批准皮下自动注射剂型作为早期AD初始治疗，成为中国首个可在家自行给药的抗淀粉样蛋白疗法。治疗前需确认Aβ病理，建议检测ApoE ε4基因型。",
     "adverse_reactions": "最常见（≥10%）：输注相关反应、头痛、ARIA-E（淀粉样蛋白相关成像异常-脑水肿）。其他：ARIA-H（微出血/含铁血黄素沉积）、恶心、发热。ApoE ε4纯合子患者ARIA风险更高。",
     "contraindications": "对仑卡奈单抗或任何辅料严重超敏反应者禁用。脑出血风险患者慎用。",
-    "approval_date": "2023年1月（FDA加速批准），2023年7月（FDA完全批准），2024年1月（中国NMPA静脉剂型），2026年7月（FDA批准皮下注射剂型作为起始剂量），2026年9月（中国NMPA批准皮下自动注射剂型作为初始治疗）",
+    "approval_date": "2023年1月（FDA加速批准），2023年7月（FDA完全批准），2024年1月（中国NMPA静脉剂型），2025年8月（FDA批准皮下维持剂量），2026年7月（FDA批准皮下注射剂型作为起始剂量），2026年9月（中国NMPA批准皮下自动注射剂型，日本批准皮下注射笔）",
     "approval_body": "FDA / NMPA / EMA / PMDA",
     "price": "美国$26,500/年；中国约2760元/瓶（200mg/2ml），500mg/5ml规格",
     "insurance": "2024年纳入国家医保谈判目录；美国Medicare覆盖",
@@ -205,6 +205,14 @@ window.APPROVED_DRUGS_DATA = [
       {
         "source": "Eisai Global Press Release-LEQEMBI Subcutaneous Approved in China (2026.09.03)",
         "url": "https://www.eisai.com/news/2026/news202649.html"
+      },
+      {
+        "source": "Biogen官网-LEQEMBI Pen在日本获批 (2026.09.16)",
+        "url": "https://investors.biogen.com/news-releases/news-release-details/leqembir-pen-subcutaneous-formulation-leqembir-approved-japan"
+      },
+      {
+        "source": "Eisai官网-加拿大药品局支持LEQEMBI公共报销 (2026.09.01)",
+        "url": "https://www.eisai.com/news/2026/news202648.html"
       }
     ],
     "status": "已上市",
@@ -219,7 +227,7 @@ window.APPROVED_DRUGS_DATA = [
     "drug_class": "抗Aβ单克隆抗体（疾病修饰治疗）",
     "mechanism": "人源化IgG1单克隆抗体，靶向N端焦谷氨酸化β淀粉样蛋白（pGlu3-Aβ），选择性结合淀粉样斑块，促进清除。独特之处：达到斑块清除后可停药，实现有限疗程。",
     "indication": "治疗成人早期症状性阿尔茨海默病，包括轻度认知障碍（MCI）和轻度痴呆阶段，需确认存在Aβ病理。",
-    "dosage": "静脉输注，每4周一次，输注时间约30分钟。2025年更新的逐步递增方案：第1次350mg，第2次700mg，第3次1050mg，第4次起1400mg。达到淀粉样斑块清除标准后可停止治疗。治疗前需确认Aβ病理和ApoE基因型。",
+    "dosage": "静脉输注，每4周一次，输注时间约30分钟。2025年更新的逐步递增方案：第1次350mg，第2次700mg，第3次1050mg，第4次起1400mg。达到淀粉样斑块清除标准后可停止治疗。治疗前需确认Aβ病理和ApoE基因型。 市场表现：2026年一季度收入1.24亿美元，二季度收入1.67亿美元，持续快速增长。",
     "adverse_reactions": "最常见：ARIA-E（脑水肿）、ARIA-H（微出血）、头痛、输液相关反应。ApoE ε4纯合子患者ARIA风险显著升高。其他：恶心、疲劳、超敏反应。",
     "contraindications": "对多奈单抗或任何辅料严重超敏反应者禁用。脑出血/微出血风险患者慎用。",
     "approval_date": "2024年7月2日（FDA）",
@@ -248,6 +256,10 @@ window.APPROVED_DRUGS_DATA = [
       {
         "source": "FDA批准新闻稿 (2024.7.2)",
         "url": "https://investor.lilly.com/news-releases/news-release-details/lillys-kisunlatm-donanemab-azbt-approved-fda-treatment-early"
+      },
+      {
+        "source": "证券时报-2026年医药中报观察：Kisunla销售数据 (2026.09.03)",
+        "url": "https://stcn.com/article/detail/4170137.html"
       }
     ],
     "status": "已上市（美国）",
