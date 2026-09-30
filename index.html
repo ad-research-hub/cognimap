@@ -3476,13 +3476,13 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=329"></script>
-<script src="js/details_data.js?v=329"></script>
-<script src="js/nmpa_data.js?v=329"></script>
-<script src="js/companies_data.js?v=329"></script>
-<script src="js/drugs_data.js?v=329"></script>
-<script src="js/pipeline_data.js?v=329"></script>
-<script src="js/epi_world_map.js?v=329"></script>
+<script src="js/markers_data.js?v=330"></script>
+<script src="js/details_data.js?v=330"></script>
+<script src="js/nmpa_data.js?v=330"></script>
+<script src="js/companies_data.js?v=330"></script>
+<script src="js/drugs_data.js?v=330"></script>
+<script src="js/pipeline_data.js?v=330"></script>
+<script src="js/epi_world_map.js?v=330"></script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -4033,6 +4033,11 @@ function switchBrainAtlas(atlas) {
 let dashboardInit = false;
 function initDashboard() {
   if (dashboardInit) return;
+  // 图表库未就绪时延后重试（手机弱网/CDN失败场景）
+  if (typeof Chart === 'undefined' || typeof echarts === 'undefined') {
+    setTimeout(initDashboard, 800);
+    return;
+  }
   dashboardInit = true;
   // 标志物类别
   const mCats = {};
@@ -4476,7 +4481,7 @@ function renderUserMarkers() {
 const GANTT_START=new Date('2006-01-01'),GANTT_END=new Date('2026-12-01');
 const GANTT_MONTHS=(GANTT_END.getFullYear()-GANTT_START.getFullYear())*12+(GANTT_END.getMonth()-GANTT_START.getMonth())+1;
 function monthToPercent(ds){const d=new Date(ds+'-01');const m=(d.getFullYear()-GANTT_START.getFullYear())*12+(d.getMonth()-GANTT_START.getMonth());return Math.max(0,Math.min(100,m/GANTT_MONTHS*100));}
-function renderGantt(){const ct=document.getElementById('ganttChart');if(!ct)return;let yrs='';for(let y=2006;y<=2026;y++)yrs+=`<div class="gantt-year-cell">${y}</div>`;let mts='';for(let i=0;i<GANTT_MONTHS;i++){const m=i%12;mts+=`<div class="gantt-month-cell">${m===0?'Q1':m===3?'Q2':m===6?'Q3':m===9?'Q4':''}</div>`;}let rows='';PIPELINE_DATA.forEach(drug=>{let bars='';drug.trials.forEach(t=>{const l=monthToPercent(t.start),r=monthToPercent(t.end),w=Math.max(1,r-l),cls=t.phase+(t.status==='terminated'?' terminated':''),lab=t.phase==='phase1'?'I':t.phase==='phase2'?'II':t.phase==='phase3'?'III':t.phase==='phase4'?'IV':t.phase==='early_phase1'?'I早':t.phase==='na'?'·':'':t.phase==='approved'?'✓':'';bars+=`<div class="gantt-bar ${cls}" style="left:${l}%;width:${w}%" onclick="showDrugDetail('${drug.id}')" title="${drug.name_cn} - ${t.name}">${w>5?lab:''}</div>`;});rows+=`<div class="gantt-row"><div class="gantt-drug-label"><div class="gantt-drug-name" onclick="showDrugDetail('${drug.id}')">${drug.name_cn}</div><div class="gantt-drug-company">${drug.company.split('/')[0].trim()}</div></div><div class="gantt-track">${bars}</div></div>`;});ct.innerHTML=`<div class="gantt-chart"><div class="gantt-header"><div class="gantt-label-col">药物</div><div class="gantt-time-col"><div class="gantt-year-row">${yrs}</div><div class="gantt-month-row">${mts}</div></div></div>${rows}</div>`;}
+function renderGantt(){const ct=document.getElementById('ganttChart');if(!ct)return;let yrs='';for(let y=2006;y<=2026;y++)yrs+=`<div class="gantt-year-cell">${y}</div>`;let mts='';for(let i=0;i<GANTT_MONTHS;i++){const m=i%12;mts+=`<div class="gantt-month-cell">${m===0?'Q1':m===3?'Q2':m===6?'Q3':m===9?'Q4':''}</div>`;}let rows='';PIPELINE_DATA.forEach(drug=>{let bars='';drug.trials.forEach(t=>{const l=monthToPercent(t.start),r=monthToPercent(t.end),w=Math.max(1,r-l),cls=t.phase+(t.status==='terminated'?' terminated':''),lab=t.phase==='phase1'?'I':t.phase==='phase2'?'II':t.phase==='phase3'?'III':t.phase==='phase4'?'IV':t.phase==='early_phase1'?'I早':t.phase==='na'?'·':t.phase==='approved'?'✓':'';bars+=`<div class="gantt-bar ${cls}" style="left:${l}%;width:${w}%" onclick="showDrugDetail('${drug.id}')" title="${drug.name_cn} - ${t.name}">${w>5?lab:''}</div>`;});rows+=`<div class="gantt-row"><div class="gantt-drug-label"><div class="gantt-drug-name" onclick="showDrugDetail('${drug.id}')">${drug.name_cn}</div><div class="gantt-drug-company">${drug.company.split('/')[0].trim()}</div></div><div class="gantt-track">${bars}</div></div>`;});ct.innerHTML=`<div class="gantt-chart"><div class="gantt-header"><div class="gantt-label-col">药物</div><div class="gantt-time-col"><div class="gantt-year-row">${yrs}</div><div class="gantt-month-row">${mts}</div></div></div>${rows}</div>`;}
 function showDrugDetail(id){const drug=PIPELINE_DATA.find(d=>d.id===id);if(!drug)return;const el=document.getElementById('drugDetailContent');const sc=drug.status.includes('获批')?'#10b981':drug.status.includes('终止')?'#94a3b8':'#f59e0b';let th=drug.trials.map(t=>{const pl=t.phase==='phase1'?'I期':t.phase==='phase2'?'II期':t.phase==='phase3'?'III期':t.phase==='phase4'?'IV期':t.phase==='early_phase1'?'I期(早期)':t.phase==='na'?'未分类':'获批';const pc=t.phase==='phase1'?'#3b82f6':t.phase==='phase2'?'#f59e0b':t.phase==='phase3'?'#10b981':t.phase==='phase4'?'#8b5cf6':t.phase==='early_phase1'?'#06b6d4':t.phase==='na'?'#94a3b8':'#8b5cf6';const sl=t.status==='completed'?'已完成':t.status==='ongoing'?'进行中':t.status==='terminated'?'已终止':t.status==='approved'?'已上市':t.status;const nl=t.nct?`<a href="https://clinicaltrials.gov/study/${t.nct}" target="_blank" style="color:#2563eb;text-decoration:none">${t.nct}</a>`:'-';return `<div class="drug-trial-item ${t.status==='terminated'?'terminated':''}"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span><span class="drug-trial-phase" style="background:${pc}">${pl}</span><strong>${t.name}</strong></span><span style="font-size:12px;color:#64748b">${sl}</span></div><div style="font-size:13px;color:#475569">${t.start} ~ ${t.end}${t.n?` · 入组${t.n}人`:''} · ${nl}</div></div>`;}).join('');el.innerHTML=`<div class="drug-detail-header"><h2>${drug.name_cn}</h2><div class="drug-en">${drug.name_en}</div><div class="drug-detail-tags"><span class="drug-tag">${drug.target}</span><span class="drug-tag" style="background:${sc}">${drug.status}</span></div></div><div class="drug-info-card"><h3>🏢 基本信息</h3><div class="drug-info-row"><div class="drug-info-label">研发公司</div><div class="drug-info-value">${drug.company}</div></div><div class="drug-info-row"><div class="drug-info-label">作用靶点</div><div class="drug-info-value">${drug.target}</div></div>${drug.approval_date?`<div class="drug-info-row"><div class="drug-info-label">获批时间</div><div class="drug-info-value">${drug.approval_date}</div></div>`:''}</div><div class="drug-info-card"><h3>🔬 作用机制</h3><p style="font-size:14px;line-height:1.7;color:#334155">${drug.mechanism}</p></div><div class="drug-info-card"><h3>📋 临床试验</h3>${th}</div><div style="margin-top:16px;padding:12px;background:#fef3c7;border-radius:8px;font-size:12px;color:#92400e">⚠️ 数据来源：ClinicalTrials.gov + Alzheimer\'s Association年度管线报告。当前为示例版本，后续将扩充至全部158种在研药物。</div>`;navigate('drug-detail');}
 
 // 页面加载完成后自动初始化仪表盘
@@ -4494,7 +4499,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v329 · 数据更新至 2026-10-01</div>
+  <div>版本 v330 · 数据更新至 2026-10-01</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
