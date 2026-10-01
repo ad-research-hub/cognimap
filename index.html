@@ -845,6 +845,49 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .model-source{font-size:11px;color:#94a3b8;border-top:1px solid var(--border);padding-top:8px}
 
 </style>
+/* ===== AD领域重要文献板块 ===== */
+.lit-stats-bar{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0;padding:14px 18px;background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1px solid #bbf7d0;border-radius:12px;}
+.lit-stats-bar .drug-stat-item{flex:1;min-width:120px;text-align:center;}
+.lit-controls{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;margin-bottom:18px;}
+.lit-control-row{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:8px 0;}
+.lit-control-row>label{font-weight:600;font-size:13px;color:#334155;min-width:52px;}
+.lit-source-tabs{display:inline-flex;gap:4px;}
+.lit-src-btn,.lit-refresh-btn,.lit-search-btn,.lit-time-btn{border:1px solid #cbd5e1;background:#f8fafc;color:#475569;padding:6px 12px;border-radius:8px;cursor:pointer;font-size:13px;}
+.lit-src-btn.active,.lit-time-btn.active{background:#10b981;border-color:#10b981;color:#fff;}
+.lit-refresh-btn{background:#0ea5e9;border-color:#0ea5e9;color:#fff;margin-left:auto;}
+.lit-refresh-btn:disabled{opacity:.6;cursor:wait;}
+.lit-input{border:1px solid #cbd5e1;border-radius:8px;padding:6px 10px;font-size:13px;width:180px;}
+.lit-year-input{border:1px solid #cbd5e1;border-radius:8px;padding:6px 8px;font-size:13px;width:80px;}
+.lit-search-btn{background:#334155;border-color:#334155;color:#fff;}
+.lit-list{display:flex;flex-direction:column;gap:10px;}
+.lit-item{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:14px 16px;cursor:pointer;transition:box-shadow .15s;}
+.lit-item:hover{box-shadow:0 4px 14px rgba(0,0,0,.08);}
+.lit-rank{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:34px;border-radius:10px;font-weight:700;font-size:14px;background:#f1f5f9;color:#475569;margin-right:10px;}
+.lit-rank.top1{background:#f59e0b;color:#fff;}
+.lit-rank.top2{background:#94a3b8;color:#fff;}
+.lit-rank.top3{background:#d97706;color:#fff;}
+.lit-item-title{font-size:15px;font-weight:600;color:#0f172a;line-height:1.45;}
+.lit-item-meta{font-size:12.5px;color:#64748b;margin-top:6px;line-height:1.7;}
+.lit-item-meta b{color:#334155;font-weight:600;}
+.lit-cited-badge{display:inline-block;background:#fef3c7;color:#b45309;border-radius:8px;padding:2px 10px;font-size:12.5px;font-weight:700;margin-left:8px;}
+.lit-loading{text-align:center;padding:50px 0;color:#94a3b8;font-size:14px;}
+.lit-empty{text-align:center;padding:50px 0;color:#94a3b8;font-size:14px;}
+.lit-detail-overlay{position:fixed;inset:0;background:rgba(15,23,42,.6);z-index:9999;display:none;align-items:center;justify-content:center;padding:20px;}
+.lit-detail-overlay.show{display:flex;}
+.lit-detail-card{background:#fff;border-radius:16px;max-width:720px;width:100%;max-height:82vh;overflow-y:auto;padding:24px;position:relative;}
+.lit-detail-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:none;background:#f1f5f9;color:#475569;font-size:18px;cursor:pointer;line-height:34px;}
+.lit-detail-close:hover{background:#e2e8f0;}
+.lit-detail-title{font-size:18px;font-weight:700;color:#0f172a;line-height:1.5;padding-right:40px;}
+.lit-detail-meta{margin-top:10px;font-size:13px;color:#64748b;line-height:1.8;}
+.lit-detail-abs{margin-top:14px;font-size:14px;color:#334155;line-height:1.8;border-top:1px solid #e2e8f0;padding-top:14px;}
+.lit-detail-links{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;}
+.lit-detail-links a{text-decoration:none;background:#0ea5e9;color:#fff;padding:7px 16px;border-radius:8px;font-size:13px;}
+.lit-detail-links a.pubmed{background:#2563eb;}
+.lit-detail-links a.doi{background:#334155;}
+.lit-note{font-size:11.5px;color:#94a3b8;margin-top:10px;line-height:1.6;}
+.lit-aggregate{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:13px;color:#475569;line-height:1.8;}
+.lit-aggregate b{color:#0f172a;}
+
 
 
   
@@ -1142,6 +1185,11 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="chart-card" style="box-shadow:none;flex:1;min-width:0;cursor:pointer;" onclick="navigate('epidemiology')">
         <h3>🌍 全球AD流行病学地图（点击进入详情）</h3>
         <div class="chart-container" style="height:400px;"><div id="dashEpiMap" style="width:100%;height:100%;"></div></div>
+  
+
+      <div class="chart-card" style="box-shadow:none;flex:1;min-width:0;">
+        <h3>📚 AD领域年度论文数量（Alzheimer关键词，OpenAlex）</h3>
+        <div class="chart-container" style="height:400px;"><canvas id="dashLitChart"></canvas></div>
       </div>
     </div>
   </div>
@@ -1180,7 +1228,14 @@ window.addEventListener('unhandledrejection', function(e) {
       <p>全球已获批AD治疗药物详解，含用法用量、不良反应、说明书链接与权威来源</p>
       <div class="mod-count">11 药物 · 9 在市</div>
     </div>
-    <div class="module-card" onclick="navigate('scales')">
+    <div class="module-card" onclick="navigate('literature')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-01</span>
+      <div class="mod-icon" style="background:#f0fdf4;">📚</div>
+      <h3>AD领域重要文献</h3>
+      <p>AD领域被引用最多的文献排行榜，多源数据切换，支持关键词/时间/作者/单位/期刊检索排序</p>
+      <div class="mod-count">Top200 文献 · 多源数据</div>
+    </div>
+ onclick="navigate('scales')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-08-28</span>
       <div class="mod-icon" style="background:#fce7f3;">🧠</div>
       <h3>认知筛查小助手</h3>
@@ -3293,6 +3348,72 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
+
+<!-- ============ Page: AD领域重要文献 ============ -->
+<div class="page" id="page-literature">
+  <div class="page-header">
+    <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
+    <h2 class="page-title">📚 AD领域重要文献</h2>
+    <p class="page-subtitle">阿尔茨海默病领域被引用最多的文献排行榜，数据源可切换，支持关键词、时间、作者、单位、期刊筛选排序</p>
+  </div>
+
+  <div class="lit-stats-bar" id="litStatsBar">
+    <div class="drug-stat-item"><span class="drug-stat-num" id="litTotalCount">0</span><span class="drug-stat-label">当前文献数</span></div>
+    <div class="drug-stat-item"><span class="drug-stat-num" id="litTotalCited">0</span><span class="drug-stat-label">累计被引</span></div>
+    <div class="drug-stat-item"><span class="drug-stat-num" id="litYearMin">0</span><span class="drug-stat-label">最早年份</span></div>
+    <div class="drug-stat-item"><span class="drug-stat-num" id="litSourceName">OpenAlex</span><span class="drug-stat-label">当前数据源</span></div>
+  </div>
+
+  <div class="lit-controls">
+    <div class="lit-control-row">
+      <label>数据源</label>
+      <div class="lit-source-tabs" id="litSourceTabs">
+        <button class="lit-src-btn active" data-src="openalex" onclick="litSetSource('openalex')">OpenAlex</button>
+        <button class="lit-src-btn" data-src="epmc" onclick="litSetSource('epmc')">Europe PMC</button>
+        <button class="lit-src-btn" data-src="s2" onclick="litSetSource('s2')">Semantic Scholar</button>
+      </div>
+      <button class="lit-refresh-btn" onclick="litRefreshLive()" title="实时抓取最新数据">🔄 实时获取更新</button>
+    </div>
+    <div class="lit-control-row">
+      <label>关键词</label>
+      <input type="text" id="litKeyword" value="" class="lit-input" placeholder="输入关键词（如 tau、amyloid、biomarker），默认不限">
+      <button class="lit-search-btn" onclick="litApplyFilters()">搜索</button>
+    </div>
+    <div class="lit-control-row">
+      <label>时间范围</label>
+      <button class="lit-time-btn" onclick="litSetTime('all',this)">全部时间</button>
+      <button class="lit-time-btn" onclick="litSetTime('1y',this)">近1年</button>
+      <button class="lit-time-btn" onclick="litSetTime('5y',this)">近5年</button>
+      <button class="lit-time-btn" onclick="litSetTime('10y',this)">近10年</button>
+      <input type="number" id="litYearFrom" class="lit-year-input" placeholder="起始年" min="1900" max="2026"> —
+      <input type="number" id="litYearTo" class="lit-year-input" placeholder="结束年" min="1900" max="2026">
+    </div>
+    <div class="lit-control-row">
+      <label>排序方式</label>
+      <button class="lit-time-btn active" data-sort="cited" onclick="litSetSort('cited',this)">被引次数</button>
+      <button class="lit-time-btn" data-sort="author" onclick="litSetSort('author',this)">作者(累计被引)</button>
+      <button class="lit-time-btn" data-sort="inst" onclick="litSetSort('inst',this)">单位(累计被引)</button>
+      <button class="lit-time-btn" data-sort="journal" onclick="litSetSort('journal',this)">期刊(累计被引)</button>
+      <button class="lit-time-btn" data-sort="year" onclick="litSetSort('year',this)">年份</button>
+    </div>
+  </div>
+
+  <div id="litList" class="lit-list">
+    <!-- 文献列表由JS渲染 -->
+  </div>
+
+  <div class="lit-detail-overlay" id="litDetailOverlay" onclick="if(event.target===this)litCloseDetail()">
+    <div class="lit-detail-card">
+      <button class="lit-detail-close" onclick="litCloseDetail()">✕</button>
+      <div class="lit-detail-title" id="litDetailTitle"></div>
+      <div class="lit-detail-meta" id="litDetailMeta"></div>
+      <div id="litDetailAbs"></div>
+      <div class="lit-detail-links" id="litDetailLinks"></div>
+      <div class="lit-note">数据来源标注：OpenAlex（免费开放学术数据库）/ Europe PMC（欧洲生物信息学研究所）/ Semantic Scholar（艾伦人工智能研究所），被引次数为各库自身统计口径，与 Google Scholar 存在差异属正常现象。</div>
+    </div>
+  </div>
+</div>
+
 <!-- ============ Page: Drug Detail ============ -->
 <div class="page" id="page-approved-drug-detail">
   <div class="page-header">
@@ -3476,13 +3597,14 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=330"></script>
-<script src="js/details_data.js?v=330"></script>
-<script src="js/nmpa_data.js?v=330"></script>
-<script src="js/companies_data.js?v=330"></script>
-<script src="js/drugs_data.js?v=330"></script>
-<script src="js/pipeline_data.js?v=330"></script>
-<script src="js/epi_world_map.js?v=330"></script>
+<script src="js/markers_data.js?v=331"></script>
+<script src="js/details_data.js?v=331"></script>
+<script src="js/nmpa_data.js?v=331"></script>
+<script src="js/companies_data.js?v=331"></script>
+<script src="js/drugs_data.js?v=331"></script>
+<script src="js/pipeline_data.js?v=331"></script>
+<script src="js/epi_world_map.js?v=331"></script>
+    <script src="js/literature_data.js?v=331"></script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -3511,6 +3633,7 @@ function navigate(page) {
   if (page === 'home') initDashboard();
   if (page === 'pipeline') renderGantt();
   if (page === 'drugs') renderDrugsList('all');
+  if (page === 'literature') litRender();
 }
 
 // Auto-init pathway when navigating
@@ -3530,6 +3653,7 @@ navigate = function(page) {
     if (page === 'pet') { initPETPage(); }
     if (page === 'models') { initModelPage(); }
     if (page === 'differential') { initDifferential(); }
+  if (page === 'literature') { setTimeout(litRender, 100); }
 };
 
 
@@ -4050,6 +4174,15 @@ function initDashboard() {
   new Chart(document.getElementById('dashCompanyChart'), { type:'bar', data:{ labels:sorted.map(x=>x[0]), datasets:[{ label:'企业数', data:sorted.map(x=>x[1]), backgroundColor:'#10b981', borderRadius:4 }] }, options:{ indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{x:{beginAtZero:true}} } });
   // 临床试验数量趋势
   new Chart(document.getElementById('dashTrendChart'), { type:'line', data:{ labels:['2017','2018','2019','2020','2021','2022','2023','2024','2025','2026'], datasets:[{ label:'临床试验数', data:[139,135,156,132,152,172,187,164,182,192], borderColor:'#8b5cf6', backgroundColor:'rgba(139,92,246,0.1)', fill:true, tension:0.3, pointRadius:4, pointBackgroundColor:'#8b5cf6' }] }, options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true,title:{display:true,text:'试验数'}}} } });
+  // AD领域年度论文数量（OpenAlex byYear）
+  try {
+    if (window.LITERATURE_DATA && window.LITERATURE_DATA.byYear) {
+      var litY = Object.keys(window.LITERATURE_DATA.byYear).filter(function(y){ var n=parseInt(y); return n>=2000 && n<=2026; }).sort();
+      var litD = litY.map(function(y){ return window.LITERATURE_DATA.byYear[y]; });
+      new Chart(document.getElementById('dashLitChart'), { type:'bar', data:{ labels:litY, datasets:[{ label:'年度论文数', data:litD, backgroundColor:'#10b981', borderRadius:4 }] }, options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true,title:{display:true,text:'论文数'}}} } });
+    }
+  } catch(e) { console.log('dashLitChart绘制失败', e); }
+
   // 全球AD流行病学地图（仪表盘缩略版）
   try {
     if (window.echarts && window.EPI_WORLD_MAP) {
@@ -4492,6 +4625,282 @@ if (document.readyState === 'loading') {
 }
 </script>
 
+<script>
+// ===== AD领域重要文献 =====
+let LIT_STATE = { src:'openalex', keyword:'Alzheimer', time:'all', yFrom:null, yTo:null, sort:'cited', cache:{} };
+
+function litNormalizeKeyword(kw){
+  kw = (kw||'').trim(); return kw;
+}
+
+function litFilterWorks(works){
+  const kw = LIT_STATE.keyword.toLowerCase();
+  const yFrom = LIT_STATE.yFrom ? parseInt(LIT_STATE.yFrom) : null;
+  const yTo = LIT_STATE.yTo ? parseInt(LIT_STATE.yTo) : null;
+  const now = new Date().getFullYear();
+  let arr = (works||[]).filter(w=>{
+    const hay = ((w.title||'')+' '+(w.abstract||'')+' '+(w.journal||'')).toLowerCase();
+    if(kw && !hay.includes(kw)) return false; // 关键词为空=不过滤
+    let y = w.year || 0;
+    if(LIT_STATE.time==='1y' && y < now-1) return false;
+    if(LIT_STATE.time==='5y' && y < now-5) return false;
+    if(LIT_STATE.time==='10y' && y < now-10) return false;
+    if(yFrom && y < yFrom) return false;
+    if(yTo && y > yTo) return false;
+    return true;
+  });
+  return arr;
+}
+
+function litSortWorks(arr){
+  const s = LIT_STATE.sort;
+  if(s==='cited') return arr.slice().sort((a,b)=>b.cited-a.cited);
+  if(s==='year') return arr.slice().sort((a,b)=>b.year-a.year);
+  if(s==='author'){
+    const agg={};
+    arr.forEach(w=>{(w.authors||[]).forEach(au=>{agg[au]=(agg[au]||0)+w.cited;});});
+    const list=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,50);
+    return {type:'author', list};
+  }
+  if(s==='inst'){
+    const agg={};
+    arr.forEach(w=>{(w.institutions||[]).forEach(ins=>{agg[ins]=(agg[ins]||0)+w.cited;});});
+    const list=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,50);
+    return {type:'inst', list};
+  }
+  if(s==='journal'){
+    const agg={};
+    arr.forEach(w=>{ if(w.journal) agg[w.journal]=(agg[w.journal]||0)+w.cited; });
+    const list=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,50);
+    return {type:'journal', list};
+  }
+  return arr.slice().sort((a,b)=>b.cited-a.cited);
+}
+
+function litRankClass(i){
+  if(i===0) return 'top1'; if(i===1) return 'top2'; if(i===2) return 'top3';
+  return '';
+}
+
+function litRenderList(sorted, filtered){
+  const el = document.getElementById('litList');
+  if(!el) return;
+  if(!filtered || filtered.length===0){ el.innerHTML='<div class="lit-empty">没有找到符合条件的文献，请调整筛选条件</div>'; return; }
+  if(sorted.type){
+    // 聚合视图：作者/单位/期刊
+    let html='<div class="lit-aggregate">按「'+(sorted.type==='author'?'作者':sorted.type==='inst'?'单位':'期刊')+'」聚合，共 '+sorted.list.length+' 个条目，按累计被引排序（基于当前筛选范围内 '+filtered.length+' 篇文献）</div>';
+    sorted.list.forEach((it,i)=>{
+      html += '<div class="lit-item" onclick="litShowAgg(\''+sorted.type+'\',\''+String(it[0]).replace(/\\/g,'\\\\').replace(/'/g,"\\'")+'\')">'+
+        '<span class="lit-rank '+litRankClass(i)+'">'+(i+1)+'</span>'+
+        '<span class="lit-item-title">'+escHtml(String(it[0]))+'</span>'+
+        '<span class="lit-cited-badge">'+it[1].toLocaleString()+' 次被引</span>'+
+        '<div class="lit-item-meta">点击查看该条目下的文献列表</div>'+
+      '</div>';
+    });
+    el.innerHTML = html;
+    return;
+  }
+  let html='';
+  filtered.forEach((w,i)=>{
+    const rank = i+1;
+    const cited = (w.cited||0).toLocaleString();
+    const authors = (w.authors||[]).slice(0,4).join(', ');
+    const jour = w.journal ? '<b>期刊：</b>'+escHtml(w.journal)+' &nbsp;' : '';
+    const inst = (w.institutions||[]).length ? '<b>机构：</b>'+escHtml((w.institutions||[]).slice(0,2).join(', '))+' &nbsp;' : '';
+    html += '<div class="lit-item" onclick="litShowDetail(\''+w.id+'\')">'+
+      '<div style="display:flex;align-items:flex-start;">'+
+        '<span class="lit-rank '+litRankClass(i)+'">'+rank+'</span>'+
+        '<div style="flex:1;min-width:0;">'+
+          '<div class="lit-item-title">'+escHtml(w.title)+'<span class="lit-cited-badge">'+cited+' 次被引</span></div>'+
+          '<div class="lit-item-meta"><b>作者：</b>'+escHtml(authors)+' &nbsp;'+(w.year?'<b>年份：</b>'+w.year+' &nbsp;':'')+jour+inst+'</div>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  });
+  el.innerHTML = html;
+}
+
+function litRender(){
+  const el = document.getElementById('litList');
+  if(!el) return;
+  let works = LIT_STATE.cache[LIT_STATE.src];
+  if(!works){
+    if(LIT_STATE.src==='openalex' && window.LITERATURE_DATA && window.LITERATURE_DATA.topWorks){
+      works = window.LITERATURE_DATA.topWorks;
+    } else {
+      el.innerHTML = '<div class="lit-loading">该数据源尚未加载，请点击「实时获取更新」抓取数据</div>';
+      return;
+    }
+  }
+  const filtered = litFilterWorks(works);
+  const sorted = litSortWorks(filtered);
+  litRenderList(sorted, filtered);
+  // 更新统计
+  const tc=document.getElementById('litTotalCount'), tcd=document.getElementById('litTotalCited');
+  const ymin=document.getElementById('litYearMin'), sn=document.getElementById('litSourceName');
+  if(tc) tc.textContent = filtered.length;
+  if(tcd) tcd.textContent = filtered.reduce((s,w)=>s+(w.cited||0),0).toLocaleString();
+  if(ymin) ymin.textContent = filtered.length? Math.min.apply(null, filtered.map(w=>w.year||9999)) : 0;
+  if(sn) sn.textContent = LIT_STATE.src==='openalex'?'OpenAlex':LIT_STATE.src==='epmc'?'Europe PMC':'Semantic Scholar';
+}
+
+function litApplyFilters(){
+  LIT_STATE.keyword = litNormalizeKeyword(document.getElementById('litKeyword').value);
+  const yf = document.getElementById('litYearFrom').value;
+  const yt = document.getElementById('litYearTo').value;
+  LIT_STATE.yFrom = yf? parseInt(yf):null;
+  LIT_STATE.yTo = yt? parseInt(yt):null;
+  litRender();
+}
+
+function litSetTime(t, btn){
+  LIT_STATE.time = t;
+  document.querySelectorAll('.lit-time-btn[onclick^="litSetTime"]').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  litRender();
+}
+
+function litSetSort(s, btn){
+  LIT_STATE.sort = s;
+  document.querySelectorAll('.lit-time-btn[data-sort]').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  litRender();
+}
+
+function litSetSource(src){
+  LIT_STATE.src = src;
+  document.querySelectorAll('.lit-src-btn').forEach(b=>b.classList.toggle('active', b.dataset.src===src));
+  litRender();
+}
+
+function litShowDetail(id){
+  const works = LIT_STATE.cache[LIT_STATE.src] || (window.LITERATURE_DATA? window.LITERATURE_DATA.topWorks:[]);
+  const w = (works||[]).find(x=>x.id===id);
+  if(!w) return;
+  const overlay = document.getElementById('litDetailOverlay');
+  if(!overlay) return;
+  const abs = w.abstract ? '<div class="lit-detail-abs"><b>摘要：</b>'+escHtml(w.abstract)+'</div>' : '';
+  const links = [];
+  if(w.pmid) links.push('<a class="pubmed" target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/'+w.pmid+'/">PubMed 原文</a>');
+  if(w.doi) links.push('<a class="doi" target="_blank" rel="noopener" href="https://doi.org/'+w.doi+'">DOI 链接</a>');
+  if(!w.doi && w.title) links.push('<a class="pubmed" target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/?term='+encodeURIComponent(w.title)+'">PubMed 检索</a>');
+  document.getElementById('litDetailTitle').innerHTML = escHtml(w.title);
+  document.getElementById('litDetailMeta').innerHTML =
+    '<b>被引次数：</b>'+ (w.cited||0).toLocaleString() +' 次 &nbsp;·&nbsp; <b>年份：</b>'+ (w.year||'未知') +
+    (w.journal? ' &nbsp;·&nbsp; <b>期刊：</b>'+escHtml(w.journal):'') +
+    ((w.authors||[]).length? ' &nbsp;·&nbsp; <b>作者：</b>'+escHtml((w.authors||[]).join(', ')):'') +
+    ((w.institutions||[]).length? '<br><b>机构：</b>'+escHtml((w.institutions||[]).join(', ')):'');
+  document.getElementById('litDetailAbs').innerHTML = abs;
+  document.getElementById('litDetailLinks').innerHTML = links.join('');
+  overlay.classList.add('show');
+}
+
+function litShowAgg(type, key){
+  const works = LIT_STATE.cache[LIT_STATE.src] || (window.LITERATURE_DATA? window.LITERATURE_DATA.topWorks:[]);
+  const filtered = litFilterWorks(works);
+  const items = filtered.filter(w=>{
+    if(type==='author') return (w.authors||[]).includes(key);
+    if(type==='inst') return (w.institutions||[]).includes(key);
+    return w.journal===key;
+  }).sort((a,b)=>b.cited-a.cited);
+  const overlay = document.getElementById('litDetailOverlay');
+  document.getElementById('litDetailTitle').innerHTML = escHtml(key);
+  document.getElementById('litDetailMeta').innerHTML = '<b>累计被引：</b>'+items.reduce((s,w)=>s+(w.cited||0),0).toLocaleString()+' 次 &nbsp;·&nbsp; <b>文献数：</b>'+items.length+' 篇';
+  document.getElementById('litDetailAbs').innerHTML = '<div class="lit-detail-abs" style="border-top:none;padding-top:0;"><div style="display:flex;flex-direction:column;gap:8px;">'+items.slice(0,20).map((w,i)=>'<div style="padding:8px 10px;background:#f8fafc;border-radius:8px;font-size:13.5px;">'+(i+1)+'. '+escHtml(w.title)+' <span style="color:#b45309;font-weight:700;">('+(w.cited||0).toLocaleString()+')</span><div style="color:#94a3b8;font-size:12px;">'+(w.year||'')+(w.journal?' · '+escHtml(w.journal):'')+'</div></div>').join('')+'</div></div>';
+  document.getElementById('litDetailLinks').innerHTML = '';
+  overlay.classList.add('show');
+}
+
+function litCloseDetail(){
+  const o=document.getElementById('litDetailOverlay');
+  if(o) o.classList.remove('show');
+}
+
+// ===== 实时抓取 =====
+async function litFetchOpenAlex(keyword, yearFrom, yearTo){
+  let f = 'concepts.id:C502032728';
+  if(keyword && keyword.toLowerCase()!=='alzheimer') f += ',title_and_abstract.search:'+encodeURIComponent(keyword);
+  const yr = [];
+  if(yearFrom) yr.push('from_publication_date:'+yearFrom+'-01-01');
+  if(yearTo) yr.push('to_publication_date:'+yearTo+'-12-31');
+  if(yr.length) f += ','+yr.join(',');
+  const url = 'https://api.openalex.org/works?filter='+f+'&sort=cited_by_count:desc&per-page=50&mailto=adresearch@example.com';
+  const r = await fetch(url);
+  const d = await r.json();
+  return (d.results||[]).map(w=>({
+    id: w.id.split('/').pop(), title: w.display_name||'', year: w.publication_year||0,
+    cited: w.cited_by_count||0,
+    journal: ((w.primary_location||{}).source||{}).display_name||'',
+    authors: (w.authorships||[]).slice(0,8).map(a=>a.author.display_name||'').filter(Boolean),
+    institutions: (w.authorships||[]).slice(0,8).flatMap(a=>(a.institutions||[]).slice(0,2).map(i=>i.display_name||'')).filter(Boolean),
+    abstract: (function(ai){ if(!ai) return ''; const pos={}; Object.keys(ai).forEach(wd=>ai[wd].forEach(ix=>pos[ix]=wd)); return Object.keys(pos).sort((a,b)=>a-b).map(i=>pos[i]).join(' ').slice(0,600); })(w.abstract_inverted_index),
+    doi: (w.doi||'').replace('https://doi.org/',''),
+    pmid: ((w.ids||{}).pmid||'').replace('https://pubmed.ncbi.nlm.nih.gov/','')
+  }));
+}
+
+async function litFetchEPMC(keyword, yearFrom, yearTo){
+  let q = '"'+keyword+'"';
+  const yr=[];
+  if(yearFrom) yr.push('PUB_DATE:['+yearFrom+'-01-01 TO 9999-12-31]');
+  if(yearTo) yr.push('PUB_DATE:[1000-01-01 TO '+yearTo+'-12-31]');
+  if(yr.length) q += ' AND ('+yr.join(' AND ')+')';
+  const url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query='+encodeURIComponent(q)+'&format=json&pageSize=50&sort=CITED';
+  const r = await fetch(url);
+  const d = await r.json();
+  return ((d.resultList||{}).result||[]).map((p,i)=>({
+    id: 'epmc'+p.pmid+'_'+i, title: p.title||'', year: p.pubYear?parseInt(p.pubYear):0,
+    cited: p.citedByCount||0, journal: p.journalInfo&&p.journalInfo.journal?p.journalInfo.journal.title||p.journalInfo.journal.medlineAbbreviation:'',
+    authors: (p.authorString||'').split(',').map(x=>x.trim()).slice(0,8).filter(Boolean),
+    institutions: [], abstract: p.abstractText? p.abstractText.slice(0,600):'',
+    doi: (p.doi||'').replace('https://doi.org/','').replace('http://dx.doi.org/',''),
+    pmid: p.pmid||''
+  }));
+}
+
+async function litFetchS2(keyword, yearFrom, yearTo){
+  const url = 'https://api.semanticscholar.org/graph/v1/paper/search?query='+encodeURIComponent(keyword)+'&limit=50&fields=title,citationCount,year,venue,externalIds,abstract,authors&sort=citationCount:desc';
+  const r = await fetch(url);
+  const d = await r.json();
+  if(!d.data) throw new Error('Semantic Scholar 返回异常');
+  return d.data.map((p,i)=>({
+    id: 's2'+p.paperId+'_'+i, title: p.title||'', year: p.year||0,
+    cited: p.citationCount||0, journal: p.venue||'',
+    authors: (p.authors||[]).slice(0,8).map(a=>a.name||'').filter(Boolean),
+    institutions: [], abstract: p.abstract? p.abstract.slice(0,600):'',
+    doi: (p.externalIds||{}).DOI? p.externalIds.DOI.replace('https://doi.org/',''):'',
+    pmid: (p.externalIds||{}).PubMed? String(p.externalIds.PubMed):''
+  }));
+}
+
+async function litRefreshLive(){
+  const btn = document.querySelector('.lit-refresh-btn');
+  if(btn){ btn.disabled=true; btn.textContent='⏳ 抓取中...'; }
+  const kw = LIT_STATE.keyword;
+  const yFrom = LIT_STATE.yFrom;
+  const yTo = LIT_STATE.yTo;
+  try{
+    let works;
+    if(LIT_STATE.src==='openalex') works = await litFetchOpenAlex(kw, yFrom, yTo);
+    else if(LIT_STATE.src==='epmc') works = await litFetchEPMC(kw, yFrom, yTo);
+    else works = await litFetchS2(kw, yFrom, yTo);
+    LIT_STATE.cache[LIT_STATE.src] = works;
+    litRender();
+    const el=document.getElementById('litTotalCount');
+    if(el) el.textContent = works.length;
+    if(btn){ btn.disabled=false; btn.textContent='✅ 已更新'; setTimeout(()=>{btn.textContent='🔄 实时获取更新';},2000); }
+  }catch(e){
+    if(btn){ btn.disabled=false; btn.textContent='❌ 抓取失败，重试'; }
+    const el=document.getElementById('litList');
+    if(el) el.innerHTML = '<div class="lit-empty">实时抓取失败（可能是网络或接口限制）：'+escHtml(String(e.message||e))+'<br><br>可切换数据源，或使用上方筛选条件查看已预载数据</div>';
+  }
+}
+
+function escHtml(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+</script>
 <!-- 页脚 -->
 <div style="text-align:center;padding:24px 16px;color:#94a3b8;font-size:12px;border-top:1px solid var(--border);margin-top:32px;">
   <div style="margin-bottom:4px;">脑智图谱 CogniMap · 阿尔茨海默病研究公众号制作</div>
@@ -4499,7 +4908,7 @@ if (document.readyState === 'loading') {
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v330 · 数据更新至 2026-10-01</div>
+  <div>版本 v331 · 数据更新至 2026-10-01</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
