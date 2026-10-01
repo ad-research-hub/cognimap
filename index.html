@@ -887,6 +887,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .lit-note{font-size:11.5px;color:#94a3b8;margin-top:10px;line-height:1.6;}
 .lit-aggregate{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:13px;color:#475569;line-height:1.8;}
 .lit-aggregate b{color:#0f172a;}
+.lit-pagination{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 6px;padding:12px;}
+.lit-page-btn{border:1px solid #cbd5e1;background:#f8fafc;color:#475569;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:13px;}
+.lit-page-btn:hover:not(:disabled){background:#e2e8f0;}
+.lit-page-btn:disabled{opacity:.4;cursor:not-allowed;}
+.lit-page-info{font-size:13px;color:#64748b;}
+
 </style>
 
 
@@ -1187,10 +1193,9 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="chart-card" style="box-shadow:none;flex:1;min-width:0;cursor:pointer;" onclick="navigate('epidemiology')">
         <h3>🌍 全球AD流行病学地图（点击进入详情）</h3>
         <div class="chart-container" style="height:400px;"><div id="dashEpiMap" style="width:100%;height:100%;"></div></div>
-  
-
-      <div class="chart-card" style="box-shadow:none;flex:1;min-width:0;">
-        <h3>📚 AD领域年度论文数量（Alzheimer关键词，OpenAlex）</h3>
+      </div>
+      <div class="chart-card" style="box-shadow:none;flex:1;min-width:0;cursor:pointer;" onclick="navigate('literature')">
+        <h3>📚 AD领域年度论文数量（点击进入文献板块）</h3>
         <div class="chart-container" style="height:400px;"><canvas id="dashLitChart"></canvas></div>
       </div>
     </div>
@@ -3599,14 +3604,14 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=332"></script>
-<script src="js/details_data.js?v=332"></script>
-<script src="js/nmpa_data.js?v=332"></script>
-<script src="js/companies_data.js?v=332"></script>
-<script src="js/drugs_data.js?v=332"></script>
-<script src="js/pipeline_data.js?v=332"></script>
-<script src="js/epi_world_map.js?v=332"></script>
-    <script src="js/literature_data.js?v=332"></script>
+<script src="js/markers_data.js?v=333"></script>
+<script src="js/details_data.js?v=333"></script>
+<script src="js/nmpa_data.js?v=333"></script>
+<script src="js/companies_data.js?v=333"></script>
+<script src="js/drugs_data.js?v=333"></script>
+<script src="js/pipeline_data.js?v=333"></script>
+<script src="js/epi_world_map.js?v=333"></script>
+    <script src="js/literature_data.js?v=333"></script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -4629,7 +4634,8 @@ if (document.readyState === 'loading') {
 
 <script>
 // ===== AD领域重要文献 =====
-let LIT_STATE = { src:'openalex', keyword:'Alzheimer', time:'all', yFrom:null, yTo:null, sort:'cited', cache:{} };
+let LIT_STATE = { src:'openalex', keyword:'', time:'all', yFrom:null, yTo:null, sort:'cited', page:1, cache:{} };
+const LIT_PER_PAGE = 20;
 
 function litNormalizeKeyword(kw){
   kw = (kw||'').trim(); return kw;
@@ -4642,7 +4648,7 @@ function litFilterWorks(works){
   const now = new Date().getFullYear();
   let arr = (works||[]).filter(w=>{
     const hay = ((w.title||'')+' '+(w.abstract||'')+' '+(w.journal||'')).toLowerCase();
-    if(kw && !hay.includes(kw)) return false; // 关键词为空=不过滤
+    if(kw && !hay.includes(kw)) return false;
     let y = w.year || 0;
     if(LIT_STATE.time==='1y' && y < now-1) return false;
     if(LIT_STATE.time==='5y' && y < now-5) return false;
@@ -4662,19 +4668,19 @@ function litSortWorks(arr){
     const agg={};
     arr.forEach(w=>{(w.authors||[]).forEach(au=>{agg[au]=(agg[au]||0)+w.cited;});});
     const list=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,50);
-    return {type:'author', list};
+    return {type:'author', list, total:Object.keys(agg).length};
   }
   if(s==='inst'){
     const agg={};
     arr.forEach(w=>{(w.institutions||[]).forEach(ins=>{agg[ins]=(agg[ins]||0)+w.cited;});});
     const list=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,50);
-    return {type:'inst', list};
+    return {type:'inst', list, total:Object.keys(agg).length};
   }
   if(s==='journal'){
     const agg={};
     arr.forEach(w=>{ if(w.journal) agg[w.journal]=(agg[w.journal]||0)+w.cited; });
     const list=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,50);
-    return {type:'journal', list};
+    return {type:'journal', list, total:Object.keys(agg).length};
   }
   return arr.slice().sort((a,b)=>b.cited-a.cited);
 }
@@ -4689,8 +4695,8 @@ function litRenderList(sorted, filtered){
   if(!el) return;
   if(!filtered || filtered.length===0){ el.innerHTML='<div class="lit-empty">没有找到符合条件的文献，请调整筛选条件</div>'; return; }
   if(sorted.type){
-    // 聚合视图：作者/单位/期刊
-    let html='<div class="lit-aggregate">按「'+(sorted.type==='author'?'作者':sorted.type==='inst'?'单位':'期刊')+'」聚合，共 '+sorted.list.length+' 个条目，按累计被引排序（基于当前筛选范围内 '+filtered.length+' 篇文献）</div>';
+    const typeName = sorted.type==='author'?'作者':sorted.type==='inst'?'单位':'期刊';
+    let html='<div class="lit-aggregate">按「'+typeName+'」聚合，共 '+sorted.total+' 个条目（展示前50），按累计被引排序（基于当前筛选范围内 '+filtered.length+' 篇文献）</div>';
     sorted.list.forEach((it,i)=>{
       html += '<div class="lit-item" onclick="litShowAgg(\''+sorted.type+'\',\''+String(it[0]).replace(/\\/g,'\\\\').replace(/'/g,"\\'")+'\')">'+
         '<span class="lit-rank '+litRankClass(i)+'">'+(i+1)+'</span>'+
@@ -4702,16 +4708,24 @@ function litRenderList(sorted, filtered){
     el.innerHTML = html;
     return;
   }
+  // 分页渲染普通列表
+  const total = filtered.length;
+  const pages = Math.max(1, Math.ceil(total / LIT_PER_PAGE));
+  if(LIT_STATE.page > pages) LIT_STATE.page = pages;
+  if(LIT_STATE.page < 1) LIT_STATE.page = 1;
+  const start = (LIT_STATE.page-1) * LIT_PER_PAGE;
+  const end = Math.min(start + LIT_PER_PAGE, total);
+  const pageItems = filtered.slice(start, end);
   let html='';
-  filtered.forEach((w,i)=>{
-    const rank = i+1;
+  pageItems.forEach((w,i)=>{
+    const rank = start + i + 1;
     const cited = (w.cited||0).toLocaleString();
     const authors = (w.authors||[]).slice(0,4).join(', ');
     const jour = w.journal ? '<b>期刊：</b>'+escHtml(w.journal)+' &nbsp;' : '';
     const inst = (w.institutions||[]).length ? '<b>机构：</b>'+escHtml((w.institutions||[]).slice(0,2).join(', '))+' &nbsp;' : '';
     html += '<div class="lit-item" onclick="litShowDetail(\''+w.id+'\')">'+
       '<div style="display:flex;align-items:flex-start;">'+
-        '<span class="lit-rank '+litRankClass(i)+'">'+rank+'</span>'+
+        '<span class="lit-rank '+litRankClass(rank-1)+'">'+rank+'</span>'+
         '<div style="flex:1;min-width:0;">'+
           '<div class="lit-item-title">'+escHtml(w.title)+'<span class="lit-cited-badge">'+cited+' 次被引</span></div>'+
           '<div class="lit-item-meta"><b>作者：</b>'+escHtml(authors)+' &nbsp;'+(w.year?'<b>年份：</b>'+w.year+' &nbsp;':'')+jour+inst+'</div>'+
@@ -4719,7 +4733,13 @@ function litRenderList(sorted, filtered){
       '</div>'+
     '</div>';
   });
-  el.innerHTML = html;
+  // 分页控件
+  let pg = '<div class="lit-pagination">'+
+    '<button class="lit-page-btn" onclick="litChangePage(-1)" '+(LIT_STATE.page<=1?'disabled':'')+'>◀ 上一页</button>'+
+    '<span class="lit-page-info">第 '+LIT_STATE.page+' / '+pages+' 页 · 共 '+total+' 篇</span>'+
+    '<button class="lit-page-btn" onclick="litChangePage(1)" '+(LIT_STATE.page>=pages?'disabled':'')+'>下一页 ▶</button>'+
+    '</div>';
+  el.innerHTML = html + pg;
 }
 
 function litRender(){
@@ -4737,7 +4757,6 @@ function litRender(){
   const filtered = litFilterWorks(works);
   const sorted = litSortWorks(filtered);
   litRenderList(sorted, filtered);
-  // 更新统计
   const tc=document.getElementById('litTotalCount'), tcd=document.getElementById('litTotalCited');
   const ymin=document.getElementById('litYearMin'), sn=document.getElementById('litSourceName');
   if(tc) tc.textContent = filtered.length;
@@ -4746,12 +4765,22 @@ function litRender(){
   if(sn) sn.textContent = LIT_STATE.src==='openalex'?'OpenAlex':LIT_STATE.src==='epmc'?'Europe PMC':'Semantic Scholar';
 }
 
+function litChangePage(delta){
+  LIT_STATE.page += delta;
+  litRender();
+}
+
+function litResetPage(){
+  LIT_STATE.page = 1;
+}
+
 function litApplyFilters(){
   LIT_STATE.keyword = litNormalizeKeyword(document.getElementById('litKeyword').value);
   const yf = document.getElementById('litYearFrom').value;
   const yt = document.getElementById('litYearTo').value;
   LIT_STATE.yFrom = yf? parseInt(yf):null;
   LIT_STATE.yTo = yt? parseInt(yt):null;
+  litResetPage();
   litRender();
 }
 
@@ -4759,6 +4788,7 @@ function litSetTime(t, btn){
   LIT_STATE.time = t;
   document.querySelectorAll('.lit-time-btn[onclick^="litSetTime"]').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
+  litResetPage();
   litRender();
 }
 
@@ -4766,12 +4796,14 @@ function litSetSort(s, btn){
   LIT_STATE.sort = s;
   document.querySelectorAll('.lit-time-btn[data-sort]').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
+  litResetPage();
   litRender();
 }
 
 function litSetSource(src){
   LIT_STATE.src = src;
   document.querySelectorAll('.lit-src-btn').forEach(b=>b.classList.toggle('active', b.dataset.src===src));
+  litResetPage();
   litRender();
 }
 
@@ -4818,7 +4850,7 @@ function litCloseDetail(){
   if(o) o.classList.remove('show');
 }
 
-// ===== 实时抓取 =====
+// ===== 实时抓取（支持翻页抓取更多） =====
 async function litFetchOpenAlex(keyword, yearFrom, yearTo){
   let f = 'concepts.id:C502032728';
   if(keyword && keyword.toLowerCase()!=='alzheimer') f += ',title_and_abstract.search:'+encodeURIComponent(keyword);
@@ -4826,19 +4858,28 @@ async function litFetchOpenAlex(keyword, yearFrom, yearTo){
   if(yearFrom) yr.push('from_publication_date:'+yearFrom+'-01-01');
   if(yearTo) yr.push('to_publication_date:'+yearTo+'-12-31');
   if(yr.length) f += ','+yr.join(',');
-  const url = 'https://api.openalex.org/works?filter='+f+'&sort=cited_by_count:desc&per-page=50&mailto=adresearch@example.com';
-  const r = await fetch(url);
-  const d = await r.json();
-  return (d.results||[]).map(w=>({
-    id: w.id.split('/').pop(), title: w.display_name||'', year: w.publication_year||0,
-    cited: w.cited_by_count||0,
-    journal: ((w.primary_location||{}).source||{}).display_name||'',
-    authors: (w.authorships||[]).slice(0,8).map(a=>a.author.display_name||'').filter(Boolean),
-    institutions: (w.authorships||[]).slice(0,8).flatMap(a=>(a.institutions||[]).slice(0,2).map(i=>i.display_name||'')).filter(Boolean),
-    abstract: (function(ai){ if(!ai) return ''; const pos={}; Object.keys(ai).forEach(wd=>ai[wd].forEach(ix=>pos[ix]=wd)); return Object.keys(pos).sort((a,b)=>a-b).map(i=>pos[i]).join(' ').slice(0,600); })(w.abstract_inverted_index),
-    doi: (w.doi||'').replace('https://doi.org/',''),
-    pmid: ((w.ids||{}).pmid||'').replace('https://pubmed.ncbi.nlm.nih.gov/','')
-  }));
+  const all = [];
+  // 翻页抓取：最多4页×50 = 200条
+  for(let page=1; page<=4; page++){
+    const url = 'https://api.openalex.org/works?filter='+f+'&sort=cited_by_count:desc&per-page=50&page='+page+'&mailto=adresearch@example.com';
+    const r = await fetch(url);
+    const d = await r.json();
+    const res = (d.results||[]).map(w=>({
+      id: w.id.split('/').pop(), title: w.display_name||'', year: w.publication_year||0,
+      cited: w.cited_by_count||0,
+      journal: ((w.primary_location||{}).source||{}).display_name||'',
+      authors: (w.authorships||[]).slice(0,8).map(a=>a.author.display_name||'').filter(Boolean),
+      institutions: (w.authorships||[]).slice(0,8).flatMap(a=>(a.institutions||[]).slice(0,2).map(i=>i.display_name||'')).filter(Boolean),
+      abstract: (function(ai){ if(!ai) return ''; const pos={}; Object.keys(ai).forEach(wd=>ai[wd].forEach(ix=>pos[ix]=wd)); return Object.keys(pos).sort((a,b)=>a-b).map(i=>pos[i]).join(' ').slice(0,600); })(w.abstract_inverted_index),
+      doi: (w.doi||'').replace('https://doi.org/',''),
+      pmid: ((w.ids||{}).pmid||'').replace('https://pubmed.ncbi.nlm.nih.gov/','')
+    }));
+    all.push(...res);
+    if(res.length < 50) break;
+    // 抓取间隔，避免限流
+    await new Promise(r=>setTimeout(r,300));
+  }
+  return all;
 }
 
 async function litFetchEPMC(keyword, yearFrom, yearTo){
@@ -4847,32 +4888,46 @@ async function litFetchEPMC(keyword, yearFrom, yearTo){
   if(yearFrom) yr.push('PUB_DATE:['+yearFrom+'-01-01 TO 9999-12-31]');
   if(yearTo) yr.push('PUB_DATE:[1000-01-01 TO '+yearTo+'-12-31]');
   if(yr.length) q += ' AND ('+yr.join(' AND ')+')';
-  const url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query='+encodeURIComponent(q)+'&format=json&pageSize=50&sort=CITED';
-  const r = await fetch(url);
-  const d = await r.json();
-  return ((d.resultList||{}).result||[]).map((p,i)=>({
-    id: 'epmc'+p.pmid+'_'+i, title: p.title||'', year: p.pubYear?parseInt(p.pubYear):0,
-    cited: p.citedByCount||0, journal: p.journalInfo&&p.journalInfo.journal?p.journalInfo.journal.title||p.journalInfo.journal.medlineAbbreviation:'',
-    authors: (p.authorString||'').split(',').map(x=>x.trim()).slice(0,8).filter(Boolean),
-    institutions: [], abstract: p.abstractText? p.abstractText.slice(0,600):'',
-    doi: (p.doi||'').replace('https://doi.org/','').replace('http://dx.doi.org/',''),
-    pmid: p.pmid||''
-  }));
+  const all=[];
+  for(let page=1; page<=2; page++){
+    const url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query='+encodeURIComponent(q)+'&format=json&pageSize=50&page='+page+'&sort=CITED';
+    const r = await fetch(url);
+    const d = await r.json();
+    const res = ((d.resultList||{}).result||[]).map((p,i)=>({
+      id: 'epmc'+p.pmid+'_'+page+'_'+i, title: p.title||'', year: p.pubYear?parseInt(p.pubYear):0,
+      cited: p.citedByCount||0, journal: p.journalInfo&&p.journalInfo.journal?p.journalInfo.journal.title||p.journalInfo.journal.medlineAbbreviation:'',
+      authors: (p.authorString||'').split(',').map(x=>x.trim()).slice(0,8).filter(Boolean),
+      institutions: [], abstract: p.abstractText? p.abstractText.slice(0,600):'',
+      doi: (p.doi||'').replace('https://doi.org/','').replace('http://dx.doi.org/',''),
+      pmid: p.pmid||''
+    }));
+    all.push(...res);
+    if(res.length < 50) break;
+    await new Promise(r=>setTimeout(r,300));
+  }
+  return all;
 }
 
 async function litFetchS2(keyword, yearFrom, yearTo){
-  const url = 'https://api.semanticscholar.org/graph/v1/paper/search?query='+encodeURIComponent(keyword)+'&limit=50&fields=title,citationCount,year,venue,externalIds,abstract,authors&sort=citationCount:desc';
-  const r = await fetch(url);
-  const d = await r.json();
-  if(!d.data) throw new Error('Semantic Scholar 返回异常');
-  return d.data.map((p,i)=>({
-    id: 's2'+p.paperId+'_'+i, title: p.title||'', year: p.year||0,
-    cited: p.citationCount||0, journal: p.venue||'',
-    authors: (p.authors||[]).slice(0,8).map(a=>a.name||'').filter(Boolean),
-    institutions: [], abstract: p.abstract? p.abstract.slice(0,600):'',
-    doi: (p.externalIds||{}).DOI? p.externalIds.DOI.replace('https://doi.org/',''):'',
-    pmid: (p.externalIds||{}).PubMed? String(p.externalIds.PubMed):''
-  }));
+  const all=[];
+  for(let page=1; page<=2; page++){
+    const url = 'https://api.semanticscholar.org/graph/v1/paper/search?query='+encodeURIComponent(keyword)+'&limit=50&page='+page+'&fields=title,citationCount,year,venue,externalIds,abstract,authors&sort=citationCount:desc';
+    const r = await fetch(url);
+    const d = await r.json();
+    if(!d.data) throw new Error('Semantic Scholar 返回异常');
+    const res = d.data.map((p,i)=>({
+      id: 's2'+p.paperId+'_'+page+'_'+i, title: p.title||'', year: p.year||0,
+      cited: p.citationCount||0, journal: p.venue||'',
+      authors: (p.authors||[]).slice(0,8).map(a=>a.name||'').filter(Boolean),
+      institutions: [], abstract: p.abstract? p.abstract.slice(0,600):'',
+      doi: (p.externalIds||{}).DOI? p.externalIds.DOI.replace('https://doi.org/',''):'',
+      pmid: (p.externalIds||{}).PubMed? String(p.externalIds.PubMed):''
+    }));
+    all.push(...res);
+    if(res.length < 50) break;
+    await new Promise(r=>setTimeout(r,300));
+  }
+  return all;
 }
 
 async function litRefreshLive(){
@@ -4887,10 +4942,11 @@ async function litRefreshLive(){
     else if(LIT_STATE.src==='epmc') works = await litFetchEPMC(kw, yFrom, yTo);
     else works = await litFetchS2(kw, yFrom, yTo);
     LIT_STATE.cache[LIT_STATE.src] = works;
+    litResetPage();
     litRender();
     const el=document.getElementById('litTotalCount');
     if(el) el.textContent = works.length;
-    if(btn){ btn.disabled=false; btn.textContent='✅ 已更新'; setTimeout(()=>{btn.textContent='🔄 实时获取更新';},2000); }
+    if(btn){ btn.disabled=false; btn.textContent='✅ 已更新 '+works.length+' 篇'; setTimeout(()=>{btn.textContent='🔄 实时获取更新';},3000); }
   }catch(e){
     if(btn){ btn.disabled=false; btn.textContent='❌ 抓取失败，重试'; }
     const el=document.getElementById('litList');
@@ -4901,7 +4957,6 @@ async function litRefreshLive(){
 function escHtml(s){
   return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-
 </script>
 <!-- 页脚 -->
 <div style="text-align:center;padding:24px 16px;color:#94a3b8;font-size:12px;border-top:1px solid var(--border);margin-top:32px;">
@@ -4910,7 +4965,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v332 · 数据更新至 2026-10-01</div>
+  <div>版本 v333 · 数据更新至 2026-10-01</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：若8秒内未返回数据（第三方服务故障），显示维护提示，服务恢复后自动更新
