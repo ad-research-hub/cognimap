@@ -3604,14 +3604,14 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=333"></script>
-<script src="js/details_data.js?v=333"></script>
-<script src="js/nmpa_data.js?v=333"></script>
-<script src="js/companies_data.js?v=333"></script>
-<script src="js/drugs_data.js?v=333"></script>
-<script src="js/pipeline_data.js?v=333"></script>
-<script src="js/epi_world_map.js?v=333"></script>
-    <script src="js/literature_data.js?v=333"></script>
+<script src="js/markers_data.js?v=334"></script>
+<script src="js/details_data.js?v=334"></script>
+<script src="js/nmpa_data.js?v=334"></script>
+<script src="js/companies_data.js?v=334"></script>
+<script src="js/drugs_data.js?v=334"></script>
+<script src="js/pipeline_data.js?v=334"></script>
+<script src="js/epi_world_map.js?v=334"></script>
+    <script src="js/literature_data.js?v=334"></script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -4736,7 +4736,7 @@ function litRenderList(sorted, filtered){
   // 分页控件
   let pg = '<div class="lit-pagination">'+
     '<button class="lit-page-btn" onclick="litChangePage(-1)" '+(LIT_STATE.page<=1?'disabled':'')+'>◀ 上一页</button>'+
-    '<span class="lit-page-info">第 '+LIT_STATE.page+' / '+pages+' 页 · 共 '+total+' 篇</span>'+
+    '<span class="lit-page-info">第 '+LIT_STATE.page+' / '+pages+' 页 · 共 '+total+' 篇'+(LIT_STATE.src==='openalex'&&window.LITERATURE_DATA&&window.LITERATURE_DATA.totalWorks?('（全库 '+window.LITERATURE_DATA.totalWorks.toLocaleString()+' 篇）'):'')+'</span>'+
     '<button class="lit-page-btn" onclick="litChangePage(1)" '+(LIT_STATE.page>=pages?'disabled':'')+'>下一页 ▶</button>'+
     '</div>';
   el.innerHTML = html + pg;
@@ -4883,7 +4883,7 @@ async function litFetchOpenAlex(keyword, yearFrom, yearTo){
 }
 
 async function litFetchEPMC(keyword, yearFrom, yearTo){
-  let q = '"'+keyword+'"';
+  let q = keyword ? '"'+keyword+'"' : '"Alzheimer"';
   const yr=[];
   if(yearFrom) yr.push('PUB_DATE:['+yearFrom+'-01-01 TO 9999-12-31]');
   if(yearTo) yr.push('PUB_DATE:[1000-01-01 TO '+yearTo+'-12-31]');
@@ -4911,7 +4911,8 @@ async function litFetchEPMC(keyword, yearFrom, yearTo){
 async function litFetchS2(keyword, yearFrom, yearTo){
   const all=[];
   for(let page=1; page<=2; page++){
-    const url = 'https://api.semanticscholar.org/graph/v1/paper/search?query='+encodeURIComponent(keyword)+'&limit=50&page='+page+'&fields=title,citationCount,year,venue,externalIds,abstract,authors&sort=citationCount:desc';
+    const kw2 = keyword || 'Alzheimer';
+    const url = 'https://api.semanticscholar.org/graph/v1/paper/search?query='+encodeURIComponent(kw2)+'&limit=50&page='+page+'&fields=title,citationCount,year,venue,externalIds,abstract,authors&sort=citationCount:desc';
     const r = await fetch(url);
     const d = await r.json();
     if(!d.data) throw new Error('Semantic Scholar 返回异常');
@@ -4950,7 +4951,9 @@ async function litRefreshLive(){
   }catch(e){
     if(btn){ btn.disabled=false; btn.textContent='❌ 抓取失败，重试'; }
     const el=document.getElementById('litList');
-    if(el) el.innerHTML = '<div class="lit-empty">实时抓取失败（可能是网络或接口限制）：'+escHtml(String(e.message||e))+'<br><br>可切换数据源，或使用上方筛选条件查看已预载数据</div>';
+    if(el) el.innerHTML = LIT_STATE.src==='s2'
+      ? '<div class="lit-empty">Semantic Scholar 接口在当前网络无法访问（该服务位于海外，直连常超时或被限流）。建议切换 OpenAlex 或 Europe PMC 数据源。</div>'
+      : '<div class="lit-empty">实时抓取失败（可能是网络或接口限制）：'+escHtml(String(e.message||e))+'<br><br>可切换数据源，或使用上方筛选条件查看已预载数据</div>';
   }
 }
 
@@ -4965,7 +4968,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v333 · 数据更新至 2026-10-01</div>
+  <div>版本 v334 · 数据更新至 2026-10-01</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：若8秒内未返回数据（第三方服务故障），显示维护提示，服务恢复后自动更新
