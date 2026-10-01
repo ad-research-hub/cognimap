@@ -1237,7 +1237,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <p>AD领域被引用最多的文献排行榜，多源数据切换，支持关键词/时间/作者/单位/期刊检索排序</p>
       <div class="mod-count">Top200 文献 · 多源数据</div>
     </div>
- onclick="navigate('scales')">
+    <div class="module-card" onclick="navigate('scales')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-08-28</span>
       <div class="mod-icon" style="background:#fce7f3;">🧠</div>
       <h3>认知筛查小助手</h3>
@@ -3599,14 +3599,14 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=331"></script>
-<script src="js/details_data.js?v=331"></script>
-<script src="js/nmpa_data.js?v=331"></script>
-<script src="js/companies_data.js?v=331"></script>
-<script src="js/drugs_data.js?v=331"></script>
-<script src="js/pipeline_data.js?v=331"></script>
-<script src="js/epi_world_map.js?v=331"></script>
-    <script src="js/literature_data.js?v=331"></script>
+<script src="js/markers_data.js?v=332"></script>
+<script src="js/details_data.js?v=332"></script>
+<script src="js/nmpa_data.js?v=332"></script>
+<script src="js/companies_data.js?v=332"></script>
+<script src="js/drugs_data.js?v=332"></script>
+<script src="js/pipeline_data.js?v=332"></script>
+<script src="js/epi_world_map.js?v=332"></script>
+    <script src="js/literature_data.js?v=332"></script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -4910,8 +4910,17 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v331 · 数据更新至 2026-10-01</div>
+  <div>版本 v332 · 数据更新至 2026-10-01</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+// busuanzi 统计兜底：若8秒内未返回数据（第三方服务故障），显示维护提示，服务恢复后自动更新
+setTimeout(function(){
+  var pv=document.getElementById('busuanzi_value_site_pv');
+  var uv=document.getElementById('busuanzi_value_site_uv');
+  if(pv && pv.textContent.trim()==='--'){ pv.textContent='统计服务维护中'; pv.style.color='#94a3b8'; }
+  if(uv && uv.textContent.trim()==='--'){ uv.textContent='统计服务维护中'; uv.style.color='#94a3b8'; }
+}, 8000);
+</script>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
 
