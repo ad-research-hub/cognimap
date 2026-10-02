@@ -3604,14 +3604,14 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=335"></script>
-<script src="js/details_data.js?v=335"></script>
-<script src="js/nmpa_data.js?v=335"></script>
-<script src="js/companies_data.js?v=335"></script>
-<script src="js/drugs_data.js?v=335"></script>
-<script src="js/pipeline_data.js?v=335"></script>
-<script src="js/epi_world_map.js?v=335"></script>
-    <script src="js/literature_data.js?v=335"></script>
+<script src="js/markers_data.js?v=336"></script>
+<script src="js/details_data.js?v=336"></script>
+<script src="js/nmpa_data.js?v=336"></script>
+<script src="js/companies_data.js?v=336"></script>
+<script src="js/drugs_data.js?v=336"></script>
+<script src="js/pipeline_data.js?v=336"></script>
+<script src="js/epi_world_map.js?v=336"></script>
+    <script src="js/literature_data.js?v=336"></script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -4870,6 +4870,13 @@ function litCloseDetail(){
 }
 
 // ===== 实时抓取（支持翻页抓取更多） =====
+async function litFetchTimeout(url, ms){
+  const ctl = new AbortController();
+  const t = setTimeout(function(){ ctl.abort(); }, ms || 25000);
+  try{ return await fetch(url, {signal: ctl.signal}); }
+  finally{ clearTimeout(t); }
+}
+
 async function litFetchOpenAlex(keyword, yearFrom, yearTo, onProgress){
   let f = 'concepts.id:C502032728';
   if(keyword && keyword.toLowerCase()!=='alzheimer') f += ',title_and_abstract.search:'+encodeURIComponent(keyword);
@@ -4882,7 +4889,7 @@ async function litFetchOpenAlex(keyword, yearFrom, yearTo, onProgress){
   for(let page=1; page<=20; page++){
     if(onProgress) onProgress(page, 20);
     const url = 'https://api.openalex.org/works?filter='+f+'&sort=cited_by_count:desc&per-page=50&page='+page+'&mailto=adresearch@example.com';
-    const r = await fetch(url);
+    const r = await litFetchTimeout(url, 20000);
     if(!r.ok) throw new Error('OpenAlex 接口返回 '+r.status);
     const d = await r.json();
     const res = (d.results||[]).map(w=>({
@@ -4912,8 +4919,17 @@ async function litFetchEPMC(keyword, yearFrom, yearTo){
   const all=[];
   for(let page=1; page<=2; page++){
     const url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query='+encodeURIComponent(q)+'&format=json&pageSize=50&page='+page+'&sort=CITED%20desc&resultType=core';
-    const r = await fetch(url);
-    if(!r.ok) throw new Error('Europe PMC 接口返回 '+r.status+'（可能限流，请稍后重试）');
+    let r = null;
+    for(let tryN=1; tryN<=3; tryN++){
+      try{
+        r = await litFetchTimeout(url, 25000);
+        if(r.ok) break;
+      }catch(e){
+        if(tryN===3) throw new Error('Europe PMC 接口请求超时（网络到海外服务器不稳定），已自动重试3次，请稍后再试');
+      }
+      if(tryN<3) await new Promise(rr=>setTimeout(rr, 1500));
+    }
+    if(!r || !r.ok) throw new Error('Europe PMC 接口返回 '+(r?r.status:'超时')+'（可能限流，请稍后重试）');
     const d = await r.json();
     const res = ((d.resultList||{}).result||[]).map((p,i)=>({
       id: 'epmc'+p.pmid+'_'+page+'_'+i, title: p.title||'', year: p.pubYear?parseInt(p.pubYear):0,
@@ -4935,7 +4951,7 @@ async function litFetchS2(keyword, yearFrom, yearTo){
   for(let page=1; page<=2; page++){
     const kw2 = keyword || 'Alzheimer';
     const url = 'https://api.semanticscholar.org/graph/v1/paper/search?query='+encodeURIComponent(kw2)+'&limit=50&page='+page+'&fields=title,citationCount,year,venue,externalIds,abstract,authors&sort=citationCount:desc';
-    const r = await fetch(url);
+    const r = await litFetchTimeout(url, 20000);
     const d = await r.json();
     if(!d.data) throw new Error('Semantic Scholar 返回异常');
     const res = d.data.map((p,i)=>({
@@ -4990,7 +5006,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v335 · 数据更新至 2026-10-01</div>
+  <div>版本 v336 · 数据更新至 2026-10-01</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：若8秒内未返回数据（第三方服务故障），显示维护提示，服务恢复后自动更新
