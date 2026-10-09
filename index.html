@@ -3604,14 +3604,14 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=336"></script>
-<script src="js/details_data.js?v=336"></script>
-<script src="js/nmpa_data.js?v=336"></script>
-<script src="js/companies_data.js?v=336"></script>
-<script src="js/drugs_data.js?v=336"></script>
-<script src="js/pipeline_data.js?v=336"></script>
-<script src="js/epi_world_map.js?v=336"></script>
-    <script src="js/literature_data.js?v=336"></script>
+<script src="js/markers_data.js?v=337"></script>
+<script src="js/details_data.js?v=337"></script>
+<script src="js/nmpa_data.js?v=337"></script>
+<script src="js/companies_data.js?v=337"></script>
+<script src="js/drugs_data.js?v=337"></script>
+<script src="js/pipeline_data.js?v=337"></script>
+<script src="js/epi_world_map.js?v=337"></script>
+    <script src="js/literature_data.js?v=337"></script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -5006,16 +5006,28 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v336 · 数据更新至 2026-10-01</div>
+  <div>版本 v337 · 数据更新至 2026-10-01</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
-// busuanzi 统计兜底：若8秒内未返回数据（第三方服务故障），显示维护提示，服务恢复后自动更新
-setTimeout(function(){
-  var pv=document.getElementById('busuanzi_value_site_pv');
-  var uv=document.getElementById('busuanzi_value_site_uv');
-  if(pv && pv.textContent.trim()==='--'){ pv.textContent='统计服务维护中'; pv.style.color='#94a3b8'; }
-  if(uv && uv.textContent.trim()==='--'){ uv.textContent='统计服务维护中'; uv.style.color='#94a3b8'; }
-}, 8000);
+// busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
+(function(){
+  function hasData(){
+    var pv=document.getElementById('busuanzi_value_site_pv');
+    var uv=document.getElementById('busuanzi_value_site_uv');
+    return (pv && pv.textContent.trim()!=='--') || (uv && uv.textContent.trim()!=='--');
+  }
+  function retry(){
+    if(hasData()) return;
+    var old=document.querySelector('script[src*="busuanzi"]');
+    if(old) old.remove();
+    var s=document.createElement('script');
+    s.src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+    s.async=true;
+    document.body.appendChild(s);
+  }
+  setTimeout(retry, 5000);    // 5秒后首次检查（脚本未填充则重载）
+  setInterval(retry, 30000);  // 之后每30秒重试，直到显示具体数字
+})();
 </script>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
 </div>
