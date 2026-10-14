@@ -88,6 +88,50 @@
 .search-modal-overlay.active {
   display: flex;
 }
+/* ===== App loading overlay ===== */
+#appLoadingOverlay {
+  position: fixed; inset: 0; z-index: 99990;
+  background: linear-gradient(135deg, #0f2557 0%, #1e3a8a 55%, #0f2557 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 24px; transition: opacity .5s ease;
+}
+#appLoadingOverlay.hidden { opacity: 0; pointer-events: none; }
+.boot-logo {
+  width: 72px; height: 72px; border-radius: 18px;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 38px; margin-bottom: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+.boot-title { color: #fff; font-size: 22px; font-weight: 700; letter-spacing: 1px; }
+.boot-sub { color: rgba(255,255,255,.65); font-size: 13px; margin-top: 6px; }
+.boot-bar {
+  width: min(440px, 82vw); height: 8px; margin-top: 30px;
+  background: rgba(255,255,255,.15); border-radius: 999px; overflow: hidden;
+}
+.boot-bar-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, #60a5fa, #34d399);
+  border-radius: 999px; transition: width .35s ease;
+}
+.boot-pct { color: #fff; font-size: 14px; font-weight: 600; margin-top: 12px; }
+.boot-file { color: rgba(255,255,255,.55); font-size: 12px; margin-top: 8px; min-height: 16px; }
+.boot-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px; width: min(880px, 92vw); margin-top: 34px;
+}
+.boot-grid .boot-section {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px; padding: 12px 14px; color: rgba(255,255,255,.85);
+  font-size: 13px; display: flex; align-items: center; gap: 8px;
+}
+.boot-grid .boot-section .tick {
+  width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(255,255,255,.18); display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #fff;
+}
+.boot-grid .boot-section.done .tick { background: #10b981; }
+
 .search-modal {
   background: var(--card);
   border-radius: 16px;
@@ -987,6 +1031,61 @@ if (typeof Chart === 'undefined') {
 
 </head>
 <body>
+<!-- ===== 启动加载遮罩 ===== -->
+<div id="appLoadingOverlay">
+  <div class="boot-logo">🧠</div>
+  <div class="boot-title">脑智图谱 CogniMap</div>
+  <div class="boot-sub">正在加载研究数据库，请稍候</div>
+  <div class="boot-bar"><div class="boot-bar-fill" id="bootBarFill"></div></div>
+  <div class="boot-pct" id="bootPct">0%</div>
+  <div class="boot-file" id="bootFile"></div>
+  <div class="boot-grid" id="bootGrid"></div>
+</div>
+<script>
+// ===== 启动进度控制 =====
+window.BOOT_SECTIONS = [
+  {key:'markers',    name:'生物标志物库', file:'js/markers_data.js'},
+  {key:'details',    name:'标志物详情数据', file:'js/details_data.js'},
+  {key:'nmpa',       name:'NMPA获批数据', file:'js/nmpa_data.js'},
+  {key:'companies',  name:'企业信息库', file:'js/companies_data.js'},
+  {key:'drugs',      name:'已上市药物库', file:'js/drugs_data.js'},
+  {key:'pipeline',   name:'药物研发管线', file:'js/pipeline_data.js'},
+  {key:'epi',        name:'流行病学地图', file:'js/epi_world_map.js'},
+  {key:'literature', name:'AD文献库', file:'js/literature_data.js'},
+  {key:'science',    name:'专家科普库', file:'js/science_data.js'}
+];
+(function(){
+  var grid = document.getElementById('bootGrid');
+  if (grid) {
+    grid.innerHTML = window.BOOT_SECTIONS.map(function(s){
+      return '<div class="boot-section" id="bootSec_'+s.key+'"><span class="tick" id="bootTick_'+s.key+'">…</span>'+s.name+'</div>';
+    }).join('');
+  }
+  window.bootDone = 0;
+  window.bootTotal = window.BOOT_SECTIONS.length;
+  window.bootTick = function(key){
+    var sec = document.getElementById('bootSec_'+key);
+    var tick = document.getElementById('bootTick_'+key);
+    if (sec) sec.classList.add('done');
+    if (tick) tick.textContent = '✓';
+    window.bootDone++;
+    var pct = Math.round(window.bootDone / window.bootTotal * 100);
+    var fill = document.getElementById('bootBarFill');
+    var pctEl = document.getElementById('bootPct');
+    if (fill) fill.style.width = pct + '%';
+    if (pctEl) pctEl.textContent = pct + '%';
+  };
+  window.bootFinish = function(){
+    var ov = document.getElementById('appLoadingOverlay');
+    if (!ov) return;
+    var fill = document.getElementById('bootBarFill');
+    var pctEl = document.getElementById('bootPct');
+    if (fill) fill.style.width = '100%';
+    if (pctEl) pctEl.textContent = '100%';
+    setTimeout(function(){ ov.classList.add('hidden'); }, 350);
+  };
+})();
+</script>
 <div id=""globalErrorBanner" style="display:none;position:fixed;top:0;left:0;right:0;z-index:99999;background:#fee2e2;color:#991b1b;padding:12px 20px;font-size:13px;max-height:40vh;overflow-y:auto;border-bottom:2px solid #ef4444;">
   <strong>页面错误：</strong><span id="globalErrorText"></span>
   <button onclick="document.getElementById('globalErrorBanner').style.display='none'" style="float:right;background:#ef4444;color:white;border:none;padding:2px 8px;border-radius:4px;cursor:pointer;">关闭</button>
@@ -1027,6 +1126,7 @@ window.addEventListener('unhandledrejection', function(e) {
     <a onclick="navigate('knowledge')">疾病知识</a>
     <a onclick="navigate('pipeline')">药物管线</a>
     <a onclick="navigate('drugs')">已上市药物</a>
+    <a onclick="navigate('science')">科普</a>
   </div>
   <div class="nav-actions">
     <button class="global-search-btn" onclick="openGlobalSearch()">
@@ -1248,6 +1348,13 @@ window.addEventListener('unhandledrejection', function(e) {
       <h3>认知筛查小助手</h3>
       <p>经典模式(MMSE/MoCA) + 自创趣味模式 + ADAS-Cog/CDR/GDS专业量表，在线测评</p>
       <div class="mod-count">5 量表 + 6 互动游戏</div>
+    </div>
+    <div class="module-card" onclick="navigate('science')">
+      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-14</span>
+      <div class="mod-icon" style="background:#e0e7ff;">📚</div>
+      <h3>专家科普库</h3>
+      <p>转载权威机构与专家公开科普，所有观点附出处；支持模糊检索；可提交待核实观点，定期专业查证后更新</p>
+      <div class="mod-count" id="modScienceCount">已验证科普 · 待核实分区</div>
     </div>
     <div class="module-card" onclick="navigate('sitemap')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
@@ -1945,6 +2052,67 @@ render();
 &lt;/body&gt;
 &lt;/html&gt;
 " style="position:absolute;top:48px;left:0;width:100%;height:calc(100% - 48px);border:none;background:#f0f6ff;"></iframe>
+</div>
+
+<!-- ===== 专家科普库 ===== -->
+<div id="page-science" class="page">
+  <div style="background:linear-gradient(135deg,#1e3a8a,#4338ca);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
+    <h2 style="margin:0;font-size:20px;">📚 专家科普库</h2>
+    <span style="font-size:13px;opacity:0.85;">转载权威机构与专家公开科普 · 所有观点均附出处 · 支持提交待核实观点</span>
+    <div style="flex:1;"></div>
+    <button onclick="openScienceSubmitModal()" style="background:#f59e0b;border:none;color:white;padding:9px 18px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;">＋ 提交待核实观点</button>
+  </div>
+  <div class="page-content">
+    <!-- 检索 + 筛选 -->
+    <div style="background:white;border-radius:12px;padding:16px 20px;box-shadow:0 1px 3px rgba(0,0,0,0.08);margin-bottom:20px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+      <div style="position:relative;flex:1;min-width:240px;">
+        <input type="text" id="scienceSearchInput" oninput="renderScienceList()" placeholder="搜索专家、观点、主题、关键词（支持模糊匹配）…" style="width:100%;padding:10px 14px 10px 38px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;box-sizing:border-box;">
+        <span style="position:absolute;left:12px;top:10px;color:#9ca3af;">🔍</span>
+      </div>
+      <select id="scienceTopicFilter" onchange="renderScienceList()" style="padding:10px 14px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;background:white;">
+        <option value="">全部主题</option>
+      </select>
+    </div>
+
+    <!-- 已验证科普 -->
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+      <span style="display:inline-flex;align-items:center;gap:6px;background:#dcfce7;color:#166534;padding:5px 14px;border-radius:999px;font-size:13px;font-weight:600;">✓ 已验证科普（官方/专家/文献）</span>
+      <span id="scienceVerifiedCount" style="font-size:12px;color:#6b7280;"></span>
+    </div>
+    <div id="scienceVerifiedList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;margin-bottom:36px;"></div>
+
+    <!-- 待验证分区（显著标识） -->
+    <div style="border:2px dashed #f59e0b;background:#fffbeb;border-radius:14px;padding:20px;margin-top:10px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
+        <span style="display:inline-flex;align-items:center;gap:6px;background:#f59e0b;color:white;padding:5px 14px;border-radius:999px;font-size:13px;font-weight:700;">⏳ 待专业核实</span>
+        <span id="sciencePendingCount" style="font-size:12px;color:#92400e;"></span>
+      </div>
+      <p style="font-size:12px;color:#92400e;margin:6px 0 16px 0;">以下观点尚未经专业检索核实，不代表本平台结论，仅作为待查证问题登记，核实后将移入「已验证科普」。</p>
+      <div id="sciencePendingList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 科普详情 -->
+<div id="page-science-detail" class="page">
+  <div class="page-content" id="scienceDetailContent"></div>
+</div>
+
+<!-- 提交待核实观点模态框 -->
+<div class="modal-overlay" id="scienceSubmitModal">
+  <div class="modal">
+    <h2>提交待核实观点</h2>
+    <p style="font-size:12px;color:#6b7280;margin:0 0 14px 0;">提交后将显示在「待专业核实」区；平台会定期进行专业检索并更新，请勿当作已验证结论。</p>
+    <div class="form-group"><label>观点 / 问题 <span class="req">*</span></label><input type="text" id="sciencePendingTitle" placeholder="如：多吃核桃能预防老年痴呆吗？"></div>
+    <div class="form-group"><label>补充说明（选填）</label><textarea id="sciencePendingDesc" rows="3" placeholder="听到的说法、来源场景、你的疑问…" style="width:100%;padding:10px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;resize:vertical;box-sizing:border-box;"></textarea></div>
+    <div class="form-group"><label>提交人 <span class="req">*</span></label><input type="text" id="sciencePendingReporter" placeholder="您的称呼或机构"></div>
+    <div id="scienceSubmitResult" style="margin-top:12px;"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeScienceSubmitModal()">取消</button>
+      <button class="btn-primary" onclick="submitSciencePending()">提交</button>
+    </div>
+  </div>
 </div>
 
 <!-- 网站地图（占位） -->
@@ -3604,14 +3772,31 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=340"></script>
-<script src="js/details_data.js?v=340"></script>
-<script src="js/nmpa_data.js?v=340"></script>
-<script src="js/companies_data.js?v=340"></script>
-<script src="js/drugs_data.js?v=340"></script>
-<script src="js/pipeline_data.js?v=340"></script>
-<script src="js/epi_world_map.js?v=340"></script>
-    <script src="js/literature_data.js?v=340"></script>
+<script src="js/markers_data.js?v=341" onload="bootTick('markers')"></script>
+<script src="js/details_data.js?v=341" onload="bootTick('details')"></script>
+<script src="js/nmpa_data.js?v=341" onload="bootTick('nmpa')"></script>
+<script src="js/companies_data.js?v=341" onload="bootTick('companies')"></script>
+<script src="js/drugs_data.js?v=341" onload="bootTick('drugs')"></script>
+<script src="js/pipeline_data.js?v=341" onload="bootTick('pipeline')"></script>
+<script src="js/epi_world_map.js?v=341" onload="bootTick('epi')"></script>
+<script src="js/literature_data.js?v=341" onload="bootTick('literature')"></script>
+<script src="js/science_data.js?v=341" onload="bootTick('science')"></script>
+<script>
+// 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
+window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
+setTimeout(function(){
+  if (window.bootDone < window.bootTotal) {
+    // 未全部onload但页面已可交互（同步脚本必已执行），补满后淡出
+    window.bootDone = window.bootTotal;
+    window.BOOT_SECTIONS.forEach(function(s){
+      var sec=document.getElementById('bootSec_'+s.key), tick=document.getElementById('bootTick_'+s.key);
+      if(sec) sec.classList.add('done');
+      if(tick) tick.textContent='✓';
+    });
+    window.bootFinish();
+  }
+}, 8000);
+</script>
 <script>
 // ===== 数据嵌入 =====
 /* Marker/company data loaded from external JS files */
@@ -3641,6 +3826,7 @@ function navigate(page) {
   if (page === 'pipeline') renderGantt();
   if (page === 'drugs') renderDrugsList('all');
   if (page === 'literature') litRender();
+  if (page === 'science') initScience();
 }
 
 // Auto-init pathway when navigating
@@ -4300,6 +4486,149 @@ function showCompanyDetail(name) {
 
 // ===== 标志物数据库 =====
 let markersInitialized = false;
+// ===== 专家科普库逻辑 =====
+const SCIENCE_PENDING_KEY = 'ad_science_pending';
+function loadSciencePending() {
+  try { return JSON.parse(localStorage.getItem(SCIENCE_PENDING_KEY) || '[]'); }
+  catch(e){ return []; }
+}
+function saveSciencePending(arr) { localStorage.setItem(SCIENCE_PENDING_KEY, JSON.stringify(arr)); }
+
+function initScience() {
+  const topics = {};
+  (window.SCIENCE_DATA||[]).forEach(s => { if (s.topic) topics[s.topic]=1; });
+  const sel = document.getElementById('scienceTopicFilter');
+  if (sel) {
+    const cur = sel.value;
+    sel.innerHTML = '<option value="">全部主题</option>' + Object.keys(topics).map(t=>`<option value="${t}">${t}</option>`).join('');
+    sel.value = cur;
+  }
+  renderScienceList();
+}
+
+function scienceMatches(s, qRaw) {
+  const q = (qRaw||'').trim();
+  if (!q) return true;
+  const hay = [s.title,s.expert,s.expert_title,s.expert_aff,s.topic,s.summary,s.content,s.desc,s.source,s.keywords].join(' ').toLowerCase();
+  const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+  return terms.every(t => hay.includes(t));
+}
+
+function renderScienceList() {
+  const q = (document.getElementById('scienceSearchInput')||{}).value || '';
+  const topic = (document.getElementById('scienceTopicFilter')||{}).value || '';
+  const data = (window.SCIENCE_DATA||[]).filter(s => (!topic || s.topic === topic) && scienceMatches(s, q));
+  const pending = loadSciencePending().filter(s => scienceMatches(s, q));
+  document.getElementById('scienceVerifiedCount').textContent = `共 ${data.length} 条`;
+  document.getElementById('sciencePendingCount').textContent = `共 ${pending.length} 条待核实`;
+  const vlist = document.getElementById('scienceVerifiedList');
+  vlist.innerHTML = data.length ? '' : '<p style="color:#9ca3af;font-size:13px;grid-column:1/-1;">暂无匹配的已验证科普</p>';
+  data.forEach(s => vlist.appendChild(buildScienceCard(s, false)));
+  const plist = document.getElementById('sciencePendingList');
+  plist.innerHTML = pending.length ? '' : '<p style="color:#b45309;font-size:13px;grid-column:1/-1;">暂无待核实观点，可点击右上角提交</p>';
+  pending.forEach(s => plist.appendChild(buildScienceCard(s, true)));
+  const mc = document.getElementById('modScienceCount');
+  if (mc) mc.textContent = `${(window.SCIENCE_DATA||[]).length} 篇已验证 · 待核实分区`;
+}
+
+function escHtml(t){ return (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+function buildScienceCard(s, isPending) {
+  const card = document.createElement('div');
+  card.style.cssText = isPending
+    ? 'background:white;border:1.5px solid #f59e0b;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(245,158,11,0.2);cursor:pointer;display:flex;flex-direction:column;'
+    : 'background:white;border:1px solid #e5e7eb;border-left:4px solid #10b981;border-radius:12px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08);cursor:pointer;display:flex;flex-direction:column;';
+  const tag = isPending
+    ? '<span style="background:#fef3c7;color:#92400e;font-size:11px;padding:3px 10px;border-radius:999px;font-weight:700;">⏳ 待核实</span>'
+    : `<span style="background:#dcfce7;color:#166534;font-size:11px;padding:3px 10px;border-radius:999px;font-weight:600;">✓ ${escHtml(s.source_type)||'已验证'}</span>`;
+  const expert = isPending
+    ? `<div style="font-size:12px;color:#92400e;margin-top:8px;">提交人：${escHtml(s.reporter)||'匿名'}</div>`
+    : `<div style="font-size:12px;color:#6b7280;margin-top:8px;">${escHtml(s.expert)}${s.expert_title?' · '+escHtml(s.expert_title):''}</div>
+       <div style="font-size:11px;color:#9ca3af;margin-top:3px;">${escHtml(s.expert_aff)}</div>`;
+  card.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:start;gap:8px;">
+      <span style="font-size:11px;color:#6b7280;background:#f3f4f6;padding:3px 10px;border-radius:999px;">${escHtml(s.topic)}</span>
+      ${tag}
+    </div>
+    <h3 style="font-size:15px;color:#1f2937;margin:12px 0 8px 0;line-height:1.5;">${escHtml(s.title)}</h3>
+    <p style="font-size:13px;color:#4b5563;line-height:1.7;margin:0;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">${escHtml(s.summary||s.desc)}</p>
+    ${expert}
+    <div style="font-size:11px;color:#9ca3af;margin-top:10px;">${isPending ? ('提交于 '+escHtml(s.date)) : ('出处：'+escHtml(s.source)+' · '+escHtml(s.date))}</div>`;
+  card.onclick = () => showScienceDetail(s, isPending);
+  return card;
+}
+
+function showScienceDetail(s, isPending) {
+  const c = document.getElementById('scienceDetailContent');
+  if (isPending) {
+    c.innerHTML = `
+      <button class="back-btn" onclick="scienceBack()">← 返回科普库</button>
+      <div style="border:2px solid #f59e0b;background:#fffbeb;border-radius:14px;padding:24px;margin-top:16px;">
+        <span style="background:#f59e0b;color:white;font-size:12px;padding:4px 14px;border-radius:999px;font-weight:700;">⏳ 待专业核实 · 不代表本平台结论</span>
+        <h2 style="color:#92400e;margin:16px 0 12px 0;line-height:1.5;">${escHtml(s.title)}</h2>
+        <p style="font-size:14px;color:#4b5563;line-height:1.9;white-space:pre-wrap;">${escHtml(s.desc||s.summary||'（无补充说明）')}</p>
+        <div style="margin-top:20px;font-size:13px;color:#92400e;">提交人：${escHtml(s.reporter)||'匿名'}　提交于：${escHtml(s.date)}</div>
+        <p style="font-size:12px;color:#b45309;margin-top:14px;">该观点已登记，平台将定期进行专业文献检索核实；核实通过后会移入「已验证科普」并附出处。</p>
+        <button class="btn-secondary" style="margin-top:10px;" onclick="if(confirm('确定删除这条待核实观点？')){removeSciencePending('${s.id}');scienceBack();}">删除此条</button>
+      </div>`;
+  } else {
+    c.innerHTML = `
+      <button class="back-btn" onclick="scienceBack()">← 返回科普库</button>
+      <div style="background:white;border-radius:14px;padding:28px;margin-top:16px;box-shadow:0 1px 3px rgba(0,0,0,0.08);border-top:4px solid #10b981;">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <span style="font-size:12px;color:#6b7280;background:#f3f4f6;padding:4px 12px;border-radius:999px;">${escHtml(s.topic)}</span>
+          <span style="background:#dcfce7;color:#166534;font-size:12px;padding:4px 12px;border-radius:999px;font-weight:600;">✓ ${escHtml(s.source_type)}</span>
+        </div>
+        <h2 style="color:#1f2937;margin:18px 0 14px 0;line-height:1.5;">${escHtml(s.title)}</h2>
+        <div style="background:#f8fafc;border-radius:10px;padding:14px 18px;font-size:13px;color:#374151;line-height:1.9;">
+          <strong>${escHtml(s.expert)}</strong>${s.expert_title?' · '+escHtml(s.expert_title):''}<br>
+          <span style="color:#6b7280;">${escHtml(s.expert_aff)}</span>
+        </div>
+        <div style="font-size:14px;color:#374151;line-height:2;margin-top:20px;white-space:pre-wrap;">${escHtml(s.content||s.summary)}</div>
+        <div style="margin-top:26px;border-top:1px solid #e5e7eb;padding-top:18px;">
+          <div style="font-size:13px;color:#374151;margin-bottom:8px;"><strong>出处：</strong>${escHtml(s.source)}${s.date?' · '+escHtml(s.date):''}</div>
+          <a href="${escHtml(s.url)}" target="_blank" style="font-size:13px;word-break:break-all;color:#2563eb;">${escHtml(s.url)}</a>
+          <p style="font-size:12px;color:#9ca3af;margin-top:14px;">本内容为转载，版权归原作者及出处所有，本平台仅作科普传播，不用于商业目的。</p>
+        </div>
+      </div>`;
+  }
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-science-detail').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function scienceBack() {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-science').classList.add('active');
+  window.scrollTo(0,0);
+}
+function openScienceSubmitModal(){
+  document.getElementById('scienceSubmitModal').classList.add('active');
+  document.getElementById('scienceSubmitResult').innerHTML='';
+}
+function closeScienceSubmitModal(){ document.getElementById('scienceSubmitModal').classList.remove('active'); }
+function submitSciencePending(){
+  const title = document.getElementById('sciencePendingTitle').value.trim();
+  const desc = document.getElementById('sciencePendingDesc').value.trim();
+  const reporter = document.getElementById('sciencePendingReporter').value.trim();
+  const result = document.getElementById('scienceSubmitResult');
+  if (!title) { result.innerHTML='<p style="color:#dc2626;">请填写观点/问题</p>'; return; }
+  if (!reporter) { result.innerHTML='<p style="color:#dc2626;">请填写提交人</p>'; return; }
+  const arr = loadSciencePending();
+  arr.push({ id:'p'+Date.now(), title, summary:desc, desc, reporter, date:new Date().toISOString().slice(0,10), status:'pending' });
+  saveSciencePending(arr);
+  document.getElementById('sciencePendingTitle').value='';
+  document.getElementById('sciencePendingDesc').value='';
+  document.getElementById('sciencePendingReporter').value='';
+  result.innerHTML='<p style="color:#16a34a;">已提交到「待专业核实」区</p>';
+  renderScienceList();
+  setTimeout(closeScienceSubmitModal, 800);
+}
+function removeSciencePending(id) {
+  saveSciencePending(loadSciencePending().filter(x=>x.id!==id));
+  renderScienceList();
+}
+
 function initMarkers() {
   if (markersInitialized) return;
   markersInitialized = true;
@@ -4386,8 +4715,10 @@ function showMarkerDetail(marker) {
   }
   if (marker.finding) html += `<div class="detail-section"><h3>📌 核心发现</h3><p style="font-size:13px;line-height:1.8;">${marker.finding}</p></div>`;
 
-  // pTau217专属介绍模块
-  if (marker.sheet_name === 'pTau217') {
+  // pTau217 单指标（已获批）专属介绍模块——仅单指标显示，%pTau217比值不显示
+  const _ptauText = ((marker.sheet_name||'')+' '+(marker.en_name||'')+' '+(marker.name||'')).toLowerCase();
+  const isSinglePtau217 = _ptauText.replace(/[\s\-]/g,'').includes('ptau217') && !(_ptauText.includes('%') || _ptauText.includes('ratio') || _ptauText.includes('比值'));
+  if (isSinglePtau217) {
     html += `<div class="detail-section" style="background:linear-gradient(135deg,#eff6ff,#f0fdf4);border-left:4px solid #3b82f6;border-radius:8px;padding:20px;margin-bottom:20px;">
       <h3 style="color:#1e40af;margin-bottom:15px;">🌟 pTau217 — AD血液生物标志物的"金标准"</h3>
       <p style="font-size:13px;line-height:1.8;color:#374151;margin-bottom:15px;">磷酸化tau蛋白217位点（pTau217）是目前诊断性能最优的AD血液生物标志物，被2024年阿尔茨海默病协会（AA）修订的诊断标准列为Core 1生物标志物，可在Aβ PET异常提前5-7年预测AD病理，AUC达0.92-0.98。</p>
@@ -5006,7 +5337,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v340 · 数据更新至 2026-10-14</div>
+  <div>版本 v341 · 数据更新至 2026-10-14</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
