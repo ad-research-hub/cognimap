@@ -1036,6 +1036,7 @@ if (typeof Chart === 'undefined') {
   <div class="boot-logo">🧠</div>
   <div class="boot-title">脑智图谱 CogniMap</div>
   <div class="boot-sub">正在加载研究数据库，请稍候</div>
+  <div style="color:#fbbf24;font-size:14px;font-weight:700;margin-top:12px;letter-spacing:.5px;">⚠ 首次加载约需 30 秒，请耐心等待，九个数据库加载完成前请勿刷新</div>
   <div class="boot-bar"><div class="boot-bar-fill" id="bootBarFill"></div></div>
   <div class="boot-pct" id="bootPct">0%</div>
   <div class="boot-file" id="bootFile"></div>
@@ -1261,11 +1262,11 @@ window.addEventListener('unhandledrejection', function(e) {
         <div class="hero-stat"><div class="num" id="stat-companies">328</div><div class="label">企业机构</div></div>
         <div class="hero-stat"><div class="num" id="stat-drugs">409</div><div class="label">在研药物</div></div>
         <div class="hero-stat"><div class="num" id="stat-trials">725</div><div class="label">临床试验</div></div>
-        <div class="hero-stat"><div class="num">101</div><div class="label">AD风险基因</div></div>
-        <div class="hero-stat"><div class="num">18</div><div class="label">PET示踪剂</div></div>
-        <div class="hero-stat"><div class="num">35</div><div class="label">AD模型</div></div>
-        <div class="hero-stat"><div class="num">60</div><div class="label">常用网站</div></div>
-        <div class="hero-stat"><div class="num">17</div><div class="label">功能模块</div></div>
+        <div class="hero-stat"><div class="num" id="stat-genes">101</div><div class="label">AD风险基因</div></div>
+        <div class="hero-stat"><div class="num" id="stat-pet">18</div><div class="label">PET示踪剂</div></div>
+        <div class="hero-stat"><div class="num" id="stat-models">35</div><div class="label">AD模型</div></div>
+        <div class="hero-stat"><div class="num" id="stat-websites">60</div><div class="label">常用网站</div></div>
+        <div class="hero-stat"><div class="num" id="stat-modules">17</div><div class="label">功能模块</div></div>
       </div>
     </div>
     <div style="display:flex;gap:16px;justify-content:center;align-items:flex-start;flex-shrink:0;">
@@ -1306,14 +1307,14 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-icon" style="background:#dbeafe;">🧬</div>
       <h3>AD生物标志物数据库</h3>
       <p>548个标志物，411个详情页，涵盖ELISA/Simoa双平台性能数据、NMPA获批信息</p>
-      <div class="mod-count">548 标志物 · 135 获批证</div>
+      <div class="mod-count" id="modCountMarkers">548 标志物 · 135 获批证</div>
     </div>
     <div class="module-card" onclick="navigate('companies')">
       <div class="mod-status status-done">已完成</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-29</span>
       <div class="mod-icon" style="background:#d1fae5;">🏢</div>
       <h3>企业信息库</h3>
       <p>AD相关企业，覆盖治疗药物、检测诊断、医疗器械、数字疗法等32个分类</p>
-      <div class="mod-count">328 企业 · 43 分类</div>
+      <div class="mod-count" id="modCountCompanies">328 企业 · 43 分类</div>
     </div>
     <div class="module-card" onclick="navigate('knowledge')">
       <div class="mod-status status-done">已上线</div>
@@ -1326,28 +1327,28 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-icon" style="background:#dbeafe;">💊</div>
       <h3>药物研发管线</h3>
       <p>十年AD药物研发管线甘特图，按阶段着色，点击查看药物详情与临床试验</p>
-      <div class="mod-count">409 药物 · 725 试验</div>
+      <div class="mod-count" id="modCountPipeline">409 药物 · 725 试验</div>
     </div>
     <div class="module-card" onclick="navigate('drugs')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-29</span>
       <div class="mod-icon" style="background:#fef3c7;">💊</div>
       <h3>已上市药物库</h3>
       <p>全球已获批AD治疗药物详解，含用法用量、不良反应、说明书链接与权威来源</p>
-      <div class="mod-count">11 药物 · 9 在市</div>
+      <div class="mod-count" id="modCountDrugs">11 药物 · 9 在市</div>
     </div>
     <div class="module-card" onclick="navigate('literature')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-01</span>
       <div class="mod-icon" style="background:#f0fdf4;">📚</div>
       <h3>AD领域重要文献</h3>
       <p>AD领域被引用最多的文献排行榜，多源数据切换，支持关键词/时间/作者/单位/期刊检索排序</p>
-      <div class="mod-count">Top200 文献 · 多源数据</div>
+      <div class="mod-count" id="modCountLiterature">Top200 文献 · 多源数据</div>
     </div>
     <div class="module-card" onclick="navigate('scales')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-08-28</span>
       <div class="mod-icon" style="background:#fce7f3;">🧠</div>
       <h3>认知筛查小助手</h3>
       <p>经典模式(MMSE/MoCA) + 自创趣味模式 + ADAS-Cog/CDR/GDS专业量表，在线测评</p>
-      <div class="mod-count">5 量表 + 6 互动游戏</div>
+      <div class="mod-count" id="modCountScales">5 量表 + 6 互动游戏</div>
     </div>
     <div class="module-card" onclick="navigate('science')">
       <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-14</span>
@@ -3772,15 +3773,15 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=341" onload="bootTick('markers')"></script>
-<script src="js/details_data.js?v=341" onload="bootTick('details')"></script>
-<script src="js/nmpa_data.js?v=341" onload="bootTick('nmpa')"></script>
-<script src="js/companies_data.js?v=341" onload="bootTick('companies')"></script>
-<script src="js/drugs_data.js?v=341" onload="bootTick('drugs')"></script>
-<script src="js/pipeline_data.js?v=341" onload="bootTick('pipeline')"></script>
-<script src="js/epi_world_map.js?v=341" onload="bootTick('epi')"></script>
-<script src="js/literature_data.js?v=341" onload="bootTick('literature')"></script>
-<script src="js/science_data.js?v=341" onload="bootTick('science')"></script>
+<script src="js/markers_data.js?v=342" onload="bootTick('markers')"></script>
+<script src="js/details_data.js?v=342" onload="bootTick('details')"></script>
+<script src="js/nmpa_data.js?v=342" onload="bootTick('nmpa')"></script>
+<script src="js/companies_data.js?v=342" onload="bootTick('companies')"></script>
+<script src="js/drugs_data.js?v=342" onload="bootTick('drugs')"></script>
+<script src="js/pipeline_data.js?v=342" onload="bootTick('pipeline')"></script>
+<script src="js/epi_world_map.js?v=342" onload="bootTick('epi')"></script>
+<script src="js/literature_data.js?v=342" onload="bootTick('literature')"></script>
+<script src="js/science_data.js?v=342" onload="bootTick('science')"></script>
 <script>
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
 window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
@@ -5337,7 +5338,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v341 · 数据更新至 2026-10-14</div>
+  <div>版本 v342 · 数据更新至 2026-10-15</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
@@ -8103,31 +8104,70 @@ function initModelPage() {
 </script>
 
 <script>
-// 动态更新主页统计数据（从数据文件中读取实际数量）
+// 动态更新主页统计数据（全部从数据数组实时计算，杜绝写死数字）
 function updateHeroStats() {
   try {
-    if (window.MARKERS_DATA) {
-      const m = document.getElementById('stat-markers');
-      if (m) m.textContent = window.MARKERS_DATA.length;
-    }
-    if (window.COMPANIES_DATA) {
-      const c = document.getElementById('stat-companies');
-      if (c) c.textContent = window.COMPANIES_DATA.length;
-    }
+    const setNum = (id, v) => { const el = document.getElementById(id); if (el && v != null && !isNaN(v)) el.textContent = v; };
+    if (window.MARKERS_DATA) setNum('stat-markers', window.MARKERS_DATA.length);
+    if (window.COMPANIES_DATA) setNum('stat-companies', window.COMPANIES_DATA.length);
     if (window.PIPELINE_DATA) {
-      const d = document.getElementById('stat-drugs');
-      if (d) d.textContent = window.PIPELINE_DATA.length;
+      setNum('stat-drugs', window.PIPELINE_DATA.length);
       const trials = window.PIPELINE_DATA.reduce((s, p) => s + (p.trials ? p.trials.length : 0), 0);
-      const t = document.getElementById('stat-trials');
-      if (t && trials > 0) t.textContent = trials;
+      setNum('stat-trials', trials);
+    }
+    if (typeof RISK_LOCI !== 'undefined') setNum('stat-genes', RISK_LOCI.length);
+    if (typeof PET_TRACERS !== 'undefined') setNum('stat-pet', PET_TRACERS.length);
+    if (typeof MOUSE_MODELS !== 'undefined') {
+      const mc = (typeof OTHER_ANIMAL_MODELS!=='undefined'?OTHER_ANIMAL_MODELS.length:0)
+               + (typeof CELL_MODELS!=='undefined'?CELL_MODELS.length:0)
+               + (typeof ORGANOID_MODELS!=='undefined'?ORGANOID_MODELS.length:0);
+      setNum('stat-models', MOUSE_MODELS.length + mc);
+    }
+    // 常用网站数：数 sitemap 页内的外链卡片
+    const siteLinks = document.querySelectorAll('#page-sitemap a[href^="http"]').length;
+    setNum('stat-websites', siteLinks);
+    // 功能模块数：数首页模块卡片
+    const modCards = document.querySelectorAll('#page-home .modules-grid .module-card').length;
+    setNum('stat-modules', modCards);
+
+    // 模块卡片副文案同步动态化
+    const nmpaTotal = window.NMPA_DATA ? Object.values(window.NMPA_DATA).reduce((s,v)=>s+(Array.isArray(v)?v.length:0),0) : 0;
+    const details = window.DETAILS_DATA ? Object.keys(window.DETAILS_DATA).length : 0;
+    const mm = document.getElementById('modCountMarkers');
+    if (mm && window.MARKERS_DATA) mm.textContent = window.MARKERS_DATA.length + ' 标志物 · ' + nmpaTotal + ' 获批证';
+    const mp = document.getElementById('modCountCompanies');
+    if (mp && window.COMPANIES_DATA) {
+      const cats = new Set(window.COMPANIES_DATA.map(c=>c.category).filter(Boolean)).size;
+      mp.textContent = window.COMPANIES_DATA.length + ' 企业 · ' + cats + ' 分类';
+    }
+    const pl = document.getElementById('modCountPipeline');
+    if (pl && window.PIPELINE_DATA) {
+      const tr = window.PIPELINE_DATA.reduce((s,p)=>s+(p.trials?p.trials.length:0),0);
+      pl.textContent = window.PIPELINE_DATA.length + ' 药物 · ' + tr + ' 试验';
+    }
+    const dg = document.getElementById('modCountDrugs');
+    if (dg && window.APPROVED_DRUGS_DATA) {
+      const onMarket = window.APPROVED_DRUGS_DATA.filter(d=>d.status && d.status.indexOf('已上市')>=0 && d.status.indexOf('退市')<0).length;
+      dg.textContent = window.APPROVED_DRUGS_DATA.length + ' 药物 · ' + onMarket + ' 在市';
+    }
+    const lt = document.getElementById('modCountLiterature');
+    if (lt && window.LITERATURE_DATA) {
+      const lw = window.LITERATURE_DATA.topWorks ? window.LITERATURE_DATA.topWorks.length : (window.LITERATURE_DATA.loaded||0);
+      lt.textContent = 'Top' + lw + ' 文献 · 多源数据';
     }
   } catch(e) { console.log('stats update error', e); }
 }
-// 数据加载完成后执行
+// 数据加载完成后执行（多次重试，确保大文件加载完后再统计）
+function scheduleHeroStats(){ setTimeout(updateHeroStats, 600); setTimeout(updateHeroStats, 2500); }
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function() { setTimeout(updateHeroStats, 500); });
+  document.addEventListener('DOMContentLoaded', scheduleHeroStats);
 } else {
-  setTimeout(updateHeroStats, 500);
+  scheduleHeroStats();
+}
+// 加载进度条走完（bootFinish）后再刷一次，保证数字来自真实数据
+if (typeof window.bootFinish === 'function') {
+  const _bf = window.bootFinish;
+  window.bootFinish = function(){ _bf(); scheduleHeroStats(); };
 }
 </script>
 
