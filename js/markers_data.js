@@ -188,7 +188,7 @@ window.MARKERS_DATA = [
     "mechanism": "Tau蛋白217位点磷酸化的单指标血浆浓度，由罗氏Elecsys电化学发光平台直接定量，不依赖比值计算，是首个跨初级/专科医疗统一界值的单指标AD血液检测",
     "status": "已获批",
     "sample": "血浆",
-    "finding": "【监管状态】罗氏Elecsys Phospho-Tau (217P) Plasma于2026年8月24日获FDA 510(k)批准（K261686），是首个以同一套高低界值在初级医疗与专科医疗场景同时完成\"rule in\"与\"rule out\"的单指标血液检测；此前于2026年5月12日率先获CE mark。由罗氏与Eli Lilly合作开发，适用于≥55岁、出现认知下降症状或主诉的成年人。【检测平台】基于cobas e 402 / e 801电化学发光免疫分析平台，可直接在美国已装机逾4500台罗氏分析仪上运行，Labcorp与Quest同步提供检测服务，是目前可及性最高的获批AD血液检测。【关键性能】对淀粉样PET的AUC≥0.878；低危cut-off <0.189 pg/mL可可靠rule-out：初级医疗场景阴性预测值（NPV）达98.62%，专科医疗场景阳性预测值（PPV）达90.22%；落在中间区间（indeterminate）的结果建议进一步行PET或CSF检测。【解读注意】阴性结果提示淀粉样病理可能性低，应继续排查其他认知下降原因；阳性结果应转专科进一步评估；不可用于无症状人群筛查；肾功能与高龄等因素会影响结果判读。【方法学定位】与比值法（pTau217/Aβ42、%p-tau217）互补：单指标法流程更简单、通量更高、成本更低，适合作为分诊一线检测。",
+    "finding": "【监管状态】罗氏Elecsys Phospho-Tau (217P) Plasma于2026年8月24日获FDA 510(k)批准（K261686），是首个以同一套高低界值在初级医疗与专科医疗场景同时完成\"rule in\"与\"rule out\"的单指标血液检测；此前于2026年5月12日率先获CE mark。由罗氏与Eli Lilly合作开发，适用于≥55岁、出现认知下降症状或主诉的成年人。【检测平台与样本】基于cobas e 402 / e 801电化学发光（ECL）一步夹心法免疫分析平台，样本为K2 EDTA血浆（含分离胶的EDTA采血管亦可），样本量仅60 µL，18分钟出结果，可直接在美国已装机逾4500台罗氏分析仪上运行，Labcorp与Quest同步提供检测服务，是目前可及性最高、周转最快的获批AD血液检测。【关键性能】对淀粉样PET的AUC≥0.878；低危cut-off <0.189 pg/mL可可靠rule-out：初级医疗场景NPV 98.62%，专科医疗场景PPV 90.22%；独立ECL平台记忆门诊队列显示，cut-off约5.87 pg/mL时敏感度84.3%、特异度94.7%，淀粉样阳性者血浆p-tau217中位浓度较阴性者高2.87-3.9倍。落在中间区间（indeterminate）的结果建议进一步行PET或CSF检测。【临床路径】阴性结果（<0.189 pg/mL）提示淀粉样病理可能性低，可在初级医疗直接排除AD，继续排查其他认知下降原因（抑郁、血管性、代谢性）；阳性结果建议转专科进一步评估；中间区间建议PET/CSF确认。不可用于无症状人群筛查；肾功能不全与高龄会影响判读。【与其他p-tau217检测对比】单指标ECL法 vs 质谱比值法（%p-tau217）vs 免疫化学比值法（pTau217/Aβ42）：单指标法流程最简单、通量最高、成本最低、可在常规实验室即时出结果，适合初级医疗一线分诊；质谱比值法（C2N %p-tau217）以np-tau217为内标、平台间变异更小，但需中心实验室集中检测、通量受限；比值法（pTau217/Aβ42，如Fujirebio Lumipulse）同时纳入Aβ信息、单管即可判读，但cut-off需配套Aβ42测定。三者结果方向一致，可根据就诊场景与可及性选择。",
     "ref": "https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html; https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K261686; https://pmc.ncbi.nlm.nih.gov/articles/PMC12805464/pdf/ALZ-22-e71009.pdf; https://www.roche.com/media/releases/med-cor-2026-05-12; https://diagnostics.roche.com/se/en/products/lab/elecsys-pt217p-pid00001120.html; 10.1002/trc2.70165; 10.1097/WCO.0000000000001475",
     "sheet_name": "Plasma p-tau217 (Elecsys, single-analyte)",
     "sources": [
@@ -270,14 +270,14 @@ window.MARKERS_DATA = [
   },
   {
     "seq": 6,
-    "category": "二、高度验证、即将进入临床的核心标志物",
+    "category": "一、已获监管批准的临床级标志物",
     "subcategory": "",
     "name": "% pTau217（磷酸化 tau217 / 总 tau217 比值）",
     "en_name": "Plasma %p-tau217 (phosphorylated/non-phosphorylated tau217 ratio)",
     "mechanism": "磷酸化tau217与非磷酸化tau217的摩尔比值（%p-tau217 = p-tau217/(p-tau217+np-tau217)），以同一分子非磷酸化形式为内标，校正个体间总tau表达与外周清除差异，是C2N质谱平台的核心定量方式",
     "status": "已获批",
     "sample": "血浆",
-    "finding": "【方法学】采用免疫沉淀结合液相色谱-串联质谱（IP-LC-MS/MS），同时定量血浆p-tau217与np-tau217两种肽段，按公式%p-tau217 = [p-tau217]/([p-tau217]+[np-tau217]) ×100%计算；分析精密度：p-tau217总不精密度7.3%-9.7%，np-tau217为5.4%-9.9%（Alzheimers Dement 2024分析验证，PMID 38491912）。【监管状态】%p-tau217作为C2N Diagnostics的PrecivityAD2/APS2核心算法组分，于2026年8月20日随该产品获FDA 510(k)批准（K253240），适用于≥40岁出现认知症状的成年人，是首个覆盖40岁起症状人群的获批AD血液检测。【临床性能】关键队列n=1142例症状性受试者：阳性预测值PPV 97.6%、阴性预测值NPV 93.1%，17.3%落入中间区（中间区PPV 77.3%）；独立开发队列AUC 0.94；JAMA发表的多中心研究显示与脑淀粉样状态一致率超过90%，性能与CSF和淀粉样PET相当。【方法学优势】以np-tau217为内标，可抵消个体间总tau水平、肾功能与样本处理差异，平台间变异小于单指标p-tau217；与Aβ42/40比值联合输出APS2算法评分，兼顾rule-in与rule-out能力。【局限】需质谱平台（C2N中心实验室集中检测），不能在医院常规生化平台即时出结果；与免疫化学法（Elecsys单指标、Lumipulse比值）相比，通量与可及性受限。",
+    "finding": "【方法学】采用免疫沉淀结合液相色谱-串联质谱（IP-LC-MS/MS），同时定量血浆p-tau217与np-tau217两种肽段，按公式%p-tau217 = [p-tau217]/([p-tau217]+[np-tau217]) ×100%计算；分析精密度：p-tau217总不精密度7.3%-9.7%，np-tau217为5.4%-9.9%（Alzheimers Dement 2024，PMID 38491912）。【监管状态】%p-tau217作为C2N Diagnostics的PrecivityAD2/APS2核心算法组分，于2026年8月20日随该产品获FDA 510(k)批准（K253240），适用于≥40岁出现认知症状的成年人，是首个覆盖40岁起症状人群的获批AD血液检测。【临床性能】关键队列n=1142例症状性受试者：PPV 97.6%、NPV 93.1%，17.3%落入中间区（中间区PPV 77.3%）；独立开发队列AUC 0.94；JAMA多中心研究显示与脑淀粉样状态一致率超过90%，性能与CSF和淀粉样PET相当。【方法学特点】以np-tau217为内标，可抵消个体间总tau水平、肾功能与样本处理差异，平台间变异小于单指标p-tau217；与Aβ42/40比值联合输出APS2算法评分。【局限】需质谱平台（C2N中心实验室集中检测），不能在医院常规生化平台即时出结果，通量与可及性受限。",
     "ref": "https://c2n.com/news-releases/bg2ziqcz39o3wxf5uc04u279ziw0yv; https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253240.pdf; https://pmc.ncbi.nlm.nih.gov/articles/PMC11353612/; https://www.mayocliniclabs.com/test-catalog/overview/621652/precivityad2-plasma; 10.1002/alz.13764; 10.1212/CPJ.0000000000200546; 10.1002/trc2.70165",
     "sheet_name": "pTau217",
     "sources": [
