@@ -185,42 +185,41 @@ window.MARKERS_DATA = [
     "subcategory": "Aβ与Tau核心病理",
     "name": "pTau217（血浆磷酸化tau217，单指标检测）",
     "en_name": "Plasma p-tau217 (Elecsys, single-analyte)",
-    "mechanism": "Tau蛋白217位点磷酸化，血浆浓度直接反映脑内Aβ斑块与tau病理负荷，是目前诊断性能最优的AD血液标志物",
+    "mechanism": "Tau蛋白217位点磷酸化的单指标血浆浓度，由罗氏Elecsys电化学发光平台直接定量，不依赖比值计算，是首个跨初级/专科医疗统一界值的单指标AD血液检测",
     "status": "已获批",
     "sample": "血浆",
-    "finding": "【监管状态】Roche Elecsys pTau217 于2026年8月24日获FDA批准，是首个可用同一套验证界值在初级医疗与专科医疗场景中同时进行\"rule in\"与\"rule out\"的单指标血液检测，适用于≥55岁、出现认知下降症状或主诉的成年人（FDA器械数据库）。【可及性】该检测可在美国已装机逾4500台罗氏分析仪上运行，Labcorp与Quest均宣布将提供服务（行业报道）。【指南定位】2024年AA修订诊断与分期标准将血浆p-tau217列为Core 1生物标志物；AA血液标志物临床实践指南要求分诊检测敏感度≥90%且特异度≥75%，用于替代PET/CSF的确诊级检测需敏感度与特异度均≥90%。【证据汇总】一项纳入113项研究、29625名受试者的荟萃分析显示，血浆p-tau217是准确度最高的血浆p-tau标志物，合并敏感度88.1%（95%CI 86.7-89.5%）、特异度88.7%（95%CI 87.4-89.9%）、诊断比值比50.7（95%CI 40.6-63.4）。【重要提示】检测结果需结合完整临床评估解读，不可用于无症状人群筛查；肾功能不全、高龄等因素会影响解读。｜【证据1·Drug discoveries & therapeutics 2025】(PMID 40582836) On May 16, 2025, the FDA granted its first clearance to the Lumipulse G blood test, which utilizes the plasma pTau217/Aβ1-42 ratio, for the diagnosis of amyloid plaques in symptomatic patients age 55 or older.｜【证据2·Alzheimer's & dementia : the journal of the Alzheimer's Association 2026】(PMID 41981379) This study was conducted in two phases: (1) analytical validation of the Lumipulse G plasma p-tau217 assay, assessing precision, lower limit of quantification (LLoQ), selectivity, stability, and interference; and (2) verification of previously established cutoffs using a two-threshold approach in… Cutoff verification showed 97% reproducibility with excellent agreement (ρ = 0.99, p < 0.0001).｜【证据3·GeroScience 2026】(PMID 41196549) Ptau217 and ptau217/Aβ42 measured by both IPMS and SIMOA exhibited strong predictive accuracy for PET Aβ positivity (AUC > 0.8) with the inclusion of some individual characteristics lowering their accuracy. Episodic memory showed a positive association with BD-tau (r = 0.29; p = 0.018), attentional/inhibitory control correlated positively with ptau217/Aβ42 SIMOA (r = 0.26; p = 0.041) and processing speed was negatively linked to GFAP (r = -0.21; p = 0.047).｜【原库并入的实测参数（已并入本条目）】检测平台 Simoa/Lumipulse/MSD/ELISA；参考区间：健康老年人 <1.5 pg/mL（Simoa），AD患者升高2-4倍；cutoff 约1.5-2.0 pg/mL；商业化状态：中国NMPA多项获批，FDA批准 Lumipulse pTau217/Aβ42 比值。",
-    "ref": "10.1002/trc2.70165; https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html; https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K261686; 10.1097/WCO.0000000000001475; https://www.health.ai/blog/new-alzheimer-s-blood-tests-fda-status-out-of-pocket-prices-and-insurance-coverage; 10.5582/ddt.2025.01055; 10.1002/alz.71374",
+    "finding": "【监管状态】罗氏Elecsys Phospho-Tau (217P) Plasma于2026年8月24日获FDA 510(k)批准（K261686），是首个以同一套高低界值在初级医疗与专科医疗场景同时完成\"rule in\"与\"rule out\"的单指标血液检测；此前于2026年5月12日率先获CE mark。由罗氏与Eli Lilly合作开发，适用于≥55岁、出现认知下降症状或主诉的成年人。【检测平台】基于cobas e 402 / e 801电化学发光免疫分析平台，可直接在美国已装机逾4500台罗氏分析仪上运行，Labcorp与Quest同步提供检测服务，是目前可及性最高的获批AD血液检测。【关键性能】对淀粉样PET的AUC≥0.878；低危cut-off <0.189 pg/mL可可靠rule-out：初级医疗场景阴性预测值（NPV）达98.62%，专科医疗场景阳性预测值（PPV）达90.22%；落在中间区间（indeterminate）的结果建议进一步行PET或CSF检测。【解读注意】阴性结果提示淀粉样病理可能性低，应继续排查其他认知下降原因；阳性结果应转专科进一步评估；不可用于无症状人群筛查；肾功能与高龄等因素会影响结果判读。【方法学定位】与比值法（pTau217/Aβ42、%p-tau217）互补：单指标法流程更简单、通量更高、成本更低，适合作为分诊一线检测。",
+    "ref": "https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html; https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K261686; https://pmc.ncbi.nlm.nih.gov/articles/PMC12805464/pdf/ALZ-22-e71009.pdf; https://www.roche.com/media/releases/med-cor-2026-05-12; https://diagnostics.roche.com/se/en/products/lab/elecsys-pt217p-pid00001120.html; 10.1002/trc2.70165; 10.1097/WCO.0000000000001475",
     "sheet_name": "Plasma p-tau217 (Elecsys, single-analyte)",
     "sources": [
       {
-        "title": "The pTau217/Aβ(1-42) plasma ratio: The first FDA-cleared blood biomarker test for diagnosis of Alzheimer's disease.",
-        "journal": "Drug discoveries & therapeutics",
-        "year": "2025",
-        "pmid": "40582836",
-        "doi": "10.5582/ddt.2025.01055",
-        "pmc": "",
-        "url": "https://doi.org/10.5582/ddt.2025.01055",
+        "title": "Roche receives FDA clearance for Elecsys pTau217（2026.08.24，K261686）",
+        "url": "https://diagnostics.roche.com/us/en/news-listing/2026/fda-elecsys-ptau217-alzheimers-blood-test.html",
+        "type": "curated"
+      },
+      {
+        "title": "FDA 510(k) Premarket Notification K261686 Elecsys Phospho-Tau (217P) Plasma",
+        "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K261686",
+        "type": "curated"
+      },
+      {
+        "title": "Elecsys pTau217 plasma immunoassay detection of amyloid pathology in clinical cohorts（cut-off <0.189 pg/mL, AUC≥0.878）",
+        "journal": "Alzheimer's & Dementia",
+        "year": "2026",
+        "pmid": "",
+        "doi": "10.1002/alz.71009",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12805464/pdf/ALZ-22-e71009.pdf",
         "type": "pubmed"
       },
       {
-        "title": "Analytical and clinical validation of the Lumipulse G plasma p-tau217 assay for clinical implementation.",
-        "journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association",
-        "year": "2026",
-        "pmid": "41981379",
-        "doi": "10.1002/alz.71374",
-        "pmc": "PMC13079079",
-        "url": "https://doi.org/10.1002/alz.71374",
-        "type": "pubmed"
+        "title": "Roche CE mark for Elecsys plasma pTau217（2026.05.12）",
+        "url": "https://www.roche.com/media/releases/med-cor-2026-05-12",
+        "type": "curated"
       },
       {
-        "title": "Classification accuracies of plasma ptau217 vs. ptau217/Aβ1-42 for brain Aβ pathology in cognitively normal older adults.",
-        "journal": "GeroScience",
-        "year": "2026",
-        "pmid": "41196549",
-        "doi": "10.1007/s11357-025-01967-1",
-        "pmc": "PMC13575031",
-        "url": "https://doi.org/10.1007/s11357-025-01967-1",
-        "type": "pubmed"
+        "title": "Elecsys Phospho-Tau (217P) Plasma 产品页（cobas e 402/e 801）",
+        "url": "https://diagnostics.roche.com/se/en/products/lab/elecsys-pt217p-pid00001120.html",
+        "type": "curated"
       }
     ]
   },
@@ -275,57 +274,36 @@ window.MARKERS_DATA = [
     "subcategory": "",
     "name": "% pTau217（磷酸化 tau217 / 总 tau217 比值）",
     "en_name": "Plasma %p-tau217 (phosphorylated/non-phosphorylated tau217 ratio)",
-    "mechanism": "磷酸化tau217与非磷酸化tau217的比值，用同一分子的总量做内标，校正个体间tau表达与外周清除差异",
-    "status": "高度验证/即将临床",
+    "mechanism": "磷酸化tau217与非磷酸化tau217的摩尔比值（%p-tau217 = p-tau217/(p-tau217+np-tau217)），以同一分子非磷酸化形式为内标，校正个体间总tau表达与外周清除差异，是C2N质谱平台的核心定量方式",
+    "status": "已获批",
     "sample": "血浆",
-    "finding": "【核心证据】%p-tau217在症状性MCI/轻度痴呆人群中预测淀粉样病理的性能可与FDA批准的CSF检测相当甚至更优（Alzheimers Dement TRCI 2026综述）。【监管进展】C2N Diagnostics的PrecivityAD2（APS2）以%p-tau217联合Aβ42/40为核心，于2026年8月获FDA批准，关键队列n=1142例症状性受试者：PPV 97.6%、NPV 93.1%，17.3%落入中间区（中间区PPV 77.3%），开发队列AUC 0.94。【方法学优势】比值形式可抵消个体间总tau水平与肾功能差异，降低平台间与个体间变异。",
-    "ref": "10.1002/trc2.70165; https://c2n.com/news-releases/bg2ziqcz39o3wxf5uc04u279ziw0yv; https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253240.pdf; 10.1097/WCO.0000000000001475; 10.1002/alz.13764; 10.1007/s11357-025-01967-1; 10.1002/alz.71374",
+    "finding": "【方法学】采用免疫沉淀结合液相色谱-串联质谱（IP-LC-MS/MS），同时定量血浆p-tau217与np-tau217两种肽段，按公式%p-tau217 = [p-tau217]/([p-tau217]+[np-tau217]) ×100%计算；分析精密度：p-tau217总不精密度7.3%-9.7%，np-tau217为5.4%-9.9%（Alzheimers Dement 2024分析验证，PMID 38491912）。【监管状态】%p-tau217作为C2N Diagnostics的PrecivityAD2/APS2核心算法组分，于2026年8月20日随该产品获FDA 510(k)批准（K253240），适用于≥40岁出现认知症状的成年人，是首个覆盖40岁起症状人群的获批AD血液检测。【临床性能】关键队列n=1142例症状性受试者：阳性预测值PPV 97.6%、阴性预测值NPV 93.1%，17.3%落入中间区（中间区PPV 77.3%）；独立开发队列AUC 0.94；JAMA发表的多中心研究显示与脑淀粉样状态一致率超过90%，性能与CSF和淀粉样PET相当。【方法学优势】以np-tau217为内标，可抵消个体间总tau水平、肾功能与样本处理差异，平台间变异小于单指标p-tau217；与Aβ42/40比值联合输出APS2算法评分，兼顾rule-in与rule-out能力。【局限】需质谱平台（C2N中心实验室集中检测），不能在医院常规生化平台即时出结果；与免疫化学法（Elecsys单指标、Lumipulse比值）相比，通量与可及性受限。",
+    "ref": "https://c2n.com/news-releases/bg2ziqcz39o3wxf5uc04u279ziw0yv; https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253240.pdf; https://pmc.ncbi.nlm.nih.gov/articles/PMC11353612/; https://www.mayocliniclabs.com/test-catalog/overview/621652/precivityad2-plasma; 10.1002/alz.13764; 10.1212/CPJ.0000000000200546; 10.1002/trc2.70165",
     "sheet_name": "pTau217",
     "sources": [
       {
-        "title": "Alzheimer's Dement (TRCI) 2026: Tau生物学、标志物与治疗综述",
-        "url": "https://doi.org/10.1002/trc2.70165",
+        "title": "FDA Clears C2N Diagnostics PrecivityAD2（2026.08.20，K253240）",
+        "url": "https://c2n.com/news-releases/bg2ziqcz39o3wxf5uc04u279ziw0yv",
         "type": "curated"
       },
       {
-        "title": "Curr Opin Neurol 2026;39(2):168-175（Karikari团队，PMID 41732138，PMC12975021）",
-        "url": "https://doi.org/10.1097/WCO.0000000000001475",
+        "title": "FDA 510(k) K253240 PrecivityAD2 Test（%p-tau217 = [p-tau217]/[p-tau217+np-tau217]）",
+        "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253240.pdf",
         "type": "curated"
       },
       {
-        "title": "FDA 510(k)批准：C2N PrecivityAD2（%p-tau217 核心组分，2026.08.20，K253240）",
-        "url": "https://c2n.com/news-releases/bg2ziqcz39o3wxf5uc04u279ziw0yv; https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253240.pdf",
-        "type": "curated"
-      },
-      {
-        "title": "Clinical validation of the PrecivityAD2 blood test: A mass spectrometry-based test with algorithm combining %p-tau217 and Aβ42/40 ratio to identify presence of brain amyloid.",
-        "journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association",
+        "title": "Analytical Validation of LC-MS/MS Assay for Plasma p-tau217 and np-tau217（精密度7.3-9.7%）",
+        "journal": "Alzheimer's & Dementia",
         "year": "2024",
         "pmid": "38491912",
         "doi": "10.1002/alz.13764",
-        "pmc": "PMC11095426",
-        "url": "https://doi.org/10.1002/alz.13764",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11353612/",
         "type": "pubmed"
       },
       {
-        "title": "Classification accuracies of plasma ptau217 vs. ptau217/Aβ1-42 for brain Aβ pathology in cognitively normal older adults.",
-        "journal": "GeroScience",
-        "year": "2026",
-        "pmid": "41196549",
-        "doi": "10.1007/s11357-025-01967-1",
-        "pmc": "PMC13575031",
-        "url": "https://doi.org/10.1007/s11357-025-01967-1",
-        "type": "pubmed"
-      },
-      {
-        "title": "Analytical and clinical validation of the Lumipulse G plasma p-tau217 assay for clinical implementation.",
-        "journal": "Alzheimer's & dementia : the journal of the Alzheimer's Association",
-        "year": "2026",
-        "pmid": "41981379",
-        "doi": "10.1002/alz.71374",
-        "pmc": "PMC13079079",
-        "url": "https://doi.org/10.1002/alz.71374",
-        "type": "pubmed"
+        "title": "PrecivityAD2 Plasma 测试目录（Mayo Clinic）",
+        "url": "https://www.mayocliniclabs.com/test-catalog/overview/621652/precivityad2-plasma",
+        "type": "curated"
       }
     ]
   },
