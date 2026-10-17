@@ -1557,6 +1557,7 @@ window.addEventListener('unhandledrejection', function(e) {
     <div style="font-size:12px;color:var(--text-light);">支持中英文模糊检索，如"tau"、"淀粉样"、"GFAP"等</div>
   </div>
   <div class="stats-grid" id="markerStatsGrid"></div>
+  <button onclick="showApprovalSummary()" style="background:linear-gradient(135deg,#0f766e,#15803d);color:white;border:none;padding:12px 22px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:700;margin:4px 0 16px 0;box-shadow:0 2px 8px rgba(15,118,110,0.3);width:100%;">📋 获批情况汇总（FDA / NMPA）</button>
   <button class="add-btn" onclick="openAddModal()">➕ 提报新标志物</button>
   <div style="margin-bottom:16px;"><strong style="color:var(--primary);">标志物分类浏览</strong></div>
   <div class="category-grid" id="markerCategoryGrid"></div>
@@ -3802,16 +3803,16 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=345" onload="bootTick('markers')"></script>
-<script src="js/details_data.js?v=345" onload="bootTick('details')"></script>
-<script src="js/nmpa_data.js?v=345" onload="bootTick('nmpa')"></script>
-<script src="js/companies_data.js?v=345" onload="bootTick('companies')"></script>
-<script src="js/drugs_data.js?v=345" onload="bootTick('drugs')"></script>
-<script src="js/pipeline_data.js?v=345" onload="bootTick('pipeline')"></script>
-<script src="js/epi_world_map.js?v=345" onload="bootTick('epi')"></script>
-<script src="js/literature_data.js?v=345" onload="bootTick('literature')"></script>
-<script src="js/science_data.js?v=345" onload="bootTick('science')"></script>
-<script src="js/insurance_data.js?v=345" onload="bootTick('insurance')"></script>
+<script src="js/markers_data.js?v=346" onload="bootTick('markers')"></script>
+<script src="js/details_data.js?v=346" onload="bootTick('details')"></script>
+<script src="js/nmpa_data.js?v=346" onload="bootTick('nmpa')"></script>
+<script src="js/companies_data.js?v=346" onload="bootTick('companies')"></script>
+<script src="js/drugs_data.js?v=346" onload="bootTick('drugs')"></script>
+<script src="js/pipeline_data.js?v=346" onload="bootTick('pipeline')"></script>
+<script src="js/epi_world_map.js?v=346" onload="bootTick('epi')"></script>
+<script src="js/literature_data.js?v=346" onload="bootTick('literature')"></script>
+<script src="js/science_data.js?v=346" onload="bootTick('science')"></script>
+<script src="js/insurance_data.js?v=346" onload="bootTick('insurance')"></script>
 <script>
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
 window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
@@ -4579,8 +4580,8 @@ else applyPatientMode();
 
 // ===== 标志物获批情况汇总 =====
 function showApprovalSummary() {
-  const panel = document.getElementById('approvalSummaryPanel');
-  if (panel.style.display === 'block') { panel.style.display = 'none'; return; }
+  var old = document.getElementById('approvalModalOverlay');
+  if (old) { old.remove(); return; }
 
   // FDA 已核实数据（2026-10-17 核对 FDA 510(k) 数据库与厂家新闻稿）
   const fda = [
@@ -4590,12 +4591,11 @@ function showApprovalSummary() {
     { date:'2026-08-19', vendor:'Roche / Eli Lilly', product:'Elecsys Phospho-Tau (217P) Plasma', analyte:'pTau217 单指标', sample:'血浆', k:'K261686', indi:'≥55岁有认知下降者；同一套界值rule-in+rule-out', note:'单指标血液检测，初级+专科场景通用' },
   ];
 
-  let html = '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">';
+  var html = '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">';
   html += '<h3 style="margin:0;font-size:17px;color:#0f766e;">AD诊断标志物获批情况汇总</h3>';
   html += '<span style="font-size:12px;background:#d1fae5;color:#065f46;padding:3px 10px;border-radius:999px;">数据核实至 2026-10-17</span>';
-  html += '<button onclick="showApprovalSummary()" style="margin-left:auto;background:#f3f4f6;border:none;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px;">收起</button></div>';
+  html += '<button onclick="showApprovalSummary()" style="margin-left:auto;background:#f3f4f6;border:none;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px;">关闭 ✕</button></div>';
 
-  // FDA 表
   html += '<h4 style="font-size:14px;color:#1e40af;margin:18px 0 8px 0;">🇺🇸 FDA 获批（510(k) cleared，共4项血液检测）</h4>';
   html += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;min-width:780px;">';
   html += '<thead><tr style="background:#eff6ff;">' + ['获批日期','厂家','产品','标志物','样本','510(k)','适用人群','备注'].map(h=>'<th style="padding:8px;text-align:left;border-bottom:2px solid #bfdbfe;">'+h+'</th>').join('') + '</tr></thead><tbody>';
@@ -4613,14 +4613,12 @@ function showApprovalSummary() {
   });
   html += '</tbody></table></div>';
 
-  // NMPA 表（动态从 NMPA_DATA 读）
   const N = window.NMPA_DATA || {};
   const keys = Object.keys(N);
   const totalCerts = keys.reduce((s,k)=>s+N[k].length,0);
   html += '<h4 style="font-size:14px;color:#b91c1c;margin:22px 0 8px 0;">🇨🇳 NMPA 获批（共 '+keys.length+' 种标志物 · '+totalCerts+' 张注册证）</h4>';
   html += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;min-width:560px;">';
   html += '<thead><tr style="background:#fef2f2;">' + ['标志物','注册证数','代表厂家（前2家）'].map(h=>'<th style="padding:8px;text-align:left;border-bottom:2px solid #fecaca;">'+h+'</th>').join('') + '</tr></thead><tbody>';
-  // 按证数降序
   const sorted = keys.sort((a,b)=>N[b].length-N[a].length);
   sorted.forEach(k => {
     const certs = N[k];
@@ -4632,12 +4630,19 @@ function showApprovalSummary() {
     html += '</tr>';
   });
   html += '</tbody></table></div>';
-
   html += '<p style="font-size:11px;color:#6b7280;margin-top:14px;line-height:1.7;">数据来源：FDA 510(k) 数据库（accessdata.fda.gov）、Roche/C2N/Fujirebio 官方新闻稿、国家药监局医疗器械注册数据库。NMPA 证数为本库已收录数据，不代表全国全部获批产品，未收录品种请以国家药监局官网为准。</p>';
 
+  // 动态创建全屏浮层
+  var overlay = document.createElement('div');
+  overlay.id = 'approvalModalOverlay';
+  overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:9998;overflow-y:auto;padding:20px;';
+  overlay.onclick = function(e){ if(e.target===overlay) overlay.remove(); };
+  var panel = document.createElement('div');
+  panel.style.cssText = 'max-width:1100px;margin:20px auto;background:white;border-radius:14px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,0.2);';
   panel.innerHTML = html;
-  panel.style.display = 'block';
-  panel.scrollIntoView({behavior:'smooth', block:'start'});
+  overlay.appendChild(panel);
+  document.body.appendChild(overlay);
+  window.scrollTo(0,0);
 }
 
 // ===== 医保与支付政策小站 =====
@@ -5569,7 +5574,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v345 · 数据更新至 2026-10-17</div>
+  <div>版本 v346 · 数据更新至 2026-10-18</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
