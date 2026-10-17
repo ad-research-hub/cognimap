@@ -3802,16 +3802,16 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=344" onload="bootTick('markers')"></script>
-<script src="js/details_data.js?v=344" onload="bootTick('details')"></script>
-<script src="js/nmpa_data.js?v=344" onload="bootTick('nmpa')"></script>
-<script src="js/companies_data.js?v=344" onload="bootTick('companies')"></script>
-<script src="js/drugs_data.js?v=344" onload="bootTick('drugs')"></script>
-<script src="js/pipeline_data.js?v=344" onload="bootTick('pipeline')"></script>
-<script src="js/epi_world_map.js?v=344" onload="bootTick('epi')"></script>
-<script src="js/literature_data.js?v=344" onload="bootTick('literature')"></script>
-<script src="js/science_data.js?v=344" onload="bootTick('science')"></script>
-<script src="js/insurance_data.js?v=344" onload="bootTick('insurance')"></script>
+<script src="js/markers_data.js?v=345" onload="bootTick('markers')"></script>
+<script src="js/details_data.js?v=345" onload="bootTick('details')"></script>
+<script src="js/nmpa_data.js?v=345" onload="bootTick('nmpa')"></script>
+<script src="js/companies_data.js?v=345" onload="bootTick('companies')"></script>
+<script src="js/drugs_data.js?v=345" onload="bootTick('drugs')"></script>
+<script src="js/pipeline_data.js?v=345" onload="bootTick('pipeline')"></script>
+<script src="js/epi_world_map.js?v=345" onload="bootTick('epi')"></script>
+<script src="js/literature_data.js?v=345" onload="bootTick('literature')"></script>
+<script src="js/science_data.js?v=345" onload="bootTick('science')"></script>
+<script src="js/insurance_data.js?v=345" onload="bootTick('insurance')"></script>
 <script>
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
 window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
@@ -3838,6 +3838,11 @@ let userMarkers = JSON.parse(localStorage.getItem('ad_user_markers') || '[]');
 // ===== 导航 =====
 let homeScrollPos = 0;
 function navigate(page) {
+  // 家属模式：专业页拦截
+  if (window.PATIENT_MODE && ['home','centers','science','epidemiology','insurance'].indexOf(page) < 0) {
+    showPatientGate(page);
+    page = 'home';
+  }
   // Save home scroll position BEFORE changing active state
   if (document.getElementById('page-home') && document.getElementById('page-home').classList.contains('active')) {
     homeScrollPos = window.scrollY;
@@ -4558,6 +4563,16 @@ function togglePatientMode() {
   localStorage.setItem('cogni_patient_mode', window.PATIENT_MODE?'1':'0');
   applyPatientMode();
   navigate('home');
+}
+function showPatientGate(page) {
+  var old = document.getElementById('patientGateBanner');
+  if (old) old.remove();
+  var b = document.createElement('div');
+  b.id = 'patientGateBanner';
+  b.style.cssText = 'position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#fef3c7;border:1px solid #f59e0b;color:#92400e;padding:12px 20px;border-radius:10px;z-index:9999;font-size:13px;box-shadow:0 4px 12px rgba(0,0,0,0.15);display:flex;gap:12px;align-items:center;';
+  b.innerHTML = '🔒 当前为家属模式，专业内容（'+(page||'该页')+'）已隐藏<button onclick="togglePatientMode()" style="background:#92400e;color:white;border:none;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:12px;">切换专业版</button><button onclick="this.parentElement.remove()" style="background:transparent;border:none;color:#92400e;cursor:pointer;font-size:12px;">×</button>';
+  document.body.appendChild(b);
+  setTimeout(function(){ if (b.parentNode) b.remove(); }, 5000);
 }
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', applyPatientMode);
 else applyPatientMode();
@@ -5554,7 +5569,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v344 · 数据更新至 2026-10-17</div>
+  <div>版本 v345 · 数据更新至 2026-10-17</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
