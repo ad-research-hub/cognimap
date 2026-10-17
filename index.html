@@ -3803,16 +3803,16 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=346" onload="bootTick('markers')"></script>
-<script src="js/details_data.js?v=346" onload="bootTick('details')"></script>
-<script src="js/nmpa_data.js?v=346" onload="bootTick('nmpa')"></script>
-<script src="js/companies_data.js?v=346" onload="bootTick('companies')"></script>
-<script src="js/drugs_data.js?v=346" onload="bootTick('drugs')"></script>
-<script src="js/pipeline_data.js?v=346" onload="bootTick('pipeline')"></script>
-<script src="js/epi_world_map.js?v=346" onload="bootTick('epi')"></script>
-<script src="js/literature_data.js?v=346" onload="bootTick('literature')"></script>
-<script src="js/science_data.js?v=346" onload="bootTick('science')"></script>
-<script src="js/insurance_data.js?v=346" onload="bootTick('insurance')"></script>
+<script src="js/markers_data.js?v=347" onload="bootTick('markers')"></script>
+<script src="js/details_data.js?v=347" onload="bootTick('details')"></script>
+<script src="js/nmpa_data.js?v=347" onload="bootTick('nmpa')"></script>
+<script src="js/companies_data.js?v=347" onload="bootTick('companies')"></script>
+<script src="js/drugs_data.js?v=347" onload="bootTick('drugs')"></script>
+<script src="js/pipeline_data.js?v=347" onload="bootTick('pipeline')"></script>
+<script src="js/epi_world_map.js?v=347" onload="bootTick('epi')"></script>
+<script src="js/literature_data.js?v=347" onload="bootTick('literature')"></script>
+<script src="js/science_data.js?v=347" onload="bootTick('science')"></script>
+<script src="js/insurance_data.js?v=347" onload="bootTick('insurance')"></script>
 <script>
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
 window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
@@ -4616,17 +4616,43 @@ function showApprovalSummary() {
   const N = window.NMPA_DATA || {};
   const keys = Object.keys(N);
   const totalCerts = keys.reduce((s,k)=>s+N[k].length,0);
-  html += '<h4 style="font-size:14px;color:#b91c1c;margin:22px 0 8px 0;">🇨🇳 NMPA 获批（共 '+keys.length+' 种标志物 · '+totalCerts+' 张注册证）</h4>';
-  html += '<div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;min-width:560px;">';
-  html += '<thead><tr style="background:#fef2f2;">' + ['标志物','注册证数','代表厂家（前2家）'].map(h=>'<th style="padding:8px;text-align:left;border-bottom:2px solid #fecaca;">'+h+'</th>').join('') + '</tr></thead><tbody>';
-  const sorted = keys.sort((a,b)=>N[b].length-N[a].length);
-  sorted.forEach(k => {
-    const certs = N[k];
-    const vendors = [...new Set(certs.map(c=>c.company))].slice(0,2).join('；');
+  // 收集厂家集合 + 每个厂家在每个标志物下的证数
+  const makerSet = new Set();
+  const makerCertCount = {};
+  const makerMatrix = {};
+  keys.forEach(k => {
+    N[k].forEach(c => {
+      makerSet.add(c.company);
+      makerCertCount[c.company] = (makerCertCount[c.company]||0)+1;
+      if (!makerMatrix[c.company]) makerMatrix[c.company] = {};
+      makerMatrix[c.company][k] = (makerMatrix[c.company][k]||0)+1;
+    });
+  });
+  const makers = [...makerSet].sort((a,b)=>makerCertCount[b]-makerCertCount[a]);
+
+  html += '<h4 style="font-size:14px;color:#b91c1c;margin:22px 0 8px 0;">🇨🇳 NMPA 获批矩阵（'+makers.length+' 家企业 × '+keys.length+' 种标志物 · 共 '+totalCerts+' 张注册证）</h4>';
+  html += '<div style="font-size:11px;color:#6b7280;margin-bottom:6px;">● = 该企业有对应标志物的注册证（圆旁数字为证数）；空白 = 无。按企业持证总数降序排列。</div>';
+  html += '<div style="overflow:auto;max-height:560px;border:1px solid #fecaca;border-radius:8px;">';
+  html += '<table style="border-collapse:collapse;font-size:11px;min-width:1200px;">';
+  html += '<thead style="position:sticky;top:0;z-index:2;background:#fef2f2;">';
+  html += '<tr><th style="position:sticky;left:0;z-index:3;background:#fef2f2;padding:8px 10px;text-align:left;border-bottom:2px solid #fecaca;min-width:240px;font-size:11px;">企业</th>';
+  keys.forEach(k => {
+    html += '<th style="padding:6px 4px;text-align:center;border-bottom:2px solid #fecaca;border-left:1px solid #fee2e2;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:0;font-size:10px;max-width:34px;height:90px;">'+k+'</th>';
+  });
+  html += '<th style="padding:6px 6px;border-bottom:2px solid #fecaca;border-left:2px solid #fca5a5;font-size:11px;position:sticky;right:0;background:#fef2f2;">持证</th>';
+  html += '</tr></thead><tbody>';
+  makers.forEach(m => {
     html += '<tr style="background:#fff;">';
-    html += '<td style="padding:8px;border-bottom:1px solid #f3f4f6;font-weight:600;">'+k+'</td>';
-    html += '<td style="padding:8px;border-bottom:1px solid #f3f4f6;">'+certs.length+' 张</td>';
-    html += '<td style="padding:8px;border-bottom:1px solid #f3f4f6;color:#4b5563;font-size:11px;">'+vendors+'</td>';
+    html += '<td style="position:sticky;left:0;background:#fff;padding:6px 10px;border-bottom:1px solid #f3f4f6;font-size:11px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;" title="'+m+'">'+m+'</td>';
+    keys.forEach(k => {
+      const n = makerMatrix[m][k]||0;
+      if (n>0) {
+        html += '<td style="padding:4px;text-align:center;border-bottom:1px solid #f3f4f6;border-left:1px solid #fef2f2;color:#b91c1c;font-weight:700;" title="'+m+' · '+k+'：'+n+'张">●'+(n>1?'<span style="font-size:9px;color:#7f1d1d;">'+n+'</span>':'')+'</td>';
+      } else {
+        html += '<td style="padding:4px;border-bottom:1px solid #fafafa;border-left:1px solid #fef9f9;color:#e5e7eb;">·</td>';
+      }
+    });
+    html += '<td style="padding:4px 6px;text-align:center;border-bottom:1px solid #f3f4f6;border-left:2px solid #fca5a5;font-weight:700;color:#b91c1c;position:sticky;right:0;background:#fff;">'+makerCertCount[m]+'</td>';
     html += '</tr>';
   });
   html += '</tbody></table></div>';
@@ -4638,7 +4664,7 @@ function showApprovalSummary() {
   overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:9998;overflow-y:auto;padding:20px;';
   overlay.onclick = function(e){ if(e.target===overlay) overlay.remove(); };
   var panel = document.createElement('div');
-  panel.style.cssText = 'max-width:1100px;margin:20px auto;background:white;border-radius:14px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,0.2);';
+  panel.style.cssText = 'max-width:1400px;margin:20px auto;background:white;border-radius:14px;padding:24px;box-shadow:0 8px 30px rgba(0,0,0,0.2);';
   panel.innerHTML = html;
   overlay.appendChild(panel);
   document.body.appendChild(overlay);
@@ -5574,7 +5600,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v346 · 数据更新至 2026-10-18</div>
+  <div>版本 v347 · 数据更新至 2026-10-18</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
