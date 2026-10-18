@@ -3803,16 +3803,16 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=348" onload="bootTick('markers')"></script>
-<script src="js/details_data.js?v=348" onload="bootTick('details')"></script>
-<script src="js/nmpa_data.js?v=348" onload="bootTick('nmpa')"></script>
-<script src="js/companies_data.js?v=348" onload="bootTick('companies')"></script>
-<script src="js/drugs_data.js?v=348" onload="bootTick('drugs')"></script>
-<script src="js/pipeline_data.js?v=348" onload="bootTick('pipeline')"></script>
-<script src="js/epi_world_map.js?v=348" onload="bootTick('epi')"></script>
-<script src="js/literature_data.js?v=348" onload="bootTick('literature')"></script>
-<script src="js/science_data.js?v=348" onload="bootTick('science')"></script>
-<script src="js/insurance_data.js?v=348" onload="bootTick('insurance')"></script>
+<script src="js/markers_data.js?v=349" onload="bootTick('markers')"></script>
+<script src="js/details_data.js?v=349" onload="bootTick('details')"></script>
+<script src="js/nmpa_data.js?v=349" onload="bootTick('nmpa')"></script>
+<script src="js/companies_data.js?v=349" onload="bootTick('companies')"></script>
+<script src="js/drugs_data.js?v=349" onload="bootTick('drugs')"></script>
+<script src="js/pipeline_data.js?v=349" onload="bootTick('pipeline')"></script>
+<script src="js/epi_world_map.js?v=349" onload="bootTick('epi')"></script>
+<script src="js/literature_data.js?v=349" onload="bootTick('literature')"></script>
+<script src="js/science_data.js?v=349" onload="bootTick('science')"></script>
+<script src="js/insurance_data.js?v=349" onload="bootTick('insurance')"></script>
 <script>
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
 window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
@@ -4632,27 +4632,27 @@ function showApprovalSummary() {
 
   html += '<h4 style="font-size:14px;color:#b91c1c;margin:22px 0 8px 0;">🇨🇳 NMPA 获批矩阵（'+makers.length+' 家企业 × '+keys.length+' 种标志物 · 共 '+totalCerts+' 张注册证）</h4>';
   html += '<div style="font-size:11px;color:#6b7280;margin-bottom:6px;">● = 该企业有对应标志物的注册证（圆旁数字为证数）；空白 = 无。按企业持证总数降序排列。</div>';
-  html += '<div style="overflow:auto;max-height:560px;border:1px solid #fecaca;border-radius:8px;">';
-  html += '<table style="border-collapse:collapse;font-size:11px;min-width:1200px;">';
+  html += '<div style="overflow-x:auto;overflow-y:auto;max-height:560px;max-width:100%;-webkit-overflow-scrolling:touch;border:1px solid #fecaca;border-radius:8px;">';
+  html += '<table style="border-collapse:collapse;font-size:11px;min-width:1180px;table-layout:fixed;width:1180px;">';
   html += '<thead style="position:sticky;top:0;z-index:2;background:#fef2f2;">';
-  html += '<tr><th style="position:sticky;left:0;z-index:3;background:#fef2f2;padding:8px 10px;text-align:left;border-bottom:2px solid #fecaca;min-width:240px;font-size:11px;">企业</th>';
+  html += '<tr><th style="position:sticky;left:0;z-index:3;background:#fef2f2;padding:8px 10px;text-align:left;border-bottom:2px solid #fecaca;width:220px;min-width:220px;font-size:11px;">企业</th>';
   keys.forEach(k => {
-    html += '<th style="padding:6px 4px;text-align:center;border-bottom:2px solid #fecaca;border-left:1px solid #fee2e2;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:0;font-size:10px;max-width:34px;height:90px;">'+k+'</th>';
+    html += '<th style="padding:6px 2px;text-align:center;border-bottom:2px solid #fecaca;border-left:1px solid #fee2e2;writing-mode:vertical-rl;text-orientation:mixed;letter-spacing:0;font-size:10px;width:44px;min-width:44px;max-width:44px;height:90px;overflow:hidden;">'+k+'</th>';
   });
-  html += '<th style="padding:6px 6px;border-bottom:2px solid #fecaca;border-left:2px solid #fca5a5;font-size:11px;position:sticky;right:0;background:#fef2f2;">持证</th>';
+  html += '<th style="padding:6px 6px;border-bottom:2px solid #fecaca;border-left:2px solid #fca5a5;font-size:11px;position:sticky;right:0;background:#fef2f2;width:60px;min-width:60px;">持证</th>';
   html += '</tr></thead><tbody>';
   makers.forEach(m => {
     html += '<tr style="background:#fff;">';
-    html += '<td style="position:sticky;left:0;background:#fff;padding:6px 10px;border-bottom:1px solid #f3f4f6;font-size:11px;white-space:nowrap;max-width:260px;overflow:hidden;text-overflow:ellipsis;" title="'+m+'">'+m+'</td>';
+    html += '<td style="position:sticky;left:0;background:#fff;padding:6px 10px;border-bottom:1px solid #f3f4f6;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:220px;min-width:220px;" title="'+m+'">'+m+'</td>';
     keys.forEach(k => {
       const n = makerMatrix[m][k]||0;
       if (n>0) {
-        html += '<td style="padding:4px;text-align:center;border-bottom:1px solid #f3f4f6;border-left:1px solid #fef2f2;color:#b91c1c;font-weight:700;" title="'+m+' · '+k+'：'+n+'张">●'+(n>1?'<span style="font-size:9px;color:#7f1d1d;">'+n+'</span>':'')+'</td>';
+        html += '<td style="padding:4px;text-align:center;border-bottom:1px solid #f3f4f6;border-left:1px solid #fef2f2;color:#b91c1c;font-weight:700;width:44px;" title="'+m+' · '+k+'：'+n+'张">●'+(n>1?'<span style="font-size:9px;color:#7f1d1d;">'+n+'</span>':'')+'</td>';
       } else {
-        html += '<td style="padding:4px;border-bottom:1px solid #fafafa;border-left:1px solid #fef9f9;color:#e5e7eb;">·</td>';
+        html += '<td style="padding:4px;text-align:center;border-bottom:1px solid #fafafa;border-left:1px solid #fef9f9;color:#e5e7eb;width:44px;">·</td>';
       }
     });
-    html += '<td style="padding:4px 6px;text-align:center;border-bottom:1px solid #f3f4f6;border-left:2px solid #fca5a5;font-weight:700;color:#b91c1c;position:sticky;right:0;background:#fff;">'+makerCertCount[m]+'</td>';
+    html += '<td style="padding:4px 6px;text-align:center;border-bottom:1px solid #f3f4f6;border-left:2px solid #fca5a5;font-weight:700;color:#b91c1c;position:sticky;right:0;background:#fff;width:60px;min-width:60px;">'+makerCertCount[m]+'</td>';
     html += '</tr>';
   });
   html += '</tbody></table></div>';
@@ -5600,7 +5600,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v348 · 数据更新至 2026-10-18</div>
+  <div>版本 v349 · 数据更新至 2026-10-18</div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
