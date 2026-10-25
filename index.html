@@ -1316,14 +1316,14 @@ window.addEventListener('unhandledrejection', function(e) {
   </div>
   <div class="modules-grid">
     <div class="module-card" onclick="navigate('markers')">
-      <div class="mod-status status-done">已完成</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-01</span>
+      <div class="mod-status status-done">已完成</div><span class="mod-date" data-mod="markers" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#dbeafe;">🧬</div>
       <h3>AD生物标志物数据库</h3>
       <p>548个标志物，411个详情页，涵盖ELISA/Simoa双平台性能数据、NMPA获批信息</p>
       <div class="mod-count" id="modCountMarkers">548 标志物 · 135 获批证</div>
     </div>
     <div class="module-card" onclick="navigate('companies')">
-      <div class="mod-status status-done">已完成</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-29</span>
+      <div class="mod-status status-done">已完成</div><span class="mod-date" data-mod="companies" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#d1fae5;">🏢</div>
       <h3>企业信息库</h3>
       <p>AD相关企业，覆盖治疗药物、检测诊断、医疗器械、数字疗法等32个分类</p>
@@ -1336,56 +1336,56 @@ window.addEventListener('unhandledrejection', function(e) {
       <p>指南发展、历史、重要突破、鉴别诊断，双IMA知识库5.9万+文献</p>
     </div>
     <div class="module-card" onclick="navigate('pipeline')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-29</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="pipeline" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#dbeafe;">💊</div>
       <h3>药物研发管线</h3>
       <p>十年AD药物研发管线甘特图，按阶段着色，点击查看药物详情与临床试验</p>
       <div class="mod-count" id="modCountPipeline">409 药物 · 725 试验</div>
     </div>
     <div class="module-card" onclick="navigate('drugs')">
-      <div class="mod-status status-done">已上线</div><span id="modUpdatedDrugs" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-29</span>
+      <div class="mod-status status-done">已上线</div><span id="modUpdatedDrugs" class="mod-date" data-mod="drugs" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#fef3c7;">💊</div>
       <h3>已上市药物库</h3>
       <p>全球已获批AD治疗药物详解，含用法用量、不良反应、说明书链接与权威来源</p>
       <div class="mod-count" id="modCountDrugs">11 药物 · 9 在市</div>
     </div>
     <div class="module-card" onclick="navigate('literature')">
-      <div class="mod-status status-done">已上线</div><span id="modUpdatedLit" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-01</span>
+      <div class="mod-status status-done">已上线</div><span id="modUpdatedLit" class="mod-date" data-mod="literature" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#f0fdf4;">📚</div>
       <h3>AD领域重要文献</h3>
       <p>AD领域被引用最多的文献排行榜，多源数据切换，支持关键词/时间/作者/单位/期刊检索排序</p>
       <div class="mod-count" id="modCountLiterature">Top200 文献 · 多源数据</div>
     </div>
     <div class="module-card" onclick="navigate('scales')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-08-28</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="scales" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#fce7f3;">🧠</div>
       <h3>认知筛查小助手</h3>
       <p>经典模式(MMSE/MoCA) + 自创趣味模式 + ADAS-Cog/CDR/GDS专业量表，在线测评</p>
       <div class="mod-count" id="modCountScales">5 量表 + 6 互动游戏</div>
     </div>
     <div class="module-card" onclick="navigate('science')">
-      <div class="mod-status status-done">已上线</div><span id="modUpdatedScience" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-14</span>
+      <div class="mod-status status-done">已上线</div><span id="modUpdatedScience" class="mod-date" data-mod="science" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#e0e7ff;">📚</div>
       <h3>专家科普库</h3>
       <p>转载权威机构与专家公开科普，所有观点附出处；支持模糊检索；可提交待核实观点，定期专业查证后更新</p>
       <div class="mod-count" id="modScienceCount">已验证科普 · 待核实分区</div>
     </div>
     <div class="module-card" onclick="navigate('insurance')">
-      <div class="mod-status status-done">已上线</div><span id="modUpdatedInsurance" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-17</span>
+      <div class="mod-status status-done">已上线</div><span id="modUpdatedInsurance" class="mod-date" data-mod="insurance" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#d1fae5;">🏥</div>
       <h3>医保与支付政策小站</h3>
       <p>对症药医保报销、仑卡奈单抗/多奈单抗等疾病修饰药的商保创新药目录、各地惠民保覆盖列表，全部数据来自国家医保局与官方公告</p>
       <div class="mod-count" id="modInsuranceCount">对症药+DMT · 9城惠民保 · 10条官方来源</div>
     </div>
     <div class="module-card" onclick="navigate('sitemap')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="sitemap" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#cffafe;">🗺️</div>
       <h3>常用网站地图</h3>
       <p>学术数据库、监管机构、临床试验、患者组织、专利检索、AD专门数据库、影像数据库、照护者资源、药物数据库等精选导航</p>
       <div class="mod-count">10大类 · 60个网站</div>
     </div>
     <div class="module-card" onclick="navigate('epidemiology')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-06</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="epidemiology" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#d1fae5;">🌍</div>
       <h3>流行病学地图</h3>
       <p>全球54国AD患病率/发病率/死亡率/经济负担交互式世界地图与国家详情</p>
@@ -1399,14 +1399,14 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-count">国家神经疾病医学中心 · 全国记忆门诊地图</div>
     </div>
     <div class="module-card" onclick="navigate('pathway')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-06</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="pathway" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#fef3c7;">🔗</div>
       <h3>靶点互作关系图</h3>
       <p>KEGG AD总通路(44热点)+TNF炎症通路(48热点)可交互分子 + CST Aβ/Tau完整通路图(点击跳转官网)</p>
       <div class="mod-count">20关键靶点 · 4通路图</div>
     </div>
     <div class="module-card" onclick="navigate('brain3d')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="brain3d" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#ede9fe;">🧠</div>
       <h3>大脑3D解剖图谱</h3>
       <p>交互式3D人脑解剖图谱，JHU白质图谱189个脑区，支持旋转缩放、爆炸视图、区域高亮</p>
@@ -1414,7 +1414,7 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
     <!-- AD鉴别诊断与共病 -->
     <div class="module-card" onclick="navigate('differential')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-10</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="differential" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#fce7f3;">🔬</div>
       <h3>鉴别诊断与共病</h3>
       <p>12种需与AD鉴别的痴呆及神经退行性疾病（VaD/FTD/DLB/PDD/NPH/CJD/PSP/CBD/MSA/HD/抑郁假性痴呆/谵妄），含症状、诊断标准、鉴别要点；6种AD常见共病管理指南</p>
@@ -1423,7 +1423,7 @@ window.addEventListener('unhandledrejection', function(e) {
 
     <!-- AD学术会议日历 -->
     <div class="module-card" onclick="navigate('conference')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="conference" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#d1fae5;">📅</div>
       <h3>AD学术会议日历</h3>
       <p>全球AD领域重要学术会议时间地点汇总，含AAIC/CTAD/ADPD/ADI及中国本土会议，按年份和状态筛选</p>
@@ -1431,7 +1431,7 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
     <!-- 全球AD研究热力图 -->
     <div class="module-card" onclick="navigate('researchmap')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="researchmap" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#fef3c7;">🌍</div>
       <h3>全球AD研究热力图</h3>
       <p>交互式世界地图展示各国AD研究产出，可切换论文产出/临床试验/企业数量/标志物研究指标，含TOP10排行榜</p>
@@ -1439,7 +1439,7 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
     <!-- AD基因数据库 -->
     <div class="module-card" onclick="navigate('genes')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="genes" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#dbeafe;">🧬</div>
       <h3>AD基因数据库</h3>
       <p>3个常染色体显性致病基因、20个高置信度因果基因、101个风险位点（76个经典GWAS位点+25个2021-2025年新发现），链接NCBI/OMIM/ClinVar/GWAS Catalog</p>
@@ -1447,7 +1447,7 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
     <!-- PET示踪剂数据库 -->
     <div class="module-card" onclick="navigate('pet')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="pet" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#fce7f3;">📡</div>
       <h3>PET示踪剂数据库</h3>
       <p>Aβ淀粉样蛋白、Tau蛋白、脑代谢、神经炎症、突触等5大类18种PET分子显像示踪剂，含4种FDA获批产品</p>
@@ -1455,7 +1455,7 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
     <!-- AD模型数据库 -->
     <div class="module-card" onclick="navigate('models')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-08</span>
+      <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="models" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
       <div class="mod-icon" style="background:#dcfce7;">🐭</div>
       <h3>AD模型数据库</h3>
       <p>16种小鼠模型、6种其他动物模型、8种细胞模型、5种类器官模型，含基因型、病理表型和应用场景</p>
@@ -5162,6 +5162,8 @@ function initPtau217() {
   const K = Object.keys((D.keyPoints || [{}])[0] || {});
   const kpRows = (D.keyPoints || []).slice(1).filter(r => has(r[K[0]]));
   html += '<section class="pt-sec on" id="pt-sec-sum" role="tabpanel">';
+  html += '<div class="pt-concl" style="background:#fef2f2;border-left-color:#dc2626;color:#7f1d1d;"><b>方法学声明（请先读）</b>　本页<b>不做加权合并，也不做 meta 分析</b>。原因：各研究的入组标准、金标准与文献质量未经统一化、标准化处理，任何「加权平均 AUC」都会掩盖研究间的异质性，得到一个看起来精确、实际不可比的数字。' +
+    '因此本页只做<b>并列展示</b>与<b>异质性描述</b>。文中若出现「合并 / 加权」字样，均为底稿原始表述，已单独标注，不代表本站结论。</div>';
   html += '<div class="pt-concl">以下 ' + kpRows.length + ' 条结论全部由本表数据算出，每条都标了依据单元与证据确定性，可按编号回查明细。' +
     '<b>读法：</b>证据确定性为「高」的才适合直接用于选型结论；「中」的需要结合具体场景再判断。</div>';
   html += '<div class="pt-kp">';
@@ -5172,6 +5174,9 @@ function initPtau217() {
     html += '<div class="pt-kp-t">' + esc(r[K[1]]) + '</div>';
     html += '<div class="pt-kp-d">' + esc(r[K[2]]) + '</div>';
     html += '<div class="pt-kp-f"><span>依据</span><span class="pt-pill">' + esc(r[K[3]]) + '</span><span class="pt-pill ' + tone + '">确定性：' + esc(cert) + '</span></div>';
+    if (/加权|合并/.test(String(r[K[2]] || ''))) {
+      html += '<div style="font-size:10.5px;color:#b91c1c;line-height:1.6;margin-top:6px;padding-left:6px;border-top:1px dotted #fecaca;padding-top:6px;">⚠ 本条含「加权/合并」口径，属底稿原始表述；本页不采用加权合并，请仅作记录参考。</div>';
+    }
     html += '</article>';
   });
   html += '</div></section>';
@@ -5217,7 +5222,7 @@ function initPtau217() {
   rowsStd.forEach(x => html += barRow(x.k + '（n=' + x.n + '）', barPct(x.m, 0.7, 1.0), fmt3(x.m),
     /神经病理/.test(x.k) ? 'bad' : (/PET/.test(x.k) ? 'ok' : '')));
   html += '</div>';
-  html += '<div class="pt-note">横条长度按 AUC 0.70–1.00 刻度缩放，不是从 0 起，只用于同图内比较。分桶规则：神经病理优先，其次含「转化」、含「CSF」、含「PET」、含「临床」；复合金标准（如「临床诊断+CSF」）按上述优先级只归入一桶。</div>';
+  html += '<div class="pt-note">横条长度按 AUC 0.70–1.00 刻度缩放，不是从 0 起，只用于同图内比较。<b>AUC 中位数为各研究数值的描述性统计，不是合并估计</b>；各研究入组标准与金标准不同，不应据此推算"总体 AUC"。分桶规则：神经病理优先，其次含「转化」、含「CSF」、含「PET」、含「临床」；复合金标准（如「临床诊断+CSF」）按上述优先级只归入一桶。</div>';
   html += '</div>';
 
   // --- 3.2 队列场景 ---
@@ -5347,7 +5352,7 @@ function initPtau217() {
   html += '<div class="pt-concl"><b>结论：</b>' + disAll.length + ' 个分组中 <b>' + dis1 + ' 个只有 1 条记录</b>（占 ' + Math.round(100 * dis1 / disAll.length) +
     '%），真正能跨研究合并的（≥3 条）只有 ' + disGe3 + ' 个。记录最多的一组是「' + esc(topDis[0]) + '」共 ' + topDis[1].length +
     ' 条——但其中大部分来自 CLEAR-AD 同一批样本，不等于 ' + topDis[1].length + ' 项独立证据。</div>';
-  html += '<div class="pt-note">启示：做 meta 分析或选型对比时，应按「疾病分组 + 金标准 + 指标口径」三元组配对，而不是按厂家简单平均。</div>';
+  html += '<div class="pt-note">启示：选型对比时应按「疾病分组 + 金标准 + 指标口径」三元组配对，而不是按厂家简单平均；<b>本页不对任何分组做加权合并</b>（入组标准与文献质量未标准化）。</div>';
   html += '</div>';
 
   html += '</section>';
@@ -5722,20 +5727,29 @@ function showMarkerDetail(marker) {
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
         <div style="background:#fff;border-radius:8px;padding:15px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
           <div style="font-size:24px;font-weight:bold;color:#3b82f6;">0.983</div>
-          <div style="font-size:11px;color:#6b7280;margin-top:5px;">中国队列AUC(AD vs对照)</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:5px;">中国队列 AUC（AD vs 认知正常）</div>
+          <div style="font-size:10px;color:#9ca3af;margin-top:6px;line-height:1.5;">Li 2025, J Prev Alzheimers Dis<br><a href="https://pubmed.ncbi.nlm.nih.gov/39948000/" target="_blank" rel="noopener" style="color:#3b82f6;">PMID 39948000</a></div>
         </div>
         <div style="background:#fff;border-radius:8px;padding:15px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
           <div style="font-size:24px;font-weight:bold;color:#10b981;">95.0%</div>
-          <div style="font-size:11px;color:#6b7280;margin-top:5px;">中国队列敏感性</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:5px;">灵敏度（cutoff 0.551）</div>
+          <div style="font-size:10px;color:#9ca3af;margin-top:6px;line-height:1.5;">Wang 2025, Front Aging Neurosci<br><a href="https://pubmed.ncbi.nlm.nih.gov/40207045/" target="_blank" rel="noopener" style="color:#3b82f6;">PMID 40207045</a></div>
         </div>
         <div style="background:#fff;border-radius:8px;padding:15px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
           <div style="font-size:24px;font-weight:bold;color:#f59e0b;">96.0%</div>
-          <div style="font-size:11px;color:#6b7280;margin-top:5px;">中国队列特异性</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:5px;">特异度（同一研究，AUC 0.990）</div>
+          <div style="font-size:10px;color:#9ca3af;margin-top:6px;line-height:1.5;">Wang 2025, Front Aging Neurosci<br><a href="https://pubmed.ncbi.nlm.nih.gov/40207045/" target="_blank" rel="noopener" style="color:#3b82f6;">PMID 40207045</a></div>
         </div>
         <div style="background:#fff;border-radius:8px;padding:15px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-          <div style="font-size:24px;font-weight:bold;color:#8b5cf6;">97.9%</div>
-          <div style="font-size:11px;color:#6b7280;margin-top:5px;">Roche Elecsys NPV(rule-out)</div>
+          <div style="font-size:24px;font-weight:bold;color:#8b5cf6;">97%</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:5px;">Lumipulse 阴性预测值（FDA 审评 n=499）</div>
+          <div style="font-size:10px;color:#9ca3af;margin-top:6px;line-height:1.5;">FDA 510(k) K242706<br><a href="https://www.fda.gov/news-events/press-announcements/fda-clears-first-blood-test-used-diagnosing-alzheimers-disease" target="_blank" rel="noopener" style="color:#3b82f6;">FDA 新闻稿</a></div>
         </div>
+      </div>
+      <div style="background:#fffbeb;border-left:3px solid #f59e0b;border-radius:0 6px 6px 0;padding:10px 13px;margin-top:12px;font-size:11.5px;line-height:1.7;color:#7c4a03;">
+        <b>四张卡片来自三项不同来源，不可合并解读</b>：AUC 0.983 出自 Li 2025（AD vs 认知正常，中国队列）；
+        灵敏度/特异度出自 Wang 2025（n=241，cutoff 0.551，同一研究的 AUC 为 0.990，与 0.983 不是同一个数）；
+        第四项是已获批产品 Lumipulse 的 FDA 审评数据。队列、cutoff 与统计口径均不同，<b>不要把它们当成同一个检测的一组指标</b>。
       </div>
     </div>`;
     
@@ -9218,5 +9232,50 @@ if (typeof window.bootFinish === 'function') {
 })();
 </script>
 
+<script>
+// ===== 首页模块更新时间：统一从数据读取，避免卡片上硬编码过期日期 =====
+// （1）数据文件自带日期字段的，优先用真实值；（2）没有字段的集中在此维护。
+window.MODULE_META = {
+  markers:      {date:'2026-10-13', src:'数据重建'},
+  companies:    {date:'2026-09-29', src:'人工登记'},
+  pipeline:     {date:'2026-09-29', src:'人工登记'},
+  drugs:        {date:'2026-09-29', src:'人工登记'},
+  scales:       {date:'2026-08-28', src:'人工登记'},
+  science:      {date:'2026-10-14', src:'人工登记'},
+  sitemap:      {date:'2026-09-08', src:'人工登记'},
+  epidemiology: {date:'2026-09-06', src:'人工登记'},
+  pathway:      {date:'2026-09-06', src:'人工登记'},
+  brain3d:      {date:'2026-09-08', src:'人工登记'},
+  differential: {date:'2026-09-10', src:'人工登记'},
+  conference:   {date:'2026-09-08', src:'人工登记'},
+  researchmap:  {date:'2026-09-08', src:'人工登记'},
+  genes:        {date:'2026-09-08', src:'人工登记'},
+  pet:          {date:'2026-09-08', src:'人工登记'},
+  models:       {date:'2026-09-08', src:'人工登记'}
+  // literature（fetchedAt）、insurance（updateDate）、ptau217（meta.updateDate）由下方自动读取
+};
+window.fillModuleDates = function(){
+  var live = {};
+  try { if (window.LITERATURE_DATA && LITERATURE_DATA.fetchedAt) live.literature = LITERATURE_DATA.fetchedAt; } catch(e){}
+  try { if (window.INSURANCE_DATA && INSURANCE_DATA.updateDate) live.insurance = INSURANCE_DATA.updateDate; } catch(e){}
+  try { if (window.PTAU217_DATA && PTAU217_DATA.meta && PTAU217_DATA.meta.updateDate) live.ptau217 = PTAU217_DATA.meta.updateDate; } catch(e){}
+  var els = document.querySelectorAll('.mod-date');
+  for (var i = 0; i < els.length; i++) {
+    var k = els[i].getAttribute('data-mod');
+    var d = live[k] || (window.MODULE_META[k] && window.MODULE_META[k].date);
+    els[i].textContent = d ? ('更新 ' + d) : '更新 —';
+    if (d) els[i].title = live[k] ? '来自数据文件' : ((window.MODULE_META[k] && window.MODULE_META[k].src) || '');
+  }
+};
+(function(){
+  document.addEventListener('DOMContentLoaded', window.fillModuleDates);
+  if (typeof window.bootFinish === 'function') {
+    var _bf2 = window.bootFinish;
+    window.bootFinish = function(){ _bf2(); window.fillModuleDates(); };
+  }
+  setTimeout(window.fillModuleDates, 500);
+  setTimeout(window.fillModuleDates, 2000);
+})();
+</script>
 </body>
 </html>
