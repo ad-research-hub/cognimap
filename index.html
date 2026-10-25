@@ -1335,14 +1335,14 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-count" id="modCountPipeline">409 药物 · 725 试验</div>
     </div>
     <div class="module-card" onclick="navigate('drugs')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-29</span>
+      <div class="mod-status status-done">已上线</div><span id="modUpdatedDrugs" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-09-29</span>
       <div class="mod-icon" style="background:#fef3c7;">💊</div>
       <h3>已上市药物库</h3>
       <p>全球已获批AD治疗药物详解，含用法用量、不良反应、说明书链接与权威来源</p>
       <div class="mod-count" id="modCountDrugs">11 药物 · 9 在市</div>
     </div>
     <div class="module-card" onclick="navigate('literature')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-01</span>
+      <div class="mod-status status-done">已上线</div><span id="modUpdatedLit" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-01</span>
       <div class="mod-icon" style="background:#f0fdf4;">📚</div>
       <h3>AD领域重要文献</h3>
       <p>AD领域被引用最多的文献排行榜，多源数据切换，支持关键词/时间/作者/单位/期刊检索排序</p>
@@ -1356,14 +1356,14 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-count" id="modCountScales">5 量表 + 6 互动游戏</div>
     </div>
     <div class="module-card" onclick="navigate('science')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-14</span>
+      <div class="mod-status status-done">已上线</div><span id="modUpdatedScience" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-14</span>
       <div class="mod-icon" style="background:#e0e7ff;">📚</div>
       <h3>专家科普库</h3>
       <p>转载权威机构与专家公开科普，所有观点附出处；支持模糊检索；可提交待核实观点，定期专业查证后更新</p>
       <div class="mod-count" id="modScienceCount">已验证科普 · 待核实分区</div>
     </div>
     <div class="module-card" onclick="navigate('insurance')">
-      <div class="mod-status status-done">已上线</div><span style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-17</span>
+      <div class="mod-status status-done">已上线</div><span id="modUpdatedInsurance" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 2026-10-17</span>
       <div class="mod-icon" style="background:#d1fae5;">🏥</div>
       <h3>医保与支付政策小站</h3>
       <p>对症药医保报销、仑卡奈单抗/多奈单抗等疾病修饰药的商保创新药目录、各地惠民保覆盖列表，全部数据来自国家医保局与官方公告</p>
@@ -3803,16 +3803,16 @@ function showGeneDetail(gene, chrom, pos, gtype) {
   </div>
 </div>
 
-<script src="js/markers_data.js?v=351" onload="bootTick('markers')"></script>
-<script src="js/details_data.js?v=351" onload="bootTick('details')"></script>
-<script src="js/nmpa_data.js?v=351" onload="bootTick('nmpa')"></script>
-<script src="js/companies_data.js?v=351" onload="bootTick('companies')"></script>
-<script src="js/drugs_data.js?v=351" onload="bootTick('drugs')"></script>
-<script src="js/pipeline_data.js?v=351" onload="bootTick('pipeline')"></script>
-<script src="js/epi_world_map.js?v=351" onload="bootTick('epi')"></script>
-<script src="js/literature_data.js?v=351" onload="bootTick('literature')"></script>
-<script src="js/science_data.js?v=351" onload="bootTick('science')"></script>
-<script src="js/insurance_data.js?v=351" onload="bootTick('insurance')"></script>
+<script src="js/markers_data.js?v=352" onload="bootTick('markers')"></script>
+<script src="js/details_data.js?v=352" onload="bootTick('details')"></script>
+<script src="js/nmpa_data.js?v=352" onload="bootTick('nmpa')"></script>
+<script src="js/companies_data.js?v=352" onload="bootTick('companies')"></script>
+<script src="js/drugs_data.js?v=352" onload="bootTick('drugs')"></script>
+<script src="js/pipeline_data.js?v=352" onload="bootTick('pipeline')"></script>
+<script src="js/epi_world_map.js?v=352" onload="bootTick('epi')"></script>
+<script src="js/literature_data.js?v=352" onload="bootTick('literature')"></script>
+<script src="js/science_data.js?v=352" onload="bootTick('science')"></script>
+<script src="js/insurance_data.js?v=352" onload="bootTick('insurance')"></script>
 <script>
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
 window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
@@ -4593,7 +4593,7 @@ function showApprovalSummary() {
 
   var html = '<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px;">';
   html += '<h3 style="margin:0;font-size:17px;color:#0f766e;">AD诊断标志物获批情况汇总</h3>';
-  html += '<span style="font-size:12px;background:#d1fae5;color:#065f46;padding:3px 10px;border-radius:999px;">数据核实至 2026-10-17</span>';
+  html += '<span id="nmpaVerifiedBadge" style="font-size:12px;background:#d1fae5;color:#065f46;padding:3px 10px;border-radius:999px;">数据核实至 2026-10-17</span>';
   html += '<button onclick="showApprovalSummary()" style="margin-left:auto;background:#f3f4f6;border:none;padding:6px 14px;border-radius:8px;cursor:pointer;font-size:12px;">关闭 ✕</button></div>';
 
   html += '<h4 style="font-size:14px;color:#1e40af;margin:18px 0 8px 0;">🇺🇸 FDA 获批（510(k) cleared，共4项血液检测）</h4>';
@@ -5666,7 +5666,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v351 · 数据更新至 2026-10-25</div>
+  <div>版本 v352 · 数据更新至 <span id="footerLatestDate">2026-10-25</span></div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script>
 // busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
@@ -5687,6 +5687,41 @@ function escHtml(s){
   }
   setTimeout(retry, 5000);    // 5秒后首次检查（脚本未填充则重载）
   setInterval(retry, 30000);  // 之后每30秒重试，直到显示具体数字
+})();
+</script>
+<script>
+// 动态更新日期：从各数据文件 meta 读取，不再硬编码字符串
+// 以后改了哪个数据文件，只需要改对应 js 里的 updateDate，页面自动同步
+(function(){
+  function pad(n){return n<10?'0'+n:''+n;}
+  function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+  function latestDate(){
+    // 收集所有已知数据源的更新日期
+    var dates=[];
+    try{ if(window.INSURANCE_DATA && window.INSURANCE_DATA.updateDate) dates.push(window.INSURANCE_DATA.updateDate); }catch(e){}
+    try{ if(window.NMPA_DATA_META && window.NMPA_DATA_META.updateDate) dates.push(window.NMPA_DATA_META.updateDate); }catch(e){}
+    try{ if(window.MARKERS_META && window.MARKERS_META.updateDate) dates.push(window.MARKERS_META.updateDate); }catch(e){}
+    try{ if(window.LITERATURE_META && window.LITERATURE_META.updateDate) dates.push(window.LITERATURE_META.updateDate); }catch(e){}
+    try{ if(window.SCIENCE_META && window.SCIENCE_META.updateDate) dates.push(window.SCIENCE_META.updateDate); }catch(e){}
+    if(!dates.length) return todayStr();
+    dates.sort(); return dates[dates.length-1];
+  }
+  function fill(){
+    var ld=latestDate();
+    // 页脚"数据更新至"取所有模块最新日期
+    var f=document.getElementById('footerLatestDate');
+    if(f) f.textContent=ld;
+    // 各模块卡片的"更新 YYYY-MM-DD"分别取自己的数据日期
+    var ins=document.getElementById('modUpdatedInsurance');
+    if(ins && window.INSURANCE_DATA && window.INSURANCE_DATA.updateDate) ins.textContent='更新 '+window.INSURANCE_DATA.updateDate;
+    var nmpa=document.getElementById('nmpaVerifiedBadge');
+    if(nmpa && window.NMPA_DATA_META && window.NMPA_DATA_META.updateDate) nmpa.textContent='数据核实至 '+window.NMPA_DATA_META.updateDate;
+    // 其它模块若未来加了 META，在这里继续补 if 即可
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fill);
+  else fill();
+  // 数据脚本可能异步加载，晚一点再刷一次
+  window.addEventListener('load',function(){setTimeout(fill,300);});
 })();
 </script>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
