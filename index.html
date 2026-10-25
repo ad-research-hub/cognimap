@@ -4046,16 +4046,21 @@ function showGeneDetail(gene, chrom, pos, gtype) {
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
 window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
 setTimeout(function(){
+  // 兜底：8 秒后无条件收尾。
+  // 原写法只在「未全部 onload」时才收尾，恰恰在「数据已 100%、但 window.load 被外部 CDN 挂住」
+  // 这种最常见的情况下不执行，遮罩就会一直等着 load 事件。
   if (window.bootDone < window.bootTotal) {
-    // 未全部onload但页面已可交互（同步脚本必已执行），补满后淡出
     window.bootDone = window.bootTotal;
     window.BOOT_SECTIONS.forEach(function(s){
       var sec=document.getElementById('bootSec_'+s.key), tick=document.getElementById('bootTick_'+s.key);
       if(sec) sec.classList.add('done');
       if(tick) tick.textContent='✓';
     });
-    window.bootFinish();
   }
+  var fill=document.getElementById('bootBarFill'), pctEl=document.getElementById('bootPct');
+  if(fill) fill.style.width='100%';
+  if(pctEl) pctEl.textContent='100%';
+  window.bootFinish();
 }, 8000);
 </script>
 <script>
@@ -9199,6 +9204,18 @@ if (typeof window.bootFinish === 'function') {
   const _bf = window.bootFinish;
   window.bootFinish = function(){ _bf(); scheduleHeroStats(); };
 }
+// 数据全部就绪就关闭加载层，不必等 window.load：
+// ECharts 有 4 个 CDN 兜底、Chart.js 2 个、外加 busuanzi 统计，任一被墙或超时都会把 load 拖住，
+// 而数据本身其实早就 100% 了。
+(function(){
+  function allDone(){ return window.bootDone >= window.bootTotal; }
+  function finishNow(){
+    setTimeout(function(){ try { window.bootFinish(); } catch(e){} }, 120);
+  }
+  if (allDone()) { finishNow(); return; }
+  var _bt = window.bootTick;
+  window.bootTick = function(key){ _bt(key); if (allDone()) finishNow(); };
+})();
 </script>
 
 </body>
