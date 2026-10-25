@@ -4840,198 +4840,25 @@ function initPtau217() {
   const pmidLink = pmid => pmid? `<a href="https://pubmed.ncbi.nlm.nih.gov/${pmid}/" target="_blank">${pmid}</a>`:'—';
   const aucColor = a => { if(!a||isNaN(a)) return '#64748b'; return a>=0.92?'#15803d':(a>=0.88?'#a16207':'#b91c1c'); };
 
-  // ===== KPI =====
-  const vendors = D.vendors.filter(v=>v['厂家']);
-  const nmpaList = D.t1Detail.length; // 占位，实际用vendors记录数
-  const totalRecords = D.t1Detail.length;
-  const nVendors = new Set(D.t1Detail.map(r=>r['厂家']).filter(Boolean)).size;
-  const nPapers = new Set(D.t1Detail.map(r=>r['文献编号']).filter(Boolean)).size;
-  const nSources = D.sources.length;
-
   let html = `
-  <div style="background:linear-gradient(135deg,#1e3a8a,#4c1d95);color:#fff;padding:28px 32px;border-radius:12px;margin-bottom:20px;">
-    <h1 style="font-size:24px;margin-bottom:6px;">p-tau217 血检试剂深度横评</h1>
-    <p style="opacity:.85;font-size:13px;">${nVendors}个厂家/平台 · ${nPapers}篇同行评议文献 · ${totalRecords}条诊断记录 · ${nSources}条来源链接 · 含CLEAR-AD九家同批头对头</p>
-    <p style="opacity:.6;font-size:12px;margin-top:8px;">数据截止 ${D.meta.updateDate} · 受众：AD科研与IVD厂家 · 所有数字可溯源PMID</p>
+  <div style="background:linear-gradient(135deg,#1e3a8a,#4c1d95);color:#fff;padding:24px 32px;border-radius:12px;margin-bottom:20px;">
+    <h1 style="font-size:22px;margin-bottom:6px;">p-tau217 血检试剂深度横评</h1>
+    <p style="opacity:.85;font-size:13px;">16个厂家 · 89条诊断记录 · 52篇同行评议文献 · CLEAR-AD九家同批头对头</p>
+    <p style="opacity:.6;font-size:12px;margin-top:6px;">数据截止 ${D.meta.updateDate} · 受众：AD科研与IVD厂家 · 所有数字可溯源PMID</p>
   </div>
 
-  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px;">
-    <div style="background:#fff;padding:16px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center;">
-      <div style="font-size:28px;font-weight:700;color:#1e3a8a;">${nVendors}</div>
-      <div style="font-size:12px;color:#64748b;">有数据厂家</div>
+  <section style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
+    <h2 style="font-size:17px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">一、分厂家数据可视化（8图，可按平台/疾病/国产/NMPA筛选）</h2>
+    <p style="font-size:12.5px;color:#475569;margin-bottom:10px;">下方完整嵌入本研究配套的交互式图表页（fig1–fig8）。每个点可悬停查看厂家、文献编号、队列、n、金标准；空值不画成0。</p>
+    <iframe src="ptau217_charts.html" style="width:100%;height:1600px;border:1px solid #e2e8f0;border-radius:8px;" onload="this.style.height=this.contentDocument.body.scrollHeight+40+'px'"></iframe>
+  </section>
+
+  <section style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
+    <h2 style="font-size:17px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">二、厂家法规状态（FDA / CE / NMPA 合并表）</h2>
+    <div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:10px 14px;border-radius:4px;margin-bottom:12px;font-size:12.5px;color:#78350f;">
+      <strong>质量提示：</strong>Fujirebio已向Quest Diagnostics发出Lumipulse G pTau217/Aβ42 Plasma Ratio试剂盒positive bias通知，截至本数据截止日尚未见全面召回。本表仍正常展示其诊断性能数据，使用该试剂的实验室应关注厂家后续通告。
     </div>
-    <div style="background:#fff;padding:16px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center;">
-      <div style="font-size:28px;font-weight:700;color:#1e3a8a;">${nPapers}</div>
-      <div style="font-size:12px;color:#64748b;">同行评议文献</div>
-    </div>
-    <div style="background:#fff;padding:16px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center;">
-      <div style="font-size:28px;font-weight:700;color:#1e3a8a;">${totalRecords}</div>
-      <div style="font-size:12px;color:#64748b;">诊断记录条数</div>
-    </div>
-    <div style="background:#fff;padding:16px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center;">
-      <div style="font-size:28px;font-weight:700;color:#1e3a8a;">${D.t2Merged.length}</div>
-      <div style="font-size:12px;color:#64748b;">合并单元</div>
-    </div>
-    <div style="background:#fff;padding:16px;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.06);text-align:center;">
-      <div style="font-size:28px;font-weight:700;color:#1e3a8a;">${nSources}</div>
-      <div style="font-size:12px;color:#64748b;">来源链接</div>
-    </div>
-  </div>`;
-
-  // ===== 第一节：要点速览 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">一、要点速览（从本表数据算出）</h2>`;
-  D.keyPoints.forEach((k,i)=>{
-    if(i===0) return; // 跳过表头
-    html += `<div style="padding:10px 0;border-bottom:1px dashed #e2e8f0;font-size:13px;">
-      <strong style="color:#1e3a8a;">${k['序号']||i}.</strong> ${k['要点']||''}
-      <div style="font-size:12px;color:#64748b;margin-top:4px;">关键数据：${k['关键数据（来自本表）']||''} · 依据：${k['依据']||''} · 确定性：${k['证据确定性']||''}</div>
-    </div>`;
-  });
-  html += `</section>`;
-
-  // ===== 第二节：筛查PPV-患病率 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">二、筛查视角：先验患病率决定PPV，不是试剂决定</h2>
-    <p style="font-size:13px;color:#475569;margin-bottom:12px;">同一p-tau210试剂，在初级保健（prevalence 21.4%）PPV 78.3%，在二级保健（45.4%）PPV 90.2%，在有症状队列（70%+）PPV 97.6%。社区预临床人群单用PPV仅79%，两步法（初筛+PET确认）PPV 91%。筛查决策第一步是明确人群，不是选试剂。</p>
-    <div id="pt217PpvChart" style="width:100%;height:400px;"></div>
-  </section>`;
-
-  // ===== 第三节：CLEAR-AD九家矩阵 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">三、CLEAR-AD 九家同批血样头对头（Lv X, Science Bulletin 2026, n=431）</h2>
-    <p style="font-size:13px;color:#475569;margin-bottom:12px;">中国10家记忆门诊、中心实验室盲法批匹配、Aβ-PET阳性率64%。两家应厂家要求匿名（厂商A、B），无法归入具体品牌。</p>
-    <div id="pt217ClearAdChart" style="width:100%;height:420px;"></div>
-    <table style="width:100%;border-collapse:collapse;font-size:12px;margin-top:16px;">
-      <tr style="background:#f1f5f9;">
-        <th style="padding:8px;text-align:left;">厂家</th><th>平台</th><th>全队列AUC</th><th>95%CI</th><th>准确率%</th><th>灵敏度%</th><th>特异度%</th><th>MCI亚组</th><th>痴呆亚组</th><th>90/90灰区%</th><th>PPV%</th><th>NPV%</th>
-      </tr>`;
-  D.clearAd.forEach(c=>{
-    const a = parseFloat(c['全队列AUC']);
-    html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:8px;font-weight:600;">${fmt(c['厂家'])}</td>
-      <td>${fmt(c['平台/方法学'])}</td>
-      <td style="color:${aucColor(a)};font-weight:700;">${fmt(c['全队列AUC'])}</td>
-      <td>${fmt(c['95%CI'])}</td><td>${fmt(c['准确率%'])}</td><td>${fmt(c['灵敏度%'])}</td><td>${fmt(c['特异度%'])}</td>
-      <td>${fmt(c['MCI亚组AUC(n=230)'])}</td><td>${fmt(c['痴呆亚组AUC(n=171)'])}</td>
-      <td>${fmt(c['90/90灰区%'])}</td><td>${fmt(c['PPV%'])}</td><td>${fmt(c['NPV%'])}</td>
-    </tr>`;
-  });
-  html += `</table></section>`;
-
-  // ===== 第四节：Simoa平台单独表 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">四、Simoa 平台数据（Quanterix，单独成表不与化学发光/质谱混放）</h2>
-    <p style="font-size:13px;color:#475569;margin-bottom:12px;">Simoa是平台不是厂家：同一平台跑不同厂家试剂（ALZpath、Janssen、Quanterix自有、Lilly）。彩科、格物致和、宇测同为单分子但自研平台，不混入本表。</p>
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="background:#f1f5f9;">
-        <th style="padding:8px;text-align:left;">记录ID</th><th>厂家</th><th>试剂/平台</th><th>文献</th><th>队列/国家</th><th>疾病分组</th><th>n</th><th>AUC</th><th>Se%</th><th>Sp%</th><th>PPV%</th><th>NPV%</th><th>备注</th>
-      </tr>`;
-  D.simoa.forEach(r=>{
-    html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;">${fmt(r['记录ID'])}</td>
-      <td style="font-weight:600;">${fmt(r['厂家'])}</td>
-      <td>${fmt(r['试剂/平台'])}</td><td>${fmt(r['文献'])}</td><td>${fmt(r['队列/国家'])}</td>
-      <td>${fmt(r['疾病分组'])}</td><td>${fmt(r['论文总n'])}</td>
-      <td style="font-weight:600;">${fmt(r['AUC'])}</td><td>${fmt(r['灵敏度%'])}</td><td>${fmt(r['特异度%'])}</td>
-      <td>${fmt(r['PPV%'])}</td><td>${fmt(r['NPV%'])}</td><td style="font-size:11px;color:#64748b;">${fmt(r['备注'])}</td>
-    </tr>`;
-  });
-  html += `</table></section>`;
-
-  // ===== 第五节：NULISA平台 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">五、NULISA（Alamar）平台数据——脑源性p-tau217</h2>
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="background:#f1f5f9;"><th style="padding:8px;text-align:left;">记录ID</th><th>检测指标</th><th>文献</th><th>队列</th><th>n</th><th>AUC</th><th>Se%</th><th>Sp%</th><th>PPV%</th><th>NPV%</th><th>备注</th></tr>`;
-  D.nulisa.forEach(r=>{
-    html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;">${fmt(r['记录ID'])}</td><td>${fmt(r['检测指标'])}</td><td>${fmt(r['文献'])}</td>
-      <td>${fmt(r['队列/国家'])}</td><td>${fmt(r['n'])}</td><td style="font-weight:600;">${fmt(r['AUC'])}</td>
-      <td>${fmt(r['灵敏度%'])}</td><td>${fmt(r['特异度%'])}</td><td>${fmt(r['PPV%'])}</td><td>${fmt(r['NPV%'])}</td>
-      <td style="font-size:11px;color:#64748b;">${fmt(r['备注'])}</td>
-    </tr>`;
-  });
-  html += `</table></section>`;
-
-  // ===== 第六节：预测PPV证据 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">六、纵向预测PPV证据（预测≠诊断，PPV由人群转化率决定）</h2>
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="background:#f1f5f9;"><th style="padding:8px;text-align:left;">文献编号</th><th>第一作者</th><th>队列</th><th>人群患病率/转化率</th><th>预测指标</th><th>时程</th><th>PPV</th><th>NPV</th><th>备注</th></tr>`;
-  D.ppvEvidence.forEach(r=>{
-    html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;font-weight:600;">${fmt(r['文献编号'])}</td><td>${fmt(r['第一作者/年'])}</td>
-      <td>${fmt(r['队列与人群'])}</td><td>${fmt(r['人群患病率/转化率'])}</td><td>${fmt(r['预测指标'])}</td>
-      <td>${fmt(r['时程'])}</td><td style="color:#92400e;font-weight:700;">${fmt(r['阳性预测值 PPV'])}</td>
-      <td>${fmt(r['阴性预测值 NPV'])}</td><td style="font-size:11px;color:#64748b;">${fmt(r['备注'])}</td>
-    </tr>`;
-  });
-  html += `</table></section>`;
-
-  // ===== 第七节：T1明细长表（89条，可筛选） =====
-  const vendorList = [...new Set(D.t1Detail.map(r=>r['厂家']).filter(Boolean))].sort();
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">七、T1 明细长表（${totalRecords}条诊断记录）</h2>
-    <div style="margin-bottom:12px;">
-      <label style="font-size:13px;">按厂家筛选：</label>
-      <select id="pt217VendorFilter" onchange="filterPt217Detail()" style="padding:6px 12px;border-radius:6px;border:1px solid #cbd5e1;margin-left:8px;">
-        <option value="">全部</option>
-        ${vendorList.map(v=>`<option value="${v}">${v}</option>`).join('')}
-      </select>
-      <span id="pt217DetailCount" style="margin-left:12px;font-size:12px;color:#64748b;"></span>
-    </div>
-    <div style="overflow-x:auto;max-height:600px;overflow-y:auto;">
-    <table id="pt217DetailTable" style="width:100%;border-collapse:collapse;font-size:12px;">
-      <thead style="position:sticky;top:0;background:#f1f5f9;">
-      <tr>
-        <th style="padding:8px;text-align:left;">ID</th><th>编号</th><th>第一作者</th><th>期刊</th><th>厂家</th><th>平台</th><th>口径</th><th>疾病分组</th><th>队列</th><th>金标准</th><th>AUC</th><th>95%CI</th><th>Se%</th><th>Sp%</th><th>PPV%</th><th>NPV%</th><th>PMID</th><th>备注</th>
-      </tr></thead><tbody>`;
-  D.t1Detail.forEach(r=>{
-    html += `<tr class="pt217-detail-row" data-vendor="${fmt(r['厂家'])}" style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;">${fmt(r['记录ID'])}</td><td>${fmt(r['文献编号'])}</td>
-      <td>${fmt(r['第一作者/年'])}</td><td>${fmt(r['期刊'])}</td><td style="font-weight:600;">${fmt(r['厂家'])}</td>
-      <td style="font-size:11px;">${fmt(r['技术平台'])}</td><td>${fmt(r['指标口径'])}</td><td>${fmt(r['疾病分组'])}</td>
-      <td style="font-size:11px;">${fmt(r['队列类型'])}</td><td style="font-size:11px;">${fmt(r['金标准'])}</td>
-      <td style="font-weight:700;color:${aucColor(parseFloat(r['AUC']))};">${fmt(r['AUC'])}</td>
-      <td style="font-size:11px;">${fmt(r['95%CI'])}</td><td>${fmt(r['灵敏度%'])}</td><td>${fmt(r['特异度%'])}</td>
-      <td>${fmt(r['PPV%'])}</td><td>${fmt(r['NPV%'])}</td><td>${pmidLink(r['PMID'])}</td>
-      <td style="font-size:11px;color:#64748b;">${fmt(r['备注'])}</td>
-    </tr>`;
-  });
-  html += `</tbody></table></div></section>`;
-
-  // ===== 第八节：T2合并明细 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">八、T2 横向合并明细（${D.t2Merged.length}条，四条件相同才合并）</h2>
-    <p style="font-size:12px;color:#64748b;margin-bottom:12px;">合并前提：疾病分组相同+队列类型相同+金标准同类+指标口径相同。n合计为各研究总样本算术和，非meta分析效应量；加权AUC按样本量对区间中值加权。</p>
-    <table style="width:100%;border-collapse:collapse;font-size:11px;">
-      <tr style="background:#f1f5f9;">
-        <th style="padding:8px;text-align:left;">单元</th><th>疾病分组</th><th>比较组</th><th>队列</th><th>金标准</th><th>口径</th><th>厂家</th><th>研究数</th><th>n合计</th><th>AUC区间</th><th>加权AUC</th><th>Se区间</th><th>Sp区间</th><th>PPV区间</th><th>NPV区间</th><th>一致性</th><th>纳入文献</th>
-      </tr>`;
-  D.t2Merged.forEach(r=>{
-    const wa = parseFloat(r['加权AUC']);
-    html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;font-weight:700;color:#1e3a8a;">${fmt(r['合并单元'])}</td>
-      <td style="font-size:11px;">${fmt(r['疾病分组'])}</td><td>${fmt(r['比较组/结局定义'])}</td>
-      <td style="font-size:11px;">${fmt(r['队列类型'])}</td><td style="font-size:11px;">${fmt(r['金标准'])}</td>
-      <td>${fmt(r['指标口径'])}</td><td style="font-weight:600;">${fmt(r['厂家'])}</td>
-      <td>${fmt(r['研究数'])}</td><td>${fmt(r['n合计'])}</td>
-      <td>${fmt(r['AUC最小值'])}–${fmt(r['AUC最大值'])}</td>
-      <td style="font-weight:700;color:${aucColor(wa)};">${fmt(r['加权AUC'])}</td>
-      <td>${fmt(r['Se最小'])}–${fmt(r['Se最大'])}</td><td>${fmt(r['Sp最小'])}–${fmt(r['Sp最大'])}</td>
-      <td>${fmt(r['PPV最小'])}–${fmt(r['PPV最大'])}</td><td>${fmt(r['NPV最小'])}–${fmt(r['NPV最大'])}</td>
-      <td style="font-size:11px;color:#64748b;">${fmt(r['一致性'])}</td><td style="font-size:11px;">${fmt(r['纳入文献'])}</td>
-    </tr>`;
-  });
-  html += `</table></section>`;
-
-  // ===== 第九节：217获证情况（厂家法规+NMPA合并） =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">九、p-tau217 获证情况（FDA / CE / NMPA）</h2>
-    <div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 16px;border-radius:4px;margin-bottom:16px;font-size:13px;color:#78350f;">
-      <strong>质量提示：</strong>Fujirebio已向Quest Diagnostics发出Lumipulse G pTau217/Aβ42 Plasma Ratio试剂盒positive bias通知，截至本数据截止日尚未见全面召回。本表仍正常展示其诊断性能数据（证据厚度排名第一），使用该试剂的实验室应关注厂家后续通告。
-    </div>
+    <div style="overflow-x:auto;">
     <table style="width:100%;border-collapse:collapse;font-size:12px;">
       <tr style="background:#f1f5f9;">
         <th style="padding:8px;text-align:left;">厂家</th><th>产品/平台</th><th>FDA状态</th><th>CE状态</th><th>NMPA状态</th><th>本表记录数</th><th>数据强度说明</th>
@@ -5047,84 +4874,61 @@ function initPtau217() {
       <td style="font-size:11px;color:#64748b;">${fmt(v['数据强度说明'])}</td>
     </tr>`;
   });
-  html += `</table></section>`;
+  html += `</table></div></section>
 
-  // ===== 第十节：未纳入主表 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">十、未纳入主表的文献（${D.excluded.length}条，附原因）</h2>
+  <section style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
+    <h2 style="font-size:17px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">三、CLEAR-AD 九家同批血样头对头（宽表，Lv X, Science Bulletin 2026, n=431）</h2>
+    <p style="font-size:12px;color:#64748b;margin-bottom:10px;">中国10家记忆门诊、中心实验室盲法批匹配、Aβ-PET阳性率64%。两家应厂家要求匿名（厂商A、B），无法归入具体品牌。</p>
+    <div style="overflow-x:auto;">
     <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="background:#f1f5f9;"><th style="padding:8px;text-align:left;">PMID</th><th>第一作者</th><th>年份</th><th>期刊</th><th>要点</th><th>未纳入原因</th></tr>`;
-  D.excluded.forEach(r=>{
+      <tr style="background:#f1f5f9;">
+        <th style="padding:8px;text-align:left;">厂家</th><th>平台/方法学</th><th>检测指标</th><th>全队列AUC</th><th>95%CI</th><th>准确率%</th><th>灵敏度%</th><th>特异度%</th><th>MCI亚组AUC(n=230)</th><th>痴呆亚组AUC(n=171)</th><th>MCI+痴呆(n=401)</th><th>90/90灰区%</th><th>PPV%</th><th>NPV%</th>
+      </tr>`;
+  D.clearAd.forEach(c=>{
+    const a = parseFloat(c['全队列AUC']);
     html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;">${pmidLink(r['PMID'])}</td><td>${fmt(r['第一作者'])}</td><td>${fmt(r['年份'])}</td>
-      <td>${fmt(r['期刊'])}</td><td style="font-size:11px;">${fmt(r['要点（来自摘要原文）'])}</td>
-      <td style="font-size:11px;color:#92400e;">${fmt(r['未纳入原因'])}</td>
+      <td style="padding:6px 8px;font-weight:600;">${fmt(c['厂家'])}</td>
+      <td>${fmt(c['平台/方法学'])}</td><td>${fmt(c['检测指标'])}</td>
+      <td style="color:${aucColor(a)};font-weight:700;">${fmt(c['全队列AUC'])}</td>
+      <td>${fmt(c['95%CI'])}</td><td>${fmt(c['准确率%'])}</td><td>${fmt(c['灵敏度%'])}</td><td>${fmt(c['特异度%'])}</td>
+      <td>${fmt(c['MCI亚组AUC(n=230)'])}</td><td>${fmt(c['痴呆亚组AUC(n=171)'])}</td><td>${fmt(c['MCI+痴呆AUC(n=401)'])}</td>
+      <td>${fmt(c['90/90灰区%'])}</td><td>${fmt(c['PPV%'])}</td><td>${fmt(c['NPV%'])}</td>
     </tr>`;
   });
-  html += `</table></section>`;
+  html += `</table></div></section>
 
-  // ===== 第十一节：全部文献来源 =====
-  html += `<section style="background:#fff;border-radius:10px;padding:24px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:18px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">十一、全部文献来源（${nSources}条，按编号排列）</h2>
+  <section style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
+    <h2 style="font-size:17px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">四、T1 明细长表（${D.t1Detail.length}条诊断记录）</h2>
+    <div style="margin-bottom:10px;">
+      <label style="font-size:13px;">按厂家筛选：</label>
+      <select id="pt217VendorFilter" onchange="filterPt217Detail()" style="padding:6px 12px;border-radius:6px;border:1px solid #cbd5e1;margin-left:8px;">
+        <option value="">全部</option>
+        ${[...new Set(D.t1Detail.map(r=>r['厂家']).filter(Boolean))].sort().map(v=>`<option value="${v}">${v}</option>`).join('')}
+      </select>
+      <span id="pt217DetailCount" style="margin-left:12px;font-size:12px;color:#64748b;"></span>
+    </div>
+    <div style="overflow-x:auto;max-height:600px;overflow-y:auto;">
     <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="background:#f1f5f9;"><th style="padding:8px;text-align:left;">序号</th><th>类型</th><th>编号</th><th>第一作者/机构</th><th>年份</th><th>标题</th><th>期刊</th><th>PMID</th><th>DOI</th><th>链接</th></tr>`;
-  D.sources.forEach(r=>{
-    html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;">${fmt(r['序号'])}</td><td>${fmt(r['类型'])}</td><td style="font-weight:600;">${fmt(r['文献编号'])}</td>
-      <td>${fmt(r['第一作者/机构'])}</td><td>${fmt(r['年份'])}</td>
-      <td style="font-size:11px;max-width:300px;">${fmt(r['标题'])}</td>
-      <td style="font-size:11px;">${fmt(r['期刊'])}</td>
-      <td>${pmidLink(r['PMID'])}</td><td style="font-size:11px;">${fmt(r['DOI'])}</td>
-      <td>${r['可打开链接']?`<a href="${r['可打开链接']}" target="_blank" style="font-size:11px;">打开</a>`:'—'}</td>
+      <thead style="position:sticky;top:0;background:#f1f5f9;">
+      <tr>
+        <th style="padding:8px;text-align:left;">ID</th><th>编号</th><th>第一作者/年</th><th>期刊</th><th>厂家</th><th>技术平台</th><th>指标口径</th><th>疾病分组</th><th>队列类型</th><th>金标准</th><th>AUC</th><th>95%CI</th><th>Se%</th><th>Sp%</th><th>PPV%</th><th>NPV%</th><th>切点</th><th>PMID</th><th>备注</th>
+      </tr></thead><tbody>`;
+  D.t1Detail.forEach(r=>{
+    html += `<tr class="pt217-detail-row" data-vendor="${fmt(r['厂家'])}" style="border-bottom:1px solid #e2e8f0;">
+      <td style="padding:6px 8px;">${fmt(r['记录ID'])}</td><td>${fmt(r['文献编号'])}</td>
+      <td>${fmt(r['第一作者/年'])}</td><td>${fmt(r['期刊'])}</td><td style="font-weight:600;">${fmt(r['厂家'])}</td>
+      <td style="font-size:11px;">${fmt(r['技术平台'])}</td><td>${fmt(r['指标口径'])}</td><td>${fmt(r['疾病分组'])}</td>
+      <td style="font-size:11px;">${fmt(r['队列类型'])}</td><td style="font-size:11px;">${fmt(r['金标准'])}</td>
+      <td style="font-weight:700;color:${aucColor(parseFloat(r['AUC']))};">${fmt(r['AUC'])}</td>
+      <td style="font-size:11px;">${fmt(r['95%CI'])}</td><td>${fmt(r['灵敏度%'])}</td><td>${fmt(r['特异度%'])}</td>
+      <td>${fmt(r['PPV%'])}</td><td>${fmt(r['NPV%'])}</td><td>${fmt(r['切点'])}</td>
+      <td>${pmidLink(r['PMID'])}</td>
+      <td style="font-size:11px;color:#64748b;">${fmt(r['备注'])}</td>
     </tr>`;
   });
-  html += `</table></section>`;
+  html += `</tbody></table></div></section>`;
 
   el.innerHTML = html;
-
-  // ===== 渲染图表 =====
-  setTimeout(()=>{
-    // PPV散点图
-    const ppvChart = echarts.init(document.getElementById('pt217PpvChart'));
-    const ppvData = [
-      {prev:21.4, ppv:78.3, label:'Roche · 初级保健(prevalence 21.4%)', group:'Roche'},
-      {prev:45.4, ppv:90.2, label:'Roche · 二级保健(45.4%)', group:'Roche'},
-      {prev:60.0, ppv:92.0, label:'Fujirebio · 记忆门诊n=499', group:'Fujirebio'},
-      {prev:70.0, ppv:97.6, label:'C2N · 有症状n=1142', group:'C2N'},
-      {prev:15.0, ppv:79.0, label:'预临床社区 · 单用p-tau217', group:'预临床'},
-      {prev:15.0, ppv:91.0, label:'预临床社区 · 两步法', group:'预临床'},
-    ];
-    const groups = {};
-    ppvData.forEach(p=>{ if(!groups[p.group]) groups[p.group]=[]; groups[p.group].push([p.prev,p.ppv,p.label]); });
-    ppvChart.setOption({
-      tooltip:{formatter:p=>`${p.data[2]}<br/>先验患病率: ${p.data[0]}%<br/>PPV: ${p.data[1]}%`},
-      legend:{top:0},
-      grid:{left:60,right:30,top:40,bottom:50},
-      xAxis:{type:'value',name:'人群Aβ阳性率(%)',min:0,max:80,nameLocation:'middle',nameGap:30},
-      yAxis:{type:'value',name:'PPV(%)',min:60,max:100,nameLocation:'middle',nameGap:40},
-      series:Object.keys(groups).map(g=>({name:g,type:'scatter',symbolSize:20,data:groups[g],
-        label:{show:true,formatter:p=>p.data[2].split(' · ')[0],position:'top',fontSize:10}}))
-    });
-
-    // CLEAR-AD条形图
-    const ca = [...D.clearAd].sort((a,b)=>parseFloat(b['全队列AUC'])-parseFloat(a['全队列AUC']));
-    const caChart = echarts.init(document.getElementById('pt217ClearAdChart'));
-    caChart.setOption({
-      tooltip:{formatter:p=>{
-        const d=ca[p.dataIndex];
-        return `${d['厂家']}<br/>AUC: ${d['全队列AUC']}<br/>灵敏度: ${d['灵敏度%']??'—'}<br/>特异度: ${d['特异度%']??'—'}<br/>灰区: ${d['90/90灰区%']??'—'}`;
-      }},
-      grid:{left:180,right:40,top:20,bottom:40},
-      xAxis:{type:'value',min:0.5,max:1.0},
-      yAxis:{type:'category',data:ca.map(d=>d['厂家']).reverse(),axisLabel:{fontSize:11}},
-      series:[{type:'bar',
-        data:ca.map(d=>({value:parseFloat(d['全队列AUC']),
-          itemStyle:{color:d['厂家'].includes('匿名')?'#cbd5e1':(parseFloat(d['全队列AUC'])>=0.92?'#15803d':parseFloat(d['全队列AUC'])>=0.85?'#a16207':'#b91c1c')}})).reverse(),
-        label:{show:true,position:'right',formatter:p=>p.value.toFixed(3)}
-      }]
-    });
-    window.addEventListener('resize',()=>{ppvChart.resize();caChart.resize();});
-  },50);
 }
 
 function filterPt217Detail(){
@@ -5137,6 +4941,7 @@ function filterPt217Detail(){
   });
   document.getElementById('pt217DetailCount').textContent = `显示 ${shown} 条`;
 }
+
 
 function initScience() {
   const topics = {};
