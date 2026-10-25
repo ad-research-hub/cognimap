@@ -1582,8 +1582,103 @@ window.addEventListener('unhandledrejection', function(e) {
 
 <!-- p-tau217 血检试剂深度横评 -->
 <div id="page-ptau217" class="page">
-  <button class="back-btn" onclick="navigate('markers')">← 返回标志物库</button>
-  <div id="pt217Content" style="max-width:1280px;margin:0 auto;"></div>
+<style>
+#page-ptau217{padding:0 0 64px;background:#f4f7fc}
+#page-ptau217 .pt-back{max-width:1280px;margin:0 auto;padding:14px 20px 0}
+#page-ptau217 .pt-hero{background:linear-gradient(135deg,#1e3a8a 0%,#4c1d95 100%);color:#fff;padding:20px 20px 24px}
+#page-ptau217 .pt-hero-in{max-width:1280px;margin:0 auto}
+#page-ptau217 .pt-hero-row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+#page-ptau217 .pt-title{margin:0;font-size:22px;font-weight:700;letter-spacing:.3px}
+#page-ptau217 .pt-badge{margin-left:auto;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.24);padding:5px 13px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+#page-ptau217 .pt-sub{font-size:12.5px;opacity:.88;margin-top:8px;line-height:1.65}
+#page-ptau217 .pt-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px}
+#page-ptau217 .pt-kpi{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:11px 14px}
+#page-ptau217 .pt-kpi b{display:block;font-size:21px;line-height:1.15}
+#page-ptau217 .pt-kpi span{display:block;font-size:11.5px;opacity:.88;margin-top:3px;line-height:1.5}
+#page-ptau217 .pt-tabs{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(30,58,138,.07)}
+#page-ptau217 .pt-tabs-in{max-width:1280px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:8px 16px;-webkit-overflow-scrolling:touch}
+#page-ptau217 .pt-tabs-in::-webkit-scrollbar{height:0}
+#page-ptau217 .pt-tab{flex:0 0 auto;border:0;background:transparent;padding:8px 15px;border-radius:999px;font-size:13px;color:#475569;cursor:pointer;white-space:nowrap;transition:.15s}
+#page-ptau217 .pt-tab:hover{background:#eef2f9}
+#page-ptau217 .pt-tab[aria-selected="true"]{background:#1e3a8a;color:#fff;font-weight:600;box-shadow:0 2px 8px rgba(30,58,138,.3)}
+#page-ptau217 .pt-wrap{max-width:1280px;margin:0 auto;padding:18px 20px 0}
+#page-ptau217 .pt-sec{display:none;animation:ptFade .25s ease}
+#page-ptau217 .pt-sec.on{display:block}
+@keyframes ptFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+#page-ptau217 .pt-card{background:#fff;border:1px solid #e6ecf5;border-radius:14px;padding:16px 18px;margin-bottom:14px;box-shadow:0 1px 2px rgba(30,58,138,.04)}
+#page-ptau217 .pt-h{font-size:15.5px;font-weight:700;color:#1e3a8a;margin:0 0 8px;line-height:1.5;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+#page-ptau217 .pt-h small{font-weight:400;font-size:12px;color:#94a3b8}
+#page-ptau217 .pt-lead{font-size:13px;color:#475569;line-height:1.8;margin:0 0 12px}
+#page-ptau217 .pt-concl{background:#eff6ff;border-left:3px solid #3b82f6;border-radius:0 8px 8px 0;padding:9px 13px;font-size:12.5px;line-height:1.75;color:#1e3a8a;margin:0 0 14px}
+#page-ptau217 .pt-concl b{color:#1e40af}
+#page-ptau217 .pt-bars{margin:10px 0 4px}
+#page-ptau217 .pt-bar{display:grid;grid-template-columns:132px 1fr 70px;gap:10px;align-items:center;font-size:12.5px;margin-bottom:7px}
+#page-ptau217 .pt-bar-l{color:#334155;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#page-ptau217 .pt-bar-track{height:9px;background:#eef2f8;border-radius:999px;overflow:hidden}
+#page-ptau217 .pt-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#93c5fd,#1d4ed8);min-width:3px}
+#page-ptau217 .pt-bar-fill.warn{background:linear-gradient(90deg,#fcd34d,#d97706)}
+#page-ptau217 .pt-bar-fill.bad{background:linear-gradient(90deg,#fca5a5,#b91c1c)}
+#page-ptau217 .pt-bar-fill.ok{background:linear-gradient(90deg,#86efac,#15803d)}
+#page-ptau217 .pt-bar-v{text-align:right;color:#475569;font-variant-numeric:tabular-nums;font-size:12px}
+#page-ptau217 .pt-note{font-size:11.5px;color:#64748b;line-height:1.7;margin-top:10px;border-top:1px dashed #e6ecf5;padding-top:8px}
+#page-ptau217 .pt-pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#eef2f8;color:#475569;white-space:nowrap}
+#page-ptau217 .pt-pill.ok{background:#dcfce7;color:#166534;font-weight:600}
+#page-ptau217 .pt-pill.warn{background:#fef3c7;color:#92400e;font-weight:600}
+#page-ptau217 .pt-pill.bad{background:#fee2e2;color:#b91c1c;font-weight:600}
+#page-ptau217 .pt-pill.info{background:#dbeafe;color:#1e40af;font-weight:600}
+#page-ptau217 .pt-kp{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px}
+#page-ptau217 .pt-kp-c{background:#fff;border:1px solid #e6ecf5;border-radius:12px;padding:14px 16px 12px 16px;position:relative}
+#page-ptau217 .pt-kp-n{position:absolute;left:0;top:14px;width:4px;height:calc(100% - 28px);background:#3b82f6;border-radius:0 3px 3px 0}
+#page-ptau217 .pt-kp-t{font-size:13.5px;font-weight:700;color:#1e293b;margin:0 0 7px;line-height:1.55;padding-left:6px}
+#page-ptau217 .pt-kp-d{font-size:12px;color:#475569;line-height:1.75;margin:0 0 9px;padding-left:6px}
+#page-ptau217 .pt-kp-f{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding-left:6px;border-top:1px dashed #eef2f8;padding-top:8px}
+#page-ptau217 .pt-kp-f span:first-child{font-size:11px;color:#94a3b8}
+#page-ptau217 .pt-tw{overflow-x:auto;border:1px solid #e6ecf5;border-radius:12px;background:#fff;-webkit-overflow-scrolling:touch}
+#page-ptau217 table.pt-t{width:100%;border-collapse:collapse;font-size:12.5px;min-width:760px}
+#page-ptau217 table.pt-t th{background:#f1f5fb;text-align:left;padding:9px 11px;color:#1e3a8a;font-weight:600;white-space:nowrap;border-bottom:1px solid #e2e8f0;position:sticky;top:0}
+#page-ptau217 table.pt-t td{padding:9px 11px;border-bottom:1px solid #f1f5f9;vertical-align:top;color:#334155;line-height:1.6}
+#page-ptau217 table.pt-t tr:last-child td{border-bottom:0}
+#page-ptau217 table.pt-t tr:hover td{background:#fafcff}
+#page-ptau217 .pt-sub-t{font-size:11px;color:#94a3b8;display:block;margin-top:2px;line-height:1.5}
+#page-ptau217 .pt-search{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+#page-ptau217 .pt-search input,#page-ptau217 .pt-search select{border:1px solid #d7dfeb;border-radius:10px;padding:9px 12px;font-size:13px;outline:none;background:#fff;color:#334155}
+#page-ptau217 .pt-search input{flex:1 1 240px;min-width:0}
+#page-ptau217 .pt-search input:focus,#page-ptau217 .pt-search select:focus{border-color:#1e3a8a;box-shadow:0 0 0 3px rgba(30,58,138,.12)}
+#page-ptau217 .pt-count{font-size:12px;color:#64748b;white-space:nowrap}
+#page-ptau217 .pt-src{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+#page-ptau217 .pt-src a{display:block;background:#fff;border:1px solid #e6ecf5;border-radius:10px;padding:10px 13px;font-size:12.5px;color:#1d4ed8;text-decoration:none;line-height:1.55}
+#page-ptau217 .pt-src a:hover{border-color:#93c5fd;background:#f8fbff}
+#page-ptau217 .pt-src em{display:block;font-style:normal;font-size:11px;color:#94a3b8;margin-top:3px}
+#page-ptau217 .pt-frame{width:100%;height:1600px;border:1px solid #e2e8f0;border-radius:10px;background:#fff}
+#page-ptau217 .pt-empty{padding:24px;text-align:center;color:#94a3b8;font-size:13px}
+#page-ptau217 .pt-stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:6px 0 14px}
+#page-ptau217 .pt-stat>div{background:#f8fafd;border:1px solid #e6ecf5;border-radius:11px;padding:10px 12px;text-align:center}
+#page-ptau217 .pt-stat b{display:block;font-size:18px;color:#1e3a8a;line-height:1.2}
+#page-ptau217 .pt-stat span{display:block;font-size:11px;color:#64748b;margin-top:3px}
+#page-ptau217 .pt-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px}
+@media(max-width:700px){
+ #page-ptau217 .pt-hero{padding:16px 14px 20px}
+ #page-ptau217 .pt-wrap{padding:14px 14px 0}
+ #page-ptau217 .pt-back{padding:10px 14px 0}
+ #page-ptau217 .pt-title{font-size:18px}
+ #page-ptau217 .pt-badge{margin-left:0}
+ #page-ptau217 .pt-bar{grid-template-columns:100px 1fr 62px;font-size:12px}
+ #page-ptau217 .pt-frame{height:1200px}
+}
+</style>
+<div class="pt-back"><button class="back-btn" onclick="navigate('markers')">← 返回标志物库</button></div>
+<div class="pt-hero">
+  <div class="pt-hero-in">
+    <div class="pt-hero-row">
+      <h1 class="pt-title">p-tau217 血检试剂深度横评</h1>
+      <span class="pt-badge" id="pt217Badge"></span>
+    </div>
+    <div class="pt-sub" id="pt217Sub"></div>
+    <div class="pt-kpis" id="pt217Kpis"></div>
+  </div>
+</div>
+<nav class="pt-tabs"><div class="pt-tabs-in" id="pt217Tabs"></div></nav>
+<div class="pt-wrap"><div id="pt217Content"></div></div>
 </div>
 
 <!-- 标志物类别列表 -->
@@ -5007,113 +5102,388 @@ window.insHmFilter = function () {
 
 function initPtau217() {
   const D = window.PTAU217_DATA;
-  if(!D){document.getElementById('pt217Content').innerHTML='<p style="color:#b91c1c;">数据未加载，请刷新</p>';return;}
-  const el = document.getElementById('pt217Content');
-  const fmt = v => (v===null||v===undefined||v==='')?'—':v;
-  const pmidLink = pmid => pmid? `<a href="https://pubmed.ncbi.nlm.nih.gov/${pmid}/" target="_blank">${pmid}</a>`:'—';
-  const aucColor = a => { if(!a||isNaN(a)) return '#64748b'; return a>=0.92?'#15803d':(a>=0.88?'#a16207':'#b91c1c'); };
+  if (!D) { document.getElementById('pt217Content').innerHTML = '<p style="color:#b91c1c;">数据未加载，请刷新</p>'; return; }
+  const T = D.t1Detail || [];
+  const esc = s => String(s === null || s === undefined ? '' : s);
+  const num = v => { if (v === null || v === undefined || v === '') return null; const n = parseFloat(v); return isNaN(n) ? null : n; };
+  const med = a => { const s = a.filter(x => x !== null).sort((x, y) => x - y); if (!s.length) return null; return s.length % 2 ? s[(s.length - 1) / 2] : (s[s.length / 2 - 1] + s[s.length / 2]) / 2; };
+  const fmt3 = v => v === null ? '—' : v.toFixed(3);
+  const fmtP = v => v === null ? '—' : (Math.round(v * 1000) / 10) + '%';
+  const grp = (arr, f) => { const m = {}; arr.forEach(r => { const k = f(r); const key = k === null || k === undefined || k === '' ? '（未标注）' : k; (m[key] = m[key] || []).push(r); }); return m; };
+  const has = v => v !== null && v !== undefined && v !== '';
 
-  let html = `
-  <div style="background:linear-gradient(135deg,#1e3a8a,#4c1d95);color:#fff;padding:24px 32px;border-radius:12px;margin-bottom:20px;">
-    <h1 style="font-size:22px;margin-bottom:6px;">p-tau217 血检试剂深度横评</h1>
-    <p style="opacity:.85;font-size:13px;">16个厂家 · 89条诊断记录 · 52篇同行评议文献 · CLEAR-AD九家同批头对头</p>
-    <p style="opacity:.6;font-size:12px;margin-top:6px;">数据截止 ${D.meta.updateDate} · 受众：AD科研与IVD厂家 · 所有数字可溯源PMID</p>
-  </div>
+  // ---------- 顶部 ----------
+  const uniqPmid = new Set(T.map(r => r.PMID)).size;
+  const uniqVendor = new Set(T.map(r => r['厂家'])).size;
+  const uniqPlat = new Set(T.map(r => r['技术平台'])).size;
+  const nAuc = T.filter(r => num(r.AUC) !== null).length;
+  const nCi = T.filter(r => has(r['95%CI'])).length;
+  const nCut = T.filter(r => has(r['切点'])).length;
+  document.getElementById('pt217Badge').textContent = '数据截止 ' + (D.meta && D.meta.updateDate || '—');
+  const _srcAll = (D.sources || []);
+  const _srcLit = _srcAll.filter(x => x.PMID).length;
+  const _srcReg = _srcAll.filter(x => !x.PMID && x['标题']).length;
+  document.getElementById('pt217Sub').textContent = uniqVendor + ' 个厂家 · ' + T.length + ' 条诊断记录 · ' + uniqPmid + ' 篇被引文献 · ' + uniqPlat + ' 种技术平台 · 来源清单 ' + _srcAll.length + ' 行，其中可点击 ' + (_srcLit + _srcReg) + ' 条（文献 ' + _srcLit + ' / 法规公告 ' + _srcReg + '）';
 
-  <section style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:17px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">一、分厂家数据可视化（8图，可按平台/疾病/国产/NMPA筛选）</h2>
-    <p style="font-size:12.5px;color:#475569;margin-bottom:10px;">下方完整嵌入本研究配套的交互式图表页（fig1–fig8）。每个点可悬停查看厂家、文献编号、队列、n、金标准；空值不画成0。</p>
-    <iframe src="ptau217_charts.html" style="width:100%;height:1600px;border:1px solid #e2e8f0;border-radius:8px;" onload="this.style.height=this.contentDocument.body.scrollHeight+40+'px'"></iframe>
-  </section>
+  document.getElementById('pt217Kpis').innerHTML = [
+    ['厂家 / 文献', uniqVendor + ' / ' + uniqPmid],
+    ['诊断记录', T.length + ' 条'],
+    ['AUC 有数值的记录', nAuc + '（' + Math.round(100 * nAuc / T.length) + '%）'],
+    ['报 95%CI 的记录', nCi + '（' + Math.round(100 * nCi / T.length) + '%）'],
+    ['报切点的记录', nCut + '（' + Math.round(100 * nCut / T.length) + '%）'],
+    ['CLEAR-AD 头对头', (D.clearAd || []).length + ' 家同批']
+  ].map(k => '<div class="pt-kpi"><b>' + k[1] + '</b><span>' + k[0] + '</span></div>').join('');
 
-  <section style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:17px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">二、厂家法规状态（FDA / CE / NMPA 合并表）</h2>
-    <div style="background:#fffbeb;border-left:4px solid #f59e0b;padding:10px 14px;border-radius:4px;margin-bottom:12px;font-size:12.5px;color:#78350f;">
-      <strong>质量提示：</strong>Fujirebio已向Quest Diagnostics发出Lumipulse G pTau217/Aβ42 Plasma Ratio试剂盒positive bias通知，截至本数据截止日尚未见全面召回。本表仍正常展示其诊断性能数据，使用该试剂的实验室应关注厂家后续通告。
-    </div>
-    <div style="overflow-x:auto;">
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="background:#f1f5f9;">
-        <th style="padding:8px;text-align:left;">厂家</th><th>产品/平台</th><th>FDA状态</th><th>CE状态</th><th>NMPA状态</th><th>本表记录数</th><th>数据强度说明</th>
-      </tr>`;
-  D.vendors.forEach(v=>{
-    html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;font-weight:600;">${fmt(v['厂家'])}</td>
-      <td style="font-size:11px;">${fmt(v['产品/平台'])}</td>
-      <td style="font-size:11px;">${fmt(v['FDA 状态'])}</td>
-      <td style="font-size:11px;">${fmt(v['CE 状态'])}</td>
-      <td style="font-size:11px;color:#991b1b;">${fmt(v['NMPA 状态'])}</td>
-      <td style="text-align:center;font-weight:700;">${fmt(v['本表记录数'])}</td>
-      <td style="font-size:11px;color:#64748b;">${fmt(v['数据强度说明'])}</td>
-    </tr>`;
+  // ---------- 页签 ----------
+  const TABS = [
+    ['sum', '结论速览'], ['fig', '8 项交互图'], ['new', '新增 7 个维度'],
+    ['ven', '厂家与法规'], ['had', 'CLEAR-AD 头对头'], ['det', '明细 89 条'], ['src', '来源与排除']
+  ];
+  document.getElementById('pt217Tabs').innerHTML = TABS.map((t, i) =>
+    '<button class="pt-tab" role="tab" aria-selected="' + (i === 0) + '" onclick="ptTab(\'' + t[0] + '\',this)">' + t[1] + '</button>').join('');
+
+  // ---------- 通用小工具 ----------
+  const barPct = (v, lo, hi) => { if (v === null) return 0; const p = (v - lo) / (hi - lo) * 100; return Math.max(2, Math.min(100, p)); };
+  const barRow = (label, pct, text, tone) =>
+    '<div class="pt-bar"><span class="pt-bar-l" title="' + esc(label) + '">' + esc(label) + '</span>' +
+    '<div class="pt-bar-track"><div class="pt-bar-fill ' + (tone || '') + '" style="width:' + pct.toFixed(1) + '%"></div></div>' +
+    '<span class="pt-bar-v">' + text + '</span></div>';
+
+  let html = '';
+
+  // ============================================================
+  // 1. 结论速览
+  // ============================================================
+  const K = Object.keys((D.keyPoints || [{}])[0] || {});
+  const kpRows = (D.keyPoints || []).slice(1).filter(r => has(r[K[0]]));
+  html += '<section class="pt-sec on" id="pt-sec-sum" role="tabpanel">';
+  html += '<div class="pt-concl">以下 ' + kpRows.length + ' 条结论全部由本表数据算出，每条都标了依据单元与证据确定性，可按编号回查明细。' +
+    '<b>读法：</b>证据确定性为「高」的才适合直接用于选型结论；「中」的需要结合具体场景再判断。</div>';
+  html += '<div class="pt-kp">';
+  kpRows.forEach((r, i) => {
+    const cert = String(r[K[4]] || '');
+    const tone = /^高/.test(cert) ? 'ok' : (/中高/.test(cert) ? 'warn' : 'bad');
+    html += '<article class="pt-kp-c"><div class="pt-kp-n"></div>';
+    html += '<div class="pt-kp-t">' + esc(r[K[1]]) + '</div>';
+    html += '<div class="pt-kp-d">' + esc(r[K[2]]) + '</div>';
+    html += '<div class="pt-kp-f"><span>依据</span><span class="pt-pill">' + esc(r[K[3]]) + '</span><span class="pt-pill ' + tone + '">确定性：' + esc(cert) + '</span></div>';
+    html += '</article>';
   });
-  html += `</table></div></section>
+  html += '</div></section>';
 
-  <section style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:17px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">三、CLEAR-AD 九家同批血样头对头（宽表，Lv X, Science Bulletin 2026, n=431）</h2>
-    <p style="font-size:12px;color:#64748b;margin-bottom:10px;">中国10家记忆门诊、中心实验室盲法批匹配、Aβ-PET阳性率64%。两家应厂家要求匿名（厂商A、B），无法归入具体品牌。</p>
-    <div style="overflow-x:auto;">
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="background:#f1f5f9;">
-        <th style="padding:8px;text-align:left;">厂家</th><th>平台/方法学</th><th>检测指标</th><th>全队列AUC</th><th>95%CI</th><th>准确率%</th><th>灵敏度%</th><th>特异度%</th><th>MCI亚组AUC(n=230)</th><th>痴呆亚组AUC(n=171)</th><th>MCI+痴呆(n=401)</th><th>90/90灰区%</th><th>PPV%</th><th>NPV%</th>
-      </tr>`;
-  D.clearAd.forEach(c=>{
-    const a = parseFloat(c['全队列AUC']);
-    html += `<tr style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;font-weight:600;">${fmt(c['厂家'])}</td>
-      <td>${fmt(c['平台/方法学'])}</td><td>${fmt(c['检测指标'])}</td>
-      <td style="color:${aucColor(a)};font-weight:700;">${fmt(c['全队列AUC'])}</td>
-      <td>${fmt(c['95%CI'])}</td><td>${fmt(c['准确率%'])}</td><td>${fmt(c['灵敏度%'])}</td><td>${fmt(c['特异度%'])}</td>
-      <td>${fmt(c['MCI亚组AUC(n=230)'])}</td><td>${fmt(c['痴呆亚组AUC(n=171)'])}</td><td>${fmt(c['MCI+痴呆AUC(n=401)'])}</td>
-      <td>${fmt(c['90/90灰区%'])}</td><td>${fmt(c['PPV%'])}</td><td>${fmt(c['NPV%'])}</td>
-    </tr>`;
+  // ============================================================
+  // 2. 8 项交互图（保留原图表页）
+  // ============================================================
+  html += '<section class="pt-sec" id="pt-sec-fig" role="tabpanel">';
+  html += '<div class="pt-card"><h3 class="pt-h">原 8 项交互分析 <small>图 1–8，可悬停看厂家 / 文献编号 / 队列 / n / 金标准</small></h3>';
+  html += '<p class="pt-lead">同一图内的点来自不同队列、不同金标准、不同切点，<b>只做横向对照、不做排名</b>；空值不画成 0，图上缺失即「文献未报告」。</p>';
+  html += '<iframe class="pt-frame" src="ptau217_charts.html" loading="lazy" onload="this.style.height=Math.max(1200,this.contentWindow.document.body.scrollHeight+40)+\'px\'"></iframe>';
+  html += '</div></section>';
+
+  // ============================================================
+  // 3. 新增 7 个维度
+  // ============================================================
+  html += '<section class="pt-sec" id="pt-sec-new" role="tabpanel">';
+  html += '<div class="pt-concl">下面 7 个维度都是<b>直接从本表 89 条记录现场汇总</b>得到的新视角，不引入外部数据，也<b>没有做统计检验</b>——它们的用途是暴露「哪些结论建立在薄证据上」，而不是产生新的排名。</div>';
+
+  // --- 3.1 金标准强度 ---
+  const stdBucket = s => {
+    s = String(s || '');
+    if (/神经病理/.test(s)) return '神经病理（尸检）';
+    if (/转化/.test(s)) return '临床转化随访';
+    if (/CSF/.test(s)) return 'CSF 分型';
+    if (/PET/.test(s)) return 'PET 影像';
+    if (/临床/.test(s)) return '临床诊断';
+    return '其他 / 未标注';
+  };
+  const gStd = grp(T.filter(r => num(r.AUC) !== null), r => stdBucket(r['金标准']));
+  const rowsStd = Object.entries(gStd).map(([k, v]) => ({ k, n: v.length, m: med(v.map(r => num(r.AUC))), lo: Math.min.apply(null, v.map(r => num(r.AUC))), hi: Math.max.apply(null, v.map(r => num(r.AUC))) }))
+    .sort((a, b) => b.n - a.n);
+  const worstStd = rowsStd.filter(x => /神经病理/.test(x.k))[0];
+  const bestStd = rowsStd.filter(x => /PET/.test(x.k))[0];
+  html += '<div class="pt-card"><h3 class="pt-h">维度 1 · 金标准强度效应 <small>换一把尺子，AUC 会掉多少</small></h3>';
+  html += '<p class="pt-lead">同一个 p-tau217，用 Aβ-PET、CSF 分型、临床诊断或尸检神经病理当金标准，得到的 AUC 不是一回事。</p>';
+  if (worstStd && bestStd) {
+    html += '<div class="pt-concl"><b>结论：</b>以 <b>尸检神经病理</b> 为金标准的 ' + worstStd.n + ' 条，AUC 中位仅 <b>' + fmt3(worstStd.m) +
+      '</b>；以 <b>PET 影像</b> 为金标准的 ' + bestStd.n + ' 条，AUC 中位 <b>' + fmt3(bestStd.m) + '</b>，差 ' +
+      (Math.round((bestStd.m - worstStd.m) * 1000) / 1000).toFixed(3) + '。引用「AUC 0.95」这类数字时，必须先问它对着什么金标准。</div>';
+  }
+  html += '<div class="pt-bars">';
+  rowsStd.forEach(x => html += barRow(x.k + '（n=' + x.n + '）', barPct(x.m, 0.7, 1.0), fmt3(x.m),
+    /神经病理/.test(x.k) ? 'bad' : (/PET/.test(x.k) ? 'ok' : '')));
+  html += '</div>';
+  html += '<div class="pt-note">横条长度按 AUC 0.70–1.00 刻度缩放，不是从 0 起，只用于同图内比较。分桶规则：神经病理优先，其次含「转化」、含「CSF」、含「PET」、含「临床」；复合金标准（如「临床诊断+CSF」）按上述优先级只归入一桶。</div>';
+  html += '</div>';
+
+  // --- 3.2 队列场景 ---
+  const gCoh = grp(T.filter(r => num(r.AUC) !== null), r => r['队列类型']);
+  const rowsCoh = Object.entries(gCoh).map(([k, v]) => ({ k, n: v.length, m: med(v.map(r => num(r.AUC))) })).sort((a, b) => b.n - a.n);
+  const autopsy = rowsCoh.filter(x => /尸检/.test(x.k))[0];
+  const comm = rowsCoh.filter(x => /社区/.test(x.k))[0];
+  html += '<div class="pt-card"><h3 class="pt-h">维度 2 · 队列场景效应 <small>门诊数据能外推到社区筛查吗</small></h3>';
+  html += '<p class="pt-lead">记忆门诊里「有病的人多、病情重」，社区里阳性率低。同一个试剂换场景，性能通常会变——医学上叫谱系偏倚。</p>';
+  html += '<div class="pt-bars">';
+  rowsCoh.forEach(x => html += barRow(x.k + '（n=' + x.n + '）', barPct(x.m, 0.7, 1.0), fmt3(x.m), /尸检/.test(x.k) ? 'bad' : ''));
+  html += '</div>';
+  const commN = T.filter(r => /社区/.test(r['队列类型'] || '')).length;
+  const clinicRow = rowsCoh.filter(x => /临床/.test(x.k))[0] || { n: 0, m: null };
+  html += '<div class="pt-concl"><b>结论：</b>记忆门诊 ' + clinicRow.n + ' 条（AUC 中位 ' + fmt3(clinicRow.m) + '）、社区/人群队列仅 ' + commN + ' 条（' +
+    (comm ? comm.n : 0) + ' 条报了 AUC，中位 ' + (comm ? fmt3(comm.m) : '—') + '）、尸检队列 ' + (autopsy ? autopsy.n : 0) + ' 条（中位 ' +
+    (autopsy ? fmt3(autopsy.m) : '—') + '）。<b>证据体几乎全部来自记忆门诊</b>，社区早筛场景的直接证据非常薄；尸检队列偏低，与维度 1 是同一个原因——金标准越硬，数字越低。</div>';
+  html += '<div class="pt-note">样本量提示：社区队列 5 条、尸检队列 6 条，中位数的抽样波动很大，仅作方向参考，不宜当作定量结论。</div>';
+  html += '</div>';
+
+  // --- 3.3 证据独立性 ---
+  const gVen = grp(T, r => r['厂家']);
+  const rowsInd = Object.entries(gVen).map(([k, v]) => {
+    const pmids = new Set(v.map(r => String(r.PMID)));
+    const authors = new Set(v.map(r => String(r['第一作者/年'] || '').replace(/\s*\d{4}\s*$/, '').trim()).filter(Boolean));
+    return { k, n: v.length, pm: pmids.size, au: authors.size, m: med(v.map(r => num(r.AUC))) };
+  }).sort((a, b) => b.n - a.n);
+  const solo = rowsInd.filter(x => x.au <= 1);
+  html += '<div class="pt-card"><h3 class="pt-h">维度 3 · 证据独立性 <small>是「多中心独立验证」还是「单中心自证」</small></h3>';
+  html += '<p class="pt-lead">记录数多不等于证据硬。同样 17 条，如果全出自同一课题组，和 14 个不同一作的研究，分量完全不同。</p>';
+  html += '<div class="pt-tw"><table class="pt-t"><thead><tr><th>厂家</th><th>记录</th><th>独立文献</th><th>独立第一作者</th><th>AUC 中位</th><th>判断</th></tr></thead><tbody>';
+  rowsInd.forEach(x => {
+    const judge = x.au >= 8 ? '<span class="pt-pill ok">多中心独立</span>' : (x.au >= 3 ? '<span class="pt-pill info">有一定独立性</span>' : (x.au === 2 ? '<span class="pt-pill warn">仅 2 个课题组</span>' : '<span class="pt-pill bad">单中心自证</span>'));
+    html += '<tr><td><b>' + esc(x.k) + '</b></td><td>' + x.n + '</td><td>' + x.pm + '</td><td>' + x.au + '</td><td>' + fmt3(x.m) + '</td><td>' + judge + '</td></tr>';
   });
-  html += `</table></div></section>
+  html += '</tbody></table></div>';
+  html += '<div class="pt-concl"><b>结论：</b>' + solo.length + ' 个厂家（' + solo.map(x => x.k).join('、') + '）的全部记录只来自 1 个第一作者，属单中心自证，' +
+    '目前<b>不适合作为选型依据</b>。反过来，Lilly 的记录数（' + (rowsInd.filter(x => x.k === 'Lilly')[0] || { n: 0 }).n +
+    '）低于 Fujirebio（' + (rowsInd.filter(x => x.k === 'Fujirebio')[0] || { n: 0 }).n + '），但独立一作只有 ' +
+    (rowsInd.filter(x => x.k === 'Lilly')[0] || { au: 0 }).au + ' 个，主要来自同一课题组体系。</div>';
+  html += '<div class="pt-note">「独立第一作者」按「第一作者/年」去掉年份后去重计数，是独立性的粗略代理；同一课题组不同成员会各算一个，属于偏宽松的估计。</div>';
+  html += '</div>';
 
-  <section style="background:#fff;border-radius:10px;padding:20px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);">
-    <h2 style="font-size:17px;color:#1e3a8a;border-bottom:2px solid #e2e8f0;padding-bottom:8px;margin-bottom:12px;">四、T1 明细长表（${D.t1Detail.length}条诊断记录）</h2>
-    <div style="margin-bottom:10px;">
-      <label style="font-size:13px;">按厂家筛选：</label>
-      <select id="pt217VendorFilter" onchange="filterPt217Detail()" style="padding:6px 12px;border-radius:6px;border:1px solid #cbd5e1;margin-left:8px;">
-        <option value="">全部</option>
-        ${[...new Set(D.t1Detail.map(r=>r['厂家']).filter(Boolean))].sort().map(v=>`<option value="${v}">${v}</option>`).join('')}
-      </select>
-      <span id="pt217DetailCount" style="margin-left:12px;font-size:12px;color:#64748b;"></span>
-    </div>
-    <div style="overflow-x:auto;max-height:600px;overflow-y:auto;">
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <thead style="position:sticky;top:0;background:#f1f5f9;">
-      <tr>
-        <th style="padding:8px;text-align:left;">ID</th><th>编号</th><th>第一作者/年</th><th>期刊</th><th>厂家</th><th>技术平台</th><th>指标口径</th><th>疾病分组</th><th>队列类型</th><th>金标准</th><th>AUC</th><th>95%CI</th><th>Se%</th><th>Sp%</th><th>PPV%</th><th>NPV%</th><th>切点</th><th>PMID</th><th>备注</th>
-      </tr></thead><tbody>`;
-  D.t1Detail.forEach(r=>{
-    html += `<tr class="pt217-detail-row" data-vendor="${fmt(r['厂家'])}" style="border-bottom:1px solid #e2e8f0;">
-      <td style="padding:6px 8px;">${fmt(r['记录ID'])}</td><td>${fmt(r['文献编号'])}</td>
-      <td>${fmt(r['第一作者/年'])}</td><td>${fmt(r['期刊'])}</td><td style="font-weight:600;">${fmt(r['厂家'])}</td>
-      <td style="font-size:11px;">${fmt(r['技术平台'])}</td><td>${fmt(r['指标口径'])}</td><td>${fmt(r['疾病分组'])}</td>
-      <td style="font-size:11px;">${fmt(r['队列类型'])}</td><td style="font-size:11px;">${fmt(r['金标准'])}</td>
-      <td style="font-weight:700;color:${aucColor(parseFloat(r['AUC']))};">${fmt(r['AUC'])}</td>
-      <td style="font-size:11px;">${fmt(r['95%CI'])}</td><td>${fmt(r['灵敏度%'])}</td><td>${fmt(r['特异度%'])}</td>
-      <td>${fmt(r['PPV%'])}</td><td>${fmt(r['NPV%'])}</td><td>${fmt(r['切点'])}</td>
-      <td>${pmidLink(r['PMID'])}</td>
-      <td style="font-size:11px;color:#64748b;">${fmt(r['备注'])}</td>
-    </tr>`;
+  // --- 3.4 证据精度（CI 宽度） ---
+  const ciW = v => { const m = String(v || '').replace(/[–—~]/g, '-').match(/([\d.]+)\s*-\s*([\d.]+)/); return m ? Math.round((parseFloat(m[2]) - parseFloat(m[1])) * 1000) / 1000 : null; };
+  const ciRows = T.map(r => ({ r, w: ciW(r['95%CI']) })).filter(x => x.w !== null && x.w > 0).sort((a, b) => a.w - b.w);
+  const ciMed = med(ciRows.map(x => x.w));
+  const ciNarrow = ciRows.filter(x => x.w <= 0.05).length;
+  const ciWide = ciRows.filter(x => x.w >= 0.10).length;
+  html += '<div class="pt-card"><h3 class="pt-h">维度 4 · 证据精度 <small>' + nCi + ' 条报了 95%CI，' + (T.length - nCi) + ' 条没报</small></h3>';
+  html += '<p class="pt-lead">只报点估计不报区间，等于没说清有多准。区间越窄，结论越硬。</p>';
+  html += '<div class="pt-stat"><div><b>' + nCi + ' / ' + T.length + '</b><span>报了 95%CI</span></div>' +
+    '<div><b>' + (100 - Math.round(100 * nCi / T.length)) + '%</b><span>没报区间</span></div>' +
+    '<div><b>' + fmt3(ciMed) + '</b><span>CI 宽度中位</span></div>' +
+    '<div><b>' + ciNarrow + '</b><span>宽度 ≤0.05（稳）</span></div>' +
+    '<div><b>' + ciWide + '</b><span>宽度 ≥0.10（不稳）</span></div></div>';
+  html += '<div class="pt-h" style="font-size:13px;margin-top:12px;">区间最窄的 6 条（最可信的结论）</div><div class="pt-tw"><table class="pt-t"><thead><tr><th>厂家</th><th>AUC</th><th>95%CI</th><th>宽度</th><th>疾病分组</th></tr></thead><tbody>';
+  ciRows.slice(0, 6).forEach(x => {
+    html += '<tr><td>' + esc(x.r['厂家']) + '</td><td><b>' + esc(x.r.AUC) + '</b></td><td>' + esc(x.r['95%CI']) + '</td><td>' + fmt3(x.w) + '</td><td>' + esc(x.r['疾病分组']) + '</td></tr>';
   });
-  html += `</tbody></table></div></section>`;
+  html += '</tbody></table></div>';
+  html += '<div class="pt-h" style="font-size:13px;margin-top:14px;">区间最宽的 4 条（最不确定的结论）</div><div class="pt-tw"><table class="pt-t"><thead><tr><th>厂家</th><th>AUC</th><th>95%CI</th><th>宽度</th><th>疾病分组</th></tr></thead><tbody>';
+  ciRows.slice(-4).reverse().forEach(x => {
+    html += '<tr><td>' + esc(x.r['厂家']) + '</td><td><b>' + esc(x.r.AUC) + '</b></td><td>' + esc(x.r['95%CI']) + '</td><td style="color:#b91c1c;font-weight:600;">' + fmt3(x.w) + '</td><td>' + esc(x.r['疾病分组']) + '</td></tr>';
+  });
+  html += '</tbody></table></div>';
+  html += '<div class="pt-concl"><b>结论：</b>' + nCi + ' 条报了 95%CI（占 ' + Math.round(100 * nCi / T.length) + '%），宽度中位 ' + fmt3(ciMed) +
+    '；窄于 0.05 的仅 ' + ciNarrow + ' 条，宽于 0.10 的有 ' + ciWide + ' 条。<b>超过六成记录没有区间</b>，这些数字只能当点估计，不能拿来比较两家谁更准。</div>';
+  html += '<div class="pt-note">宽度 = 95%CI 上限 − 下限。CI 极窄有时反映样本量大，也可能反映队列高度选择性，不能单看宽度下结论。</div>';
+  html += '</div>';
 
-  el.innerHTML = html;
+  // --- 3.5 时间趋势 ---
+  const gYr = grp(T, r => { const m = String(r['第一作者/年'] || '').match(/(20\d{2})/); return m ? m[1] : null; });
+  const yrRows = Object.entries(gYr).filter(([k]) => /^20\d{2}$/.test(k)).map(([k, v]) => ({ k: +k, n: v.length, m: med(v.map(r => num(r.AUC))) })).sort((a, b) => a.k - b.k);
+  const maxYrN = Math.max.apply(null, yrRows.map(x => x.n));
+  html += '<div class="pt-card"><h3 class="pt-h">维度 5 · 时间趋势 <small>领域在加速，还是在收敛</small></h3>';
+  html += '<p class="pt-lead">记录数按发表年份统计；柱长＝当年记录数，右侧给出当年 AUC 中位。</p>';
+  html += '<div class="pt-bars">';
+  yrRows.forEach(x => html += barRow(x.k + '（n=' + x.n + '）', 100 * x.n / maxYrN, fmt3(x.m), x.k >= 2026 ? 'warn' : ''));
+  html += '</div>';
+  const y26 = yrRows.filter(x => x.k === 2026)[0];
+  const y25 = yrRows.filter(x => x.k === 2025)[0];
+  if (y26 && y25) {
+    html += '<div class="pt-concl"><b>结论：</b>2026 年一年就有 ' + y26.n + ' 条记录（占全表 ' + Math.round(100 * y26.n / T.length) +
+      '%），是 2025 年（' + y25.n + ' 条）的 ' + (Math.round(y25.n ? 10 * y26.n / y25.n : 0) / 10) + ' 倍——领域在<b>加速</b>。但当年 AUC 中位从 ' +
+      fmt3(y25.m) + ' 降到 ' + fmt3(y26.m) + '，主因是国产与新平台集中入场（分母变大、证据更参差），不代表技术退步。</div>';
+  }
+  html += '<div class="pt-note">年份取自「第一作者/年」字段。表中有 1 条记为 2027 年，疑为在线优先发表年份笔误，已保留原样未做修正。</div>';
+  html += '</div>';
+
+  // --- 3.6 切点报告规范度 ---
+  const cutNum = re => T.filter(r => re.test(String(r['切点'] || ''))).length;
+  const nCutNumeric = cutNum(/\d+(\.\d+)?\s*(pg\/m?l|ng\/l|u\/ml|fmol\/l|ng\/ml)/i);
+  const nCutDual = cutNum(/双切点|双阈值|双 cut|两切点/i);
+  const nCutText = nCut - nCutNumeric;
+  html += '<div class="pt-card"><h3 class="pt-h">维度 6 · 切点报告规范度 <small>能不能照抄别人的阈值</small></h3>';
+  html += '<p class="pt-lead">阈值是这个领域最容易被误用的数字：不同平台单位不同、抗体不同、校准品不同，直接照搬会出问题。</p>';
+  html += '<div class="pt-stat"><div><b>' + nCut + '</b><span>报了切点</span></div>' +
+    '<div><b>' + nCutNumeric + '</b><span>给了可换算数值</span></div>' +
+    '<div><b>' + nCutText + '</b><span>只写「最佳阈值」等描述</span></div>' +
+    '<div><b>' + nCutDual + '</b><span>用了双切点</span></div></div>';
+  html += '<div class="pt-bars">';
+  html += barRow('给具体数值', 100 * nCutNumeric / Math.max(1, nCut), nCutNumeric + ' 条', 'ok');
+  html += barRow('仅文字描述', 100 * nCutText / Math.max(1, nCut), nCutText + ' 条', 'warn');
+  html += barRow('未报切点', 100 * (T.length - nCut) / T.length, (T.length - nCut) + ' 条', 'bad');
+  html += '</div>';
+  html += '<div class="pt-concl"><b>结论：</b>' + T.length + ' 条里只有 <b>' + nCutNumeric + ' 条</b>给出了带单位的可换算切点，其余 ' +
+    (nCutText + (T.length - nCut)) + ' 条要么只写「最佳阈值 / 双切点」，要么完全没报。<b>这意味着跨厂家的阈值换算在本表内基本做不了</b>——想照抄说明书切点，必须回原文核对平台与单位。</div>';
+  html += '<div class="pt-note">统计口径：含 pg/mL、ng/L、U/mL、fmol/L 等单位的视为「可换算数值」；「双切点（未报具体值）」这类仍计入文字描述。</div>';
+  html += '</div>';
+
+  // --- 3.7 疾病分组碎片化 ---
+  const gDis = grp(T, r => r['疾病分组']);
+  const disAll = Object.entries(gDis);
+  const dis1 = disAll.filter(([k, v]) => v.length === 1).length;
+  const disGe3 = disAll.filter(([k, v]) => v.length >= 3).length;
+  const topDis = disAll.sort((a, b) => b[1].length - a[1].length)[0];
+  html += '<div class="pt-card"><h3 class="pt-h">维度 7 · 分组碎片化 <small>64 个「疾病分组」里，多少是一次性场景</small></h3>';
+  html += '<p class="pt-lead">分组越碎，跨研究合并越难。这是这份证据体最实际的结构性问题。</p>';
+  html += '<div class="pt-stat"><div><b>' + disAll.length + '</b><span>疾病分组总数</span></div>' +
+    '<div><b>' + dis1 + '</b><span>只有 1 条记录</span></div>' +
+    '<div><b>' + disGe3 + '</b><span>≥3 条（可合并）</span></div>' +
+    '<div><b>' + Math.round(100 * dis1 / disAll.length) + '%</b><span>一次性场景占比</span></div></div>';
+  html += '<div class="pt-bars">';
+  disAll.slice(0, 8).forEach(([k, v]) => html += barRow(k.length > 18 ? k.slice(0, 18) + '…' : k, 100 * v.length / topDis[1].length, v.length + ' 条', v.length === 1 ? 'bad' : ''));
+  html += '</div>';
+  html += '<div class="pt-concl"><b>结论：</b>' + disAll.length + ' 个分组中 <b>' + dis1 + ' 个只有 1 条记录</b>（占 ' + Math.round(100 * dis1 / disAll.length) +
+    '%），真正能跨研究合并的（≥3 条）只有 ' + disGe3 + ' 个。记录最多的一组是「' + esc(topDis[0]) + '」共 ' + topDis[1].length +
+    ' 条——但其中大部分来自 CLEAR-AD 同一批样本，不等于 ' + topDis[1].length + ' 项独立证据。</div>';
+  html += '<div class="pt-note">启示：做 meta 分析或选型对比时，应按「疾病分组 + 金标准 + 指标口径」三元组配对，而不是按厂家简单平均。</div>';
+  html += '</div>';
+
+  html += '</section>';
+
+  // ============================================================
+  // 4. 厂家与法规
+  // ============================================================
+  const V = D.vendors || [];
+  html += '<section class="pt-sec" id="pt-sec-ven" role="tabpanel">';
+  html += '<div class="pt-card"><h3 class="pt-h">厂家法规状态 <small>' + V.length + ' 家 · FDA / CE / NMPA 合并表</small></h3>';
+  html += '<div class="pt-concl"><b>质量提示：</b>Fujirebio 已就 Lumipulse G pTau217/Aβ42 Plasma Ratio 向 Quest Diagnostics 发出 positive bias 通知，截至数据截止日未见全面召回。本表仍展示其诊断性能数据，使用该试剂的实验室应关注厂家后续通告。</div>';
+  html += '<div class="pt-tw"><table class="pt-t"><thead><tr><th>厂家</th><th>产品 / 平台</th><th>FDA</th><th>CE</th><th>NMPA</th><th>记录</th><th>强度说明</th></tr></thead><tbody>';
+  V.forEach(v => {
+    const st = t => { t = String(t || ''); if (/已获|已批准|清关/.test(t)) return 'ok'; if (/未检索|未获|无/.test(t)) return 'bad'; return ''; };
+    html += '<tr><td><b>' + esc(v['厂家']) + '</b></td><td style="font-size:11.5px;">' + esc(v['产品/平台']) + '</td>';
+    html += '<td><span class="pt-pill ' + st(v['FDA 状态']) + '">' + esc(v['FDA 状态']).slice(0, 26) + (String(v['FDA 状态'] || '').length > 26 ? '…' : '') + '</span></td>';
+    html += '<td><span class="pt-pill ' + st(v['CE 状态']) + '">' + esc(v['CE 状态']).slice(0, 18) + (String(v['CE 状态'] || '').length > 18 ? '…' : '') + '</span></td>';
+    html += '<td><span class="pt-pill ' + st(v['NMPA 状态']) + '">' + esc(v['NMPA 状态']).slice(0, 18) + (String(v['NMPA 状态'] || '').length > 18 ? '…' : '') + '</span></td>';
+    html += '<td>' + esc(v['本表记录数']) + '</td><td style="font-size:11.5px;color:#64748b;">' + esc(v['数据强度说明']) + '</td></tr>';
+  });
+  html += '</tbody></table></div>';
+  html += '<div class="pt-note">徽章只按关键词着色（含「已获/已批准/清关」为绿，「未检索/未获/无」为红），完整表述请展开原文；单元格已截断，悬停可读全文。</div>';
+  html += '</div></section>';
+
+  // ============================================================
+  // 5. CLEAR-AD 头对头
+  // ============================================================
+  const H = D.clearAd || [];
+  html += '<section class="pt-sec" id="pt-sec-had" role="tabpanel">';
+  html += '<div class="pt-card"><h3 class="pt-h">CLEAR-AD 九家同批血样头对头 <small>n=431 · 中心实验室盲法 · Aβ-PET 阳性率 64%</small></h3>';
+  html += '<p class="pt-lead">这是全表唯一一组「同批样本、同金标准、盲法中心实验室」的数据，也是唯一可以直接横向比较而不受队列差异干扰的部分。两家应厂家要求匿名（厂商 A、B），无法归入具体品牌。</p>';
+  html += '<div class="pt-tw"><table class="pt-t"><thead><tr><th>厂家</th><th>平台/方法学</th><th>指标</th><th>全队列 AUC</th><th>95%CI</th><th>准确率</th><th>Se / Sp</th><th>MCI 亚组</th><th>痴呆亚组</th><th>90/90 灰区</th><th>PPV / NPV</th></tr></thead><tbody>';
+  H.forEach(h => {
+    const auc = num(h['全队列AUC']);
+    const tone = auc === null ? '' : (auc >= 0.92 ? 'ok' : (auc >= 0.88 ? 'warn' : 'bad'));
+    html += '<tr><td><b>' + esc(h['厂家']) + '</b></td><td style="font-size:11.5px;">' + esc(h['平台/方法学']) + '</td><td style="font-size:11.5px;">' + esc(h['检测指标']) + '</td>' +
+      '<td><span class="pt-pill ' + tone + '">' + esc(h['全队列AUC']) + '</span></td><td>' + esc(h['95%CI']) + '</td><td>' + esc(h['准确率%']) + '</td>' +
+      '<td>' + esc(h['灵敏度%']) + ' / ' + esc(h['特异度%']) + '</td><td>' + esc(h['MCI亚组AUC(n=230)']) + '</td><td>' + esc(h['痴呆亚组AUC(n=171)']) + '</td>' +
+      '<td>' + esc(h['90/90灰区%']) + '</td><td>' + esc(h['PPV%']) + ' / ' + esc(h['NPV%']) + '</td></tr>';
+  });
+  html += '</tbody></table></div>';
+  html += '<div class="pt-note">AUC 徽章：≥0.92 绿、0.88–0.92 黄、&lt;0.88 红。「90/90 灰区%」＝同时满足 90% 灵敏度与 90% 特异度之外、落入不确定区间的比例，越低越好。</div>';
+  html += '</div></section>';
+
+  // ============================================================
+  // 6. 明细
+  // ============================================================
+  const vendOpts = ['<option value="">全部厂家</option>'].concat(
+    [...new Set(T.map(r => r['厂家']))].sort().map(v => '<option value="' + esc(v) + '">' + esc(v) + '</option>')).join('');
+  html += '<section class="pt-sec" id="pt-sec-det" role="tabpanel">';
+  html += '<div class="pt-card"><h3 class="pt-h">明细记录 <small>' + T.length + ' 条，可按厂家筛选或直接搜索</small></h3>';
+  html += '<div class="pt-search"><input id="ptQ" type="search" placeholder="搜厂家 / 指标口径 / 疾病分组 / 金标准 / 备注，例如：Aβ-PET、ALZpath、CLEAR-AD" oninput="ptFilter()">' +
+    '<select id="ptVendor" onchange="ptFilter()">' + vendOpts + '</select>' +
+    '<span class="pt-count" id="ptCount"></span></div>';
+  html += '<div class="pt-tw"><table class="pt-t"><thead><tr><th>记录</th><th>厂家</th><th>技术平台</th><th>指标 / 疾病分组</th><th>金标准</th><th>队列</th><th>AUC</th><th>95%CI</th><th>Se / Sp</th><th>PMID</th></tr></thead><tbody>';
+  T.forEach(r => {
+    const auc = num(r.AUC);
+    const tone = auc === null ? '' : (auc >= 0.92 ? 'ok' : (auc >= 0.88 ? 'warn' : 'bad'));
+    const pool = [r['记录ID'], r['厂家'], r['技术平台'], r['指标口径'], r['疾病分组'], r['金标准'], r['队列类型'], r['备注'], r['第一作者/年']].join(' ').toLowerCase();
+    html += '<tr class="pt-row" data-v="' + esc(r['厂家']) + '" data-s="' + esc(pool).replace(/"/g, ' ') + '">';
+    html += '<td style="font-size:11.5px;color:#94a3b8;">' + esc(r['记录ID']) + '</td>';
+    html += '<td><b>' + esc(r['厂家']) + '</b></td>';
+    html += '<td style="font-size:11px;">' + esc(r['技术平台']) + '</td>';
+    html += '<td style="font-size:11.5px;">' + esc(r['指标口径']) + '<span class="pt-sub-t">' + esc(r['疾病分组']) + (has(r['备注']) ? ' · ' + esc(r['备注']) : '') + '</span></td>';
+    html += '<td style="font-size:11.5px;">' + esc(r['金标准']) + '</td>';
+    html += '<td style="font-size:11px;">' + esc(r['队列类型']) + '</td>';
+    html += '<td><span class="pt-pill ' + tone + '">' + esc(r.AUC) + '</span></td>';
+    html += '<td style="font-size:11px;">' + esc(r['95%CI']) + '</td>';
+    html += '<td style="font-size:11px;">' + esc(r['灵敏度%']) + ' / ' + esc(r['特异度%']) + '</td>';
+    html += '<td style="font-size:11px;">' + (r.PMID ? '<a href="https://pubmed.ncbi.nlm.nih.gov/' + r.PMID + '/" target="_blank" rel="noopener" style="color:#1d4ed8;">' + r.PMID + '</a>' : '—') + '</td>';
+    html += '</tr>';
+  });
+  html += '</tbody></table></div><div class="pt-empty" id="ptEmpty" style="display:none;">没有匹配的记录，换个关键词试试</div>';
+  html += '</div></section>';
+
+  // ============================================================
+  // 7. 来源与排除
+  // ============================================================
+  const SRC = D.sources || [];
+  const EX = D.excluded || [];
+  const sLink = s => s['可打开链接'] || (s.PMID ? 'https://pubmed.ncbi.nlm.nih.gov/' + s.PMID + '/' : '');
+  const sTitle = s => s['标题'] || (s.PMID ? 'PMID ' + s.PMID : '');
+  const sMeta = s => [s['第一作者/机构'], (s['期刊'] && s['期刊'] !== '—') ? s['期刊'] : '', s['年份'], s.DOI ? 'DOI ' + s.DOI : ''].filter(Boolean).join(' · ');
+  const srcLit = SRC.filter(s => s.PMID && sTitle(s) && sLink(s));
+  const srcReg = SRC.filter(s => !s.PMID && sTitle(s) && sLink(s));
+  const srcSkip = SRC.length - srcLit.length - srcReg.length;
+  const srcUl = arr => '<ul class="pt-src">' + arr.map(s =>
+    '<li><a href="' + esc(sLink(s)) + '" target="_blank" rel="noopener">' + esc(sTitle(s)) +
+    (sMeta(s) ? '<em>' + esc(sMeta(s)) + '</em>' : '') + '</a></li>').join('') + '</ul>';
+  html += '<section class="pt-sec" id="pt-sec-src" role="tabpanel">';
+  html += '<div class="pt-card"><h3 class="pt-h">来源清单 <small>可点击 ' + (srcLit.length + srcReg.length) + ' 条 · 文献 ' + srcLit.length + ' · 法规/厂商公告 ' + srcReg.length + '</small></h3>';
+  html += '<p class="pt-lead">文献类按 PMID 可直接核对原文；法规类指向 FDA 或厂商官方页面。<b>两类分开列</b>，避免把厂商公告当成同行评议证据。</p>';
+  html += '<div class="pt-h" style="font-size:13px;margin:2px 0 8px;">同行评议文献（' + srcLit.length + '）</div>';
+  html += srcUl(srcLit);
+  html += '<div class="pt-h" style="font-size:13px;margin:18px 0 8px;">法规 / 产品状态来源（' + srcReg.length + '）</div>';
+  html += srcUl(srcReg);
+  if (srcSkip > 0) html += '<div class="pt-note">另有 ' + srcSkip + ' 行为表内分组标题或空行，无独立链接，未单独列出。</div>';
+  html += '</div>';
+  html += '<div class="pt-card"><h3 class="pt-h">被排除的 ' + EX.length + ' 条文献 <small>以及为什么排除</small></h3>';
+  html += '<p class="pt-lead">不是所有检索到的文献都能进表。把排除理由摊开来，是这份数据可信度的一部分。</p>';
+  html += '<div class="pt-tw"><table class="pt-t"><thead><tr><th>PMID</th><th>第一作者</th><th>年份</th><th>期刊</th><th>要点</th><th>未纳入原因</th></tr></thead><tbody>';
+  EX.forEach(e => {
+    html += '<tr><td>' + (e.PMID ? '<a href="https://pubmed.ncbi.nlm.nih.gov/' + e.PMID + '/" target="_blank" rel="noopener" style="color:#1d4ed8;">' + e.PMID + '</a>' : '—') + '</td>' +
+      '<td>' + esc(e['第一作者']) + '</td><td>' + esc(e['年份']) + '</td><td style="font-size:11px;">' + esc(e['期刊']) + '</td>' +
+      '<td style="font-size:11.5px;">' + esc(e['要点（来自摘要原文）']) + '</td>' +
+      '<td><span class="pt-pill warn">' + esc(e['未纳入原因']) + '</span></td></tr>';
+  });
+  html += '</tbody></table></div></div></section>';
+
+  document.getElementById('pt217Content').innerHTML = html;
+  ptFilter();
 }
 
-function filterPt217Detail(){
-  const v = document.getElementById('pt217VendorFilter').value;
-  let shown = 0;
-  document.querySelectorAll('.pt217-detail-row').forEach(r=>{
-    const match = !v || r.dataset.vendor === v;
-    r.style.display = match?'':'none';
-    if(match) shown++;
-  });
-  document.getElementById('pt217DetailCount').textContent = `显示 ${shown} 条`;
-}
+window.ptTab = function (k, btn) {
+  var secs = document.querySelectorAll('#pt217Content .pt-sec');
+  for (var i = 0; i < secs.length; i++) secs[i].classList.toggle('on', secs[i].id === 'pt-sec-' + k);
+  var tabs = document.querySelectorAll('#pt217Tabs .pt-tab');
+  for (var j = 0; j < tabs.length; j++) tabs[j].setAttribute('aria-selected', tabs[j] === btn ? 'true' : 'false');
+  var bar = document.querySelector('#page-ptau217 .pt-tabs');
+  if (bar && bar.getBoundingClientRect().top < 0) bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+window.ptFilter = function () {
+  var qEl = document.getElementById('ptQ');
+  if (!qEl) return;
+  var q = (qEl.value || '').trim().toLowerCase();
+  var vEl = document.getElementById('ptVendor');
+  var v = vEl ? vEl.value : '';
+  var rows = document.querySelectorAll('#pt217Content .pt-row');
+  var shown = 0;
+  for (var i = 0; i < rows.length; i++) {
+    var el = rows[i];
+    var ok = (!q || (el.getAttribute('data-s') || '').indexOf(q) >= 0) && (!v || el.getAttribute('data-v') === v);
+    el.style.display = ok ? '' : 'none';
+    if (ok) shown++;
+  }
+  var cnt = document.getElementById('ptCount');
+  if (cnt) cnt.textContent = '显示 ' + shown + ' / ' + rows.length + ' 条';
+  var em = document.getElementById('ptEmpty');
+  if (em) em.style.display = shown ? 'none' : '';
+};
 
 
 function initScience() {
