@@ -2127,17 +2127,135 @@ render();
 
 <!-- 医保与支付政策小站 -->
 <div id="page-insurance" class="page">
-  <div style="background:linear-gradient(135deg,#0f766e,#15803d);color:white;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-    <button onclick="navigate('home')" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:8px 16px;border-radius:8px;cursor:pointer;font-size:14px;">← 返回首页</button>
-    <h2 style="margin:0;font-size:20px;">🏥 医保与支付政策小站</h2>
-    <span style="font-size:13px;opacity:0.9;">对症药医保报销 · 疾病修饰治疗药惠民保/商保覆盖 · 全部来自官方来源</span>
-    <div style="flex:1;"></div>
-    <span id="insUpdateBadge" style="background:rgba(255,255,255,0.2);padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600;"></span>
+<style>
+#page-insurance{padding:0 0 64px;background:#f5f8f7}
+#page-insurance .ins-hero{background:linear-gradient(135deg,#0f766e 0%,#15803d 100%);color:#fff;padding:18px 20px 22px}
+#page-insurance .ins-hero-in{max-width:1160px;margin:0 auto}
+#page-insurance .ins-hero-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#page-insurance .ins-back{background:rgba(255,255,255,.16);border:0;color:#fff;padding:7px 14px;border-radius:9px;font-size:13px;cursor:pointer}
+#page-insurance .ins-back:hover{background:rgba(255,255,255,.28)}
+#page-insurance .ins-title{margin:0;font-size:20px;font-weight:700;letter-spacing:.3px}
+#page-insurance .ins-badge{margin-left:auto;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.26);padding:5px 13px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+#page-insurance .ins-sub{font-size:12.5px;opacity:.88;margin-top:8px;line-height:1.6}
+#page-insurance .ins-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(166px,1fr));gap:10px;margin-top:16px}
+#page-insurance .ins-kpi{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:11px 14px}
+#page-insurance .ins-kpi b{display:block;font-size:22px;line-height:1.15;letter-spacing:.5px}
+#page-insurance .ins-kpi span{display:block;font-size:11.5px;opacity:.9;margin-top:3px;line-height:1.5}
+#page-insurance .ins-tabs{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid #e2e8e6;box-shadow:0 2px 8px rgba(15,118,110,.06)}
+#page-insurance .ins-tabs-in{max-width:1160px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:8px 16px;-webkit-overflow-scrolling:touch}
+#page-insurance .ins-tabs-in::-webkit-scrollbar{height:0}
+#page-insurance .ins-tab{flex:0 0 auto;border:0;background:transparent;padding:8px 15px;border-radius:999px;font-size:13px;color:#4b5563;cursor:pointer;white-space:nowrap;transition:.15s}
+#page-insurance .ins-tab:hover{background:#f0f5f3}
+#page-insurance .ins-tab[aria-selected="true"]{background:#0f766e;color:#fff;font-weight:600;box-shadow:0 2px 8px rgba(15,118,110,.28)}
+#page-insurance .ins-wrap{max-width:1160px;margin:0 auto;padding:18px 20px 0}
+#page-insurance .ins-disclaimer{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #f59e0b;border-radius:10px;padding:11px 15px;font-size:12.5px;color:#7c4a03;line-height:1.7;margin-bottom:16px}
+#page-insurance .ins-sec{display:none;animation:insFade .25s ease}
+#page-insurance .ins-sec.on{display:block}
+@keyframes insFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+#page-insurance .ins-h{font-size:16px;font-weight:700;color:#0f766e;margin:0 0 10px;line-height:1.5}
+#page-insurance .ins-lead{font-size:13px;color:#4b5563;line-height:1.8;margin:0 0 14px}
+#page-insurance .ins-more{margin:0 0 14px}
+#page-insurance .ins-more>summary{cursor:pointer;font-size:12.5px;color:#0f766e;font-weight:600;padding:5px 0;list-style:none}
+#page-insurance .ins-more>summary::-webkit-details-marker{display:none}
+#page-insurance .ins-more>summary::before{content:"▸ ";display:inline-block;transition:.15s}
+#page-insurance .ins-more[open]>summary::before{transform:rotate(90deg)}
+#page-insurance .ins-more p{font-size:12.5px;color:#4b5563;line-height:1.85;margin:4px 0 0;background:#f8fafc;border-radius:8px;padding:10px 13px}
+#page-insurance .ins-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(288px,1fr));gap:12px}
+#page-insurance .ins-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(318px,1fr));gap:14px}
+#page-insurance .ins-drug{background:#fff;border:1px solid #e6ecea;border-left:4px solid #10b981;border-radius:12px;padding:14px 16px;transition:.15s}
+#page-insurance .ins-drug:hover{box-shadow:0 6px 18px rgba(15,118,110,.10);transform:translateY(-1px)}
+#page-insurance .ins-drug.out{border-left-color:#ef4444;background:#fdf8f8}
+#page-insurance .ins-drug-hd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:2px}
+#page-insurance .ins-drug-name{font-size:14.5px;font-weight:700;color:#111827}
+#page-insurance .ins-drug-en{font-size:11.5px;color:#9ca3af;margin-bottom:9px}
+#page-insurance .ins-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+#page-insurance .ins-pill{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:#f1f5f4;color:#475569;white-space:nowrap}
+#page-insurance .ins-pill.ok{background:#dcfce7;color:#166534;font-weight:600}
+#page-insurance .ins-pill.no{background:#fee2e2;color:#b91c1c;font-weight:600}
+#page-insurance .ins-pill.info{background:#dbeafe;color:#1e40af}
+#page-insurance .ins-pill.warn{background:#fef3c7;color:#92400e}
+#page-insurance .ins-kv{display:grid;grid-template-columns:56px 1fr;gap:5px 10px;font-size:12.5px;line-height:1.7;color:#374151;margin:0}
+#page-insurance .ins-kv dt{color:#0f766e;font-weight:600}
+#page-insurance .ins-kv dd{margin:0}
+#page-insurance .ins-dmt{background:#fff;border:1px solid #cdeee0;border-radius:14px;padding:16px 18px;display:flex;flex-direction:column}
+#page-insurance .ins-dmt-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+#page-insurance .ins-dmt-top b{font-size:16px;color:#0f766e}
+#page-insurance .ins-dmt-top i{font-style:normal;font-size:12px;color:#9ca3af}
+#page-insurance .ins-warn{margin-top:auto;background:#fff7ed;border:1px solid #fed7aa;border-radius:9px;padding:9px 12px;font-size:12px;line-height:1.7;color:#9a3412;margin-top:12px}
+#page-insurance .ins-warn b{color:#c2410c}
+#page-insurance .ins-search{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+#page-insurance .ins-search input{flex:1 1 240px;min-width:0;border:1px solid #d5ddd9;border-radius:10px;padding:9px 13px;font-size:13px;outline:none;background:#fff}
+#page-insurance .ins-search input:focus{border-color:#0f766e;box-shadow:0 0 0 3px rgba(15,118,110,.12)}
+#page-insurance .ins-count{font-size:12px;color:#6b7280;white-space:nowrap}
+#page-insurance .ins-fchips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+#page-insurance .ins-fchip{border:1px solid #dbe4e1;background:#fff;color:#4b5563;font-size:12px;padding:5px 12px;border-radius:999px;cursor:pointer;transition:.15s}
+#page-insurance .ins-fchip:hover{border-color:#0f766e;color:#0f766e}
+#page-insurance .ins-fchip[aria-pressed="true"]{background:#0f766e;border-color:#0f766e;color:#fff;font-weight:600}
+#page-insurance .ins-hm{background:#fff;border:1px solid #e6ecea;border-radius:12px;padding:12px 14px}
+#page-insurance .ins-hm-hd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+#page-insurance .ins-hm-hd b{font-size:13.5px;color:#0f766e}
+#page-insurance .ins-hm-name{font-size:13px;font-weight:600;color:#111827;margin-bottom:6px;line-height:1.5}
+#page-insurance .ins-hm-note{font-size:12px;color:#4b5563;line-height:1.7}
+#page-insurance .ins-hm-src{font-size:11px;color:#9ca3af;margin-top:8px;border-top:1px dashed #eef2f0;padding-top:6px}
+#page-insurance .ins-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:11px}
+#page-insurance .ins-step{background:#fff;border:1px solid #e6ecea;border-radius:12px;padding:14px 16px 14px 52px;position:relative;font-size:12.5px;line-height:1.78;color:#374151}
+#page-insurance .ins-step-n{position:absolute;left:14px;top:13px;width:26px;height:26px;border-radius:50%;background:#0f766e;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+#page-insurance .ins-drg{background:#fff;border:1px solid #fde68a;border-top:3px solid #f59e0b;border-radius:12px;padding:14px 16px}
+#page-insurance .ins-drg-code{font-size:19px;font-weight:800;color:#b45309;letter-spacing:.5px;line-height:1.2}
+#page-insurance .ins-drg-name{font-size:12.5px;color:#374151;margin:3px 0 9px;line-height:1.6}
+#page-insurance .ins-drg-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+#page-insurance .ins-drg-note{font-size:12px;color:#6b7280;line-height:1.72;border-top:1px dashed #fef3c7;padding-top:8px}
+#page-insurance details.ins-acc{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:10px 14px;margin-bottom:8px}
+#page-insurance details.ins-acc>summary{cursor:pointer;font-weight:600;color:#92400e;font-size:13px;list-style:none}
+#page-insurance details.ins-acc>summary::-webkit-details-marker{display:none}
+#page-insurance details.ins-acc>summary::before{content:"＋ ";color:#b45309;font-weight:700}
+#page-insurance details.ins-acc[open]>summary::before{content:"－ "}
+#page-insurance details.ins-acc .ins-acc-b{font-size:12.5px;color:#374151;line-height:1.8;margin-top:9px}
+#page-insurance details.ins-acc .ins-acc-s{font-size:11px;color:#a16207;margin-top:7px;line-height:1.6}
+#page-insurance .ins-money{display:grid;grid-template-columns:repeat(auto-fit,minmax(146px,1fr));gap:10px;margin:12px 0}
+#page-insurance .ins-money>div{background:#fff;border:1px solid #fde68a;border-radius:12px;padding:12px;text-align:center}
+#page-insurance .ins-money b{display:block;font-size:18px;color:#b45309;line-height:1.28}
+#page-insurance .ins-money span{display:block;font-size:11px;color:#6b7280;margin-top:5px;line-height:1.5}
+#page-insurance .ins-tl{position:relative;padding-left:20px;margin:0}
+#page-insurance .ins-tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:#fde68a}
+#page-insurance .ins-tl>div{position:relative;font-size:12.5px;line-height:1.75;color:#374151;margin-bottom:9px}
+#page-insurance .ins-tl>div::before{content:"";position:absolute;left:-19px;top:6px;width:7px;height:7px;border-radius:50%;background:#f59e0b;box-shadow:0 0 0 2px #fff}
+#page-insurance .ins-tw{overflow-x:auto;border:1px solid #e6ecea;border-radius:12px;margin-top:12px;-webkit-overflow-scrolling:touch;background:#fff}
+#page-insurance table.ins-t{width:100%;border-collapse:collapse;font-size:12.5px;min-width:520px}
+#page-insurance table.ins-t th{background:#f3f7f5;text-align:left;padding:9px 12px;color:#0f766e;font-weight:600;white-space:nowrap;border-bottom:1px solid #e2e8e0}
+#page-insurance table.ins-t td{padding:9px 12px;border-bottom:1px solid #f2f5f4;vertical-align:top;color:#374151;line-height:1.65}
+#page-insurance table.ins-t tr:last-child td{border-bottom:0}
+#page-insurance .ins-note{font-size:12px;color:#7c4a03;background:#fffbeb;border-radius:9px;padding:10px 13px;line-height:1.78;margin-top:12px}
+#page-insurance .ins-src{display:grid;grid-template-columns:repeat(auto-fill,minmax(318px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+#page-insurance .ins-src a{display:block;background:#fff;border:1px solid #e6ecea;border-radius:10px;padding:10px 13px;font-size:12.5px;color:#1d4ed8;text-decoration:none;line-height:1.6}
+#page-insurance .ins-src a:hover{border-color:#93c5fd;background:#f8fbff}
+#page-insurance .ins-empty{padding:24px;text-align:center;color:#9ca3af;font-size:13px}
+@media(max-width:640px){
+ #page-insurance .ins-hero{padding:14px 14px 18px}
+ #page-insurance .ins-wrap{padding:14px 14px 0}
+ #page-insurance .ins-kpi b{font-size:19px}
+ #page-insurance .ins-title{font-size:17px}
+ #page-insurance .ins-badge{margin-left:0}
+ #page-insurance .ins-step{padding-left:16px}
+ #page-insurance .ins-step-n{position:static;margin-bottom:8px}
+}
+</style>
+<div class="ins-hero">
+  <div class="ins-hero-in">
+    <div class="ins-hero-row">
+      <button class="ins-back" onclick="navigate('home')">← 返回首页</button>
+      <h2 class="ins-title">🏥 医保与支付政策</h2>
+      <span class="ins-badge" id="insUpdateBadge"></span>
+    </div>
+    <div class="ins-sub">对症药看基本医保 · 抗淀粉样单抗看惠民保/商保 · 住院费用看 DRG · 全部来自官方来源</div>
+    <div class="ins-kpis" id="insKpis"></div>
   </div>
-  <div class="page-content">
-    <div id="insDisclaimer" style="background:#fef3c7;border-left:4px solid #f59e0b;padding:12px 16px;border-radius:8px;font-size:13px;color:#92400e;margin-bottom:20px;line-height:1.7;"></div>
-    <div id="insContent"></div>
-  </div>
+</div>
+<nav class="ins-tabs"><div class="ins-tabs-in" id="insTabs"></div></nav>
+<div class="ins-wrap">
+  <div id="insDisclaimer" class="ins-disclaimer"></div>
+  <div id="insContent"></div>
+</div>
 </div>
 
 <!-- 科普详情 -->
@@ -4692,153 +4810,200 @@ function showApprovalSummary() {
 function initInsurance() {
   const D = window.INSURANCE_DATA;
   if (!D) return;
+  const esc = s => String(s == null ? '' : s);
+  const isOut = t => /调出|不再/.test(t || '');
+  const grpOf = s => String(s || '').replace(/（[^）]*）/g, '').split('·')[0].trim();
+
   document.getElementById('insUpdateBadge').textContent = '数据更新至 ' + D.updateDate;
-  document.getElementById('insDisclaimer').textContent = '⚠️ ' + D.disclaimer;
+  document.getElementById('insDisclaimer').innerHTML = '<b>⚠️ 使用前须知</b>　' + esc(D.disclaimer);
+
+  const sym = (D.symptomatic && D.symptomatic.drugs) || [];
+  const dmt = (D.dmt && D.dmt.drugs) || [];
+  const hmRows = (D.huiminbao && D.huiminbao.rows) || [];
+  const drgGroups = (D.drg && D.drg.groups) || [];
+  const symIn = sym.filter(d => !isOut(d.insurance)).length;
+  const symOut = sym.length - symIn;
+
+  // ---- 顶部四个数字 ----
+  document.getElementById('insKpis').innerHTML = [
+    [symIn + ' / ' + sym.length, '对症药仍在基本医保（' + (symOut ? symOut + ' 种已调出' : '全部在目录内') + '）'],
+    [dmt.length + ' 种', '疾病修饰药（单抗）· 均不进基本医保，走商保'],
+    [hmRows.length + ' 项', '已核实的惠民保 / 特药责任'],
+    [drgGroups.length + ' 组', 'AD 患者住院可能落入的 DRG 组']
+  ].map(k => '<div class="ins-kpi"><b>' + k[0] + '</b><span>' + k[1] + '</span></div>').join('');
+
+  // ---- 分段导航 ----
+  const TABS = [['drug', '对症治疗药'], ['dmt', '疾病修饰药'], ['hm', '惠民保覆盖'], ['mech', '怎么报销'], ['drg', 'DRG 住院支付'], ['src', '官方来源']];
+  document.getElementById('insTabs').innerHTML = TABS.map((t, i) =>
+    '<button class="ins-tab" role="tab" aria-selected="' + (i === 0) + '" onclick="insTab(\'' + t[0] + '\',this)">' + t[1] + '</button>'
+  ).join('');
 
   let html = '';
 
-  // 模块一：对症治疗药物
-  const s = D.symptomatic;
-  html += '<section style="margin-bottom:32px;">';
-  html += '<h3 style="font-size:18px;color:#0f766e;margin:0 0 6px 0;">1. ' + s.title + '</h3>';
-  html += '<p style="font-size:13px;color:#4b5563;line-height:1.7;margin:0 0 16px 0;">' + s.intro + '</p>';
-  html += '<div style="overflow-x:auto;border:1px solid #e5e7eb;border-radius:12px;">';
-  html += '<table style="width:100%;border-collapse:collapse;font-size:13px;min-width:720px;">';
-  html += '<thead><tr style="background:#f0fdfa;"><th style="padding:10px 12px;text-align:left;border-bottom:2px solid #99f6e4;">药品</th><th style="padding:10px 12px;text-align:left;border-bottom:2px solid #99f6e4;">类别</th><th style="padding:10px 12px;text-align:left;border-bottom:2px solid #99f6e4;">适用阶段</th><th style="padding:10px 12px;text-align:left;border-bottom:2px solid #99f6e4;">医保报销情况</th><th style="padding:10px 12px;text-align:left;border-bottom:2px solid #99f6e4;">备注</th></tr></thead><tbody>';
-  s.drugs.forEach(d => {
-    const isOut = d.insurance.indexOf('调出') >= 0 || d.insurance.indexOf('不再') >= 0;
-    const rowBg = isOut ? '#fef2f2' : '';
-    html += '<tr style="background:' + rowBg + ';">';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;font-weight:600;">' + d.name + '<br><span style="font-weight:400;color:#6b7280;font-size:12px;">' + d.en + '</span></td>';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;">' + d.type + '</td>';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;">' + d.stage + '</td>';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;color:' + (isOut ? '#b91c1c' : '#166534') + ';">' + d.insurance + '</td>';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;color:#4b5563;">' + d.note + '</td>';
-    html += '</tr>';
+  // ================= 1. 对症治疗药 =================
+  const S = D.symptomatic || {};
+  html += '<section class="ins-sec on" id="ins-sec-drug" role="tabpanel">';
+  html += '<h3 class="ins-h">1. ' + esc(S.title) + ' <span class="ins-pill ok">' + symIn + ' 种医保内</span>' + (symOut ? '<span class="ins-pill no">' + symOut + ' 种已调出</span>' : '') + '</h3>';
+  if (S.intro) html += '<details class="ins-more"><summary>背景说明</summary><p>' + esc(S.intro) + '</p></details>';
+  html += '<div class="ins-grid">';
+  sym.forEach(d => {
+    const out = isOut(d.insurance);
+    html += '<article class="ins-drug' + (out ? ' out' : '') + '">';
+    html += '<div class="ins-drug-hd"><span class="ins-drug-name">' + esc(d.name) + '</span><span class="ins-pill ' + (out ? 'no' : 'ok') + '">' + (out ? '已调出医保' : '医保内') + '</span></div>';
+    html += '<div class="ins-drug-en">' + esc(d.en) + '</div>';
+    html += '<div class="ins-chips"><span class="ins-pill">' + esc(d.type) + '</span><span class="ins-pill info">' + esc(d.stage) + '</span></div>';
+    html += '<dl class="ins-kv"><dt>报销</dt><dd>' + esc(d.insurance) + '</dd><dt>提示</dt><dd>' + esc(d.note) + '</dd></dl>';
+    html += '</article>';
   });
-  html += '</tbody></table></div></section>';
+  html += '</div></section>';
 
-  // 模块二：DMT 药物
-  const dmt = D.dmt;
-  html += '<section style="margin-bottom:32px;">';
-  html += '<h3 style="font-size:18px;color:#0f766e;margin:0 0 6px 0;">2. ' + dmt.title + '</h3>';
-  html += '<p style="font-size:13px;color:#4b5563;line-height:1.7;margin:0 0 16px 0;">' + dmt.intro + '</p>';
-  dmt.drugs.forEach(d => {
-    html += '<div style="background:linear-gradient(135deg,#ecfeff,#f0fdf4);border:1px solid #a7f3d0;border-radius:14px;padding:18px 20px;margin-bottom:14px;">';
-    html += '<div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px;"><span style="font-size:16px;font-weight:700;color:#0f766e;">' + d.name + '</span><span style="font-size:13px;color:#6b7280;">' + d.en + '</span><span style="font-size:12px;background:#dbeafe;color:#1e40af;padding:2px 10px;border-radius:999px;">' + d.company + '</span></div>';
-    html += '<div style="font-size:13px;line-height:1.8;color:#374151;">';
-    html += '<div><b style="color:#0f766e;">获批：</b>' + d.approved + '</div>';
-    html += '<div><b style="color:#0f766e;">价格与年费用：</b>' + d.price + '</div>';
-    html += '<div><b style="color:#0f766e;">支付途径：</b>' + d.coverage + '</div>';
-    html += '<div><b style="color:#b45309;">注意：</b>' + d.caveat + '</div>';
-    html += '</div></div>';
+  // ================= 2. 疾病修饰药 =================
+  const M = D.dmt || {};
+  html += '<section class="ins-sec" id="ins-sec-dmt" role="tabpanel">';
+  html += '<h3 class="ins-h">2. ' + esc(M.title) + ' <span class="ins-pill warn">基本医保不支付</span></h3>';
+  if (M.intro) html += '<details class="ins-more"><summary>背景说明</summary><p>' + esc(M.intro) + '</p></details>';
+  html += '<div class="ins-grid2">';
+  dmt.forEach(d => {
+    html += '<article class="ins-dmt">';
+    html += '<div class="ins-dmt-top"><b>' + esc(d.name) + '</b><i>' + esc(d.en) + '</i><span class="ins-pill info">' + esc(d.company) + '</span></div>';
+    html += '<dl class="ins-kv"><dt>获批</dt><dd>' + esc(d.approved) + '</dd><dt>价格</dt><dd>' + esc(d.price) + '</dd><dt>支付</dt><dd>' + esc(d.coverage) + '</dd></dl>';
+    html += '<div class="ins-warn"><b>用药前提</b>　' + esc(d.caveat) + '</div>';
+    html += '</article>';
   });
+  html += '</div></section>';
+
+  // ================= 3. 惠民保覆盖 =================
+  const H = D.huiminbao || {};
+  const groups = [];
+  hmRows.forEach(r => { const g = grpOf(r[0]); if (g && groups.indexOf(g) < 0) groups.push(g); });
+  html += '<section class="ins-sec" id="ins-sec-hm" role="tabpanel">';
+  html += '<h3 class="ins-h">3. ' + esc(H.title) + ' <span class="ins-pill ok">已核实 ' + hmRows.length + ' 项</span></h3>';
+  if (H.intro) html += '<details class="ins-more"><summary>背景说明</summary><p>' + esc(H.intro) + '</p></details>';
+  html += '<div class="ins-search"><input id="insHmQ" type="search" placeholder="搜省份 / 城市 / 产品名，例如：杭州、穗新保、退役军人" oninput="insHmFilter()"><span class="ins-count" id="insHmCount"></span></div>';
+  html += '<div class="ins-fchips" id="insHmChips"><button class="ins-fchip" aria-pressed="true" onclick="insHmProv(\'\',this)">全部 ' + hmRows.length + '</button>' +
+    groups.map(g => '<button class="ins-fchip" aria-pressed="false" onclick="insHmProv(\'' + g + '\',this)">' + g + '</button>').join('') + '</div>';
+  html += '<div class="ins-grid" id="insHmList">';
+  hmRows.forEach(r => {
+    const pool = (r[0] + ' ' + r[1] + ' ' + r[2] + ' ' + r[3] + ' ' + r[4]).toLowerCase().replace(/"/g, ' ');
+    html += '<article class="ins-hm" data-p="' + grpOf(r[0]) + '" data-s="' + pool + '">';
+    html += '<div class="ins-hm-hd"><b>' + esc(r[0]) + '</b><span class="ins-pill">' + esc(r[2]) + '</span></div>';
+    html += '<div class="ins-hm-name">' + esc(r[1]) + '</div>';
+    html += '<div class="ins-hm-note">' + esc(r[3]) + '</div>';
+    html += '<div class="ins-hm-src">来源：' + esc(r[4]) + '</div>';
+    html += '</article>';
+  });
+  html += '</div>';
+  html += '<div class="ins-empty" id="insHmEmpty" style="display:none;">没有匹配的条目，换个关键词试试</div>';
+  if (H.note) html += '<div class="ins-note">' + esc(H.note) + '</div>';
   html += '</section>';
 
-  // 模块三：惠民保覆盖
-  const hm = D.huiminbao;
-  html += '<section style="margin-bottom:32px;">';
-  html += '<h3 style="font-size:18px;color:#0f766e;margin:0 0 6px 0;">3. ' + hm.title + '（已核实 ' + hm.rows.length + ' 城）</h3>';
-  html += '<p style="font-size:13px;color:#4b5563;line-height:1.7;margin:0 0 16px 0;">' + hm.intro + '</p>';
-  html += '<div style="overflow-x:auto;border:1px solid #e5e7eb;border-radius:12px;">';
-  html += '<table style="width:100%;border-collapse:collapse;font-size:13px;min-width:760px;">';
-  html += '<thead><tr style="background:#f0fdfa;">' + hm.columns.map(c => '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #99f6e4;">' + c + '</th>').join('') + '</tr></thead><tbody>';
-  hm.rows.forEach(r => {
-    html += '<tr><td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;font-weight:600;">' + r[0] + '</td>';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;">' + r[1] + '</td>';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;">' + r[2] + '</td>';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;color:#4b5563;">' + r[3] + '</td>';
-    html += '<td style="padding:10px 12px;border-bottom:1px solid #f3f4f6;color:#6b7280;font-size:12px;">' + r[4] + '</td></tr>';
+  // ================= 4. 怎么报销 =================
+  const ME = D.mechanism || {};
+  html += '<section class="ins-sec" id="ins-sec-mech" role="tabpanel">';
+  html += '<h3 class="ins-h">4. ' + esc(ME.title) + '</h3>';
+  html += '<div class="ins-steps">';
+  (ME.items || []).forEach((it, i) => {
+    html += '<div class="ins-step"><div class="ins-step-n">' + (i + 1) + '</div>' + esc(it) + '</div>';
   });
-  html += '</tbody></table></div>';
-  html += '<p style="font-size:12px;color:#92400e;background:#fffbeb;padding:10px 14px;border-radius:8px;margin-top:10px;line-height:1.7;">' + hm.note + '</p>';
-  html += '</section>';
+  html += '</div></section>';
 
-  // 模块四：商保机制
-  const mech = D.mechanism;
-  html += '<section style="margin-bottom:32px;">';
-  html += '<h3 style="font-size:18px;color:#0f766e;margin:0 0 16px 0;">4. ' + mech.title + '</h3>';
-  html += '<ol style="font-size:13px;color:#374151;line-height:1.9;padding-left:20px;margin:0;">';
-  mech.items.forEach(it => html += '<li style="margin-bottom:6px;">' + it + '</li>');
-  html += '</ol></section>';
+  // ================= 5. DRG 住院支付 =================
+  const G = D.drg || {};
+  if (G.title) {
+    html += '<section class="ins-sec" id="ins-sec-drg" role="tabpanel">';
+    html += '<h3 class="ins-h">5. ' + esc(G.title) + '</h3>';
+    if (G.intro) html += '<details class="ins-more"><summary>背景说明</summary><p>' + esc(G.intro) + '</p></details>';
 
-  // 模块五：DRG/DIP 3.0
-  const drg = D.drg;
-  if (drg) {
-    html += '<section style="margin-bottom:32px;">';
-    html += '<h3 style="font-size:18px;color:#0f766e;margin:0 0 6px 0;">5. ' + drg.title + '</h3>';
-    html += '<p style="font-size:13px;color:#4b5563;line-height:1.7;margin:0 0 16px 0;">' + drg.intro + '</p>';
-
-    // 5.1 AD 对应的 DRG 组
-    html += '<h4 style="font-size:14px;color:#b45309;margin:18px 0 8px 0;">AD患者住院主要入哪些DRG组</h4>';
-    html += '<div style="overflow-x:auto;border:1px solid #fde68a;border-radius:12px;">';
-    html += '<table style="width:100%;border-collapse:collapse;font-size:12px;min-width:640px;">';
-    html += '<thead><tr style="background:#fffbeb;"><th style="padding:8px 10px;text-align:left;border-bottom:2px solid #fcd34d;">DRG组</th><th style="padding:8px 10px;text-align:left;border-bottom:2px solid #fcd34d;">组名</th><th style="padding:8px 10px;text-align:left;border-bottom:2px solid #fcd34d;">权重</th><th style="padding:8px 10px;text-align:left;border-bottom:2px solid #fcd34d;">北京支付标准</th><th style="padding:8px 10px;text-align:left;border-bottom:2px solid #fcd34d;">说明</th></tr></thead><tbody>';
-    drg.groups.forEach(g => {
-      html += '<tr><td style="padding:8px 10px;border-bottom:1px solid #fef3c7;font-weight:700;color:#b45309;">' + g.drg + '</td>';
-      html += '<td style="padding:8px 10px;border-bottom:1px solid #fef3c7;">' + g.name + '</td>';
-      html += '<td style="padding:8px 10px;border-bottom:1px solid #fef3c7;">' + g.weight + '</td>';
-      html += '<td style="padding:8px 10px;border-bottom:1px solid #fef3c7;color:#166534;font-weight:600;">' + g.beijing + '</td>';
-      html += '<td style="padding:8px 10px;border-bottom:1px solid #fef3c7;color:#4b5563;">' + g.note + '</td></tr>';
+    html += '<div class="ins-grid2" style="margin-bottom:16px;">';
+    drgGroups.forEach(g => {
+      html += '<article class="ins-drg">';
+      html += '<div class="ins-drg-code">' + esc(g.drg) + '</div>';
+      html += '<div class="ins-drg-name">' + esc(g.name) + '</div>';
+      html += '<div class="ins-drg-meta"><span class="ins-pill info">权重 ' + esc(g.weight) + '</span><span class="ins-pill ok">' + esc(g.beijing) + '</span></div>';
+      html += '<div class="ins-drg-note">' + esc(g.note) + '</div>';
+      html += '</article>';
     });
-    html += '</tbody></table></div>';
+    html += '</div>';
 
-    // 5.2 四条核心规则
-    html += '<h4 style="font-size:14px;color:#b45309;margin:18px 0 8px 0;">和患者直接相关的四条规则</h4>';
-    drg.rules.forEach((r,i) => {
-      html += '<div style="background:#fffbeb;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:10px;">';
-      html += '<div style="font-size:13px;font-weight:700;color:#92400e;margin-bottom:4px;">' + (i+1) + '. ' + r.name + '</div>';
-      html += '<div style="font-size:13px;color:#374151;line-height:1.7;">' + r.detail + '</div>';
-      html += '<div style="font-size:11px;color:#92400e;margin-top:4px;">来源：' + r.source + '</div>';
-      html += '</div>';
+    html += '<h4 class="ins-h" style="font-size:14px;color:#b45309;margin:18px 0 9px;">和患者钱袋子直接相关的四条规则</h4>';
+    (G.rules || []).forEach((r, i) => {
+      html += '<details class="ins-acc"><summary>' + (i + 1) + '. ' + esc(r.name) + '</summary>';
+      html += '<div class="ins-acc-b">' + esc(r.detail) + '</div>';
+      html += '<div class="ins-acc-s">依据：' + esc(r.source) + '</div></details>';
     });
 
-    // 5.3 患者视角算账示例
-    const pe = drg.patientExample;
+    const pe = G.patientExample;
     if (pe) {
-      html += '<h4 style="font-size:14px;color:#b45309;margin:18px 0 8px 0;">举个例子：王阿姨一次住院，三方各出多少钱</h4>';
-      html += '<div style="background:linear-gradient(135deg,#fffbeb,#fef3c7);border:1px solid #fcd34d;border-radius:12px;padding:16px 18px;margin-bottom:14px;">';
-      html += '<div style="font-size:13px;color:#78350f;line-height:1.7;margin-bottom:12px;"><b>场景：</b>' + pe.scenario + '</div>';
-      html += '<div style="font-size:12px;color:#92400e;margin-bottom:6px;"><b>诊疗流程：</b></div>';
-      html += '<ol style="font-size:12px;color:#374151;line-height:1.8;padding-left:20px;margin:0 0 12px 0;">';
-      pe.flow.forEach(f => html += '<li>' + f + '</li>');
-      html += '</ol>';
-      html += '<table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:10px;">';
-      pe.numbers.forEach(n => {
-        html += '<tr><td style="padding:6px 8px;border-bottom:1px dashed #fcd34d;color:#4b5563;">' + n.item + '</td>';
-        html += '<td style="padding:6px 8px;border-bottom:1px dashed #fcd345;font-weight:700;color:#b45309;white-space:nowrap;">' + n.value + '</td>';
-        html += '<td style="padding:6px 8px;border-bottom:1px dashed #fcd34d;color:#6b7280;font-size:11px;">' + n.note + '</td></tr>';
-      });
-      html += '</table>';
-      html += '<div style="font-size:12px;color:#92400e;margin:10px 0 6px;"><b>不同城市/等级医院对比（量级参考）：</b></div>';
-      html += '<table style="width:100%;border-collapse:collapse;font-size:11px;">';
-      html += '<thead><tr style="background:#fde68a;"><th style="padding:6px 8px;text-align:left;">场景</th><th style="padding:6px 8px;text-align:left;">医院收（DRG支付）</th><th style="padding:6px 8px;text-align:left;">患者自付</th><th style="padding:6px 8px;text-align:left;">医院结余</th></tr></thead><tbody>';
-      pe.contrast.forEach(c => {
-        html += '<tr><td style="padding:6px 8px;border-bottom:1px solid #fef3c7;color:#374151;">' + c.city + '</td>';
-        html += '<td style="padding:6px 8px;border-bottom:1px solid #fef3c7;">' + c.drgPay + '</td>';
-        html += '<td style="padding:6px 8px;border-bottom:1px solid #fef3c7;color:#b45309;font-weight:600;">' + c.patientOut + '</td>';
-        html += '<td style="padding:6px 8px;border-bottom:1px solid #fef3c7;color:#166534;">' + c.hospitalBalance + '</td></tr>';
-      });
-      html += '</tbody></table>';
-      html += '<div style="font-size:12px;color:#92400e;margin-top:10px;line-height:1.7;">💡 ' + pe.tip + '</div>';
+      html += '<h4 class="ins-h" style="font-size:14px;color:#b45309;margin:20px 0 9px;">举个例子：一次住院，钱是怎么分的</h4>';
+      html += '<div class="ins-lead" style="background:#fff;border:1px solid #fde68a;border-radius:12px;padding:13px 15px;margin-bottom:12px;"><b style="color:#b45309;">场景</b>　' + esc(pe.scenario) + '</div>';
+      html += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;">';
+      html += '<div><div class="ins-h" style="font-size:13px;color:#0f766e;margin:0 0 10px;">诊疗与结算经过</div><div class="ins-tl">' +
+        (pe.flow || []).map(f => '<div>' + esc(f) + '</div>').join('') + '</div></div>';
+      html += '<div><div class="ins-h" style="font-size:13px;color:#0f766e;margin:0 0 10px;">三个关键数字</div><div class="ins-money">' +
+        (pe.numbers || []).map(n => '<div><b>' + esc(n.value) + '</b><span>' + esc(n.item) + '</span></div>').join('') + '</div></div>';
       html += '</div>';
-    }
 
-    html += '<p style="font-size:12px;color:#92400e;background:#fffbeb;padding:10px 14px;border-radius:8px;line-height:1.7;">' + drg.note + '</p>';
+      html += '<div class="ins-h" style="font-size:13px;color:#0f766e;margin:16px 0 0;">不同城市 / 医院等级的量级对比</div>';
+      html += '<div class="ins-tw"><table class="ins-t"><thead><tr><th>场景</th><th>医院收（DRG 支付）</th><th>患者自付</th><th>医院结余</th></tr></thead><tbody>';
+      (pe.contrast || []).forEach(c => {
+        html += '<tr><td>' + esc(c.city) + '</td><td>' + esc(c.drgPay) + '</td><td style="color:#b45309;font-weight:600;">' + esc(c.patientOut) + '</td><td style="color:#166534;">' + esc(c.hospitalBalance) + '</td></tr>';
+      });
+      html += '</tbody></table></div>';
+      if (pe.tip) html += '<div class="ins-note">💡 ' + esc(pe.tip) + '</div>';
+    }
+    if (G.note) html += '<div class="ins-note">' + esc(G.note) + '</div>';
     html += '</section>';
   }
 
-  // 来源
-  html += '<section style="margin-bottom:24px;">';
-  html += '<h3 style="font-size:15px;color:#6b7280;margin:0 0 10px 0;">📎 官方来源（点击查看原文）</h3>';
-  html += '<ul style="font-size:12px;color:#2563eb;line-height:1.9;padding-left:20px;margin:0;">';
-  D.sources.forEach(sr => {
-    html += '<li><a href="' + sr.url + '" target="_blank" rel="noopener" style="color:#2563eb;">' + sr.label + '</a></li>';
+  // ================= 6. 官方来源 =================
+  html += '<section class="ins-sec" id="ins-sec-src" role="tabpanel">';
+  html += '<h3 class="ins-h">6. 官方来源 <span class="ins-pill">共 ' + ((D.sources || []).length) + ' 条，可点开核对原文</span></h3>';
+  html += '<ul class="ins-src">';
+  (D.sources || []).forEach(sr => {
+    html += '<li><a href="' + sr.url + '" target="_blank" rel="noopener">' + esc(sr.label) + '</a></li>';
   });
   html += '</ul></section>';
 
   document.getElementById('insContent').innerHTML = html;
+  insHmFilter();
 }
+
+window.insTab = function (k, btn) {
+  var secs = document.querySelectorAll('#insContent .ins-sec');
+  for (var i = 0; i < secs.length; i++) secs[i].classList.toggle('on', secs[i].id === 'ins-sec-' + k);
+  var tabs = document.querySelectorAll('#insTabs .ins-tab');
+  for (var j = 0; j < tabs.length; j++) tabs[j].setAttribute('aria-selected', tabs[j] === btn ? 'true' : 'false');
+  var bar = document.querySelector('#page-insurance .ins-tabs');
+  if (bar && bar.getBoundingClientRect().top < 0) bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+window.__insHmP = '';
+window.insHmProv = function (p, btn) {
+  window.__insHmP = p;
+  var cs = document.querySelectorAll('#insHmChips .ins-fchip');
+  for (var i = 0; i < cs.length; i++) cs[i].setAttribute('aria-pressed', cs[i] === btn ? 'true' : 'false');
+  insHmFilter();
+};
+
+window.insHmFilter = function () {
+  var box = document.getElementById('insHmList');
+  if (!box) return;
+  var qEl = document.getElementById('insHmQ');
+  var q = (qEl && qEl.value ? qEl.value : '').trim().toLowerCase();
+  var p = window.__insHmP || '';
+  var items = box.querySelectorAll('.ins-hm');
+  var shown = 0;
+  for (var i = 0; i < items.length; i++) {
+    var el = items[i];
+    var ok = (!q || (el.getAttribute('data-s') || '').indexOf(q) >= 0) && (!p || el.getAttribute('data-p') === p);
+    el.style.display = ok ? '' : 'none';
+    if (ok) shown++;
+  }
+  var cnt = document.getElementById('insHmCount');
+  if (cnt) cnt.textContent = '显示 ' + shown + ' / ' + items.length + ' 项';
+  var empty = document.getElementById('insHmEmpty');
+  if (empty) empty.style.display = shown ? 'none' : '';
+};
 
 function initPtau217() {
   const D = window.PTAU217_DATA;
