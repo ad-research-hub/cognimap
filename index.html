@@ -6769,8 +6769,12 @@ window.epiCompareChart = null;
 window.epiEchartsLoaded = false;
 window.epiEchartsLoading = false;
 
-window.EPI_NAME_MAP = {'South Korea':'Korea','Czech Republic':'Czechia','Hong Kong':'China'};
-window.EPI_NAME_REVERSE = {'Korea':'South Korea','Czechia':'Czech Republic'};
+// 国名 → GeoJSON 要素名。本仓库 js/epi_world_map.js 用的是 ECharts world 地图的写法，
+// 例如捷克写作 'Czech Rep.'、韩国写作 'Korea'，与常见英文名不同，必须在此对照。
+// 注意：GeoJSON 中没有香港/澳门独立要素（并入 China），因此不能把 Hong Kong 映射为 'China'，
+// 否则会与中国条目同名、覆盖中国的数值。港澳数据仍可在下方列表、排行榜与详情页查看。
+window.EPI_NAME_MAP = {'South Korea':'Korea','Czech Republic':'Czech Rep.'};
+window.EPI_NAME_REVERSE = {'Korea':'South Korea','Czech Rep.':'Czech Republic'};
 
 function getEpiCountryByName(name) {
   var reverse = window.EPI_NAME_REVERSE[name] || name;
