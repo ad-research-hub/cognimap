@@ -937,6 +937,90 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .lit-page-btn:disabled{opacity:.4;cursor:not-allowed;}
 .lit-page-info{font-size:13px;color:#64748b;}
 
+/* ==================== 星图入口与浮层（2026-10-31 新增） ==================== */
+.sm-card{position:relative;overflow:hidden}
+.sm-card>h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sm-tag{font-size:10px;font-weight:600;color:#0369a1;background:#e0f2fe;border:1px solid #bae6fd;
+  border-radius:20px;padding:1px 7px;white-space:nowrap}
+.sm-stage{position:relative;height:400px;border-radius:10px;overflow:hidden;
+  background:radial-gradient(120% 90% at 28% 18%,#131e3a 0%,#0a1020 52%,#05070e 100%)}
+.sm-stage canvas{display:block;width:100%;height:100%;cursor:crosshair}
+.sm-tip{position:absolute;z-index:6;pointer-events:none;opacity:0;transition:opacity .12s;
+  background:rgba(6,11,22,.95);border:1px solid rgba(125,211,252,.34);border-radius:9px;padding:7px 10px;
+  color:#e2e8f0;font-size:12px;line-height:1.55;max-width:250px;box-shadow:0 10px 28px rgba(0,0,0,.55)}
+.sm-tip.on{opacity:1}
+.sm-tip b{display:block;color:#7dd3fc;font-weight:600;margin-bottom:2px}
+.sm-tip i{display:block;font-style:normal;color:#8ba3c7;font-size:11px}
+.sm-go{position:absolute;right:12px;bottom:12px;z-index:5;border:none;cursor:pointer;
+  background:rgba(37,99,235,.92);color:#fff;border-radius:9px;padding:8px 14px;font-size:12px;font-weight:600}
+.sm-go:hover{background:#1d4ed8}
+.sm-lg{position:absolute;left:12px;bottom:12px;z-index:5;display:flex;gap:11px;flex-wrap:wrap;
+  font-size:10px;color:#94a3b8;pointer-events:none;text-shadow:0 1px 3px #000}
+.sm-lg span{display:inline-flex;align-items:center;gap:4px}
+.sm-lg i{width:7px;height:7px;border-radius:50%;display:inline-block}
+.sm-lg i.ring{background:transparent;border:1px solid #94a3b8}
+
+/* 天际线条：知识库页入口 */
+.sm-sky{border-radius:16px;overflow:hidden;margin-bottom:20px;
+  background:linear-gradient(180deg,#0b1226 0%,#0a1224 58%,#101d36 100%);border:1px solid #1e2c4a}
+.sm-sky-hd{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:15px 18px 8px;color:#e2e8f0}
+.sm-sky-t{font-size:15px;font-weight:700;color:#fff}
+.sm-sky-t em{font-style:normal;font-weight:400;font-size:12px;color:#8ba3c7;margin-left:8px}
+.sm-sky-stats{margin-left:auto;font-size:11px;color:#8ba3c7}
+.sm-sky-stats b{color:#7dd3fc;font-weight:700;font-size:12px}
+.sm-sky-go{border:none;cursor:pointer;background:#2563eb;color:#fff;border-radius:9px;
+  padding:8px 15px;font-size:12px;font-weight:600;white-space:nowrap}
+.sm-sky-go:hover{background:#1d4ed8}
+.sm-sky-rail{position:relative;display:flex;gap:2px;align-items:flex-end;padding:0 14px 4px;
+  min-height:106px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
+.sm-tower{flex:1 1 0;min-width:0;background:none;border:none;
+  cursor:pointer;display:flex;flex-direction:column;align-items:center;padding:0 1px 2px;position:relative}
+.sm-tower i{display:block;width:4px;border-radius:3px 3px 0 0;
+  background:linear-gradient(180deg,#7dd3fc,#2563eb);box-shadow:0 0 8px rgba(125,211,252,.55);
+  transition:width .18s,background .18s,box-shadow .18s}
+.sm-tower:hover i,.sm-tower:focus-visible i{width:6px;
+  background:linear-gradient(180deg,#fde047,#f59e0b);box-shadow:0 0 14px rgba(253,224,71,.8)}
+.sm-tower span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin-top:5px;font-size:10px;line-height:1.3;color:#93a7c4;
+  text-align:center;width:100%;word-break:break-word;transition:color .18s}
+.sm-tower:hover span,.sm-tower:focus-visible span{color:#e2e8f0}
+.sm-tower:focus-visible{outline:1px solid #38bdf8;outline-offset:2px;border-radius:4px}
+.sm-sky-ft{padding:2px 18px 13px;font-size:11px;color:#6b82a6}
+
+/* 全屏浮层 */
+/* 用不透明底：加载面板背后透出首页内容会干扰读进度条 */
+.sm-ov{position:fixed;inset:0;z-index:9999;display:none;background:#03060e;
+  flex-direction:column}
+.sm-ov.on{display:flex}
+.sm-ov-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#070c18;
+  border-bottom:1px solid #1b2a45;color:#e2e8f0;flex:0 0 auto}
+.sm-ov-title{font-size:13px;font-weight:700;color:#7dd3fc}
+.sm-ov-sub{font-size:11px;color:#6b82a6}
+.sm-ov-x{margin-left:auto;border:1px solid #2c3f60;background:#101a2e;color:#cbd5e1;border-radius:8px;
+  width:32px;height:32px;font-size:15px;line-height:1;cursor:pointer}
+.sm-ov-x:hover{background:#1b2a45;color:#fff}
+.sm-ov-body{flex:1 1 auto;position:relative;min-height:0}
+.sm-frame{position:absolute;inset:0;width:100%;height:100%;border:none;background:#05070e}
+.sm-load{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:13px;padding:24px;text-align:center;color:#cbd5e1}
+.sm-load-star{font-size:34px;color:#7dd3fc;animation:smpulse 1.5s ease-in-out infinite}
+@keyframes smpulse{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1.08)}}
+.sm-load-t{font-size:15px;font-weight:600;color:#e2e8f0}
+.sm-load-bar{width:min(420px,78vw);height:7px;border-radius:6px;background:#16233b;overflow:hidden}
+.sm-load-bar i{display:block;height:100%;width:0;border-radius:6px;
+  background:linear-gradient(90deg,#2563eb,#7dd3fc);transition:width .25s}
+.sm-load-meta{font-size:11.5px;color:#7b90ae;line-height:1.7}
+.sm-load-meta b{color:#7dd3fc;font-weight:600}
+.sm-load-cancel{border:1px solid #2c3f60;background:none;color:#94a3b8;border-radius:8px;
+  padding:6px 16px;font-size:12px;cursor:pointer}
+.sm-load-cancel:hover{color:#fff;border-color:#38bdf8}
+@media (max-width:768px){
+  .sm-stage{height:300px}
+  .sm-tower{flex:0 0 74px;min-width:74px}
+  .sm-sky-t em{display:none}
+  .sm-sky-stats{margin-left:0;width:100%;order:3}
+}
+
 </style>
 
 
@@ -1312,6 +1396,15 @@ window.addEventListener('unhandledrejection', function(e) {
         <h3>📚 AD领域年度论文数量（点击进入文献板块）</h3>
         <div class="chart-container" style="height:400px;"><canvas id="dashLitChart"></canvas></div>
       </div>
+      <div class="chart-card sm-card" style="box-shadow:none;flex:1;min-width:0;cursor:pointer;" onclick="smOpen()">
+        <h3>✦ AD探索星图 <span class="sm-tag">悬停看星 · 点击进入</span></h3>
+        <div class="sm-stage">
+          <canvas id="smCanvasHome"></canvas>
+          <div class="sm-tip" id="smTipHome"></div>
+          <div class="sm-lg"><span><i style="background:#6ec6ff"></i>恒星</span><span><i style="background:#34d399"></i>行星（文献）</span><span><i class="ring"></i>空洞（没人答得清）</span></div>
+          <button class="sm-go" onclick="event.stopPropagation();smOpen()">进入星图 →</button>
+        </div>
+      </div>
     </div>
   </div>
   <div class="modules-grid">
@@ -1333,7 +1426,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-status status-done">已上线</div>
       <div class="mod-icon" style="background:#ede9fe;">📚</div>
       <h3>疾病知识库</h3>
-      <p>指南发展、历史、重要突破、鉴别诊断，双IMA知识库5.9万+文献</p>
+      <p>指南发展、历史、重要突破、鉴别诊断，双IMA知识库5.9万+文献；附 AD探索星图入口</p>
     </div>
     <div class="module-card" onclick="navigate('pipeline')">
       <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="pipeline" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
@@ -1375,7 +1468,7 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="mod-icon" style="background:#d1fae5;">🏥</div>
       <h3>医保与支付政策小站</h3>
       <p>对症药医保报销、仑卡奈单抗/多奈单抗等疾病修饰药的商保创新药目录、各地惠民保覆盖列表，全部数据来自国家医保局与官方公告</p>
-      <div class="mod-count" id="modInsuranceCount">对症药+DMT · 9城惠民保 · 10条官方来源</div>
+      <div class="mod-count" id="modInsuranceCount">对症药+DMT · 33 项惠民保责任 · 18 条官方来源</div>
     </div>
     <div class="module-card" onclick="navigate('sitemap')">
       <div class="mod-status status-done">已上线</div><span class="mod-date" data-mod="sitemap" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
@@ -1714,6 +1807,19 @@ window.addEventListener('unhandledrejection', function(e) {
   <button class="back-btn" onclick="navigate('home')">← 返回首页</button>
   <h2 style="color:var(--primary);margin-bottom:8px;">📚 疾病知识库</h2>
   <p style="color:#64748b;margin-bottom:24px;font-size:14px;">AD诊断指南发展历程、疾病历史、重要突破、鉴别诊断；双 IMA 知识库收录 5.9 万+ 篇文献，覆盖 2013 年至今全部 PMC Alzheimer 相关研究</p>
+
+  <!-- 星图入口（2026-10-31 新增）：13 座「中国的证据」塔，悬停看结论、点击跳转 -->
+  <div class="sm-sky">
+    <div class="sm-sky-hd">
+      <div>
+        <div class="sm-sky-t">✦ AD探索星图 <em>把「AD 已知与未知」画成一张星图</em></div>
+      </div>
+      <div class="sm-sky-stats"><b>536</b> 恒星 · <b>1606</b> 行星 · <b>245</b> 个没人答得清的问题</div>
+      <button class="sm-sky-go" onclick="smOpen()">打开完整星图 →</button>
+    </div>
+    <div class="sm-sky-rail" id="smSkyRail"></div>
+    <div class="sm-sky-ft">上面 13 座塔是「中国人的证据」（天际线）：悬停看每条证据的结论，点塔直接跳到星图里那颗星。</div>
+  </div>
 
   <!-- IMA知识库双入口 -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;">
@@ -4040,8 +4146,9 @@ function showGeneDetail(gene, chrom, pos, gtype) {
 <script src="js/epi_world_map.js?v=353" onload="bootTick('epi')"></script>
 <script src="js/literature_data.js?v=353" onload="bootTick('literature')"></script>
 <script src="js/science_data.js?v=353" onload="bootTick('science')"></script>
-<script src="js/insurance_data.js?v=353" onload="bootTick('insurance')"></script>
+<script src="js/insurance_data.js?v=354" onload="bootTick('insurance')"></script>
 <script src="js/ptau217_data.js?v=353" onload="bootTick('ptau217')"></script>
+<script src="js/starmap_mini.js?v=354"></script>
 <script>
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
 window.addEventListener('load', function(){ setTimeout(window.bootFinish, 200); });
@@ -6341,6 +6448,346 @@ function escHtml(s){
   return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 </script>
+<!-- ==================== 星图浮层（2026-10-31） ==================== -->
+<div id="smOverlay" class="sm-ov" aria-hidden="true" role="dialog" aria-label="AD探索星图">
+  <div class="sm-ov-bar">
+    <span class="sm-ov-title">AD探索 · 星图</span>
+    <span class="sm-ov-sub" id="smOvSub">星图与脑智图谱是两套内容，关掉即回</span>
+    <button class="sm-ov-x" type="button" onclick="smClose()" title="关闭（Esc）">✕</button>
+  </div>
+  <div class="sm-ov-body">
+    <div class="sm-load" id="smLoad">
+      <div class="sm-load-star">✦</div>
+      <div class="sm-load-t">正在加载星图</div>
+      <div class="sm-load-bar"><i id="smLoadFill"></i></div>
+      <div class="sm-load-meta"><b id="smLoadPct">0%</b> · <span id="smLoadBytes">0.0 / 0.0 MB</span><br><span id="smLoadHint">首次加载把 104 万字正文一起取下来，之后本次会话内打开是瞬开</span></div>
+      <button class="sm-load-cancel" type="button" onclick="smClose()">先不看</button>
+    </div>
+    <iframe id="smFrame" class="sm-frame" title="AD探索 星图" hidden></iframe>
+  </div>
+</div>
+
+<script>
+/* 星图入口 / 浮层 / 加载进度。2026-10-31
+   要点：
+   1) 星图本体是单文件 starmap.html（6.3 MB，104 万字正文内嵌），不切成多文件，
+      避免动它的构建产物；按字节流式读取，进度是真的，不是假动画。
+   2) 取完转 Blob 塞 iframe：CSS 与本站完全隔离，模板一行不用改，交互全保留。
+   3) 本次会话内 Blob URL 留着，第二次打开不再下载。 */
+(function(){
+  'use strict';
+  var SRC   = 'starmap.html';
+  var BYTES = 6291126;      /* starmap.html 实际字节数，构建期写入；用来算百分比 */
+  var MB    = 1048576;
+  var blobUrl = null, loading = false;
+
+  function $(id){ return document.getElementById(id); }
+
+  function paint(got){
+    var r = Math.min(1, got / BYTES);
+    var f = $('smLoadFill'), p = $('smLoadPct'), b = $('smLoadBytes');
+    if (f) f.style.width = (r * 100).toFixed(1) + '%';
+    if (p) p.textContent = Math.round(r * 100) + '%';
+    if (b) b.textContent = (got / MB).toFixed(1) + ' / ' + (BYTES / MB).toFixed(1) + ' MB';
+  }
+
+  function showFrame(hash){
+    var fr = $('smFrame'), ld = $('smLoad');
+    if (ld) ld.style.display = 'none';
+    if (!fr) return;
+    fr.hidden = false;
+    fr.src = blobUrl + (hash ? '#' + hash : '');
+  }
+
+  /* 星图里 536 颗星都能直达：starmap.html#star=STAR-V2-Q07 */
+  window.smOpen = function(target){
+    var ov = $('smOverlay');
+    if (!ov) return;
+    ov.classList.add('on');
+    ov.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    var hash = target ? 'star=' + encodeURIComponent(target) : '';
+    if (blobUrl){ showFrame(hash); return; }
+    if (loading){ return; }
+    loading = true;
+
+    var hint = $('smLoadHint');
+    if ($('smLoad')) $('smLoad').style.display = '';
+    if ($('smFrame')) $('smFrame').hidden = true;
+    paint(0);
+
+    /* 8 秒还没走完就换一句话，让读者知道不是卡死 */
+    var slow = setTimeout(function(){
+      if (hint) hint.textContent = '网速偏慢，还在取数据；可以继续等，也可以先关掉，后台会把剩下的取完。';
+    }, 8000);
+
+    fetch(SRC, {cache: 'force-cache'}).then(function(res){
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      /* 不支持流式读取的浏览器（老 Safari）退化成一次性读取，进度直接跳满 */
+      if (!res.body || !res.body.getReader) {
+        return res.blob().then(function(b){ paint(BYTES); return b; });
+      }
+      var reader = res.body.getReader(), parts = [], got = 0;
+      return (function pump(){
+        return reader.read().then(function(r){
+          if (r.done) return new Blob(parts, {type: 'text/html;charset=utf-8'});
+          parts.push(r.value);
+          got += r.value.length;
+          paint(got);
+          return pump();
+        });
+      })();
+    }).then(function(blob){
+      clearTimeout(slow);
+      paint(BYTES);
+      if (hint) hint.textContent = '正在渲染…';
+      blobUrl = URL.createObjectURL(blob);
+      loading = false;
+      setTimeout(function(){ showFrame(hash); }, 120);
+    }).catch(function(err){
+      clearTimeout(slow);
+      loading = false;
+      if (hint){
+        hint.innerHTML = '加载失败：' + ((err && err.message) || '未知错误') +
+          '。可以 <a href="' + SRC + '" target="_blank" rel="noopener" style="color:#7dd3fc">在新窗口直接打开星图</a>。';
+      }
+    });
+  };
+
+  window.smClose = function(){
+    var ov = $('smOverlay');
+    if (!ov) return;
+    ov.classList.remove('on');
+    ov.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  document.addEventListener('keydown', function(e){
+    var ov = $('smOverlay');
+    if (e.key === 'Escape' && ov && ov.classList.contains('on')) smClose();
+  });
+
+  /* ---------------- 首页缩略星场 ---------------- */
+  var BOX = [-3962, 4193, -4707, 4017];   /* 世界坐标包围盒 x0,x1,y0,y1，构建期算出 */
+  var homePts = null, homeMap = null;
+
+  function drawHome(){
+    var cv = $('smCanvasHome');
+    if (!cv || !window.SM_MINI) return;
+    var M = window.SM_MINI;
+    var box = cv.parentNode, dpr = Math.min(2, window.devicePixelRatio || 1);
+    var W = box.clientWidth, H = box.clientHeight;
+    if (!W || !H) return;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    var ctx = cv.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    var pad = 18, sw = BOX[1] - BOX[0], sh = BOX[3] - BOX[2];
+    var k = Math.min((W - pad * 2) / sw, (H - pad * 2) / sh);
+    var ox = (W - sw * k) / 2 - BOX[0] * k, oy = (H - sh * k) / 2 - BOX[2] * k;
+    var SX = function(x){ return x * k + ox; }, SY = function(y){ return y * k + oy; };
+
+    /* 连线：先铺底，让整张图有骨架感 */
+    ctx.lineWidth = 0.5;
+    ctx.strokeStyle = 'rgba(125,211,252,0.13)';
+    ctx.beginPath();
+    for (var i = 0; i < M.edges.length; i++){
+      var e = M.edges[i], a = M.stars[e[0]], b = M.stars[e[1]];
+      if (!a || !b) continue;
+      ctx.moveTo(SX(a[0]), SY(a[1]));
+      ctx.lineTo(SX(b[0]), SY(b[1]));
+    }
+    ctx.stroke();
+
+    /* 空洞：空心环——不是「忘了学」，是「没人答」 */
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(148,163,184,0.5)';
+    for (var v = 0; v < M.voids.length; v++){
+      var o = M.voids[v];
+      ctx.beginPath();
+      ctx.arc(SX(o[0]), SY(o[1]), 2.2, 0, 6.2832);
+      ctx.stroke();
+    }
+
+    /* 恒星：颜色按星座，半径按亮度 */
+    for (var s = 0; s < M.stars.length; s++){
+      var st = M.stars[s];
+      var col = M.colors[st[3]] || '#cbd5e1';
+      var r = st[2] <= 1 ? 1.95 : (st[2] === 2 ? 1.5 : 1.2);
+      ctx.fillStyle = col;
+      ctx.globalAlpha = 0.93;
+      ctx.beginPath();
+      ctx.arc(SX(st[0]), SY(st[1]), r, 0, 6.2832);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    /* 星座名：39 个全写出来在 600px 里会糊成一片乱码，所以只标成员最多的 6 个，
+       并要求彼此相距 >110px、整块落在画布内、避开底部图例——少标几个，好过标成一团。 */
+    if (W >= 360){
+      var cnt = {};
+      for (var q1 = 0; q1 < M.stars.length; q1++){ cnt[M.stars[q1][3]] = (cnt[M.stars[q1][3]] || 0) + 1; }
+      var cand = M.constellations.slice().sort(function(a, b){ return (cnt[b.c] || 0) - (cnt[a.c] || 0); });
+      ctx.font = '600 9.5px -apple-system,"PingFang SC","Microsoft YaHei",sans-serif';
+      ctx.textAlign = 'center';
+      var placed = [], limitY = H - 34;
+      for (var c = 0; c < cand.length && placed.length < 6; c++){
+        var co = cand[c], tx = SX(co.x), ty = SY(co.y) + 15;
+        var tw = ctx.measureText(co.n).width;
+        if (ty > limitY) continue;
+        if (tx - tw / 2 < 3 || tx + tw / 2 > W - 3) continue;
+        var clash = false;
+        for (var p2 = 0; p2 < placed.length; p2++){
+          if (Math.abs(placed[p2][0] - tx) < 110 && Math.abs(placed[p2][1] - ty) < 34){ clash = true; break; }
+        }
+        if (clash) continue;
+        placed.push([tx, ty]);
+        ctx.fillStyle = M.colors[co.c] || '#94a3b8';
+        ctx.globalAlpha = 0.66;
+        ctx.fillText(co.n, tx, ty);
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    /* 命中用的屏幕坐标缓存，省得每次 mousemove 重算 */
+    homePts = [];
+    for (var q = 0; q < M.stars.length; q++){
+      homePts.push([SX(M.stars[q][0]), SY(M.stars[q][1]), q]);
+    }
+    homeMap = {W: W, H: H};
+  }
+
+  function bindHome(){
+    var cv = $('smCanvasHome'), tip = $('smTipHome');
+    if (!cv || !tip) return;
+    var last = -1;
+
+    function at(ev){
+      if (!homePts) return null;
+      var r = cv.getBoundingClientRect();
+      var mx = ev.clientX - r.left, my = ev.clientY - r.top;
+      var best = null, bd = 14 * 14;
+      for (var i = 0; i < homePts.length; i++){
+        var p = homePts[i], dx = p[0] - mx, dy = p[1] - my, d = dx * dx + dy * dy;
+        if (d < bd){ bd = d; best = p; }
+      }
+      return best;
+    }
+
+    cv.addEventListener('mousemove', function(ev){
+      var p = at(ev);
+      if (!p){
+        if (last !== -1){ tip.classList.remove('on'); last = -1; cv.style.cursor = 'pointer'; }
+        return;
+      }
+      var st = window.SM_MINI.stars[p[2]];
+      var con = (window.SM_MINI.constellations.filter(function(c){ return c.c === st[3]; })[0] || {});
+      tip.innerHTML = '<b>' + st[5] + '</b><i>' + (con.n || '未归座') + ' · 点开看这一节正文</i>';
+      /* .sm-stage 是 overflow:hidden，提示框放外面就看不见，所以按真实宽高夹在框内 */
+      var tw2 = tip.offsetWidth || 220, th2 = tip.offsetHeight || 46;
+      tip.style.left = Math.max(6, Math.min(p[0] + 14, homeMap.W - tw2 - 6)) + 'px';
+      tip.style.top = Math.max(6, Math.min(p[1] - th2 - 8, homeMap.H - th2 - 6)) + 'px';
+      tip.classList.add('on');
+      last = p[2];
+      cv.style.cursor = 'pointer';
+    });
+    cv.addEventListener('mouseleave', function(){ tip.classList.remove('on'); last = -1; });
+    cv.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var p = at(ev);
+      if (p) window.smOpen(window.SM_MINI.stars[p[2]][4]); else window.smOpen();
+    });
+  }
+
+  /* ---------------- 知识库页天际线条 ---------------- */
+  var H13 = [58, 40, 72, 48, 88, 62, 44, 78, 54, 36, 68, 50, 82];
+
+  function drawSky(){
+    var rail = $('smSkyRail');
+    if (!rail || !window.SM_MINI || rail.childElementCount) return;
+    var list = window.SM_MINI.skyline || [];
+    var tipHtml = [];
+    var html = '';
+    for (var i = 0; i < list.length; i++){
+      var it = list[i];
+      var tip = (it.w || '') + (it.s ? '\n' + it.s : '');
+      html += '<button type="button" class="sm-tower" data-i="' + i + '" onclick="smOpen(\'' + it.id + '\')">' +
+                '<i style="height:' + H13[i % H13.length] + 'px"></i>' +
+                '<span>' + (it.l || it.id) + '</span>' +
+              '</button>';
+      tipHtml.push(tip);
+    }
+    rail.innerHTML = html;
+
+    /* 提示框必须挂在 body 上：.sm-sky 是 overflow:hidden，.sm-sky-rail 是 overflow-y:hidden，
+       放在里面会被裁掉——第一版就是这么写的，测出来 top=-6px 根本看不见。 */
+    var tipEl = document.createElement('div');
+    tipEl.className = 'sm-tip';
+    tipEl.id = 'smTipSky';
+    document.body.appendChild(tipEl);
+
+    Array.prototype.forEach.call(rail.querySelectorAll('.sm-tower'), function(btn){
+      var i = +btn.getAttribute('data-i');
+      var it = list[i];
+      btn.addEventListener('mouseenter', function(){
+        tipEl.innerHTML = '<b>' + (it.l || it.id) + '</b>' +
+                          '<i>' + (it.s || '') + '</i>' +
+                          (it.w ? '<i style="color:#cbd5e1;margin-top:4px">' + it.w + '</i>' : '');
+        var bb = btn.getBoundingClientRect();
+        var w = tipEl.offsetWidth || 240, h = tipEl.offsetHeight || 70;
+        var left = bb.left + bb.width / 2 - w / 2;
+        left = Math.max(8, Math.min(left, window.innerWidth - w - 8));
+        var top = bb.top - h - 10;
+        if (top < 8) top = bb.bottom + 10;
+        tipEl.style.position = 'fixed';
+        tipEl.style.left = left + 'px';
+        tipEl.style.top = top + 'px';
+        tipEl.classList.add('on');
+      });
+      btn.addEventListener('mouseleave', function(){ tipEl.classList.remove('on'); });
+    });
+  }
+
+  function boot(){
+    drawHome();
+    bindHome();
+    drawSky();
+  }
+  if (document.readyState === 'complete') boot();
+  else window.addEventListener('load', boot);
+  var rz;
+  window.addEventListener('resize', function(){
+    clearTimeout(rz);
+    rz = setTimeout(drawHome, 180);
+  });
+
+  /* 首页星场原本只在 load 和 resize 时画两遍。问题：若 load 那一刻首页不是当前页
+     （.page 非 active 即 display:none），.sm-stage 的 clientWidth 为 0，drawHome 里
+     `if (!W || !H) return;` 直接返回，canvas 就永远停在 300×150 的默认尺寸，
+     之后切回首页也没有任何东西触发重画。这里补一次自愈：首页重新 active 时，
+     若画布尺寸与容器不符就补画。只观察 class，不改动原有 navigate 逻辑。 */
+  function homeNeedsDraw(){
+    var cv = $('smCanvasHome');
+    if (!cv) return false;
+    var box = cv.parentNode;
+    var W = box.clientWidth, H = box.clientHeight;
+    if (!W || !H) return false;
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    return cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr);
+  }
+  (function(){
+    var hp = $('page-home');
+    if (!hp || !window.MutationObserver) return;
+    new MutationObserver(function(){
+      if (!hp.classList.contains('active')) return;
+      if (homeNeedsDraw()) drawHome();
+    }).observe(hp, {attributes: true, attributeFilter: ['class']});
+  })();
+})();
+</script>
+
 <!-- 页脚 -->
 <div style="text-align:center;padding:24px 16px;color:#94a3b8;font-size:12px;border-top:1px solid var(--border);margin-top:32px;">
   <div style="margin-bottom:4px;">脑智图谱 CogniMap · 阿尔茨海默病研究公众号制作</div>
@@ -6348,27 +6795,75 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v353 · 数据更新至 <span id="footerLatestDate">2026-10-25</span></div>
-<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <div>版本 v354 · 数据更新至 <span id="footerLatestDate">2026-10-31</span></div>
 <script>
-// busuanzi 统计兜底：接口未返回前保持 "--" 占位（不显示异常/维护文案），自动重试加载脚本直到拿到真实数字
+/* 访问统计：2026-10-31 换源。
+   原因：busuanzi.ibruce.info 的 HTTPS 握手已被服务端断开（443 端口能连，TLS 直接关连接；
+   明文 HTTP 仍返回 200，但本站是 https，浏览器会按混合内容拦掉）。所以旧的"每 30 秒重新
+   挂载脚本"重试永远不会成功，底部 PV/UV 才一直是 "--"。
+   现在换成 CORS 开放的 abacus（实测返回 {"value":N}，allow-origin: *）：
+     PV = 每次访问 +1；UV = 同一浏览器一天只 +1（localStorage 打标，读不到存储时退化为只读不写）。
+   取不到就保持 "--"，20 秒一轮最多重试 9 次（约 3 分钟），之后停手不打扰。
+   拿不到就是 "--"，不假造数字。要换别的计数源，只改 HOST 与 NS 两个常量即可。 */
 (function(){
-  function hasData(){
-    var pv=document.getElementById('busuanzi_value_site_pv');
-    var uv=document.getElementById('busuanzi_value_site_uv');
-    return (pv && pv.textContent.trim()!=='--') || (uv && uv.textContent.trim()!=='--');
+  var HOST = 'https://abacus.jasoncameron.dev';
+  var NS   = '/cognimap';
+  var pvEl = document.getElementById('busuanzi_value_site_pv');
+  var uvEl = document.getElementById('busuanzi_value_site_uv');
+  if (!pvEl && !uvEl) return;
+
+  var state = {pv: null, uv: null};
+
+  function jget(path){
+    return fetch(HOST + path, {mode: 'cors', cache: 'no-store'}).then(function(r){
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    });
   }
-  function retry(){
-    if(hasData()) return;
-    var old=document.querySelector('script[src*="busuanzi"]');
-    if(old) old.remove();
-    var s=document.createElement('script');
-    s.src='https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
-    s.async=true;
-    document.body.appendChild(s);
+  function fmt(n){
+    n = Number(n);
+    if (!isFinite(n) || n < 0) return null;
+    if (n >= 10000) return (n / 10000).toFixed(1).replace(/\.0$/, '') + ' 万';
+    return String(n);
   }
-  setTimeout(retry, 5000);    // 5秒后首次检查（脚本未填充则重载）
-  setInterval(retry, 30000);  // 之后每30秒重试，直到显示具体数字
+  function paint(){
+    if (state.pv != null && pvEl){ var a = fmt(state.pv); if (a) pvEl.textContent = a; }
+    if (state.uv != null && uvEl){ var b = fmt(state.uv); if (b) uvEl.textContent = b; }
+  }
+  function pending(){
+    return (state.pv == null && pvEl) || (state.uv == null && uvEl);
+  }
+  function todayKey(){
+    var d = new Date();
+    return 'cm_uv_' + d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+  }
+  function uvOnce(){
+    var k = todayKey(), seen = false;
+    try { seen = localStorage.getItem(k) === '1'; } catch (e) {}
+    return jget((seen ? '/get' : '/hit') + NS + '/visitors').then(function(d){
+      if (!seen){ try { localStorage.setItem(k, '1'); } catch (e) {} }
+      return d.value;
+    });
+  }
+
+  var tries = 0, MAX = 9;
+  function run(){
+    tries++;
+    var jobs = [];
+    if (state.pv == null && pvEl){
+      jobs.push(jget('/hit' + NS + '/pageview').then(function(d){ state.pv = d.value; }));
+    }
+    if (state.uv == null && uvEl){
+      jobs.push(uvOnce().then(function(v){ state.uv = v; }));
+    }
+    if (!jobs.length) return;
+    Promise.all(jobs).then(paint).catch(function(){}).then(function(){
+      if (pending() && tries < MAX) setTimeout(run, 20000);
+    });
+  }
+  function start(){ setTimeout(run, 1200); }
+  if (document.readyState === 'complete') start();
+  else window.addEventListener('load', start);
 })();
 </script>
 <script>
