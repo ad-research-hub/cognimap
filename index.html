@@ -6897,32 +6897,33 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次<span id="pvBaseNote" style="color:#94a3b8;"></span>
   </div>
-  <div>版本 v358 · 数据更新至 <span id="footerLatestDate">2026-10-31</span></div>
+  <div>版本 v360 · 数据更新至 <span id="footerLatestDate">2026-10-31</span></div>
 <script>
-/* ================= 访问统计 v358：WorkBuddy 云服务（PostgreSQL） =================
+/* ================= 访问统计 v360：云数据库 + 隐藏中转 =================
 
-   第三次换源，也是最后一次。前两次为什么都不行，写在这里免得将来重蹈：
-     · busuanzi：接口彻底死了（https 的 TLS 被断、http 60 秒超时），历史计数取不回；
-     · abacus：能用，但只给一个数字，不知道哪天多少人、看了哪页、从哪来、停多久；
-     · Cloudflare Worker：代码和 D1 都跑通了，但 workers.dev 与 pages.dev 在国内
-       被 DNS 污染 / SNI 阻断（解析到 31.13.67.33 与 face:b00c 这些 Facebook 段，
-       实测直连超时、走代理 HTTP 000），访客根本打不到接口。
-   现在这条：数据落在自己的云数据库（PostgreSQL），域名国内可达，实测可写可读。
+   为什么是这个形状，把过程记下来，免得以后自己看不懂：
+     · busuanzi 死了（TLS 被断、http 60 秒超时），abacus 只能给两个数字；
+     · Cloudflare Worker + D1 全跑通了，但 workers.dev 被 DNS 污染、
+       pages.dev 被 SNI 阻断，国内访客打不到；
+     · 云服务（PostgreSQL）国内可达，但它的 CORS 预检只放行「应用自己的发布域名」
+       和 localhost，从 github.io 直连会被 403 —— 这一点是实测出来的，不是猜的。
+   → 于是让发布在自己域名下的一个中转页代为调用；本站通过隐藏 iframe 把数据递过去。
+     中转页只回传今日 PV/UV 两个数字，明细行一律不出。
 
-   写入统一走 SECURITY DEFINER 函数（cm_track / cm_stay / cm_stats）：
-   原始行不对任何客户端开放 SELECT，浏览器既写不进伪造行，也读不走别人的明细。
+   v360 修的是 v359 的漏：原来「等中转站 ready 再发，没 ready 先排队」，
+   结果 ready 到了、队列也重发了，回执还是不来——因为 iframe 冷启动那两秒里
+   发过去的消息被浏览器直接丢了，而丢消息不报错。现在改成拿同一个 id 反复重发，
+   中转站按 id 去重。SDK 也从 jsdelivr 挪到了中转站自己目录下，少一次跨境 DNS。
 
-   两条通道，主备关系，不是双写（双写会让两个库的数字互相污染）：
-     1. 云服务通了 → 用它，并把今日 PV/UV 直接画到页脚；
-     2. 不通（SDK 被墙/接口异常）→ 退回 abacus 只取两个数，保证页脚不空。
-   取不到就保持 "--"，不假造。
+   两种失败都要能兜住：
+     1. 中转站没起来 / sharecode 过期 → 7 秒后降级 abacus，页脚仍然出数；
+     2. 全都取不到 → 保持 "--"，不假造数字。
 
-   BASE_PV / BASE_UV 是历史基数，显示值 = 基数 + 本库计数。
-   填的是换源那一刻 abacus 上的读数，所以切换前后数字接得上，不会又「重新开始计数」。 */
+   BASE_PV / BASE_UV 是历史基数，显示值 = 基数 + 本库计数，
+   填的是换源那一刻 abacus 上的读数，保证切换前后数字接得上。 */
 (function(){
-  var EP     = 'https://cognimap-stats.app.workbuddy.host';
-  var PK     = 'wbpk_WXXFMmxech78UdVaTcBMEO_b3MWAMJ0pGlXxX6541m9rLha8VDfL121';
-  var SDKURL = 'https://cdn.jsdelivr.net/npm/@tencent-ai/workbuddy-cloud-sdk@dev/lib/index.global.js';
+  var PORTAL = 'https://cognimap-stats.app.workbuddy.host';
+  var SHARE  = 'SLAYFKRX7I';          /* 中转站的访问码；重新发布会变，变了要同步这里 */
   var ABACUS = 'https://abacus.jasoncameron.dev';
   var NS     = '/cognimap';
 
@@ -6984,8 +6985,6 @@ function escHtml(s){
   var SID = rnd();      /* 一次页面浏览一个 sid：切页面/刷新都算新的一次 */
 
   /* ---------------------------------------------------------------- 环境识别 */
-  /* UA 解析放在前端做：数据库那边是 SQL 函数，写正则很别扭；
-     反正只用来分桶统计，前端算完传字符串就够了。 */
   function uaInfo(){
     var ua = navigator.userAgent || '';
     var d = 'desktop';
@@ -7025,33 +7024,79 @@ function escHtml(s){
     return {ref: r.slice(0, 400), ref_host: h, ref_type: t};
   }
 
-  /* ---------------------------------------------------------------- SDK */
-  /* 动态插 script 而不是写在 HTML 里：CDN 挂了要能感知到并降级，
-     静态 <script> 加载失败是静默的，页脚就会一直 "--"。 */
-  var sdkPromise = null, client = null;
-  function loadSDK(){
-    if (sdkPromise) return sdkPromise;
-    sdkPromise = new Promise(function(res, rej){
-      if (window.WorkBuddyCloud) return res(window.WorkBuddyCloud);
-      var done = false;
-      var s = document.createElement('script');
-      s.src = SDKURL; s.async = true;
-      s.onload = function(){
-        if (done) return; done = true;
-        window.WorkBuddyCloud ? res(window.WorkBuddyCloud) : rej(new Error('no-global'));
-      };
-      s.onerror = function(){ if (done) return; done = true; rej(new Error('sdk-fail')); };
-      document.head.appendChild(s);
-      setTimeout(function(){ if (done) return; done = true; rej(new Error('sdk-timeout')); }, 12000);
-    });
-    return sdkPromise;
+  /* ---------------------------------------------------------------- 中转通道 */
+  /* 一个隐藏 iframe，只在第一次需要时创建；SPA 内切页面复用同一个，
+     不会每换一页就重载一次 SDK。 */
+  var frame = null, seq = 0, waiting = {};
+
+  function ensureFrame(){
+    if (frame) return;
+    var f = document.createElement('iframe');
+    f.src = PORTAL + '/?sharecode=' + SHARE;
+    f.title = 'stats-relay';
+    f.setAttribute('aria-hidden', 'true');
+    f.setAttribute('tabindex', '-1');
+    f.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;border:0;opacity:0;pointer-events:none';
+    (document.body || document.documentElement).appendChild(f);
+    frame = f;
   }
-  function getClient(){
-    return loadSDK().then(function(W){
-      if (!client) client = W.createWorkBuddyCloud({endpoint: EP, publishableKey: PK});
-      return client;
-    });
+  function post(msg){
+    try { if (frame && frame.contentWindow) frame.contentWindow.postMessage(msg, PORTAL); } catch (e) {}
   }
+  function pack(type, payload){
+    var m = {type: type, id: ++seq};
+    for (var k in payload) if (payload.hasOwnProperty(k)) m[k] = payload[k];
+    return m;
+  }
+
+  /* 发一条消息并等回执。
+     iframe 里要先下 SDK、再拿 publishableKey 换匿名会话，冷启动要两三秒；
+     在这之前的 postMessage 会被直接丢掉，而且不报错、不重发——
+     最早那版就栽在这儿：消息发出去了，回执永远等不到。
+     所以这里不是「发一次等回执」，而是每 700ms 拿同一个 id 重发，
+     直到收到回执或用完预算。中转站按 id 去重，重发不会被记成多次浏览。 */
+  function send(type, payload, cb, budget){
+    ensureFrame();
+    var msg = pack(type, payload);
+    var id = msg.id;
+    var done = false, timer = null, deadline = Date.now() + (budget || 7000);
+
+    function finish(r){
+      if (done) return;
+      done = true;
+      if (timer){ clearTimeout(timer); timer = null; }
+      delete waiting[id];
+      if (cb) cb(r);
+    }
+    waiting[id] = finish;
+
+    (function attempt(){
+      if (done) return;
+      if (Date.now() > deadline){ finish({ok: false, err: 'timeout'}); return; }
+      post(msg);
+      timer = setTimeout(attempt, 700);
+    })();
+    return id;
+  }
+
+  /* 不等回执的那种（停留时长）。发三次就够：能发出去，第一次就发出去了；
+     发不出去，重发一百次也一样。 */
+  function emit(type, payload){
+    ensureFrame();
+    var msg = pack(type, payload);
+    post(msg);
+    setTimeout(function(){ post(msg); }, 500);
+    setTimeout(function(){ post(msg); }, 1500);
+  }
+
+  window.addEventListener('message', function(ev){
+    if (ev.origin !== PORTAL) return;     /* 只认自己那台中转站 */
+    var d = ev.data || {};
+    if (d.type === 'tracked' || d.type === 'stayed' || d.type === 'stats'){
+      var fn = waiting[d.id];
+      if (fn) fn(d);
+    }
+  });
 
   /* ---------------------------------------------------------------- 当前页面 */
   var NAME = {
@@ -7076,15 +7121,16 @@ function escHtml(s){
     var sec = Math.round(totalMs / 1000);
     if (sec < 1 || sec === sentSec) return;
     sentSec = sec;
-    if (channel !== 'self') return;   /* 云服务没通就别发，省一个必失败的请求 */
-    getClient().then(function(c){
-      return c.database.rpc('cm_stay', {p_sid: SID, p_sec: Math.min(sec, 7200)});
-    }).catch(function(){});
+    if (channel !== 'self') return;      /* 中转没通就别发，省一个必失败的请求 */
+    emit('stay', {sid: SID, t: Math.min(sec, 7200)});
   }
   document.addEventListener('visibilitychange', function(){
     if (document.visibilityState === 'hidden') flush(); else resume();
   });
   window.addEventListener('pagehide', flush);
+  /* 光靠 pagehide 不可靠：手机端切走、浏览器进程被回收时那一发常常出不去。
+     每 25 秒补一次，最差也就少算最后半分钟。 */
+  setInterval(function(){ if (document.visibilityState === 'visible') flush(); }, 25000);
 
   /* ---------------------------------------------------------------- 上报一次浏览 */
   var lastPath = '', lastAt = 0;
@@ -7095,31 +7141,25 @@ function escHtml(s){
     if (p === lastPath && now - lastAt < 600) return;
     lastPath = p; lastAt = now;
 
-    flush();                 /* 先把上一页的停留时长落库 */
+    flush();                 /* 先把上一页的停留时长递出去 */
     SID = rnd();
     totalMs = 0; sentSec = 0; tStart = Date.now();
 
     if (channel === 'abacus') return;
 
     var ua = uaInfo(), rf = refInfo();
-    getClient().then(function(c){
-      return c.database.rpc('cm_track', {p: {
-        path: p, vid: VID, sid: SID,
-        ref: rf.ref, ref_host: rf.ref_host, ref_type: rf.ref_type,
-        ua: (navigator.userAgent || '').slice(0, 300),
-        device: ua.device, os: ua.os, browser: ua.browser,
-        country: '', region: '', city: ''
-      }});
-    }).then(function(r){
-      if (r && r.error) throw new Error(r.error.code || 'rpc');
-      if (!r || !r.data || !r.data.ok) throw new Error('bad');
+    send('track', {
+      path: p, vid: VID, sid: SID,
+      ref: rf.ref, ref_host: rf.ref_host, ref_type: rf.ref_type,
+      ua: (navigator.userAgent || '').slice(0, 300),
+      device: ua.device, os: ua.os, browser: ua.browser
+    }, function(r){
+      if (!r || !r.ok || !r.today){ fallback(); return; }
       channel = 'self';
-      if (r.data.today){
-        state.pv = r.data.today.pv;
-        state.uv = r.data.today.uv;
-        paint();
-      }
-    }).catch(function(){ fallback(); });
+      state.pv = r.today.pv;
+      state.uv = r.today.uv;
+      paint();
+    }, 7000);
   }
 
   /* ---------------------------------------------------------------- 备通道 */
