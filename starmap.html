@@ -460,9 +460,9 @@ const cvar = k => getComputedStyle(document.body).getPropertyValue(k).trim();
 const view = {x:0, y:0, k:1};
 const START_ZOOM = 2.3;    // 初始只取全图的 1/2.3：四周溢出屏幕，必须拖才看得全
 // 手机屏窄，同样的倍数会「只剩一颗星」，所以按宽度降一档
-const startZoom = () => (W < 700 ? 1.6 : START_ZOOM);
+const startZoom = () => (W < 700 ? 2.2 : START_ZOOM);   // 2026-10-31 手机 1.6 → 2.2，一进来就看得清局部
 const MIN_ZOOM = 0.85;     // 可缩到 fitK×0.85（略小于全图）
-const MAX_ZOOM = 6.0;      // 可放到 fitK×6（单颗星的标签能看清）
+const MAX_ZOOM = 12.0;     // 2026-10-31 改 12：手机上市面上 6 倍仍看不清星点标签，双击还能继续推进
 let W = 0, H = 0, DPR = 1;
 let fitK = 1, fitX = 0, fitY = 0, fitBox = null;
 let zoomRatio = null;      // 当前 k / fitK；首次为 null
@@ -1160,6 +1160,11 @@ function updateFoot(){
 
 /* ---------------------------------------------------------------- 交互 */
 let dragging = false, moved = false, lastX = 0, lastY = 0, dragStartLift = 0;
+/* 2026-10-31：触点半径。手指触面比鼠标光标粗得多，原来 8/7px 的判定在手机上大量落空，
+   落空＝什么都没选中，用户感受就是"误触"或"点了没反应"。粗指针给到 22px。 */
+const TOUCH = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+const PAD = TOUCH ? 22 : 9;
+
 /* 双指捏合（手机）：需要同时跟踪两根手指 */
 const ptrs = new Map();
 let pinchD0 = 0, pinchK0 = 1;
@@ -1269,7 +1274,7 @@ cv.addEventListener("pointerup", e => {
     const lay = skyLayout();
     const earthDrop = lift * H * 1.15;
     for (const o of lay){
-      if (Math.hypot(o.x - mx, (o.topY + earthDrop) - my) < 28){
+      if (Math.hypot(o.x - mx, (o.topY + earthDrop) - my) < (TOUCH ? 38 : 28)){
         showSkyItem(o.it); return;
       }
     }
@@ -1281,10 +1286,10 @@ cv.addEventListener("pointerup", e => {
       const sp = nodeScreen(n);
       if (!sp) return;
       const d = Math.hypot(sp.x - mx, sp.y - my);
-      if (d < Math.max(8, radius(n) * view.k + 6) && d < bestD){ bestD = d; best = n; }
+      if (d < Math.max(PAD, radius(n) * view.k + PAD) && d < bestD){ bestD = d; best = n; }
     });
     if (best){ setSel(best.type, best.id); return; }
-    const e2 = pickEdge(mx, my);
+    const e2 = pickEdge(mx, my, PAD);
     if (e2){ setSel("star", e2.from); return; }
   }
   clearSel();
@@ -1300,7 +1305,7 @@ cv.addEventListener("dblclick", e => {
   NODES.forEach(n => {
     if (n.type === "galaxy" || typeof n.x !== "number") return;
     const d = Math.hypot(sx(n.x) - mx, sy(n.y) - my);
-    if (d < Math.max(9, radius(n) * view.k + 7) && d < bestD){ bestD = d; hit = n; }
+    if (d < Math.max(PAD + 3, radius(n) * view.k + PAD) && d < bestD){ bestD = d; hit = n; }
   });
   if (hit) zoomAt(view.k * 1.6, mx, my);
   else overview();
@@ -1319,8 +1324,8 @@ cv.addEventListener("wheel", e => {
   zoomAt(view.k * f, e.clientX, e.clientY);
 }, {passive:false});
 
-function pickEdge(mx, my){
-  let best = null, bestD = 7;
+function pickEdge(mx, my, pad){
+  let best = null, bestD = pad || 7;
   EDGES.forEach(e => {
     const a = byId[e.from], b = byId[e.to];
     if (!a || !b || typeof a.x !== "number" || typeof b.x !== "number") return;
