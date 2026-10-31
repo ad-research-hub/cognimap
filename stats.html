@@ -207,9 +207,22 @@
   };
 
   /* ------------------------------------------------------------ 请求 */
-  /* 面板和站点用同一个云服务：SDK 负责带 publishableKey 换匿名会话，
-     聚合逻辑在数据库端的 cm_stats() 里，口令也由它校验——
-     所以这里拿不到数据时只有两种可能：口令错，或者 SDK 没加载出来。 */
+  /* 面板和站点用同一个云服务，但两边都不能从 github.io 直连过去——
+     云服务的 CORS 预检只放行「应用自己的发布域名」和 localhost，
+     从别的域跨过去连 OPTIONS 都是 403，跟口令对不对没关系。
+
+     所以分两条路：
+       · 面板本身就在云服务域名下，或者在本机 localhost 开发 → 直接用 SDK；
+       · 其余情况（github.io 上的正式面板）→ 走中转页，postMessage 把查询递过去。
+     聚合逻辑在数据库端的 cm_stats() 里，口令也由它校验，
+     所以中转页拿不到口令就只能当个哑管道，看不到明文。 */
+  var SHARE = 'SLAYFKRX7I';        /* 中转站的访问码；重新发布会变，变了要同步这里 */
+  var HOSTOK = (function(){
+    if (location.origin === EP) return true;
+    var h = location.hostname;
+    return h === 'localhost' || h === '127.0.0.1' || h === '::1';
+  })();
+
   var sdkPromise = null, client = null;
   function loadSDK(){
     if (sdkPromise) return sdkPromise;
@@ -228,13 +241,69 @@
     });
     return sdkPromise;
   }
-  function load(k, d){
+  function direct(k, d){
     return loadSDK().then(function(W){
       if (!client) client = W.createWorkBuddyCloud({endpoint: EP, publishableKey: PK});
       return client.database.rpc('cm_stats', {p_days: d, p_key: k});
     }).then(function(r){
-      if (r && r.error) throw new Error(r.error.code || 'rpc');
-      var body = r && r.data;
+      if (r && r.error) throw new Error((r.error && (r.error.code || r.error.message)) || 'rpc');
+      return r.data;
+    });
+  }
+
+  var frame = null, seq = 0, waiting = {};
+  function ensureFrame(){
+    if (frame) return;
+    var f = document.createElement('iframe');
+    f.src = EP + '/?sharecode=' + SHARE;
+    f.title = 'stats-relay';
+    f.setAttribute('aria-hidden', 'true');
+    f.setAttribute('tabindex', '-1');
+    f.style.cssText = 'position:absolute;left:-9999px;top:0;width:1px;height:1px;border:0;opacity:0;pointer-events:none';
+    document.body.appendChild(f);
+    frame = f;
+  }
+  /* 和中转站握手期间消息会被丢（iframe 里要先下 SDK、换匿名会话），
+     所以拿同一个 id 每 800ms 重发，中转站按 id 去重，不会重复查。 */
+  function relay(k, d){
+    return new Promise(function(resolve, reject){
+      ensureFrame();
+      var id = ++seq;
+      var msg = {type: 'stats', id: id, days: d, key: k};
+      var done = false, timer = null, deadline = Date.now() + 20000;
+
+      function finish(err, data){
+        if (done) return;
+        done = true;
+        if (timer){ clearTimeout(timer); timer = null; }
+        delete waiting[id];
+        if (err) reject(err); else resolve(data);
+      }
+      waiting[id] = function(m){
+        /* 口令错的时候 body.ok 是 false，但 data 还在——那也得当成功返回，
+           让上面按 403 走「口令不对」，而不是含糊地报个 rpc 错。 */
+        if (m && m.data) finish(null, m.data);
+        else finish(new Error((m && m.err) || 'rpc'));
+      };
+      (function attempt(){
+        if (done) return;
+        if (Date.now() > deadline){ finish(new Error('中转站超时')); return; }
+        try { frame.contentWindow.postMessage(msg, EP); } catch (e) {}
+        timer = setTimeout(attempt, 800);
+      })();
+    });
+  }
+  window.addEventListener('message', function(ev){
+    if (ev.origin !== EP) return;
+    var m = ev.data || {};
+    if (m.type === 'stats'){
+      var fn = waiting[m.id];
+      if (fn) fn(m);
+    }
+  });
+
+  function load(k, d){
+    return (HOSTOK ? direct(k, d) : relay(k, d)).then(function(body){
       if (!body) throw new Error('empty');
       return {status: body.ok ? 200 : 403, body: body};
     });
@@ -269,7 +338,32 @@
   function renderTrend(rows){
     lastDaily = rows || [];
     drawTrend();
+    watchTrend();
   }
+
+  /* 容器宽度一变就重画。
+     起因是实测出来的一处裁字：数据渲完以后页面变长、出现纵向滚动条，
+     可用宽度又被挤掉 15px，而 SVG 是按挤出之前的宽度画的，
+     最右边那个日期标签就被容器裁掉了最后一位（"11-01" 显示成 "11-0"）。
+     这不是手机端专有——窄窗口把窗口拉宽拉窄一样会碰到。 */
+  var roBox = null, roW = 0;
+  function watchTrend(){
+    var box = $('trend');
+    if (!box) return;
+    if (roBox || !window.ResizeObserver) return;
+    roW = box.clientWidth;
+    roBox = new ResizeObserver(function(){
+      var w = box.clientWidth;
+      if (Math.abs(w - roW) < 3) return;
+      roW = w;
+      if (lastDaily && lastDaily.length) drawTrend();
+    });
+    roBox.observe(box);
+  }
+  window.addEventListener('resize', function(){
+    if (!window.ResizeObserver) drawTrend();
+  });
+
   function drawTrend(){
     var rows = lastDaily || [];
     var box = $('trend');
@@ -468,7 +562,7 @@
     }).catch(function(e){
       var msg = String(e && e.message || e);
       if (msg === '口令不对'){ $('gerr').textContent = '口令不对，再试一次'; }
-      else { $('gerr').textContent = '取不到数据：' + msg + '（接口可能还没部署）'; }
+      else { $('gerr').textContent = '取不到数据：' + msg + '（中转站或数据库没有响应）'; }
       $('gate').hidden = false;
       $('app').hidden = true;
     });
