@@ -971,20 +971,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .sm-sky-go{border:none;cursor:pointer;background:#2563eb;color:#fff;border-radius:9px;
   padding:8px 15px;font-size:12px;font-weight:600;white-space:nowrap}
 .sm-sky-go:hover{background:#1d4ed8}
-.sm-sky-rail{position:relative;display:flex;gap:2px;align-items:flex-end;padding:0 14px 4px;
-  min-height:106px;overflow-x:auto;overflow-y:hidden;scrollbar-width:thin}
-.sm-tower{flex:1 1 0;min-width:0;background:none;border:none;
-  cursor:pointer;display:flex;flex-direction:column;align-items:center;padding:0 1px 2px;position:relative}
-.sm-tower i{display:block;width:4px;border-radius:3px 3px 0 0;
-  background:linear-gradient(180deg,#7dd3fc,#2563eb);box-shadow:0 0 8px rgba(125,211,252,.55);
-  transition:width .18s,background .18s,box-shadow .18s}
-.sm-tower:hover i,.sm-tower:focus-visible i{width:6px;
-  background:linear-gradient(180deg,#fde047,#f59e0b);box-shadow:0 0 14px rgba(253,224,71,.8)}
-.sm-tower span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-  margin-top:5px;font-size:10px;line-height:1.3;color:#93a7c4;
-  text-align:center;width:100%;word-break:break-word;transition:color .18s}
-.sm-tower:hover span,.sm-tower:focus-visible span{color:#e2e8f0}
-.sm-tower:focus-visible{outline:1px solid #38bdf8;outline-offset:2px;border-radius:4px}
+/* 天际线条：知识库页入口（2026-10-31 二次改版：flex 竖条 → canvas）
+   原实现用 flex + <i> 撑竖条，桌面正常，用户手机上整条却是空白——DOM 里 13 个
+   .sm-tower 都在、尺寸也非零，就是不上屏。这种浏览器差异没法靠猜，改成 canvas：
+   几何自己算、每帧自己画，不依赖 flex 主轴/交叉轴与 overflow 的边角行为。
+   附带好处是命中区域能按整列划分，手机上一列约 27×130px，比原来 4px 宽的竖条好点太多。 */
+.sm-sky-cv{padding:0 14px 4px}
+.sm-sky-cv canvas{display:block;width:100%;height:172px;cursor:pointer;
+  -webkit-tap-highlight-color:transparent}
 .sm-sky-ft{padding:2px 18px 13px;font-size:11px;color:#6b82a6}
 
 /* 全屏浮层 */
@@ -1015,8 +1009,9 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
   padding:6px 16px;font-size:12px;cursor:pointer}
 .sm-load-cancel:hover{color:#fff;border-color:#38bdf8}
 @media (max-width:768px){
-  .sm-stage{height:300px}
-  .sm-tower{flex:0 0 74px;min-width:74px}
+  .sm-stage{height:360px}
+  .sm-sky-cv{padding:0 6px 2px}
+  .sm-sky-cv canvas{height:138px}
   .sm-sky-t em{display:none}
   .sm-sky-stats{margin-left:0;width:100%;order:3}
 }
@@ -1817,8 +1812,8 @@ window.addEventListener('unhandledrejection', function(e) {
       <div class="sm-sky-stats"><b>536</b> 恒星 · <b>1606</b> 行星 · <b>245</b> 个没人答得清的问题</div>
       <button class="sm-sky-go" onclick="smOpen()">打开完整星图 →</button>
     </div>
-    <div class="sm-sky-rail" id="smSkyRail"></div>
-    <div class="sm-sky-ft">上面 13 座塔是「中国人的证据」（天际线）：悬停看每条证据的结论，点塔直接跳到星图里那颗星。</div>
+    <div class="sm-sky-cv" id="smSkyCv"><canvas id="smSkyCanvas"></canvas></div>
+    <div class="sm-sky-ft">上面 13 座塔是「中国人的证据」（天际线）：电脑上悬停看每条证据的结论，点塔直接跳到星图里那颗星；手机上点塔即直达。</div>
   </div>
 
   <!-- IMA知识库双入口 -->
@@ -6476,8 +6471,8 @@ function escHtml(s){
    3) 本次会话内 Blob URL 留着，第二次打开不再下载。 */
 (function(){
   'use strict';
-  var SRC   = 'starmap.html';
-  var BYTES = 6291126;      /* starmap.html 实际字节数，构建期写入；用来算百分比 */
+  var SRC   = 'starmap.html?v=355';   /* 带版本串：星图本体改了要绕开 10 分钟 HTTP 缓存 */
+  var BYTES = 6291630;      /* starmap.html 实际字节数，构建期写入；用来算百分比 */
   var MB    = 1048576;
   var blobUrl = null, loading = false;
 
@@ -6668,7 +6663,10 @@ function escHtml(s){
       if (!homePts) return null;
       var r = cv.getBoundingClientRect();
       var mx = ev.clientX - r.left, my = ev.clientY - r.top;
-      var best = null, bd = 14 * 14;
+      /* 手指比鼠标粗：触摸时命中半径放到 22px，否则星点密集处点半天点不中，
+         点不中就会掉进 smOpen() 的兜底、直接整页打开星图——这就是"误触"。 */
+      var R = (ev.pointerType === 'touch' || ev.pointerType === 'pen') ? 22 : 14;
+      var best = null, bd = R * R;
       for (var i = 0; i < homePts.length; i++){
         var p = homePts[i], dx = p[0] - mx, dy = p[1] - my, d = dx * dx + dy * dy;
         if (d < bd){ bd = d; best = p; }
@@ -6701,58 +6699,154 @@ function escHtml(s){
     });
   }
 
-  /* ---------------- 知识库页天际线条 ---------------- */
-  var H13 = [58, 40, 72, 48, 88, 62, 44, 78, 54, 36, 68, 50, 82];
+  /* ---------------- 知识库页天际线条（canvas） ---------------- */
+  /* 塔高是手写的视觉值，与数据无关；顺序对应 SM_MINI.skyline[0..12]。
+     最高的几座标名字（手机 3 个、桌面 6 个）——手机一格才 27px，13 个全标必然糊成一团。 */
+  var SKY_H = [58, 40, 72, 48, 88, 62, 44, 78, 54, 36, 68, 50, 82];
+  var skyHit = null, skyTip = null, skyDrawn = false;
+
+  function skyLabelIdx(n){
+    var order = SKY_H.map(function(h, i){ return [h, i]; })
+                      .sort(function(a, b){ return b[0] - a[0]; });
+    var keep = [];
+    for (var i = 0; i < Math.min(n, order.length); i++) keep.push(order[i][1]);
+    return keep;
+  }
 
   function drawSky(){
-    var rail = $('smSkyRail');
-    if (!rail || !window.SM_MINI || rail.childElementCount) return;
+    var box = $('smSkyCv'), cv = $('smSkyCanvas');
+    if (!box || !cv || !window.SM_MINI) return;
     var list = window.SM_MINI.skyline || [];
-    var tipHtml = [];
-    var html = '';
-    for (var i = 0; i < list.length; i++){
+    if (!list.length) return;
+    var W = box.clientWidth, H = box.clientHeight;
+    if (!W || !H) return;              /* 页面还没 active，等观察器再调 */
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    var ctx = cv.getContext('2d');
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    var small = W < 520;
+    var labelH = small ? 24 : 30;
+    var barMax = H - labelH - 8;
+    var n = list.length;
+    var slot = W / n;
+    var bw = Math.max(3, Math.min(7, slot * 0.28));
+    var hmax = Math.max.apply(null, SKY_H);
+    var baseY = H - labelH;
+
+    /* 一条很淡的地平线：13 根竖条要有"立在地上"的参照，否则像悬空的进度条 */
+    ctx.strokeStyle = 'rgba(125,211,252,.18)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, baseY + .5); ctx.lineTo(W, baseY + .5);
+    ctx.stroke();
+
+    skyHit = [];
+    for (var i = 0; i < n; i++){
       var it = list[i];
-      var tip = (it.w || '') + (it.s ? '\n' + it.s : '');
-      html += '<button type="button" class="sm-tower" data-i="' + i + '" onclick="smOpen(\'' + it.id + '\')">' +
-                '<i style="height:' + H13[i % H13.length] + 'px"></i>' +
-                '<span>' + (it.l || it.id) + '</span>' +
-              '</button>';
-      tipHtml.push(tip);
+      var h = (SKY_H[i % SKY_H.length] / hmax) * barMax;
+      var cx = slot * i + slot / 2;
+      var x0 = cx - bw / 2, y0 = baseY - h;
+
+      var g = ctx.createLinearGradient(0, y0, 0, baseY);
+      g.addColorStop(0, '#7dd3fc');
+      g.addColorStop(1, '#2563eb');
+      ctx.fillStyle = g;
+      ctx.shadowColor = 'rgba(125,211,252,.55)';
+      ctx.shadowBlur = 8;
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x0, y0, bw, h, [3, 3, 0, 0]);
+      else ctx.rect(x0, y0, bw, h);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      /* 塔尖压一道亮线，暗背景下才有"灯亮着"的感觉 */
+      ctx.fillStyle = '#bae6fd';
+      ctx.globalAlpha = .9;
+      ctx.fillRect(x0, y0, bw, 1.5);
+      ctx.globalAlpha = 1;
+
+      /* 命中区按整列算：手机上一列 27×138px，比 4px 宽的竖条好点太多 */
+      skyHit.push({x0: slot * i, x1: slot * (i + 1), it: it});
     }
-    rail.innerHTML = html;
 
-    /* 提示框必须挂在 body 上：.sm-sky 是 overflow:hidden，.sm-sky-rail 是 overflow-y:hidden，
-       放在里面会被裁掉——第一版就是这么写的，测出来 top=-6px 根本看不见。 */
-    var tipEl = document.createElement('div');
-    tipEl.className = 'sm-tip';
-    tipEl.id = 'smTipSky';
-    document.body.appendChild(tipEl);
+    var idxs = skyLabelIdx(small ? 3 : 6);
+    ctx.font = (small ? '9px ' : '10px ') +
+               '-apple-system,"PingFang SC","Microsoft YaHei",sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'top';
+    for (var k = 0; k < idxs.length; k++){
+      var j = idxs[k];
+      var t = (list[j].l || list[j].id || '').trim();
+      if (!t) continue;
+      var maxShow = small ? 5 : 10;
+      if (t.length > maxShow) t = t.slice(0, maxShow - 1) + '…';
+      var tw = ctx.measureText(t).width;
+      var tx = slot * j + slot / 2;
+      tx = Math.max(tw / 2 + 2, Math.min(tx, W - tw / 2 - 2));
+      ctx.fillStyle = '#93a7c4';
+      ctx.fillText(t, tx, baseY + 5);
+    }
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+    skyDrawn = true;
+  }
 
-    Array.prototype.forEach.call(rail.querySelectorAll('.sm-tower'), function(btn){
-      var i = +btn.getAttribute('data-i');
-      var it = list[i];
-      btn.addEventListener('mouseenter', function(){
-        tipEl.innerHTML = '<b>' + (it.l || it.id) + '</b>' +
-                          '<i>' + (it.s || '') + '</i>' +
-                          (it.w ? '<i style="color:#cbd5e1;margin-top:4px">' + it.w + '</i>' : '');
-        var bb = btn.getBoundingClientRect();
-        var w = tipEl.offsetWidth || 240, h = tipEl.offsetHeight || 70;
-        var left = bb.left + bb.width / 2 - w / 2;
-        left = Math.max(8, Math.min(left, window.innerWidth - w - 8));
-        var top = bb.top - h - 10;
-        if (top < 8) top = bb.bottom + 10;
-        tipEl.style.position = 'fixed';
-        tipEl.style.left = left + 'px';
-        tipEl.style.top = top + 'px';
-        tipEl.classList.add('on');
-      });
-      btn.addEventListener('mouseleave', function(){ tipEl.classList.remove('on'); });
+  function skyAt(x, y){
+    if (!skyHit) return null;
+    for (var i = 0; i < skyHit.length; i++){
+      if (x >= skyHit[i].x0 && x < skyHit[i].x1) return skyHit[i].it;
+    }
+    return null;
+  }
+
+  function bindSky(){
+    var cv = $('smSkyCanvas');
+    if (!cv || cv.getAttribute('data-bound')) return;
+    cv.setAttribute('data-bound', '1');
+
+    /* 提示框必须挂 body 上：.sm-sky 是 overflow:hidden，放里面会被裁掉 */
+    if (!skyTip){
+      skyTip = document.createElement('div');
+      skyTip.className = 'sm-tip';
+      skyTip.id = 'smTipSky';
+      document.body.appendChild(skyTip);
+    }
+    function hide(){ if (skyTip) skyTip.classList.remove('on'); }
+    function show(x, y, it){
+      skyTip.innerHTML = '<b>' + (it.l || it.id) + '</b>' +
+                         '<i>' + (it.s || '') + '</i>' +
+                         (it.w ? '<i style="color:#cbd5e1;margin-top:4px">' + it.w + '</i>' : '');
+      var w = skyTip.offsetWidth || 240, h = skyTip.offsetHeight || 70;
+      skyTip.style.position = 'fixed';
+      skyTip.style.left = Math.max(8, Math.min(x - w / 2, window.innerWidth - w - 8)) + 'px';
+      skyTip.style.top = (y - h - 12 < 8 ? y + 18 : y - h - 12) + 'px';
+      skyTip.classList.add('on');
+    }
+
+    cv.addEventListener('mousemove', function(e){
+      var r = cv.getBoundingClientRect();
+      var it = skyAt(e.clientX - r.left, e.clientY - r.top);
+      cv.style.cursor = it ? 'pointer' : 'default';
+      if (it) show(e.clientX, e.clientY, it); else hide();
+    });
+    cv.addEventListener('mouseleave', hide);
+    cv.addEventListener('click', function(e){
+      var r = cv.getBoundingClientRect();
+      var it = skyAt(e.clientX - r.left, e.clientY - r.top);
+      if (!it) return;
+      hide();
+      window.smOpen(it.id);
     });
   }
 
   function boot(){
     drawHome();
     bindHome();
+    bindSky();
     drawSky();
   }
   if (document.readyState === 'complete') boot();
@@ -6760,14 +6854,10 @@ function escHtml(s){
   var rz;
   window.addEventListener('resize', function(){
     clearTimeout(rz);
-    rz = setTimeout(drawHome, 180);
+    rz = setTimeout(function(){ drawHome(); drawSky(); }, 180);
   });
 
-  /* 首页星场原本只在 load 和 resize 时画两遍。问题：若 load 那一刻首页不是当前页
-     （.page 非 active 即 display:none），.sm-stage 的 clientWidth 为 0，drawHome 里
-     `if (!W || !H) return;` 直接返回，canvas 就永远停在 300×150 的默认尺寸，
-     之后切回首页也没有任何东西触发重画。这里补一次自愈：首页重新 active 时，
-     若画布尺寸与容器不符就补画。只观察 class，不改动原有 navigate 逻辑。 */
+  /* 判断首页星场要不要重画：容器有尺寸、但画布像素尺寸和它对不上就重画 */
   function homeNeedsDraw(){
     var cv = $('smCanvasHome');
     if (!cv) return false;
@@ -6777,13 +6867,25 @@ function escHtml(s){
     var dpr = Math.min(2, window.devicePixelRatio || 1);
     return cv.width !== Math.round(W * dpr) || cv.height !== Math.round(H * dpr);
   }
+  /* 两块 canvas 都只在 load 时画一次，可 .page 非 active 时是 display:none、宽高为 0，
+     drawHome / drawSky 里那句 `if (!W || !H) return;` 会直接返回，画布就停在默认尺寸，
+     之后切回来也没有任何东西触发重画。这里盯住两个页面的 class：一变成 active 就补画。
+     只观察属性，不改动原有 navigate 逻辑。 */
   (function(){
-    var hp = $('page-home');
-    if (!hp || !window.MutationObserver) return;
-    new MutationObserver(function(){
-      if (!hp.classList.contains('active')) return;
-      if (homeNeedsDraw()) drawHome();
-    }).observe(hp, {attributes: true, attributeFilter: ['class']});
+    if (!window.MutationObserver) return;
+    var hp = $('page-home'), kp = $('page-knowledge');
+    if (hp){
+      new MutationObserver(function(){
+        if (hp.classList.contains('active') && homeNeedsDraw()) drawHome();
+      }).observe(hp, {attributes: true, attributeFilter: ['class']});
+    }
+    if (kp){
+      new MutationObserver(function(){
+        if (!kp.classList.contains('active')) return;
+        var cv = $('smSkyCanvas');
+        if (!skyDrawn || !cv || cv.width <= 1) drawSky();
+      }).observe(kp, {attributes: true, attributeFilter: ['class']});
+    }
   })();
 })();
 </script>
@@ -6795,7 +6897,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
   </div>
-  <div>版本 v354 · 数据更新至 <span id="footerLatestDate">2026-10-31</span></div>
+  <div>版本 v355 · 数据更新至 <span id="footerLatestDate">2026-10-31</span></div>
 <script>
 /* 访问统计：2026-10-31 换源。
    原因：busuanzi.ibruce.info 的 HTTPS 握手已被服务端断开（443 端口能连，TLS 直接关连接；
