@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CogniMap 访问统计</title>
+<style>
+  :root{
+    --bg:#0a1020; --card:#111b2f; --card2:#16233a; --line:#233350;
+    --tx:#e6eefc; --dim:#8fa4c4; --faint:#64748b;
+    --pv:#38bdf8; --uv:#a78bfa; --warm:#fbbf24;
+  }
+  *{box-sizing:border-box}
+  /* 必须留着这一条：#gate 用了 display:flex，会盖过 hidden 属性的 UA 规则，
+     结果数据都渲染好了、口令门还压在上面。 */
+  [hidden]{display:none !important}
+  body{
+    margin:0;background:var(--bg);color:var(--tx);
+    font:14px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--pv)}
+  .wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
+
+  /* ---------- 口令门 ---------- */
+  #gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .gate-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;width:100%;max-width:380px}
+  .gate-box h1{font-size:17px;margin:0 0 6px}
+  .gate-box p{color:var(--dim);font-size:13px;margin:0 0 18px}
+  .gate-box input{
+    width:100%;padding:11px 13px;border-radius:9px;border:1px solid var(--line);
+    background:#0c1526;color:var(--tx);font-size:14px;outline:none;
+  }
+  .gate-box input:focus{border-color:var(--pv)}
+  .gate-box button{
+    width:100%;margin-top:12px;padding:11px;border:0;border-radius:9px;cursor:pointer;
+    background:linear-gradient(135deg,#0ea5e9,#6366f1);color:#fff;font-size:14px;font-weight:600;
+  }
+  .gate-err{color:#f87171;font-size:12.5px;margin-top:10px;min-height:18px}
+
+  /* ---------- 头部 ---------- */
+  header{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+  header h1{font-size:17px;margin:0;font-weight:650;letter-spacing:.2px}
+  header .sub{color:var(--faint);font-size:12px}
+  .spacer{flex:1}
+  .seg{display:flex;background:var(--card);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+  .seg button{
+    background:none;border:0;color:var(--dim);padding:7px 13px;font-size:13px;cursor:pointer;
+  }
+  .seg button.on{background:#1d2d47;color:var(--tx);font-weight:600}
+  .btn{
+    background:var(--card);border:1px solid var(--line);color:var(--dim);
+    padding:7px 13px;border-radius:9px;font-size:13px;cursor:pointer;
+  }
+  .btn:hover{color:var(--tx);border-color:#33507a}
+
+  /* ---------- 指标卡 ---------- */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 15px}
+  .card .k{color:var(--dim);font-size:12px;margin-bottom:6px}
+  .card .v{font-size:23px;font-weight:700;line-height:1.15;letter-spacing:-.3px}
+  .card .v small{font-size:12px;font-weight:500;color:var(--dim);margin-left:3px}
+  .card.pv .v{color:var(--pv)} .card.uv .v{color:var(--uv)} .card.t .v{color:var(--warm)}
+
+  /* ---------- 区块 ---------- */
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px}
+  section h2{font-size:13.5px;margin:0 0 12px;font-weight:600;color:var(--tx);display:flex;align-items:center;gap:8px}
+  section h2 .tag{font-weight:400;color:var(--faint);font-size:11.5px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.grid2{grid-template-columns:1fr}}
+
+  #trend{width:100%;height:230px;position:relative;overflow:hidden}
+  #trend svg{display:block}
+  @media(max-width:560px){#trend{height:180px}}
+  .empty{color:var(--faint);font-size:13px;text-align:center;padding:34px 0}
+
+  /* ---------- 表格 ---------- */
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{text-align:left;color:var(--faint);font-weight:500;font-size:11.5px;padding:0 0 8px;border-bottom:1px solid var(--line)}
+  td{padding:8px 0;border-bottom:1px solid rgba(35,51,80,.5);color:var(--tx)}
+  tr:last-child td{border-bottom:0}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;width:52px;white-space:nowrap}
+  td.num{color:var(--dim)}
+  th.num.sec,td.num.sec{width:74px}
+  .bar{height:5px;border-radius:3px;background:linear-gradient(90deg,#0ea5e9,#6366f1);min-width:2px}
+  .bar-cell{width:34%;padding-right:12px}
+  .muted{color:var(--faint);font-size:12px}
+
+  /* ---------- 手机 ---------- */
+  @media(max-width:560px){
+    .wrap{padding:16px 12px 48px}
+    header h1{font-size:15.5px}
+    /* 进度条列在窄屏是纯装饰，去掉才腾得出 PV/UV 的位置 */
+    .bar-cell{display:none}
+    th,td{font-size:12.5px}
+    td.num,th.num{width:44px}
+    th.num.sec,td.num.sec{width:62px}
+    .card{padding:11px 12px}
+    .card .v{font-size:19px}
+    section{padding:13px 12px}
+  }
+
+  footer{color:var(--faint);font-size:11.5px;text-align:center;margin-top:22px;line-height:1.9}
+  code{background:#0c1526;padding:1px 5px;border-radius:4px;font-size:12px;color:#93c5fd}
+</style>
+</head>
+<body>
+
+<!-- ============ 口令门 ============ -->
+<div id="gate">
+  <div class="gate-box">
+    <h1>CogniMap 访问统计</h1>
+    <p>这个页面是给站主看的，需要口令。</p>
+    <input id="pw" type="password" placeholder="输入口令" autocomplete="current-password">
+    <button id="go">查看数据</button>
+    <div class="gate-err" id="gerr"></div>
+  </div>
+</div>
+
+<!-- ============ 面板 ============ -->
+<div id="app" class="wrap" hidden>
+  <header>
+    <h1>CogniMap 访问统计</h1>
+    <span class="sub" id="range"></span>
+    <span class="spacer"></span>
+    <div class="seg" id="seg">
+      <button data-d="7">7 天</button>
+      <button data-d="30" class="on">30 天</button>
+      <button data-d="90">90 天</button>
+    </div>
+    <button class="btn" id="refresh">刷新</button>
+  </header>
+
+  <div class="cards" id="cards"></div>
+
+  <section>
+    <h2>每日访问趋势 <span class="tag">蓝 = 浏览量 PV，紫 = 访客数 UV</span></h2>
+    <div id="trend"></div>
+  </section>
+
+  <div class="grid2">
+    <section>
+      <h2>热门页面</h2>
+      <div id="pages"></div>
+    </section>
+    <section>
+      <h2>来源渠道</h2>
+      <div id="refs"></div>
+    </section>
+  </div>
+
+  <div class="grid2">
+    <section>
+      <h2>终端与系统</h2>
+      <div id="devices"></div>
+    </section>
+    <section>
+      <h2>浏览器</h2>
+      <div id="browser"></div>
+    </section>
+  </div>
+
+  <footer>
+    数据存在自己的云数据库里，不经过任何第三方统计服务。<br>
+    不采集设备指纹，也不记录 IP；<code>vid</code> 是浏览器本地随机串，清缓存即换新身份。
+  </footer>
+</div>
+
+<script>
+(function(){
+  var EP = 'https://cognimap-stats.app.workbuddy.host';
+  var PK = 'wbpk_WXXFMmxech78UdVaTcBMEO_b3MWAMJ0pGlXxX6541m9rLha8VDfL121';
+  var SDKURL = 'https://cdn.jsdelivr.net/npm/@tencent-ai/workbuddy-cloud-sdk@dev/lib/index.global.js';
+  var KEY_STORE = 'cognimap_stats_key';
+
+  var $ = function(id){ return document.getElementById(id); };
+  var days = 30;
+  var key = '';
+
+  /* ------------------------------------------------------------ 工具 */
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+  function n(v){ v = Number(v); return isFinite(v) ? v : 0; }
+  function fmtNum(v){
+    v = n(v);
+    if (v >= 10000) return (v / 10000).toFixed(1).replace(/\.0$/, '') + ' 万';
+    return String(v);
+  }
+  function fmtSec(s){
+    s = n(s);
+    if (!s) return '—';
+    if (s < 60) return s + ' 秒';
+    var m = Math.floor(s / 60), r = Math.round(s % 60);
+    return m + ' 分' + (r ? ' ' + r + ' 秒' : '');
+  }
+  var REF_NAME = {direct:'直接访问', search:'搜索引擎', social:'社交平台', wechat:'微信', internal:'站内跳转', other:'其它网站'};
+  var DEV_NAME = {desktop:'桌面', mobile:'手机', tablet:'平板'};
+
+  /* 页面路径 → 中文名。未知路径原样显示，不吞。 */
+  var PAGE_NAME = {
+    '/home':'首页', '/knowledge':'疾病知识库', '/company':'企业图谱',
+    '/company-detail':'企业详情', '/science':'科研能力', '/science-detail':'文献详情',
+    '/differential':'鉴别诊断', '/drug':'药物研发', '/biomarker':'标志物', '/':'首页'
+  };
+
+  /* ------------------------------------------------------------ 请求 */
+  /* 面板和站点用同一个云服务：SDK 负责带 publishableKey 换匿名会话，
+     聚合逻辑在数据库端的 cm_stats() 里，口令也由它校验——
+     所以这里拿不到数据时只有两种可能：口令错，或者 SDK 没加载出来。 */
+  var sdkPromise = null, client = null;
+  function loadSDK(){
+    if (sdkPromise) return sdkPromise;
+    sdkPromise = new Promise(function(res, rej){
+      if (window.WorkBuddyCloud) return res(window.WorkBuddyCloud);
+      var done = false;
+      var s = document.createElement('script');
+      s.src = SDKURL; s.async = true;
+      s.onload = function(){
+        if (done) return; done = true;
+        window.WorkBuddyCloud ? res(window.WorkBuddyCloud) : rej(new Error('SDK 加载异常'));
+      };
+      s.onerror = function(){ if (done) return; done = true; rej(new Error('SDK 下载失败（CDN 不可达）')); };
+      document.head.appendChild(s);
+      setTimeout(function(){ if (done) return; done = true; rej(new Error('SDK 加载超时')); }, 15000);
+    });
+    return sdkPromise;
+  }
+  function load(k, d){
+    return loadSDK().then(function(W){
+      if (!client) client = W.createWorkBuddyCloud({endpoint: EP, publishableKey: PK});
+      return client.database.rpc('cm_stats', {p_days: d, p_key: k});
+    }).then(function(r){
+      if (r && r.error) throw new Error(r.error.code || 'rpc');
+      var body = r && r.data;
+      if (!body) throw new Error('empty');
+      return {status: body.ok ? 200 : 403, body: body};
+    });
+  }
+
+  /* ------------------------------------------------------------ 渲染：指标卡 */
+  function renderCards(d){
+    var tot = d.total || {}, td = d.today || {};
+    var rows = (d.daily || []);
+    var pv = 0, uv = 0, secSum = 0, secN = 0;
+    rows.forEach(function(r){
+      pv += n(r.pv); uv += n(r.uv);
+      if (n(r.avg_sec) > 0){ secSum += n(r.avg_sec) * n(r.samples); secN += n(r.samples); }
+    });
+    var avg = secN ? Math.round(secSum / secN) : 0;
+    var html = ''
+      + card('pv', '今日浏览量', fmtNum(td.pv), 'PV')
+      + card('uv', '今日访客数', fmtNum(td.uv), 'UV')
+      + card('pv', '累计浏览量', fmtNum(tot.pv), '次')
+      + card('uv', '累计访客数', fmtNum(tot.uv), '人')
+      + card('t', '平均停留', avg ? fmtSec(avg) : '—', '')
+      + card('t', '区间浏览', fmtNum(pv), '次');
+    $('cards').innerHTML = html;
+  }
+  function card(cls, k, v, unit){
+    return '<div class="card ' + cls + '"><div class="k">' + k + '</div><div class="v">'
+      + esc(v) + (unit ? '<small>' + unit + '</small>' : '') + '</div></div>';
+  }
+
+  /* ------------------------------------------------------------ 渲染：折线 */
+  var lastDaily = null;
+  function renderTrend(rows){
+    lastDaily = rows || [];
+    drawTrend();
+  }
+  function drawTrend(){
+    var rows = lastDaily || [];
+    var box = $('trend');
+    if (!rows.length){ box.innerHTML = '<div class="empty">这段时间还没有访问记录</div>'; return; }
+
+    /* 后端按 day DESC 返回，画图要正序 */
+    var data = rows.slice().reverse();
+    /* 宽度取容器真实像素，不用固定 viewBox——固定 1000 宽配 preserveAspectRatio="none"
+       在手机上会把文字横向压扁，日期小到看不清。
+       再夹一道视口上限：容器还没完成布局时 clientWidth 可能是 0 或旧值，
+       直接当宽度用会画出超宽 SVG，反过来把整个页面撑出横向滚动条。 */
+    var vw = document.documentElement.clientWidth || 390;
+    var W = Math.max(260, Math.min(box.clientWidth || vw - 24, vw - 24));
+    var H = box.clientHeight || 230;
+    var pl = W < 480 ? 30 : 44, pr = 10, pt = 12, pb = 26;
+    var iw = Math.max(10, W - pl - pr), ih = Math.max(10, H - pt - pb);
+    var fs = W < 480 ? 9 : 10;
+
+    var maxV = 1;
+    data.forEach(function(r){ maxV = Math.max(maxV, n(r.pv), n(r.uv)); });
+    /* 取整到好看的刻度：1/2/5 × 10^k */
+    var step = Math.pow(10, Math.floor(Math.log(maxV) / Math.LN10));
+    var cands = [step, step * 2, step * 2.5, step * 5, step * 10];
+    for (var i = 0; i < cands.length; i++){ if (maxV / cands[i] <= 4){ maxV = cands[i] * Math.ceil(maxV / cands[i]); break; } }
+    /* 下限 4：数据只有个位数时，上面那套算法会算出 1，四条网格刻度全变成
+       "1 1 1 0"，看不出量级。抬到 4 就自然是 4/3/2/1/0。 */
+    maxV = Math.max(4, maxV);
+
+    function X(i){ return pl + (data.length === 1 ? iw / 2 : i * iw / (data.length - 1)); }
+    function Y(v){ return pt + ih - (n(v) / maxV) * ih; }
+
+    var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="' + W + '" height="' + H + '" style="display:block">';
+    svg += '<defs><linearGradient id="gPv" x1="0" y1="0" x2="0" y2="1">'
+         + '<stop offset="0%" stop-color="#38bdf8" stop-opacity=".28"/>'
+         + '<stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/></linearGradient></defs>';
+
+    /* 横向网格 + 纵轴刻度 */
+    for (var g = 0; g <= 4; g++){
+      var yy = pt + ih * g / 4, val = maxV * (1 - g / 4);
+      svg += '<line x1="' + pl + '" y1="' + yy.toFixed(1) + '" x2="' + (W - pr) + '" y2="' + yy.toFixed(1)
+           + '" stroke="#233350" stroke-width="1" stroke-dasharray="' + (g === 4 ? '0' : '3 4') + '"/>';
+      /* 手机上只留 3 条刻度线，5 条会挤成一团 */
+      if (W >= 480 || g % 2 === 0){
+        svg += '<text x="' + (pl - 6) + '" y="' + (yy + 3.5).toFixed(1) + '" fill="#64748b" font-size="' + fs
+             + '" text-anchor="end">' + fmtNum(Math.round(val)) + '</text>';
+      }
+    }
+
+    /* 面积（只给 PV，两条都填充会糊成一团） */
+    if (data.length > 1){
+      var area = 'M' + X(0) + ',' + Y(data[0].pv);
+      for (var a = 1; a < data.length; a++) area += ' L' + X(a) + ',' + Y(data[a].pv);
+      area += ' L' + X(data.length - 1) + ',' + (pt + ih) + ' L' + X(0) + ',' + (pt + ih) + ' Z';
+      svg += '<path d="' + area + '" fill="url(#gPv)"/>';
+    }
+
+    function poly(field, color, dashed){
+      var pts = data.map(function(r, i){ return X(i) + ',' + Y(r[field]); }).join(' ');
+      var s = '<polyline points="' + pts + '" fill="none" stroke="' + color
+            + '" stroke-width="' + (W < 480 ? 1.6 : 2) + '" stroke-linejoin="round" stroke-linecap="round"'
+            /* UV 常常和 PV 数值贴在一起（每个访客只看一页时两者相等），
+               实线会把它整条盖住，所以 UV 走虚线，重叠时也能区分 */
+            + (dashed ? ' stroke-dasharray="5 4"' : '') + '/>';
+      /* 点少的时候补圆点，否则 7 天视图看着像根直线 */
+      if (data.length <= 40){
+        var rr = W < 480 ? 2 : 2.6;
+        data.forEach(function(r, i){
+          s += '<circle cx="' + X(i) + '" cy="' + Y(r[field]) + '" r="' + rr + '" fill="' + color + '"/>';
+        });
+      }
+      return s;
+    }
+    /* 先画 PV 实线，再画 UV 虚线压在它上面。
+       反过来的话，UV == PV（每个访客只看一页）的日子里实线会把虚线整条盖掉，
+       看上去像只剩一条线。叠着画至少能从虚线间隙看出两条是重合的。 */
+    svg += poly('pv', '#38bdf8', false);
+    svg += poly('uv', '#a78bfa', true);
+
+    /* 横轴：首、中、尾各标一个，密了会叠字 */
+    var marks = data.length <= 1 ? [0] : [0, Math.floor((data.length - 1) / 2), data.length - 1];
+    marks = marks.filter(function(v, i, arr){ return arr.indexOf(v) === i; });
+    marks.forEach(function(i){
+      var anchor = i === 0 ? 'start' : (i === data.length - 1 ? 'end' : 'middle');
+      svg += '<text x="' + X(i) + '" y="' + (H - 8) + '" fill="#64748b" font-size="' + fs + '" text-anchor="' + anchor + '">'
+           + esc(data[i].day.slice(5)) + '</text>';
+    });
+
+    svg += '</svg>';
+    box.innerHTML = svg;
+  }
+
+  /* ------------------------------------------------------------ 渲染：条形表 */
+  function renderBars(el, rows, opt){
+    if (!rows || !rows.length){ el.innerHTML = '<div class="empty">暂无数据</div>'; return; }
+    var max = 1;
+    rows.forEach(function(r){ max = Math.max(max, n(r.pv)); });
+    var html = '<table><thead><tr><th>'
+      + esc(opt.label) + '</th><th class="bar-cell"></th><th class="num">PV</th><th class="num">UV</th>'
+      + (opt.sec ? '<th class="num sec">停留</th>' : '') + '</tr></thead><tbody>';
+    rows.slice(0, opt.limit || 12).forEach(function(r){
+      var name = opt.name ? opt.name(r) : r[opt.field];
+      if (!name) name = '（未填）';
+      var w = Math.max(2, Math.round(n(r.pv) / max * 100));
+      html += '<tr><td>' + esc(name) + '</td>'
+           +  '<td class="bar-cell"><div class="bar" style="width:' + w + '%"></div></td>'
+           +  '<td class="num">' + fmtNum(r.pv) + '</td>'
+           +  '<td class="num">' + fmtNum(r.uv) + '</td>'
+           +  (opt.sec ? '<td class="num sec">' + fmtSec(r.avg_sec) + '</td>' : '')
+           +  '</tr>';
+    });
+    html += '</tbody></table>';
+    el.innerHTML = html;
+  }
+
+  /* ------------------------------------------------------------ 主渲染 */
+  function render(d){
+    $('range').textContent = d.range
+      ? d.range.since + ' ~ ' + d.range.until + '（最近 ' + d.range.days + ' 天）'
+      : '';
+    renderCards(d);
+    renderTrend(d.daily || []);
+
+    renderBars($('pages'), d.pages, {
+      label: '页面', field: 'path', sec: true, limit: 14,
+      /* 已知页面只给中文名——路径列在右边会占掉半张表，手机上尤其挤 */
+      name: function(r){ return PAGE_NAME[r.path] || r.path; }
+    });
+
+    /* 来源按类型聚一次，再列具体域名——直接列域名会出现几十个长尾 */
+    var byType = {};
+    (d.refs || []).forEach(function(r){
+      var t = r.ref_type || 'other';
+      byType[t] = byType[t] || {ref_type: t, pv: 0, uv: 0};
+      byType[t].pv += n(r.pv);
+      byType[t].uv += n(r.uv);
+    });
+    var typeRows = Object.keys(byType).map(function(k){ return byType[k]; })
+      .sort(function(a, b){ return b.pv - a.pv; });
+    renderBars($('refs'), typeRows, {
+      label: '渠道', field: 'ref_type', limit: 8,
+      name: function(r){ return REF_NAME[r.ref_type] || r.ref_type; }
+    });
+
+    var byDev = {}, byOs = {};
+    (d.devices || []).forEach(function(r){
+      var dv = r.device || 'desktop', os = r.os || '其它';
+      byDev[dv] = byDev[dv] || {pv: 0, uv: 0};
+      byDev[dv].pv += n(r.pv); byDev[dv].uv += n(r.uv);
+      byOs[os] = byOs[os] || {pv: 0, uv: 0};
+      byOs[os].pv += n(r.pv); byOs[os].uv += n(r.uv);
+    });
+    /* 终端类型和操作系统混在一列会让人读成同一维度，加前缀分成两组 */
+    var devRows = Object.keys(byDev).map(function(k){
+      return {label: '终端 · ' + (DEV_NAME[k] || k), pv: byDev[k].pv, uv: byDev[k].uv};
+    }).sort(function(a, b){ return b.pv - a.pv; });
+    var osRows = Object.keys(byOs).map(function(k){
+      return {label: '系统 · ' + k, pv: byOs[k].pv, uv: byOs[k].uv};
+    }).sort(function(a, b){ return b.pv - a.pv; });
+    renderBars($('devices'), devRows.concat(osRows), {
+      label: '终端 / 系统', field: 'label', limit: 10
+    });
+
+    /* 国家/地区这一维在浏览器里拿不到——不想为了它去调定位接口，
+       换成浏览器分布更有用，数据也真实存在。 */
+    var byBr = {};
+    (d.devices || []).forEach(function(r){
+      var b = r.browser || '其它';
+      byBr[b] = byBr[b] || {browser: b, pv: 0, uv: 0};
+      byBr[b].pv += n(r.pv); byBr[b].uv += n(r.uv);
+    });
+    var brRows = Object.keys(byBr).map(function(k){ return byBr[k]; }).sort(function(a, b){ return b.pv - a.pv; });
+    renderBars($('browser'), brRows, {
+      label: '浏览器', field: 'browser', limit: 10
+    });
+  }
+
+  /* ------------------------------------------------------------ 启动 */
+  function open(keyStr){
+    key = keyStr;
+    $('gerr').textContent = '正在读取…';
+    load(key, days).then(function(res){
+      if (res.status === 403 || (res.body && res.body.err === 'key')){
+        throw new Error('口令不对');
+      }
+      if (!res.body || !res.body.ok) throw new Error('接口返回异常');
+      try { localStorage.setItem(KEY_STORE, key); } catch (e) {}
+      $('gate').hidden = true;
+      $('app').hidden = false;
+      $('gerr').textContent = '';
+      /* 等两帧再画：刚取消 hidden 时容器还没完成布局，
+         这时读 clientWidth 会拿到 0 或旧值，折线图的 viewBox 就会算错，
+         画出来的图比容器高，直接压到下面几个表格上。 */
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){ render(res.body); });
+      });
+    }).catch(function(e){
+      var msg = String(e && e.message || e);
+      if (msg === '口令不对'){ $('gerr').textContent = '口令不对，再试一次'; }
+      else { $('gerr').textContent = '取不到数据：' + msg + '（接口可能还没部署）'; }
+      $('gate').hidden = false;
+      $('app').hidden = true;
+    });
+  }
+
+  $('go').addEventListener('click', function(){ open($('pw').value.trim()); });
+  $('pw').addEventListener('keydown', function(e){ if (e.key === 'Enter') open($('pw').value.trim()); });
+
+  $('seg').addEventListener('click', function(e){
+    var b = e.target.closest('button');
+    if (!b) return;
+    Array.prototype.forEach.call(this.querySelectorAll('button'), function(x){ x.classList.remove('on'); });
+    b.classList.add('on');
+    days = Number(b.dataset.d);
+    open(key);
+  });
+  $('refresh').addEventListener('click', function(){ open(key); });
+
+  /* 折线按容器真实像素绘制，窗口一变就得重画，否则手机上会糊 */
+  var rzT = null;
+  window.addEventListener('resize', function(){
+    clearTimeout(rzT);
+    rzT = setTimeout(drawTrend, 200);
+  });
+
+  /* 存过口令就直接进，省得每次输；也支持 ?k=xxx 直接用链接打开（手机上看方便） */
+  var saved = '';
+  try { saved = localStorage.getItem(KEY_STORE) || ''; } catch (e) {}
+  var qk = '';
+  try { qk = new URLSearchParams(location.search).get('k') || ''; } catch (e) {}
+  if (qk) open(qk);
+  else if (saved) open(saved);
+})();
+</script>
+</body>
+</html>
