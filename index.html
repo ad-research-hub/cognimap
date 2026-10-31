@@ -6895,26 +6895,41 @@ function escHtml(s){
   <div style="margin-bottom:4px;">脑智图谱 CogniMap · 阿尔茨海默病研究公众号制作</div>
   <div style="margin-bottom:4px;color:#64748b;font-size:12px;">
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
-    访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次
+    访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次<span id="pvBaseNote" style="color:#94a3b8;"></span>
   </div>
-  <div>版本 v355 · 数据更新至 <span id="footerLatestDate">2026-10-31</span></div>
+  <div>版本 v356 · 数据更新至 <span id="footerLatestDate">2026-10-31</span></div>
 <script>
 /* 访问统计：2026-10-31 换源。
-   原因：busuanzi.ibruce.info 的 HTTPS 握手已被服务端断开（443 端口能连，TLS 直接关连接；
-   明文 HTTP 仍返回 200，但本站是 https，浏览器会按混合内容拦掉）。所以旧的"每 30 秒重新
-   挂载脚本"重试永远不会成功，底部 PV/UV 才一直是 "--"。
-   现在换成 CORS 开放的 abacus（实测返回 {"value":N}，allow-origin: *）：
-     PV = 每次访问 +1；UV = 同一浏览器一天只 +1（localStorage 打标，读不到存储时退化为只读不写）。
+   原因：busuanzi.ibruce.info 的统计接口 /busuanzi 已经彻底不响应——https 的 TLS 握手被
+   直接断开；换成明文 http 也一样，实测 60 秒超时、HTTP 000。它的静态 JS 文件还能下载
+   （走的是 CDN 缓存），但那个 JS 拉数据的请求同样会挂掉，所以底部 PV/UV 一直是 "--"，
+   旧版"每 30 秒重新挂载脚本"的重试永远不会成功。
+   → 结论：busuanzi 侧的历史计数无法取回，只能换源重算。
+
+   现在用 abacus（CORS 开放，实测返回 {"value":N}，allow-origin: *）：
+     PV = 每次访问 +1；UV = 同一浏览器一天只 +1（localStorage 打标，读不到存储时只读不写）。
    取不到就保持 "--"，20 秒一轮最多重试 9 次（约 3 分钟），之后停手不打扰。
-   拿不到就是 "--"，不假造数字。要换别的计数源，只改 HOST 与 NS 两个常量即可。 */
+   拿不到就是 "--"，不假造数字。要换别的计数源，只改 HOST 与 NS 两个常量即可。
+
+   BASE_PV / BASE_UV 是「历史基数」：把换源前的累计数填在这里，显示值 = 基数 + 新计数，
+   这样页面上看到的是延续的累计数，而不是从个位数重新开始。
+   填了基数就把页脚的「自 … 起计」提示去掉；保持 0 则保留提示，让读者知道这是重新起算的。
+   注意：基数必须是真实数据（比如你记得的旧数字、或截图上的数字），不能估。 */
 (function(){
   var HOST = 'https://abacus.jasoncameron.dev';
   var NS   = '/cognimap';
+  var BASE_PV = 0;      /* 换源前的累计访问量；0 = 不接续 */
+  var BASE_UV = 0;      /* 换源前的累计访客数 */
   var pvEl = document.getElementById('busuanzi_value_site_pv');
   var uvEl = document.getElementById('busuanzi_value_site_uv');
   if (!pvEl && !uvEl) return;
 
   var state = {pv: null, uv: null};
+
+  /* 没有历史基数时，把起算日写在数字后面——否则读者会拿它跟记忆里的旧数字比。
+     填了 BASE_PV 就说明已经接续，不再显示这句。 */
+  var noteEl = document.getElementById('pvBaseNote');
+  if (noteEl && !BASE_PV) noteEl.textContent = '（自 2026-10-31 起计）';
 
   function jget(path){
     return fetch(HOST + path, {mode: 'cors', cache: 'no-store'}).then(function(r){
@@ -6929,8 +6944,14 @@ function escHtml(s){
     return String(n);
   }
   function paint(){
-    if (state.pv != null && pvEl){ var a = fmt(state.pv); if (a) pvEl.textContent = a; }
-    if (state.uv != null && uvEl){ var b = fmt(state.uv); if (b) uvEl.textContent = b; }
+    if (state.pv != null && pvEl){
+      var vp = Number(state.pv); if (BASE_PV) vp += BASE_PV;
+      var a = fmt(vp); if (a) pvEl.textContent = a;
+    }
+    if (state.uv != null && uvEl){
+      var vu = Number(state.uv); if (BASE_UV) vu += BASE_UV;
+      var b = fmt(vu); if (b) uvEl.textContent = b;
+    }
   }
   function pending(){
     return (state.pv == null && pvEl) || (state.uv == null && uvEl);
