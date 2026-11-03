@@ -1218,7 +1218,8 @@ window.BOOT_SECTIONS = [
   {key:'literature', name:'AD文献库', file:'js/literature_data.js'},
   {key:'science',    name:'专家科普库', file:'js/science_data.js'},
   {key:'insurance',   name:'医保支付政策', file:'js/insurance_data.js'},
-  {key:'ptau217',     name:'p-tau217横评', file:'js/ptau217_data.js'}
+  {key:'ptau217',     name:'p-tau217横评', file:'js/ptau217_data.js'},
+  {key:'scientists',  name:'AD科学家库',   file:'js/scientists_data.js'}
 ];
 (function(){
   var warn = document.getElementById('bootWarnText');
@@ -1560,6 +1561,14 @@ window.addEventListener('unhandledrejection', function(e) {
       <h3>专家科普库</h3>
       <p>转载权威机构与专家公开科普，所有观点附出处；支持模糊检索；可提交待核实观点，定期专业查证后更新</p>
       <div class="mod-count" id="modScienceCount">已验证科普 · 待核实分区</div>
+    </div>
+    <!-- AD 著名科学家 -->
+    <div class="module-card" onclick="navigate('scientists')">
+      <div class="mod-status status-done">新上线</div><span class="mod-date" data-mod="scientists" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
+      <div class="mod-icon" style="background:#fef3c7;">🏅</div>
+      <h3>AD 著名科学家</h3>
+      <p>AAIC 终身成就奖得主 46 位中英文对照档案（1988–2026），另设中国科学家专栏 8 位；任职机构与主要贡献均链接官网可逐条核对，附 98 条完整获奖名录</p>
+      <div class="mod-count">54 位中英对照档案 · 98 条获奖记录</div>
     </div>
     <div class="module-card" onclick="navigate('insurance')">
       <div class="mod-status status-done">已上线</div><span id="modUpdatedInsurance" class="mod-date" data-mod="insurance" style="font-size:11px;color:#94a3b8;margin-left:6px;">更新 —</span>
@@ -4246,6 +4255,14 @@ function showGeneDetail(gene, chrom, pos, gtype) {
 <script src="js/science_data.js?v=353" onload="bootTick('science')"></script>
 <script src="js/insurance_data.js?v=354" onload="bootTick('insurance')"></script>
 <script src="js/ptau217_data.js?v=353" onload="bootTick('ptau217')"></script>
+<script src="js/scientists_data.js?v=369" onload="bootTick('scientists')"></script>
+<script src="js/sci_aaic_more.js?v=369"></script>
+<script src="js/sci_aaic_legacy1.js?v=369"></script>
+<script src="js/sci_aaic_legacy2.js?v=369"></script>
+<script src="js/sci_aaic_legacy3.js?v=369"></script>
+<script src="js/sci_aaic_legacy4.js?v=369"></script>
+<script src="js/sci_cn_more.js?v=369"></script>
+<script src="js/scientists.js?v=369"></script>
 <script src="js/starmap_mini.js?v=354"></script>
 <script>
 // 兜底：所有资源（含图片）就绪后完成；若onload未全触发也强制收尾
@@ -10216,7 +10233,8 @@ window.MODULE_META = {
   researchmap:  {date:'2026-09-08', src:'人工登记'},
   genes:        {date:'2026-09-08', src:'人工登记'},
   pet:          {date:'2026-09-08', src:'人工登记'},
-  models:       {date:'2026-09-08', src:'人工登记'}
+  models:       {date:'2026-09-08', src:'人工登记'},
+  scientists:   {date:'2026-11-03', src:'AAIC 官方颁奖稿 + 中国院校官网'}
   // literature（fetchedAt）、insurance（updateDate）、ptau217（meta.updateDate）由下方自动读取
 };
 window.fillModuleDates = function(){
