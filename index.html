@@ -270,6 +270,35 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .topnav .nav-links a { color:rgba(255,255,255,0.8); text-decoration:none; padding:6px 14px; border-radius:6px; font-size:13px; transition:all 0.2s; }
 .topnav .nav-links a:hover, .topnav .nav-links a.active { background:rgba(255,255,255,0.15); color:white; }
 
+/* 「首页」下面伸出的论坛小标签（2026-11-03 加）
+   为什么挂在第一个标签下：导航里没有地方再塞第 9 个入口了，而论坛是"从首页点进去"的行为，
+   挂在首页上比另起一个按钮更接近用户的心智。用 span 包一层定位，不改 .nav-links 的 flex 规则。
+   悬停 200ms 的渐变是为了让它像"伸出来"而不是"闪出来"；gap 留 8px 但用 padding 桥接，
+   鼠标从「首页」挪到标签上时中间不能有断点，否则一移动就消失。 */
+.topnav .nav-links .nav-bbs-wrap { position:relative; display:inline-flex; align-items:center; }
+.topnav .nav-links a.nav-bbs-tip {
+  position:absolute; top:100%; left:50%; margin-top:8px;
+  transform:translate(-50%,-6px); opacity:0; visibility:hidden; pointer-events:none;
+  background:#0b1226; color:#dbeafe; border:1px solid #24365c; border-radius:9px;
+  padding:6px 12px; font-size:12.5px; font-weight:600; white-space:nowrap;
+  box-shadow:0 12px 28px rgba(2,6,23,.45); z-index:1200;
+  transition:opacity .18s ease, transform .18s ease, visibility .18s;
+}
+.topnav .nav-links a.nav-bbs-tip::before {
+  content:''; position:absolute; top:-4px; left:50%; width:8px; height:8px;
+  transform:translateX(-50%) rotate(45deg);
+  background:#0b1226; border-left:1px solid #24365c; border-top:1px solid #24365c;
+}
+/* 桥接区：标签和「首页」之间那 8px 空隙也接住鼠标，否则移过去就断了 */
+.topnav .nav-links .nav-bbs-wrap::after {
+  content:''; position:absolute; top:100%; left:0; right:0; height:10px;
+}
+.topnav .nav-links .nav-bbs-wrap:hover a.nav-bbs-tip,
+.topnav .nav-links a.nav-bbs-tip:focus-visible {
+  opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0);
+}
+.topnav .nav-links a.nav-bbs-tip:hover { background:#132244; color:#fff; text-decoration:none; }
+
 .container { max-width:1400px; margin:0 auto; padding:24px; }
 .page { display:none; }
 .page.active { display:block; animation:fadeIn 0.4s ease; }
@@ -1211,7 +1240,11 @@ window.addEventListener('unhandledrejection', function(e) {
     </div>
   </div>
   <div class="nav-links">
-    <a onclick="navigate('home')" class="active">首页</a>
+    <span class="nav-bbs-wrap">
+      <a onclick="navigate('home')" class="active">首页</a>
+      <a class="nav-bbs-tip" href="https://bbs.cognimap.top/" target="_blank" rel="noopener"
+         title="进入 CogniMap 学术论坛">CogniMap学术论坛</a>
+    </span>
     <a onclick="navigate('markers')">标志物库</a>
     <a onclick="navigate('companies')">企业库</a>
     <a onclick="navigate('knowledge')">疾病知识</a>
@@ -4879,6 +4912,8 @@ function applyPatientMode() {
   const btn = document.getElementById('patientModeBtn');
   if (btn) btn.textContent = on ? '🔬 返回专业版' : '👨‍👩‍👧 家属版';
   document.querySelectorAll('.nav-links a').forEach(a => {
+    /* 首页下面那个论坛标签没有 onclick，不该被当成"非家属版页面"藏起来 */
+    if (a.classList.contains('nav-bbs-tip')) return;
     const m = a.getAttribute('onclick')||''; const mm = m.match(/navigate\('([^']+)'\)/);
     const pg = mm?mm[1]:'';
     a.style.display = (on && PATIENT_NAV.indexOf(pg)<0) ? 'none' : '';
@@ -6897,7 +6932,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次<span id="pvBaseNote" style="color:#94a3b8;"></span>
   </div>
-  <div>版本 v362 · 数据更新至 <span id="footerLatestDate">2026-11-03</span></div>
+  <div>版本 <span id="footerVer">v362</span> · 数据更新至 <span id="footerLatestDate">2026-11-03</span></div>
 <script>
 /* ================= 访问统计 v360：云数据库 + 隐藏中转 =================
 
@@ -7214,13 +7249,19 @@ function escHtml(s){
 })();
 </script>
 <script>
-// 动态更新日期：从各数据文件 meta 读取，不再硬编码字符串
-// 以后改了哪个数据文件，只需要改对应 js 里的 updateDate，页面自动同步
+// 页脚版本与数据日期：从 VERSION.md 抓，不再写死数字
+//
+// 为什么不再用各模块 meta 取最大值（v362 及以前是这么做的）：
+// 那份 meta 是手工维护的，2026-11-03 补传星图时只动了 starmap.html，
+// 各模块 js 里的 updateDate 没人去改，页脚就停在 2026-10-31——
+// 日期比内容旧，读者一眼看出"这站没在更新"，比不写日期更糟。
+// VERSION.md 是每次部署都要写的那份记录，把它当成唯一事实来源，
+// 页脚只是它的一个渲染结果；meta 仅在没有网络/取不到文件时兜底。
 (function(){
   function pad(n){return n<10?'0'+n:''+n;}
   function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
   function latestDate(){
-    // 收集所有已知数据源的更新日期
+    // 兜底用：各数据源 meta 里最新的一天
     var dates=[];
     try{ if(window.INSURANCE_DATA && window.INSURANCE_DATA.updateDate) dates.push(window.INSURANCE_DATA.updateDate); }catch(e){}
     try{ if(window.NMPA_DATA_META && window.NMPA_DATA_META.updateDate) dates.push(window.NMPA_DATA_META.updateDate); }catch(e){}
@@ -7230,22 +7271,36 @@ function escHtml(s){
     if(!dates.length) return todayStr();
     dates.sort(); return dates[dates.length-1];
   }
-  function fill(){
-    var ld=latestDate();
-    // 页脚"数据更新至"取所有模块最新日期
-    var f=document.getElementById('footerLatestDate');
-    if(f) f.textContent=ld;
-    // 各模块卡片的"更新 YYYY-MM-DD"分别取自己的数据日期
+  function setText(id, txt){ var el=document.getElementById(id); if(el && txt) el.textContent=txt; }
+  function fillBadges(){
+    // 各模块卡片的"更新 YYYY-MM-DD"仍取自己的数据日期——它说的是这个模块，
+    // 和页脚那个"全站"日期不是一回事，不能合并
     var ins=document.getElementById('modUpdatedInsurance');
     if(ins && window.INSURANCE_DATA && window.INSURANCE_DATA.updateDate) ins.textContent='更新 '+window.INSURANCE_DATA.updateDate;
     var nmpa=document.getElementById('nmpaVerifiedBadge');
     if(nmpa && window.NMPA_DATA_META && window.NMPA_DATA_META.updateDate) nmpa.textContent='数据核实至 '+window.NMPA_DATA_META.updateDate;
-    // 其它模块若未来加了 META，在这里继续补 if 即可
   }
+  function pullVersion(){
+    fetch('VERSION.md',{cache:'no-store'}).then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.text();
+    }).then(function(txt){
+      var v=/\u5f53\u524d\u7248\u672c\s*[:：]\s*(v\d+)/.exec(txt);
+      var d=/\u6570\u636e\u66f4\u65b0\u81f3\s*[:：]\s*(\d{4}-\d{2}-\d{2})/.exec(txt);
+      if(v) setText('footerVer', v[1]);
+      if(d) setText('footerLatestDate', d[1]); else setText('footerLatestDate', latestDate());
+    }).catch(function(){
+      // 取不到（离线、file:// 直开、部署漏传 VERSION.md）就退回模块 meta
+      setText('footerLatestDate', latestDate());
+      var f=document.getElementById('footerLatestDate');
+      if(f) f.title='未能读取 VERSION.md，此处为各模块数据文件的最晚日期';
+    });
+  }
+  function fill(){ fillBadges(); pullVersion(); }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',fill);
   else fill();
-  // 数据脚本可能异步加载，晚一点再刷一次
-  window.addEventListener('load',function(){setTimeout(fill,300);});
+  // 数据脚本可能异步加载，晚一点再刷一次模块卡片上的日期
+  window.addEventListener('load',function(){setTimeout(fillBadges,300);});
 })();
 </script>
   <div style="margin-top:4px;opacity:0.7;">© 2026 阿尔茨海默病研究 · 仅供科研与临床参考</div>
