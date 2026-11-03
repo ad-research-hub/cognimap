@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  只列真实存在的 URL。站内大部分"页面"是 index.html 里的 hash 路由（#/xxx），
+  那不是独立网址，收进 sitemap 只会被当成同一页，所以这里没有它们。
+  这也是这个站收录少的根本原因：一个单文件 SPA，搜索引擎只能看到入口那一页。
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://cognimap.top/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://cognimap.top/starmap.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cognimap.top/ptau217_charts.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
