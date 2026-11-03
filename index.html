@@ -6986,7 +6986,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次<span id="pvBaseNote" style="color:#94a3b8;"></span>
   </div>
-  <div>版本 <span id="footerVer">v366</span> · 数据更新至 <span id="footerLatestDate">2026-11-03</span></div>
+  <div>版本 <span id="footerVer">v367</span> · 数据更新至 <span id="footerLatestDate">2026-11-03</span></div>
 <script>
 /* ================= 访问统计 v360：云数据库 + 隐藏中转 =================
 
@@ -10229,36 +10229,71 @@ window.fillModuleDates = function(){
 })();
 </script>
 <script>
-/* 全景导航下面那块论坛入口的伸缩（2026-11-03 改版）
-   打开首页自动伸出、停 6 秒收回去；高度按内层实际内容量出来给，
-   这样换行数、窄屏字号变化都不会把色块截掉。
-   触发点挂在启动遮罩撤掉之后：遮罩还在时伸出来，等于白伸。
-   每次打开首页都伸一次（不记 localStorage）——这是用户明确要的"打开主站自动显示"；
-   如果哪天觉得打扰，把 SHOW_MS 调小或加回 localStorage 门即可。 */
+/* 全景导航下面那块论坛入口的伸缩（2026-11-03 改版，v367 补悬停召回）
+   两种打开方式：
+   ① 打开首页自动伸出，停 6 秒自己收回（用户要的第一层：先让人看见）；
+   ② 收回之后，鼠标在**全景导航卡片**上动一下，它就重新伸出来，移开再收回。
+      用户反馈"看到了但悬停没反应"——只做自动露出的话，错过那 6 秒就再没有第二次机会。
+   为什么用 mousemove 而不是只绑 mouseenter：鼠标停在那儿不动时，卡片收起后
+   mouseenter 不会再触发，人会以为悬停没用。监听移动才是"我还在这一带"的真实信号。
+   高度按内层实际内容量出来给，换行数、窄屏字号变化都不会把色块截掉。
+   触发点在启动遮罩撤掉之后：遮罩还在时伸出来，等于白伸。 */
 (function(){
-  var SHOW_MS = 6000;          /* 停留多久 */
+  var SHOW_MS = 6000;          /* 自动露出停留多久 */
   var GAP = 24;                /* 色块与下方卡片的间距，一并算进高度里 */
+  var LEAVE_MS = 260;          /* 移开后多久收——留出从卡片移进色块本身的缓冲 */
   var box = document.getElementById('bbsSlide');
   if (!box) return;
   var inner = box.firstElementChild;
-  var opened = false, tries = 0;
+  var hero = document.querySelector('#page-home .hero');
+  var opened = false, tries = 0, hovering = false, closeTimer = null, lastMove = 0;
 
   function measure(){ return inner.offsetHeight + GAP; }
-  function open(){
-    if (opened || !box.offsetParent) return;   /* 不在首页（切到别的标签）就不伸 */
-    opened = true;
+  function clearClose(){ if (closeTimer){ clearTimeout(closeTimer); closeTimer = null; } }
+  function scheduleClose(ms){
+    clearClose();
+    closeTimer = setTimeout(close, ms);
+  }
+  /* auto=true 的那次是"到点自己收"；悬停打开的不挂计时，等人移开 */
+  function open(auto){
+    clearClose();
+    if (!box.offsetParent) return;   /* 不在首页（切到别的标签）就不伸 */
     box.style.height = measure() + 'px';
     box.classList.add('open');
-    setTimeout(close, SHOW_MS);
+    opened = true;
+    if (auto) scheduleClose(SHOW_MS);
   }
   function close(){
     if (!opened) return;
+    /* 鼠标还停在全景导航上就别收：6 秒到点时人可能正在读数字，
+       硬收会变成"刚看清就消失"，紧接着的 mousemove 又把它拉回来，来回闪。 */
+    if (hovering){ scheduleClose(1500); return; }
     /* 先落回具体像素再置 0，否则从 auto 直接过渡没有起点，会瞬间塌掉 */
     box.style.height = measure() + 'px';
     void box.offsetHeight;
     box.style.height = '0px';
     box.classList.remove('open');
+    opened = false;
   }
+  function hoverIn(){ hovering = true; clearClose(); if (!opened) open(false); }
+  function hoverOut(){ hovering = false; scheduleClose(LEAVE_MS); }
+  function bindHover(el){
+    if (!el) return;
+    el.addEventListener('mouseenter', hoverIn);
+    el.addEventListener('mouseleave', hoverOut);
+    /* 触屏没有 hover；pointerType 为 mouse 才走这套，免得手机上乱弹 */
+    el.addEventListener('mousemove', function(e){
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      var now = Date.now();
+      if (now - lastMove < 260) return;
+      lastMove = now;
+      if (!opened) open(false);
+      else clearClose();
+    });
+  }
+  bindHover(hero);
+  bindHover(box);
+
   function overlayGone(){
     var ov = document.getElementById('appLoadingOverlay');
     if (!ov) return true;
@@ -10267,7 +10302,7 @@ window.fillModuleDates = function(){
   }
   function boot(){
     if (!overlayGone()){ if (++tries < 40) setTimeout(boot, 400); return; }
-    setTimeout(open, 500);
+    setTimeout(function(){ if (!opened) open(true); }, 500);
   }
   if (typeof window.bootFinish === 'function'){
     var _bf = window.bootFinish;
