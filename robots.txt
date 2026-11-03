@@ -1,0 +1,10 @@
+# 脑智图谱 CogniMap
+# 这个文件只管「搜索爬虫能不能抓」，跟 Cloudflare 的 AI 爬虫策略是两回事。
+
+User-agent: *
+Allow: /
+
+# 访问统计看板是内部工具页，没有检索价值，别再让爬虫浪费配额
+Disallow: /stats.html
+
+Sitemap: https://cognimap.top/sitemap.xml
