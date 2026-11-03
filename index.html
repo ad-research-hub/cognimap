@@ -293,9 +293,31 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC'
 .topnav .nav-links .nav-bbs-wrap::after {
   content:''; position:absolute; top:100%; left:0; right:0; height:10px;
 }
-.topnav .nav-links .nav-bbs-wrap:hover a.nav-bbs-tip,
+/* 悬停伸出。
+   注意：这三条必须各写一条规则，不能再合并成逗号列表。
+   CSS 的逗号列表是"整条一起生效或整条一起作废"——把 :focus-visible 和 :hover
+   写在同一个列表里，凡是内核不认识 :focus-visible 的浏览器（旧版 Chromium 内核、
+   部分国产壳浏览器）会把整条规则丢掉，结果是**悬停也永远出不来**，
+   而且不报错、不提示，只能靠肉眼发现。2026-11-03 就是踩了这个坑。 */
+.topnav .nav-links .nav-bbs-wrap:hover a.nav-bbs-tip {
+  opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0);
+}
+.topnav .nav-links .nav-bbs-wrap:focus-within a.nav-bbs-tip {
+  opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0);
+}
 .topnav .nav-links a.nav-bbs-tip:focus-visible {
   opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0);
+}
+/* 首次到访自动露一次（JS 加 .bbs-peek 类，4 秒后自己收回）。
+   理由：悬停提示的前提是"用户会去悬停导航"，而绝大多数人不会。
+   露出一次 + 轻微上浮，比在角落里等发现有效；只对第一次到访的人做，不打扰回访。 */
+.topnav .nav-links .nav-bbs-wrap.bbs-peek a.nav-bbs-tip {
+  opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0);
+  animation:bbsPeekPulse 1.6s ease-in-out 2;
+}
+@keyframes bbsPeekPulse {
+  0%,100% { box-shadow:0 12px 28px rgba(2,6,23,.45); }
+  50% { box-shadow:0 12px 28px rgba(2,6,23,.45), 0 0 0 6px rgba(37,99,235,.28); }
 }
 .topnav .nav-links a.nav-bbs-tip:hover { background:#132244; color:#fff; text-decoration:none; }
 
@@ -6956,7 +6978,7 @@ function escHtml(s){
     本站总访问量 <span id="busuanzi_value_site_pv" style="color:#93c5fd;font-weight:600;">--</span> 次 · 
     访客数 <span id="busuanzi_value_site_uv" style="color:#93c5fd;font-weight:600;">--</span> 人次<span id="pvBaseNote" style="color:#94a3b8;"></span>
   </div>
-  <div>版本 <span id="footerVer">v364</span> · 数据更新至 <span id="footerLatestDate">2026-11-03</span></div>
+  <div>版本 <span id="footerVer">v365</span> · 数据更新至 <span id="footerLatestDate">2026-11-03</span></div>
 <script>
 /* ================= 访问统计 v360：云数据库 + 隐藏中转 =================
 
@@ -10196,6 +10218,48 @@ window.fillModuleDates = function(){
   }
   setTimeout(window.fillModuleDates, 500);
   setTimeout(window.fillModuleDates, 2000);
+})();
+</script>
+<script>
+/* 首次到访时把「首页」下面那个论坛标签自动露一次（2026-11-03 加）
+   起因：悬停提示上线后用户两次反馈"看不到"。查下来提示本身没问题（CDP 实测
+   悬停时 opacity 0→1、标签可点），问题在于**没人会去悬停导航找东西**，
+   一个只靠 :hover 的提示等于不存在。所以第一次访问时主动露 4.6 秒。
+   只对第一次生效（localStorage 记 cm_bbs_peek），回访者不会被反复打扰。
+   触发点刻意放在启动遮罩撤掉之后：遮罩还在时露出来，等于白露。 */
+(function(){
+  var done = false, tries = 0;
+  function overlayGone(){
+    var ov = document.getElementById('appLoadingOverlay');
+    if (!ov) return true;
+    var cs = getComputedStyle(ov);
+    return cs.display === 'none' || cs.visibility === 'hidden' || parseFloat(cs.opacity) < 0.05;
+  }
+  function peek(){
+    if (done) return;
+    var wrap = document.querySelector('.nav-bbs-wrap');
+    if (!wrap) return;
+    try { if (localStorage.getItem('cm_bbs_peek') === '1') { done = true; return; } } catch(e){}
+    /* 手机上整条 .nav-links 是 display:none，露也没用，别白跑 */
+    if (!wrap.offsetParent) { done = true; return; }
+    if (!overlayGone()){
+      if (++tries < 40) setTimeout(peek, 400);
+      return;
+    }
+    done = true;
+    setTimeout(function(){
+      wrap.classList.add('bbs-peek');
+      setTimeout(function(){
+        wrap.classList.remove('bbs-peek');
+        try { localStorage.setItem('cm_bbs_peek', '1'); } catch(e){}
+      }, 4600);
+    }, 600);
+  }
+  if (typeof window.bootFinish === 'function'){
+    var _bf = window.bootFinish;
+    window.bootFinish = function(){ _bf(); peek(); };
+  }
+  setTimeout(peek, 4000);
 })();
 </script>
 </body>
