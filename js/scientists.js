@@ -9,7 +9,9 @@
  * ① 不放照片。用户要求"有官方的才放"，而这些科学家的官方肖像分散在各校新闻页，
  *    热链接随时会挂（多数站点禁外链），下载再用又涉及授权。与其放一张来路不明的头像，
  *    不如用姓名首字母徽标——它明显是排版元素，不会被误当成本人照片。
- * ② 中英双语都常显，不做折叠。这是"对照"模块，折叠起来就失去意义了。
+ * ② 卡片分两层：第一层只放姓名、单位、职务这些能一眼扫完的信息，长传记折进同一张卡片里，
+ *    点一下展开、再点收起。**不跳页**——跳页会把人从列表里带走，回来还得重新找位置。
+ *    外国专家按用户要求"英文名在前、中文译名在后"，中国专家反过来。
  */
 (function () {
   'use strict';
@@ -59,10 +61,40 @@
     '.sci-note b{color:var(--text)}',
     '.sci-note a{color:var(--accent)}',
 
-    '.sci-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(430px,1fr));gap:18px}',
-    '.sci-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 22px 16px;',
-    '  display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}',
+    /* 卡片用 flex 而不是 grid，理由只有一个：grid 的列跨度（grid-column:1/-1）不能过渡，
+       点开时会"啪"地一下变成整行宽。flex 的 flex-basis 是长度、可以过渡，
+       于是"展开"是一次真实的宽度动画——同排与下方的卡片在每一帧被重新排布，
+       顺着扩展方向让位；收起时按同样节奏滑回，自然恢复紧密排列，不需要额外写 FLIP。
+       三列 → 两列 → 一列用媒体查询兜住，撑不住时宁可少一列，也不把卡片压到 400px 以下。 */
+    '.sci-grid{display:flex;flex-wrap:wrap;gap:18px;align-items:stretch}',
+    '.sci-card{flex:0 0 calc((100% - 36px)/3);box-sizing:border-box;',
+    '  background:#fff;border:1px solid var(--border);border-radius:16px;padding:22px 22px 16px;',
+    '  display:flex;flex-direction:column;cursor:pointer;position:relative;',
+    '  transition:flex-basis .42s cubic-bezier(.4,0,.2,1),box-shadow .22s,transform .22s,border-color .22s}',
     '.sci-card:hover{box-shadow:0 10px 30px rgba(15,37,87,.1);transform:translateY(-2px)}',
+    '.sci-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}',
+    '.sci-card.open{flex-basis:100%;cursor:default;border-color:#c7dbff;',
+    '  box-shadow:0 12px 34px rgba(15,37,87,.12)}',
+    '.sci-card.open:hover{transform:none}',
+
+    /* 高度动画走 grid-template-rows 0fr→1fr：比 max-height 精准（不用猜上限），
+       比直接改 height 稳（内容多少都自适应）。内层必须 min-height:0 + overflow:hidden，
+       否则 0fr 时内容照样把行高撑开。 */
+    '.sci-detail{display:grid;grid-template-rows:0fr;',
+    '  transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)}',
+    '.sci-detail-in{min-height:0;overflow:hidden;opacity:0;transition:opacity .32s ease .05s}',
+    '.sci-card.open .sci-detail{grid-template-rows:1fr}',
+    '.sci-card.open .sci-detail-in{opacity:1}',
+
+    '.sci-more{display:flex;align-items:center;justify-content:flex-end;gap:7px;margin-top:12px;',
+    '  padding-top:10px;border-top:1px dashed var(--border);font-size:11.5px;',
+    '  color:#2563eb;font-weight:600;letter-spacing:.2px}',
+    '.sci-more-t::after{content:"展开详细档案 / Expand"}',
+    '.sci-card.open .sci-more-t::after{content:"收起 / Collapse"}',
+    '.sci-chev{width:7px;height:7px;margin-top:-3px;flex:none;',
+    '  border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;',
+    '  transform:rotate(45deg);transition:transform .42s cubic-bezier(.4,0,.2,1),margin .42s}',
+    '.sci-card.open .sci-chev{transform:rotate(-135deg);margin-top:3px}',
     '.sci-top{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}',
     '.sci-mono{flex:none;width:50px;height:50px;border-radius:14px;display:flex;align-items:center;',
     '  justify-content:center;font-size:17px;font-weight:700;color:#fff;letter-spacing:.5px;',
@@ -71,6 +103,10 @@
     '.sci-name{font-size:16.5px;font-weight:700;color:var(--text);margin:0 0 3px;line-height:1.35}',
     '.sci-name em{font-style:normal;font-size:12.5px;font-weight:500;color:var(--text-light);margin-left:7px}',
     '.sci-meta{font-size:12px;color:var(--text-light);line-height:1.7}',
+    /* 第一层的第二行信息（单位 / 职务）单独成行：挤在一行里，中文长单位名会把
+       年份徽标和奖项名顶到换行，读起来更乱。 */
+    '.sci-aff{line-height:1.65;margin-top:2px}',
+    '.sci-field-top{margin-top:0;padding-top:0;border-top:none}',
     '.sci-badge{display:inline-block;background:#eef4ff;color:#1e40af;border-radius:6px;',
     '  padding:1px 7px;font-size:11px;font-weight:700;margin-right:6px;letter-spacing:.3px}',
     '.sci-badge.gold{background:#fef3c7;color:#b45309}',
@@ -111,13 +147,21 @@
     '.sci-region i{flex:1;height:1px;background:linear-gradient(90deg,#c7dbff,transparent);font-style:normal}',
     '.sci-region em{font-style:normal;font-size:11.5px;font-weight:600;color:#94a3b8;letter-spacing:0}',
 
+    /* 列数：>1419 三列、920–1419 两列、<920 一列。
+       这些断点按"卡片至少 400px 宽"倒算：容器宽 ≈ 视口 − 88，三列需 3×400+36。 */
+    '@media(max-width:1419px){.sci-card{flex-basis:calc((100% - 18px)/2)}}',
+    '@media(max-width:919px){.sci-card{flex-basis:100%}}',
+
     '@media(max-width:760px){',
-    '  .sci-grid{grid-template-columns:1fr}',
     '  .sci-head{padding:26px 20px}',
     '  .sci-head h2{font-size:21px}',
     '  .sci-card{padding:18px 16px 14px}',
     '  .sci-body{font-size:13.5px;line-height:1.82}',
     '  .sci-stats{gap:18px}',
+    '}',
+    /* 系统设了"减少动态效果"就一律不动，只留即时切换 */
+    '@media(prefers-reduced-motion:reduce){',
+    '  .sci-card,.sci-detail,.sci-detail-in,.sci-chev{transition:none}',
     '}'
   ].join('\n');
 
@@ -150,23 +194,30 @@
     }).join(' · ');
   }
 
-  /* ---------------- 卡片 ---------------- */
+  /* ---------------- 卡片 ----------------
+     外国专家：英文名在前（正文字号），中文译名在后（小字）。
+     这是用户 2026-11-04 明确要求的——名字先按本人的语言读，译名是辅助。
+     中国专家反过来，中文名在前、拼音/英文名在后，同理。 */
   function cardAAIC(p, i) {
-    return '<article class="sci-card" data-idx="' + i + '">'
+    return '<article class="sci-card" data-idx="' + i + '" tabindex="0" role="button" aria-expanded="false">'
       + '<div class="sci-top">'
       +   '<div class="sci-mono">' + monogram(p.en) + '</div>'
       +   '<div style="min-width:0">'
-      +     '<h3 class="sci-name">' + esc(p.zh) + '<em>' + esc(p.en) + '</em></h3>'
+      +     '<h3 class="sci-name">' + esc(p.en) + '<em>' + esc(p.zh) + '</em></h3>'
       +     '<div class="sci-meta"><span class="sci-badge gold">' + esc(p.year) + '</span>'
-      +       esc(p.award) + '<br>' + esc(p.country) + ' · ' + esc(p.aff)
-      +       (p.role ? ' · ' + esc(p.role) : '') + '</div>'
+      +       esc(p.award)
+      +       '<div class="sci-aff">' + esc(p.country) + ' · ' + esc(p.aff)
+      +         (p.role ? ' · ' + esc(p.role) : '') + '</div></div>'
       +   '</div>'
       + '</div>'
-      + '<div class="sci-body">' + esc(p.contribZh)
-      +   '<span class="en">' + esc(p.contribEn) + '</span>'
-      +   noteHTML(p)
-      + '</div>'
-      + '<div class="sci-src">' + srcLine(p.sources) + '</div>'
+      + '<div class="sci-detail"><div class="sci-detail-in">'
+      +   '<div class="sci-body">' + esc(p.contribZh)
+      +     '<span class="en">' + esc(p.contribEn) + '</span>'
+      +     noteHTML(p)
+      +   '</div>'
+      +   '<div class="sci-src">' + srcLine(p.sources) + '</div>'
+      + '</div></div>'
+      + '<div class="sci-more"><span class="sci-more-t"></span><i class="sci-chev"></i></div>'
       + '</article>';
   }
 
@@ -177,22 +228,26 @@
   }
 
   function cardCN(p) {
-    return '<article class="sci-card cn">'
+    return '<article class="sci-card cn" tabindex="0" role="button" aria-expanded="false">'
       + '<div class="sci-top">'
       +   '<div class="sci-mono">' + monogram(p.en) + '</div>'
       +   '<div style="min-width:0">'
       +     '<h3 class="sci-name">' + esc(p.zh) + '<em>' + esc(p.en) + '</em></h3>'
       +     '<div class="sci-meta"><span class="sci-badge">' + esc(p.country) + '</span>'
-      +       esc(p.aff) + '<br>' + esc(p.role) + '</div>'
+      +       '<div class="sci-aff">' + esc(p.aff) + '</div>'
+      +       '<div class="sci-aff">' + esc(p.role) + '</div></div>'
       +   '</div>'
       + '</div>'
-      + '<div class="sci-body">' + esc(p.contribZh)
-      +   '<span class="en">' + esc(p.contribEn) + '</span>'
-      +   '<div class="sci-field">研究领域 / Research focus：<span>' + esc(p.field)
-      +     '</span><br><span style="color:#7c8ba1">' + esc(p.fieldEn) + '</span></div>'
-      +   (p.note ? '<div class="sci-field">说明：<span>' + esc(p.note) + '</span></div>' : '')
-      + '</div>'
-      + '<div class="sci-src">' + srcLine(p.sources) + '</div>'
+      + '<div class="sci-field sci-field-top">研究领域 / Research focus：<span>' + esc(p.field)
+      +   '</span><br><span style="color:#7c8ba1">' + esc(p.fieldEn) + '</span></div>'
+      + '<div class="sci-detail"><div class="sci-detail-in">'
+      +   '<div class="sci-body">' + esc(p.contribZh)
+      +     '<span class="en">' + esc(p.contribEn) + '</span>'
+      +     (p.note ? '<div class="sci-field">说明：<span>' + esc(p.note) + '</span></div>' : '')
+      +   '</div>'
+      +   '<div class="sci-src">' + srcLine(p.sources) + '</div>'
+      + '</div></div>'
+      + '<div class="sci-more"><span class="sci-more-t"></span><i class="sci-chev"></i></div>'
       + '</article>';
   }
 
@@ -323,7 +378,9 @@
       + '<h2>AD 著名科学家</h2>'
       + '<div class="sci-sub">Distinguished Scientists in Alzheimer\'s Research</div>'
       + '<p class="sci-lead">收录标准：先收全 AAIC（阿尔茨海默病协会国际会议）终身成就奖得主；'
-      + '另设中国科学家专栏。每位科学家的任职机构、主要贡献均可点开官方页面核对——'
+      + '另设中国科学家专栏。第一层只放姓名、单位、职务，点开卡片看完整档案——不跳页，'
+      + '读完收起就回到原来的位置。名字按本人语言排：外国专家英文名在前、中文译名在后，'
+      + '中国专家中文名在前。任职机构与主要贡献均可点开官方页面核对——'
       + '这里不放没有出处的说法，也不放来路不明的照片。</p>'
       + '<div class="sci-stats">'
       +   '<div class="sci-stat"><b>' + S.roster.length + '</b><span>AAIC 获奖记录</span></div>'
@@ -342,8 +399,8 @@
       +     '阿尔茨海默病协会每年发一篇颁奖稿、逐人给整段传记，档案直接据此写成；'
       +     '1988–2019 年的得主没有这样的逐届稿件，每条落到其所在院校或机构的官方页'
       +     '（洛克菲勒、宾大、UCL、卡罗林斯卡、梅奥、杜克……），机构与职务以该页当下的表述为准。'
-      +     '两类来源都在每张卡片底部可点开核对。尚未整理的人先列在下方完整名录里，'
-      +     '标注已建档者可跳查——不做"凭印象补一段"的填充。照片一律待有明确官方来源再上。</div>'
+      +     '两类来源都在每张卡片展开后的底部可点开核对。尚未整理的人先列在下方完整名录里，'
+      +     '标注已建档者可点查（会直接展开那张卡）——不做"凭印象补一段"的填充。照片一律待有明确官方来源再上。</div>'
       +   '<div class="sci-grid">' + S.aaic.map(cardAAIC).join('') + '</div>'
       +   rosterHTML()
       + '</div>'
@@ -355,7 +412,8 @@
       +     '<b>每一位都挂所在医院或高校官网的页面</b>作为出处；只有好大夫、百科、'
       +     '挂号平台能查到的人一律不收——这类页面的职称常年不更新，拿它当出处等于'
       +     '把过期信息当事实。官方页之间对不上的地方（职称、论文数、学会职务）'
-      +     '写在卡片底部的"说明"里，取新的口径并保留分歧，不取平均、不替人圆场。</div>'
+      +     '写在卡片底部的"说明"里，取新的口径并保留分歧，不取平均、不替人圆场。'
+      +     '每张卡点一下展开完整介绍，再点一次收起，其余卡片会自动让位与归位。</div>'
       +   cnGroupedHTML()
       + '</div>';
 
@@ -372,13 +430,54 @@
       });
     });
 
+    /* 展开 / 收起。只切一个 class，动画全交给 CSS：
+       .open 让 flex-basis 从 1/3 行长到 100%，同时详情区 0fr→1fr。
+       同排与下方的卡片由 flex 重新排布，每帧都在动，看起来就是"让开"和"归位"。 */
+    function setOpen(card, open) {
+      if (!card) { return; }
+      card.classList.toggle('open', open);
+      card.setAttribute('aria-expanded', open ? 'true' : 'false');
+      /* 展开后若卡片头部已被滚出视口，把它拉回来一点；
+         完全在视野里就不动——本来没打算走，就别替人滚。 */
+      if (open) {
+        var r = card.getBoundingClientRect();
+        if (r.top < 64) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+
+    page.addEventListener('click', function (ev) {
+      /* 来源链接在卡片里，点它是要去官网，不是要收起卡片 */
+      if (ev.target.closest && ev.target.closest('a')) { return; }
+      var card = ev.target.closest ? ev.target.closest('.sci-card') : null;
+      if (!card) { return; }
+      var onHead = ev.target.closest('.sci-top') || ev.target.closest('.sci-more');
+      /* 已展开时，点头部和"收起"一定收；点正文也收——用户说的就是"再点一下缩回去"。
+         唯一例外是正文里有选中的文字：那人正在划词复制，这时候收起等于把他手里的东西抽走。 */
+      if (card.classList.contains('open') && !onHead) {
+        var sel = window.getSelection ? window.getSelection() : null;
+        if (sel && String(sel).length > 0) { return; }
+      }
+      setOpen(card, !card.classList.contains('open'));
+    });
+
+    /* 键盘：卡片本身是 role=button，Tab 到它、回车/空格切换 */
+    page.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Enter' && ev.key !== ' ' && ev.key !== 'Spacebar') { return; }
+      var card = ev.target.closest ? ev.target.closest('.sci-card') : null;
+      if (!card || ev.target.closest('a')) { return; }
+      ev.preventDefault();
+      setOpen(card, !card.classList.contains('open'));
+    });
+
     renderRoster('');
     var inp = document.getElementById('sciSearch');
     if (inp) {
       inp.addEventListener('input', function () { renderRoster(inp.value); });
     }
 
-    /* 名录里高亮的那颗 chip 点一下，直接滚到对应卡片并闪一下。
+    /* 名录里高亮的那颗 chip 点一下，直接展开对应卡片并滚过去。
        没有这一步，"已有档案"只是个颜色，读者还得自己往上翻几百行。 */
     var body = document.getElementById('sciRosterBody');
     if (body) {
@@ -387,8 +486,8 @@
         if (!chip) { return; }
         var card = page.querySelector('.sci-card[data-idx="' + chip.getAttribute('data-idx') + '"]');
         if (!card) { return; }
+        setOpen(card, true);
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        card.style.transition = 'box-shadow .3s, transform .3s';
         card.style.boxShadow = '0 0 0 3px rgba(59,130,246,.45)';
         setTimeout(function () { card.style.boxShadow = ''; }, 1400);
       });
