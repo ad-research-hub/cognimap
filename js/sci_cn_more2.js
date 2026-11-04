@@ -51,7 +51,7 @@
       field: `阿尔茨海默病发病机制 · tau 蛋白磷酸化调控 · 脑脊液微量标志物检测`,
       fieldEn: `Pathogenesis of AD · regulation of tau phosphorylation · trace biomarker assays in CSF`,
       sources: [
-        { t: `华中科技大学同济医学院基础医学院 导师简介`, u: `https://jcyxy.tjmu.edu.cn/info/1582/5643.htm` },
+        { t: `华中科技大学同济医学院基础医学院 导师简介`, u: `http://jcyxy.tjmu.edu.cn/info/1582/5643.htm` },
         { t: `河北师范大学 学术讲座主讲人简介（2026-05）`, u: `https://www.hebtu.edu.cn/a/2026/05/25/821E56C6F9B148CA87774A456523E4EC.html` }
       ],
       contribZh: `同济医学院病理生理学系教授，教育部长江学者特聘教授、国家杰出青年科学基金获得者、国家教学名师。她的工作集中在 tau 这一条线上：在国际上提出老年性痴呆的神经退行性变涉及主动、有序的分子调控，用"退行性变性死亡"的概念替代过去"细胞被动死亡"的理解；阐明了糖原合酶激酶-3β（GSK-3β）在 tau 过度磷酸化中的关键作用与调节机制，并确认磷酸酯酶-2A 是使异常 tau 去磷酸化的关键酶，为以 GSK-3β 为靶点的药物开发提供了依据。方法学上，她建立了脑脊液微量磷酸化骨架蛋白的检测技术，让"在活人身上测到 tau 病理"成为可操作的事。相关 tau 研究成果于 2010 年获国家自然科学奖二等奖（第一完成人），另获教育部自然科学奖一等奖 2 项、中华医学科技奖一等奖。她是获得美国 NIH FIRCA 基金资助的第一位中国学者，主编国家规划教材《病理生理学》中英文版。`,
@@ -88,8 +88,8 @@
       field: `家族性认知障碍致病基因 · 神经元核内包涵体病 · 痴呆早期诊断试剂`,
       fieldEn: `Causative genes in familial cognitive disorders · neuronal intranuclear inclusion disease · early-diagnostic assays for dementia`,
       sources: [
-        { t: `湘雅医院 沈璐 专家介绍`, u: `https://www.xiangya.com.cn/list/6069/54399.html` },
-        { t: `湘雅医院 专家团队（神经内科主任）`, u: `http://xiangya.jkzj.cn/news/itemid-396.html` }
+        { t: `中南大学湘雅医院 专家团队（神经内科主任）`, u: `http://xiangya.jkzj.cn/news/itemid-396.html` },
+        { t: `中南大学湘雅远程医学平台 沈璐`, u: `https://ycyx.xiangya.com.cn/BSCTelmed/frontend/expert/expertinfo?userid=432` }
       ],
       contribZh: `湘雅医院神经内科主任，一级主任医师、教授，教育部"长江学者奖励计划"特岗学者。她做的是"中国人的家族性认知障碍到底由哪些基因引起"这件事：建立了集临床诊治、随访与影像组—基因组—代谢组于一体的痴呆与认知障碍数据库，在国际上首次报道中国家族性认知障碍的致病基因突变谱；克隆了认知障碍相关疾病神经元核内包涵体病（NIID）的致病基因 NOTCH2NLC，并提出"NIID 相关疾病"的概念与新的疾病分型；全球首次报道阿尔茨海默病新易感基因 ECE2。转化端，她主持研发系列痴呆与认知障碍早期诊断试剂盒，包括基因诊断芯片与血清学自身抗体试剂盒。主持国家重点研发计划重点专项 1 项、国家自然科学基金 8 项，以通讯作者在 Brain、AJHG 等发表论文 40 余篇。`,
       contribEn: `Director of neurology at Xiangya Hospital, chief physician (first class) and professor, and a Changjiang Scholar (special-term) of the Ministry of Education. Her question is which genes cause familial cognitive disorders in Chinese families: she built a dementia database integrating clinical care, follow-up and imaging-genomic-metabolic data, reported the first mutational spectrum of familial cognitive disorders in China, cloned NOTCH2NLC as the causative gene of neuronal intranuclear inclusion disease (NIID) and proposed the concept and a new classification of "NIID-related disorders", and reported ECE2 as a novel susceptibility gene for AD — a world first. On translation, she led development of a series of early-diagnostic kits including a genetic diagnostic chip and serum autoantibody assays. She has led one National Key R&D Program project and eight NSFC grants, and has more than 40 corresponding-author papers in journals such as Brain and AJHG.`,
@@ -108,7 +108,7 @@
       fieldEn: `Early prevention and treatment of AD · community cohorts of older adults · multidomain intervention`,
       sources: [
         { t: `济南市人民政府 杜怡峰：探索阿尔茨海默病防治"山东经验"`, u: `https://www.jinan.gov.cn/col/col57650/art/2026/art_9fe2cdfd50114753ae301c2e60b96826.html` },
-        { t: `中国青年网 持续 12 年，这项研究在寻找中国人自己的阿尔茨海默病防治方案`, u: `https://news.youth.cn/jsxw/202610/t20261022_16927706.htm` }
+        { t: `中国青年网 持续 12 年，这项研究在寻找中国人自己的阿尔茨海默病防治方案`, u: `http://news.youth.cn/jsxw/202610/t20261022_16927706.htm` }
       ],
       contribZh: `山东省立医院神经内科主任医师、山东第一医科大学神经病学系主任。他做的事可以概括成"把防治往前提"：2014 年起在山东聊城阳谷县建农村老年人群队列，持续 12 年，覆盖 52 个自然村、近 6000 名老人，系统追踪 AD 的危险因素与早期信号；2017 年在原有基础上建立"中国延缓老年痴呆和失能的随机化对照多模干预研究"（MIND-China）队列，用控血压血糖、认知训练、膳食与运动等综合手段验证能否把发病风险压下来。依托这批基层数据，他牵头执笔我国首部《中国阿尔茨海默病一级预防指南》，并构建了 AD"防、筛、诊、管"全链条体系；团队还明确了高血压等血管风险可诱发约 44% 的高龄痴呆病例。2025 年获全国卫生健康系统"白求恩奖章"。`,
       contribEn: `Neurologist at Shandong Provincial Hospital and head of the neurology department at Shandong First Medical University. His work can be summarized as moving prevention earlier: since 2014 he has run a rural cohort of older adults in Yanggu County, Liaocheng — twelve years, 52 villages, nearly 6,000 participants — systematically tracking AD risk factors and early signals; in 2017 the team added the MIND-China randomized controlled multidomain intervention trial, testing whether blood-pressure and glucose control, cognitive training, diet and exercise can lower incidence. On that grassroots evidence he drafted China's first guideline for primary prevention of AD and built a screen-diagnose-manage chain across the province; the team also quantified that vascular risks such as hypertension may account for about 44% of dementia cases at advanced ages. He received the Norman Bethune Medal, China's highest honor for health workers, in 2025.`
@@ -236,7 +236,7 @@
       field: `痴呆与认知障碍 · 帕金森病 · 农村老年认知障碍队列`,
       fieldEn: `Dementia and cognitive disorders · Parkinson's disease · rural cohorts of cognitive impairment`,
       sources: [
-        { t: `西安交通大学第一附属医院 屈秋民 专家介绍`, u: `https://www.dyyy.xjtu.edu.cn/zjjs/nkxt/sjnk/qqm.htm` },
+        { t: `西安交通大学医学部 研究生教育 导师简介 屈秋民`, u: `https://medgs.xjtu.edu.cn/info/1259/7079.htm` },
         { t: `西安交通大学 师资队伍 屈秋民`, u: `https://www.xjtu.edu.cn/jsnr.jsp?urltype=tree.TreeTempUrl&wbtreeid=1632&wbwbxjtuteacherid=1226` }
       ],
       contribZh: `西安交大一附院神经内科主任，一级主任医师、二级教授，西安交通大学医学部名医。1986 年毕业于原西安医科大学，2004 年获日本北海道大学医学博士学位，2005—2006 年在美国加州大学洛杉矶分校完成博士后研究后回国。他的研究落点在西北：主持陕西省重点研发计划"西安市农村中老年人认知功能障碍队列研究"，把城市医院里那套认知评估搬到农村人群里去看真实患病情况；同时做糖尿病影响 Aβ 清除的机制研究（AQP4 错位分布、自噬体—溶酶体融合）与 AD 痴呆前阶段的新药评价体系。临床上牵头成立西北地区帕金森病防治联盟与西北认知学院，是区域内认知障碍诊疗网络的主要搭建者之一。承担国家科技攻关、国家自然科学基金等课题 30 余项，曾获国家科技进步奖二等奖、中华医学科技奖一等奖。`,
@@ -390,7 +390,7 @@
       ],
       contribZh: `中山大学附属第一医院神经科研究员、教授，广东省重大神经疾病诊治重点实验室副主任，长期做亨廷顿病、老年痴呆与帕金森病的临床与分子机制研究。他近年盯住的是 AD 最难的一段时间：主观认知下降阶段——人已经觉得"不对劲"，量表却还在正常范围。2026 年团队在 Alzheimer's & Dementia 发表的做法是给记忆测试加"噪音"：同一套记忆测验，先在安静环境做一遍，再在街道施工、交通噪音背景下做一遍，Aβ 阳性组在噪声下的成绩下降 11.17，Aβ 阴性组只下降 6.67，差异由此显现；研究还发现 Aβ 阳性者往往从事过更复杂的职业，认知储备更好，也因此更晚才露出破绽。他同时在中山一院健康管理中心开设脑健康管理门诊，并在全国层面推动认知障碍早筛试点（云南、西安、北京、山东、广东、湖南、上海、深圳）。`,
       contribEn: `Research professor of neurology at the First Affiliated Hospital of Sun Yat-sen University and deputy director of Guangdong's key laboratory of major neurological disease, long engaged in the clinical and molecular study of Huntington's disease, AD and Parkinson's disease. His recent focus is the hardest stretch of AD: subjective cognitive decline, when a person already feels something is wrong while test scores still look normal. In 2026 his team published in Alzheimer's & Dementia a way to add noise to memory testing — the same recognition test given first in silence, then against street-construction and traffic noise; the Aβ-positive group dropped 11.17 points under noise versus 6.67 in the Aβ-negative group, exposing the difference. The study also found that Aβ-positive participants tended to have held more complex jobs, so better cognitive reserve, and thus showed deficit later. He runs a brain health clinic at the hospital's health management center and drives national pilot screening across Yunnan, Xi'an, Beijing, Shandong, Guangdong, Hunan, Shanghai and Shenzhen.`,
-      note: `本卡没有把"教授"写成"主任医师"：中山一院对他的岗位表述为"研究员、博士生导师"，与临床科室主任医师是两条不同的职称序列。`
+      note: `关于职称：中山一院对他的岗位表述是"研究员、博士生导师"，新华网 2026 年 9 月的报道则写作"主任医师"。研究员与主任医师是两条不同的职称序列，本卡按院方写法，并把这处分歧留在这里。`
     },
     {
       en: `Yunpeng Cao`,
