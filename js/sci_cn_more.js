@@ -38,7 +38,7 @@
       fieldEn: `Pathogenesis, early diagnosis and translational treatment of Parkinson's disease and Alzheimer's disease`,
       sources: [
         { t: "上海交通大学医学院 人物页", u: "https://www.shsmu.edu.cn/xyh/info/1061/1904.htm" },
-        { t: "瑞金医院 终身教授授证报道", u: "https://shdmic.com/2018RJPortal/doc/2023/03/08/62911.shtml" }
+        { t: "上海交通大学医学院附属瑞金医院 官网", u: "https://www.rjh.com.cn/" }
       ],
       contribZh: `瑞金医院神经病学二级教授、终身教授、主任医师，历任瑞金医院神经内科主任、神经病学教研室主任、上海交通大学医学院神经病学研究所所长，曾任中华医学会神经病学分会副主任委员。在瑞金医院神经内科从医教研 44 年，长期做帕金森病与阿尔茨海默病的诊治转化研究。国内最早用 MPTP 制备帕金森病动物模型（含猴模型），改变了此前仅用 6-OHDA 模型的历史；鉴定了中国 PD 患者（LRRK2、GIGYF2、Parkin、UCH-L1）与 AD 患者（CALHM1、LRP2、Gab2）的基因突变热点；主持制订或修订《中国帕金森病治疗指南》等全国性指南 20 余项。创办并主编英文期刊 Translational Neurodegeneration。`,
       contribEn: `Second-tier professor of neurology and lifetime professor at Ruijin Hospital, chief physician and doctoral supervisor; former director of the Department of Neurology at Ruijin, former director of the Institute of Neurology at Shanghai Jiao Tong University School of Medicine, and former vice chairman of the Chinese Medical Association's Neurology Branch. Over 44 years at Ruijin he has worked on the translation of Parkinson's and Alzheimer's research into care. He established MPTP-based Parkinson's animal models in China, including monkey models, identified mutation hotspots in Chinese PD patients (LRRK2, GIGYF2, Parkin, UCH-L1) and AD patients (CALHM1, LRP2, Gab2), and led the drafting or revision of more than 20 national guidelines including the Chinese Parkinson's disease treatment guideline. He founded and edits Translational Neurodegeneration.`,
