@@ -103,6 +103,14 @@
     '.sci-chip.has b{color:#3b82f6}',
     '.sci-empty{font-size:13px;color:#94a3b8;padding:10px 0}',
 
+    /* 中国科学家按省市分组：三十来张卡片平铺，找"我们省有谁"要一路滚到底。
+       分组头不做成标题块，用一条横线加小字，才不至于把整页切得太碎。 */
+    '.sci-region{display:flex;align-items:baseline;gap:10px;margin:26px 0 14px;',
+    '  font-size:13px;font-weight:700;color:#1e40af;letter-spacing:.5px}',
+    '.sci-region:first-child{margin-top:6px}',
+    '.sci-region i{flex:1;height:1px;background:linear-gradient(90deg,#c7dbff,transparent);font-style:normal}',
+    '.sci-region em{font-style:normal;font-size:11.5px;font-weight:600;color:#94a3b8;letter-spacing:0}',
+
     '@media(max-width:760px){',
     '  .sci-grid{grid-template-columns:1fr}',
     '  .sci-head{padding:26px 20px}',
@@ -188,6 +196,35 @@
       + '</article>';
   }
 
+  /* ---------------- 中国科学家：按省市分组 ----------------
+     为什么不按"高校 / 医院"分：一半人身兼两职（章京在浙大医学院也在浙大一院病理科，
+     裴中是中山一院的研究员，王华丽在北大六院同时是北大精神卫生研究所的教授），
+     硬分会变成"这条到底该放哪"的无解争论。按省市分没有歧义，也正好回答
+     "我们省有没有人"——这正是这批档案被要求补全的动机。
+     顺序：直辖市先、再按大区常见的读法排，没列到的新省市自动排在末尾。 */
+  var REGION_ORDER = ['北京', '上海', '天津', '重庆', '河北', '山西', '辽宁',
+    '江苏', '浙江', '安徽', '福建', '山东', '河南', '湖北', '湖南',
+    '广东', '四川', '陕西'];
+
+  function cnGroupedHTML() {
+    var by = {};
+    S.cn.forEach(function (p) {
+      var r = p.region || '其他';
+      (by[r] = by[r] || []).push(p);
+    });
+    var keys = Object.keys(by).sort(function (a, b) {
+      var ia = REGION_ORDER.indexOf(a), ib = REGION_ORDER.indexOf(b);
+      if (ia < 0) { ia = 999; }
+      if (ib < 0) { ib = 999; }
+      return ia - ib || a.localeCompare(b);
+    });
+    return keys.map(function (r) {
+      return '<div class="sci-region">' + esc(r)
+        + '<em>' + by[r].length + ' 位</em><i></i></div>'
+        + '<div class="sci-grid">' + by[r].map(cardCN).join('') + '</div>';
+    }).join('');
+  }
+
   /* 名录用「姓, 名」（Selkoe, Dennis），档案用「名 姓」（Dennis J. Selkoe），
      而且官方名录常常省略中间名首字母——"排过序的词集合"这种严格相等会漏掉一半人。
      实际要判断的是"同一个人"，所以拆成两个条件：
@@ -270,6 +307,13 @@
     var home = document.getElementById('page-home');
     if (!home || document.getElementById('page-scientists')) { return; }
 
+    /* 覆盖多少个省市是算出来的，不是手写的——以后加人不用回来改文案 */
+    var regionN = (function () {
+      var s = {};
+      S.cn.forEach(function (p) { if (p.region) { s[p.region] = 1; } });
+      return Object.keys(s).length;
+    })();
+
     var page = document.createElement('div');
     page.id = 'page-scientists';
     page.className = 'page';
@@ -305,10 +349,14 @@
       + '</div>'
       + '<div id="sciPaneCN" style="display:none">'
       +   '<div class="sci-note"><b>收录说明：</b>中国科学家一栏不按获奖与否筛选，'
-      +     '而是收在中国 AD 临床与研究体系里真正立住了的人。每位都给出官方页面'
-      +     '（医院或高校官网）作为出处；名字与单位均按官方页面核对过，'
-      +     '与坊间常见写法不一致的地方在卡片里注明了。</div>'
-      +   '<div class="sci-grid">' + S.cn.map(cardCN).join('') + '</div>'
+      +     '而是收两类人——高校与科研院所里做 AD 的教授，以及各省大三甲神经内科'
+      +     '（或老年医学、精神卫生）里主攻认知障碍的主任。目前 ' + S.cn.length + ' 位，'
+      +     '覆盖 ' + regionN + ' 个省市，按地区分组，同一地区内以进库先后排列。'
+      +     '<b>每一位都挂所在医院或高校官网的页面</b>作为出处；只有好大夫、百科、'
+      +     '挂号平台能查到的人一律不收——这类页面的职称常年不更新，拿它当出处等于'
+      +     '把过期信息当事实。官方页之间对不上的地方（职称、论文数、学会职务）'
+      +     '写在卡片底部的"说明"里，取新的口径并保留分歧，不取平均、不替人圆场。</div>'
+      +   cnGroupedHTML()
       + '</div>';
 
     home.parentNode.appendChild(page);
